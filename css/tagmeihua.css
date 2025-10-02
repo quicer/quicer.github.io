@@ -1,0 +1,15 @@
+#page .category-lists .tag-cloud-list a {
+    display: flex;
+    width: fit-content;
+    color: var(--efu-fontcolor) !important;
+    font-size: 1.4em !important;
+    padding: .2em .5em;
+    background: var(--efu-card-bg);
+    margin: .5em .5em  !important;
+    border-radius: 12px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    border: var(--style-border-always);
+    box-shadow: var(--efu-shadow-border);
+    align-items: center;
+}
