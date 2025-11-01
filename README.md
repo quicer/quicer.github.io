@@ -1,5 +1,5 @@
 ## quicer个人博客
-[立即前往](https://quicer.js.cool)
+[立即前往](https://quicer.js.cool)  
 这里是quicer（原cquitra）的个人博客。里面包含关于学习、生活、编程等有趣的文章，欢迎大家前来光顾！  
 ### 博客框架
 本博客使用的框架为[Hexo](https://hexo.io/zh-cn/)。
@@ -8,7 +8,7 @@
 ![主题](https://raw.githubusercontent.com/everfu/hexo-theme-solitude/dev/.github/logo.avif)  
 ### 社区
 加入我们的官方QQ群，立即获取最新消息！  
-[加入群聊](http://localhost:4000/go.html?safego=https://qun.qq.com/universal-share/share?ac=1&authKey=5rGxdlKlaNkedbuc87v4OVC8wK%2B9BGKLQ62opAy8q0Q%2BqmttRkKtCt5CuQNGEiqa&busi_data=eyJncm91cENvZGUiOiIxMDY3MTg4Mzc1IiwidG9rZW4iOiI4RHkyVnQ4SjljSlRWTWpxbThralRjNjNwMEhmRkQ0RXc3MEVJRitpcHgyWEE4eDFsOTc1b0RZbWtFYVUxMjJBIiwidWluIjoiMzYyODYxMTUzMCJ9&data=bm11e-sUMCd5yfuxsdzPwKWqrZjcREvdgTotOIAdYdhvxkDM0vTtW8XdrNaUvFnJNaStkdNW0rtOXIQpxTQrkw&svctype=4&tempid=h5_group_info)  
+[加入群聊](https://qun.qq.com/universal-share/share?ac=1)  
 ### 内容
 这里有关于**学习、前端开发，竞赛**等有趣的文章，更新频率正常为**一月一篇**（除特殊情况）。  
 ### 备注
