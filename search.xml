@@ -8,7 +8,7 @@
       <link href="/2025/10/18/renwangzhuo-xv/"/>
       <url>/2025/10/18/renwangzhuo-xv/</url>
       
-        <content type="html"><![CDATA[<blockquote><p><strong>版权说明</strong><br>内容全部为本人原创，未经允许，请勿侵权，否则必究！</p></blockquote><p>（此剧情构思了很久，真的，求大家支持！）</p><blockquote><p>细雨斜风作晓寒，淡烟疏柳媚晴滩。</p></blockquote><p>风景依旧。</p><p>海滩上海面平静，阳光使一切变得美丽。</p><p>桥头岸上，人影婆娑。</p><p>这是哪里的世界？</p><p>世界正在混乱，无人知晓，却又有人察觉。</p><p>望天边，</p><p>似乎还有一个世界。</p><p>5bmz6KGM57q/5piv5ZCm5Y+v5Lul55u45LqkBase64</p><p>人·惘·酌</p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p><strong>版权说明</strong><br>内容全部为本人原创，未经允许，请勿侵权，否则必究！</p></blockquote><p>（此剧情构思了很久，真的，求大家支持！）</p><p>细雨斜风作晓寒，淡烟疏柳媚晴滩。</p><p>风景依旧。</p><p>海滩上海面平静，阳光使一切变得美丽。</p><p>桥头岸上，人影婆娑。</p><p>这是哪里的世界？</p><p>世界正在混乱，无人知晓，却又有人察觉。</p><p>望天边，</p><p>似乎还有一个世界。</p><p>5bmz6KGM57q/5piv5ZCm5Y+v5Lul55u45LqkBase64</p><p>人·惘·酌</p>]]></content>
       
       
       <categories>
@@ -77,64 +77,6 @@
             <tag> Github </tag>
             
             <tag> Steam </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C++竞赛入门教程-01你人生中的第一个程序</title>
-      <link href="/2025/07/26/c++studyjingsai-01/"/>
-      <url>/2025/07/26/c++studyjingsai-01/</url>
-      
-        <content type="html"><![CDATA[<details><summary>更新维护记录</summary><div class="timeline"><span class="timeline-title"><div class="timenode"><div class="meta"><p>2025-10-2</p></div><div class="body"><p>1.美化封面图。<br>2.修改部分文字。</p></div></div><div class="timenode"><div class="meta"><p>2025-8-26</p></div><div class="body"><p>1.修改封面图。<br>2.修改错别字。</p></div></div></div></details><p>上一节课你们安装了DEV-C++，那么这节课，你们将编写你们人生中的第一个程序！</p><h2 id="新建源程序">新建源程序</h2><p>打开DEV-C++，可以看到如图1-1所示的界面。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-1-xpFr46wWcOlYPAlKtHLv3o13DOVmEF.webp" alt="图1-1"></p><div class="tabs" id="新建源程序方法"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#新建源程序方法-0">原始方法</button></li><li class="tab"><button type="button" data-href="#新建源程序方法-1">快捷键（推荐）</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="新建源程序方法-0"><p>在主菜单选择文件，选择新建，点击源代码即可新建源程序（图1-2）。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-2-SYwSuum34Mw3fd0ohKgOugg2HkdEGD.webp" alt="图1-2"></p></div><div class="tab-item-content" id="新建源程序方法-1"><p>在图1-1界面使用快捷键 <span class="keyboard-tag">Ctrl</span> + <span class="keyboard-tag">N</span></p></div></div></div>  <p>然后，界面将如图1-3所示。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-3-if9XY3KZDrtQ290QhPKzdJ5bL4WABx.webp" alt="图1-3"></p><blockquote><p>在主菜单的<strong>文件</strong>中可以进行另存为和保存，也可以通过<span class="keyboard-tag">Ctrl</span> + <span class="keyboard-tag">S</span> 进行保存。</p></blockquote><h2 id="编写">编写</h2><p>在新建的项目中输入以下代码。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是注释</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编写后如图1-4所示。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-4-jsB7FBQJ9OMpr1B0vY8CayPRXUWEgn.webp" alt="图1-4"><br>其中，第一行是<strong>注释</strong>，//后面的文字就是注释，编译时会自动跳过注释，所以你想在注释中些什么都没人来管你。<br>第二行是<strong>头文件</strong>，include是包含的意思，后面&lt;&gt;中的就是头文件的名称。<br>第三行先不用管，你只要知道这是简化代码的东西就行了，后面有机会再说。<br>第四行到第七行就是你输入指令的地方。第六行是选择性添加代码，但在部分场景是必须要添加的。为了不混淆，我们都在后面添加这个代码。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure><p>第五行就是输入的地方。<br>完成后点击<span class="keyboard-tag">F11</span> 编译运行，即可检查你的程序，检查无误后即可自动运行（如图1-5.1-6）。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-5-Uka5333AlWeQFWIgjB9Pb7aRdIKvH6.webp" alt="图1-5"><br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-6-5zdHv1lL3HPcfVikyXJNaaa9WQz9sX.webp" alt="图1-6"></p><blockquote><p><strong>提示</strong><br>如果出现错误，可以尝试翻译一下错误信息，并且锁定出错的行数（会标红）。<br>一般出错的原因是符号用成中文的（英文逗号,用成中文逗号，）或者代码末尾忘记标分号。大家可以故意出错看看，比如将英文分号打成中文分号。</p></blockquote><h2 id="简单输出">简单输出</h2><p>尝试在温暖小家输入下面的代码，并编译运行，看看会出现什么。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;cquitra真帅！&quot;</span>;</span><br></pre></td></tr></table></figure><p>可以看到程序如图1-7所示。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-7-Mxnvrnzj8hH7Lww5DIp4vVLnP8hHAL.webp" alt="图1-7"><br>这就是<strong>输出</strong>。<br>&quot;&quot;里面可以输入任意字符串。运行后将会输出你的字符串。大家可以自己试试。<br>可以尝试在双引号内输入<strong>30+30</strong>运行，再将双引号删除后运行。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;30+30&quot;</span>;</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="number">30</span><span class="number">+30</span>;</span><br></pre></td></tr></table></figure><p>观察输出的结果。</p><blockquote><p>第一个：30+30<br>第二个：60</p></blockquote><p>可以发现，在C++中，是可以输出算式的结果的，但如果有双引号，则直接输出双引号内的字符串。<br>再试试变成下面的代码。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;cquitra真是太帅了！&quot;</span>&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是下一行&quot;</span>;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是再下一行&quot;</span>&lt;&lt;<span class="string">&quot;哈哈&quot;</span>;</span><br></pre></td></tr></table></figure><p>可以看到输出的结果是：</p><blockquote><p>cquitra真是太帅了！<br>这是下一行这是再下一行哈哈</p></blockquote><p>可以知道，endl是<strong>换行</strong>的意思，并且可以用&lt;&lt;隔开要输入的字符串。</p><blockquote><p><strong>注意</strong><br>不要把小于号写成大于号！！！不然会编译失败！</p></blockquote><h2 id="浅试身手">浅试身手</h2><h3 id="题目">题目</h3><p>输出30+30，原神，cquitra。每一个字符串要单独成一行。</p><h3 id="输出格式">输出格式</h3><p>30+30<br>原神<br>cquitra</p><h3 id="源代码实例">源代码实例</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;30+30&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;原神&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;cquitra&quot;</span>&lt;&lt;endl;  <span class="comment">//这一行的&lt;&lt;endl可以不写</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="结尾">结尾</h2><p>这是我第一次教学这些东西，可能有讲得不好的地方，可以在评论区说明，谢谢！<br>有不懂的地方也可以在评论区询问我哦。</p><button class="st-btn" onclick="pjax.loadUrl(&#39;&#x2F;categories&#x2F;C-竞赛教程&#x2F;&#39;)"><i class="solitude fas fa-bookmark"></i><span>完整课程</span></button>]]></content>
-      
-      
-      <categories>
-          
-          <category> C++竞赛教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程 </tag>
-            
-            <tag> C++ </tag>
-            
-            <tag> 竞赛 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C++竞赛入门教程-学前准备</title>
-      <link href="/2025/07/10/c++studyjingsai-preface/"/>
-      <url>/2025/07/10/c++studyjingsai-preface/</url>
-      
-        <content type="html"><![CDATA[<details><summary>更新维护记录</summary><div class="timeline"><span class="timeline-title"><div class="timenode"><div class="meta"><p>2025-10-1</p></div><div class="body"><p>1.美化封面图。<br>2.修改部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-9-7</p></div><div class="body"><p>1.修改部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-8-26</p></div><div class="body"><p>1.修改封面。<br>2.修改一些文字。</p></div></div></div></details><blockquote><p>不要过度依赖本教程，若需要在CSP等赛事取得成绩，请前往正规辅导机构。</p></blockquote><p>大家好👋！今天我们将开启一个新系列！C++竞赛入门教程！<br>值得一提的是，我们并不是正经的竞赛课程，只是让大家入门并了解竞赛中的一些简单内容。真正想去竞赛获奖的请到专业培训基地哦。<br>信息竞赛并不是像大家制作软件那样，而是利用信息解决复杂的数学问题，最终输出正确结果。想制作软件的请等待我们的新系列（也许打赏可以加快更新…）。<br>话不多说，我们来为之后的学习做好准备！</p><h2 id="下载安装Dev-C">下载安装Dev-C++</h2><p>Dev-C++（下称DEV）是我认为非常好的竞赛专用编程软件，它不花里胡哨，所有重要的数据都在里面。因此，它不适用于制造软件专业。但它很轻量，速度很快，利于竞赛编程。<br>下载DEV有很多方法，下面一一说明。</p><h3 id="方法一：SourceForge（推荐-免费）">方法一：SourceForge（推荐|免费）</h3><p>进入<a href="https://sourceforge.net/projects/orwelldevcpp/">SourceForge下载页面</a>，可以看到如图1所示的页面。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/1-62lkH4NEdic9W6uNx2fhFwicd7GLPD.webp" alt="图1"><br>点击<strong>Download</strong>下载！不懂的请一路下一步，直到安装完成。<br>这个方法下载速度有点慢，可以尝试一些加速器。</p><blockquote><p>安装过程不支持简体中文，安装后即可配置。</p></blockquote><h3 id="方法二：Microsoft-Store（要钱）">方法二：Microsoft Store（要钱）</h3><p>打开Microsoft Store，搜索“Dev-C++”，下载即可。这个要钱，但是下载非常快。<br>下载后就可以打开了！<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/2-os8Wyzd2Dly7RymnO3kLIH6fIIYC3B.webp" alt="图2"></p><h2 id="配置">配置</h2><p>第一次进入DEV-C++时，会弹出配置界面。<br>配置时推荐使用默认配置，配置不当可能会导致视觉问题或编译问题（如果真的想自己改，可以在网上搜）。</p><button class="st-btn" onclick="pjax.loadUrl(&#39;&#x2F;categories&#x2F;C-竞赛教程&#x2F;&#39;)"><i class="solitude fas fa-bookmark"></i><span>完整课程</span></button><button class="st-btn" onclick="pjax.loadUrl(&#39;&#x2F;2025&#x2F;07&#x2F;26&#x2F;c++studyjingsai-01&#x2F;&#39;)"><i class="solitude fas fa-forward"></i><span>下一课</span></button> ]]></content>
-      
-      
-      <categories>
-          
-          <category> C++竞赛教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程 </tag>
-            
-            <tag> C++ </tag>
-            
-            <tag> 竞赛 </tag>
             
         </tags>
       
