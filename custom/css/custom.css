@@ -1,0 +1,27 @@
+/* 弹出框样式 */
+.swal-modal,.swal-text,.swal-title {
+  font-family: var(--efu-font) !important;
+  background-color: var(--efu-secondbg);
+  color: var(--efu-fontcolor) !important;
+}
+
+.swal-text {
+  font-size: 14px;
+}
+
+.swal-content a:hover {
+  background-color: var(--efu-theme-op-deep);
+}
+.swal-content a:not(.fancybox) {
+  color: var(--efu-fontcolor);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px dotted var(--efu-lighttext);
+  padding: 0px 4px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.swal-button--confirm  {
+  color: var(--efu-fontcolor);
+  background-color: var(--efu-theme-op-deep);
+}
