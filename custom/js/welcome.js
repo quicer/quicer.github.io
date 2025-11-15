@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", (function() {
                 element: "div",
                 attributes: {
                     innerHTML: `
-                        <img src='/images/avatar.webp' alt='https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/quicer-ES8JhKFugh1xxUHFd1dEV4E1Rfv0n4.webp' 
+                        <img src='https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/quicer-ES8JhKFugh1xxUHFd1dEV4E1Rfv0n4.webp' alt='https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/quicer-ES8JhKFugh1xxUHFd1dEV4E1Rfv0n4.webp' 
                             style='width:80px; height:auto; border-radius: 50%; 
                             display: block; margin: 0 auto;' /><br />
                         您是 ${referrer}<br /><br />
