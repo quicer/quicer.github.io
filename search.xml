@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>修改自己的微信步数</title>
+      <link href="/2025/11/27/weixinbushumogai/"/>
+      <url>/2025/11/27/weixinbushumogai/</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>大家有没有想过自己每天都可以在微信步数中占领第一名的高地。我就想要这种成就感，所以我就试了试。<br>首先我自己尝试修改了一下源码，但是被微信制裁了…然后我去网上搜了搜教程，很多教程如今都已经失效。就在我准备放弃时，我找到了一个微信小程序：<strong>小西的工具箱</strong>。<br>接下来上教程。</p><h1>预览</h1><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_cgi-bin_mmwebwx-bin_webwxgetmsgimg__MsgID%3D3184530936359492441skey%3D%40crypt_716b7fd2_6f074c5656f3ed7f17ad4c8f4a9f7fc4mmweb_appid%3Dwx_webfilehelper-yAjBB3cu3W3gPoKbl3H0XG2VlnTizE.webp" alt="第一"></p><h1>教程</h1><blockquote><p>建议使用<strong>手机端</strong>操作。</p></blockquote><p>微信内搜索小程序“小西的工具箱”，打开。<br>点击<strong>热量记录</strong>。在“成员信息”中输入你的邮箱和密码，然后勾选“记住账号密码”。在下面的热量值设置中输入你想要修改的步数，然后点击“提交今日记录”。等待一会即可。</p><blockquote><p>每天都要看广告免费领1天VIP哦，不然不能修改。</p></blockquote><h1>总结</h1><p>简单实用，唯一的缺点就是要看广告（但是免费）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 工具分享 </tag>
+            
+            <tag> 微信 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一个工具让你的右键菜单变得简洁</title>
+      <link href="/2025/11/27/youjiancaidan/"/>
+      <url>/2025/11/27/youjiancaidan/</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>因为电脑太卡了，所以最近一直在寻找优化电脑性能的方法。突然发现我的右键菜单有很多用不到的东西，就想着优化一下。<br>本来是想通过修改<strong>注册表</strong>去优化的，但是后面电脑崩掉了（？），所以只能找个第三方工具优化了。<br>接下来上教程。</p><h1>效果</h1><blockquote><p>效果仅供参考，实际可能更加可观！</p></blockquote><h2 id="优化前">优化前</h2><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-i0v0squjj1hltsr5-ghKb41GBj8yT6edgcNhYIws2IfTEN1.webp" alt="优化前"></p><h2 id="优化后">优化后</h2><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-25hzmuyt5y5z672h-PyGhUDqFGnTIM9dfZnCV9j5U4OS0fl.webp" alt="优化后"></p><h1>教程</h1><blockquote><p>此教程仅适用于Windows系统。</p></blockquote><h2 id="方法一：修改注册表（大佬专用）">方法一：修改注册表（大佬专用）</h2><blockquote><p>我使用这个方法后电脑崩掉了，所以不是大佬的话请跳转<strong>方法二</strong>。</p></blockquote><span class="keyboard-tag">Win⌘</span> + <span class="keyboard-tag">R</span> 打开运行框，输入regedit，打开后自己找相关配置修改。  <h2 id="方法二：第三方工具（推荐-方便-安全）">方法二：第三方工具（推荐/方便/安全）</h2><p>进入网盘下载<strong>ContextMenuManager</strong>工具（密码：jshf）。</p><a class="tag-link" href="https://quicer.lanzoum.com/i4ADr3c9l1cj" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">蓝奏云网盘</div>            <div class="tag-link-sitename">不限速下载文件</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>直接下载即可。<br>打开后，就是下面的界面。<br><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-hi6x6lkt5a5ui61s-dGaArhaROspxLG9i5ngX2hGG7lGIax.webp" alt="界面"><br>把你不想要的右键选项关闭即可。</p><blockquote><p>优化后建议重启电脑。</p></blockquote><h1>小结</h1><p>ContextMenuManager这个工具是真的好用。有的时候借助第三方工具也是一种很好的选择。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 工具分享 </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【重置/最新】下载B站视频的方法</title>
       <link href="/2025/11/19/xiazaibilibilishipin/"/>
       <url>/2025/11/19/xiazaibilibilishipin/</url>
@@ -21,6 +79,8 @@
         <tags>
             
             <tag> 热门 </tag>
+            
+            <tag> 工具分享 </tag>
             
             <tag> Bilibili </tag>
             
@@ -74,8 +134,6 @@
       
         <tags>
             
-            <tag> 热门 </tag>
-            
             <tag> 小说 </tag>
             
             <tag> 人·惘·酌 </tag>
@@ -105,6 +163,8 @@
             
             <tag> 热门 </tag>
             
+            <tag> 工具分享 </tag>
+            
             <tag> Office 365 </tag>
             
             <tag> Microsoft </tag>
@@ -120,7 +180,7 @@
       <link href="/2025/08/07/jiasuqituijian/"/>
       <url>/2025/08/07/jiasuqituijian/</url>
       
-        <content type="html"><![CDATA[<details><summary>更新维护记录</summary><div class="timeline"><span class="timeline-title"><div class="timenode"><div class="meta"><p>2025-11-17</p></div><div class="body"><p>1.修改封面图。<br>2.优化部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-10-1</p></div><div class="body"><p>1.修改部分内容。<br>2.修改分类。<br>3.修改封面图。</p></div></div><div class="timenode"><div class="meta"><p>2025-9-7</p></div><div class="body"><p>1.修改部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-8-26</p></div><div class="body"><p>1.修改封面图。<br>2.修改大部分内容。<br>3.更改分类。</p></div></div></div></details><blockquote><p>本篇文章适用于<strong>Github，Steam，Twitch，Origin，Uplay，公共CDN，Google翻译，Spotify，国外验证码平台，Roblox，Mod，Nexus Modes，OneDrive，MEGA，DropBox，Pinterest，Artstation，Imgur图床，Vercel和appcenter</strong>。</p></blockquote><p>大家有没有经常遇到一个问题。因为服务器问题，有很多时候，我们都无法进入一些国外的网站。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-s2txptu82mnzxa2b-mSft7IFPBKnEePtPunzC90ZpG3CzSJ.webp" alt="以Github为例"><br>那今天，我就来推荐一款免费的加速器：<strong>Watt Toolkit</strong>(原名Steam++)。</p><h2 id="下载与安装">下载与安装</h2><p>进入<a href="https://steampp.net/">Watt Toolkit官网</a>。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-gcxss5vn0lj1alad-Q46605lbPB3nyqoD53bpgguyqQ3oz9.webp" alt="官网界面"><br>点击<strong>下载Windows版</strong>（下载其它系统的版本请点击“下载Windows版”右边的小箭头，这里以Windows版为例），可以看到下载界面。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-birlyz4llt0nnmy9-2aisGv46fHwJhjs0tpMnG7I6NW0eHy.webp" alt="下载界面"><br>里面有很多种下载方式。这里建议使用<strong>微软商店</strong>或<strong>蓝奏云网盘</strong>。</p><blockquote><p>蓝奏云网盘快捷地址：<a href="https://wwn.lanzouy.com/b01v4iz1g">https://wwn.lanzouy.com/b01v4iz1g</a>  （提取码：1234）<br>你也可以直接在Microsofe Store搜索Watt Toolkit下载。（更加安全）</p></blockquote><h2 id="加速！">加速！</h2><p>进入加速器，点击左边快捷栏的<strong>网络加速</strong>，可以看到这样的界面。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-uex14i6aw5ziebzz-wRyqtvlDqJ3aI1DEGy11LLpmJOhvR7.webp" alt="网络加速界面"><br>可以发现，有很多的加速项可以选择，大家可以自己勾选。<br>勾选后，点击<strong>一键加速</strong>，就可以啦！<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-3ixh53nhjx8mh1fv-aTZGQCoEk8gTDwhIs3tvq7lptNlyIc.webp" alt="Github正在加速"><br>如果时间一直在00:00:00且没有任何效果，可以点击<strong>停止加速</strong>，然后重新加速。</p><p>到此，文章结束。</p>]]></content>
+        <content type="html"><![CDATA[<details><summary>更新维护记录</summary><div class="timeline"><span class="timeline-title"><div class="timenode"><div class="meta"><p>2025-11-27</p></div><div class="body"><p>1.优化部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-11-17</p></div><div class="body"><p>1.修改封面图。<br>2.优化部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-10-1</p></div><div class="body"><p>1.修改部分内容。<br>2.修改分类。<br>3.修改封面图。</p></div></div><div class="timenode"><div class="meta"><p>2025-9-7</p></div><div class="body"><p>1.修改部分内容。</p></div></div><div class="timenode"><div class="meta"><p>2025-8-26</p></div><div class="body"><p>1.修改封面图。<br>2.修改大部分内容。<br>3.更改分类。</p></div></div></div></details><blockquote><p>本篇文章适用于<strong>Github，Steam，Twitch，Origin，Uplay，公共CDN，Google翻译，Spotify，国外验证码平台，Roblox，Mod，Nexus Modes，OneDrive，MEGA，DropBox，Pinterest，Artstation，Imgur图床，Vercel和appcenter</strong>。</p></blockquote><p>大家有没有经常遇到一个问题。因为服务器问题，有很多时候，我们都无法进入一些国外的网站。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-s2txptu82mnzxa2b-mSft7IFPBKnEePtPunzC90ZpG3CzSJ.webp" alt="以Github为例"><br>那今天，我就来推荐一款免费的加速器：<strong>Watt Toolkit</strong>(原名Steam++)。</p><h2 id="下载与安装">下载与安装</h2><p>进入<a href="https://steampp.net/">Watt Toolkit官网</a>。</p><a class="tag-link" href="https://steampp.net/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Watt Toolkit</div>            <div class="tag-link-sitename">一款好用的加速器</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a><p><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-gcxss5vn0lj1alad-Q46605lbPB3nyqoD53bpgguyqQ3oz9.webp" alt="官网界面"><br>点击<strong>下载Windows版</strong>（下载其它系统的版本请点击“下载Windows版”右边的小箭头，这里以Windows版为例），可以看到下载界面。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-birlyz4llt0nnmy9-2aisGv46fHwJhjs0tpMnG7I6NW0eHy.webp" alt="下载界面"><br>里面有很多种下载方式。这里建议使用<strong>微软商店</strong>或<strong>蓝奏云网盘</strong>。</p><a class="tag-link" href="https://wwn.lanzouy.com/b01v4iz1g" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">蓝奏云网盘</div>            <div class="tag-link-sitename">提取码：1234</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>   <blockquote><p>你也可以直接在Microsofe Store搜索Watt Toolkit下载。（更加安全）</p></blockquote><h2 id="加速！">加速！</h2><p>进入加速器，点击左边快捷栏的<strong>网络加速</strong>，可以看到这样的界面。<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-uex14i6aw5ziebzz-wRyqtvlDqJ3aI1DEGy11LLpmJOhvR7.webp" alt="网络加速界面"><br>可以发现，有很多的加速项可以选择，大家可以自己勾选。<br>勾选后，点击<strong>一键加速</strong>，就可以啦！<br><img src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-3ixh53nhjx8mh1fv-aTZGQCoEk8gTDwhIs3tvq7lptNlyIc.webp" alt="Github正在加速"><br>如果时间一直在00:00:00且没有任何效果，可以点击<strong>停止加速</strong>，然后重新加速。</p><p>到此，文章结束。</p>]]></content>
       
       
       <categories>
@@ -132,7 +192,11 @@
       
         <tags>
             
+            <tag> 热门 </tag>
+            
             <tag> 加速器 </tag>
+            
+            <tag> 工具分享 </tag>
             
             <tag> Github </tag>
             
