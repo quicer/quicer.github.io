@@ -80,6 +80,67 @@ details[open]>summary:hover:after {
     padding: 0 16px;
   }
 }
+.article-container a.tag-link {
+  background: var(--efu-secondbg);
+  border-radius: 8px !important;
+  display: flex;
+  border: var(--style-border);
+  flex-direction: column;
+  padding: 0.5rem 1rem !important;
+  border-width: 1px;
+  margin: 1rem 0;
+}
+.article-container a.tag-link:hover {
+  background: var(--efu-main);
+  border: var(--style-border-hover) !important;
+}
+.article-container a.tag-link:hover .tag-link-tips {
+  color: var(--efu-white);
+  border-bottom-color: var(--efu-white);
+}
+.article-container a.tag-link:hover i {
+  opacity: 1;
+}
+.article-container a.tag-link i {
+  transition: 0.3s;
+  margin-left: auto;
+  opacity: 0.6;
+}
+.article-container a.tag-link .tag-link-bottom {
+  display: flex;
+  margin-top: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.article-container a.tag-link .tag-link-bottom .tag-link-left {
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  background-size: cover;
+  border-radius: 8px;
+  background-color: var(--efu-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.article-container a.tag-link .tag-link-bottom .tag-link-left i {
+  padding: 0;
+  margin: auto;
+  font-size: 24px;
+  color: var(--efu-fontcolor);
+}
+.article-container a.tag-link .tag-link-bottom .tag-link-right {
+  margin-left: 1rem;
+  max-width: calc(100% - 76px - 1rem);
+}
+.article-container .tag-link-tips {
+  border-bottom: var(--style-border);
+  padding-bottom: 4px;
+  font-size: 12px;
+  color: var(--efu-gray);
+  font-weight: 400;
+  transition: 0.3s;
+}
 div.timenode {
   position: relative;
 }
@@ -189,6 +250,18 @@ div.timenode:hover .meta:after {
 }
 .st-btn span {
   margin-left: 0.5em;
+}
+.keyboard-tag {
+  border: 1px solid var(--efu-secondbg);
+  font-size: 0.7em;
+  box-shadow: 1px 0 1px 0 #eee, 0 2px 0 2px #ccc, 0 2px 0 3px #444;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin: 2px 3px;
+  padding: 1px 5px;
+  position: relative;
+  top: -1.5px;
 }
 .red {
   color: var(--efu-red);
