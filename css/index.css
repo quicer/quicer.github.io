@@ -3929,8 +3929,7 @@ i.solitude {
   .layout #category,
   .layout #tag,
   .layout #archive {
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    padding: 0 0.5rem;
     border: none;
     padding: 0 1rem;
   }
@@ -3998,7 +3997,7 @@ span.tags-punctuation i {
 }
 @media screen and (max-width: 768px) {
   .post .article-container {
-    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    padding: 1rem 0.5rem;
   }
 }
 .article-container iframe {
@@ -4205,12 +4204,15 @@ span.tags-punctuation i {
 .article-container.post-content h1 {
   font-size: 1.5rem;
   line-height: 1.3;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .article-container.post-content h2 {
   font-size: 1.3rem;
   line-height: 1.3;
   border-top: 1px dashed var(--efu-theme-op);
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .article-container.post-content h3,
 .article-container.post-content h4 {
@@ -6456,7 +6458,7 @@ span.tags-punctuation i {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: var(--efu-background);
+  background: var(--loading-bg);
   z-index: 1999;
   opacity: 1;
   -ms-filter: none;
@@ -6490,11 +6492,11 @@ span.tags-punctuation i {
   width: 100px;
   height: 100px;
   margin: auto;
-  -webkit-animation-duration: 0.2s;
-  -moz-animation-duration: 0.2s;
-  -o-animation-duration: 0.2s;
-  -ms-animation-duration: 0.2s;
-  animation-duration: 0.2s;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  -ms-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-name: loadingAction;
   -moz-animation-name: loadingAction;
   -o-animation-name: loadingAction;
@@ -7077,13 +7079,6 @@ span.tags-punctuation i {
 @media screen and (min-width: 900px) {
   #page-header.nav-fixed.nav-visible #nav #menus {
     z-index: 101;
-  }
-}
-@media screen and (max-width: 768px) {
-  #page-header.nav-fixed #travellings_button {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
   }
 }
 #page-header.no-top-img {
@@ -17490,6 +17485,75 @@ div#banners .bannerText {
   display: none;
   text-align: left;
 }
+.post-ai .ai-explanation:after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 3px;
+  margin-left: 2px;
+  background: var(--efu-lighttext);
+  vertical-align: bottom;
+  -webkit-animation: blink-underline 1s ease-in-out infinite;
+  -moz-animation: blink-underline 1s ease-in-out infinite;
+  -o-animation: blink-underline 1s ease-in-out infinite;
+  -ms-animation: blink-underline 1s ease-in-out infinite;
+  animation: blink-underline 1s ease-in-out infinite;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  bottom: 3px;
+}
+@-moz-keyframes blink-underline {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-webkit-keyframes blink-underline {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-o-keyframes blink-underline {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@keyframes blink-underline {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
 .post-ai .ai-explanation .blinking-cursor {
   background-color: var(--efu-lighttext);
   width: 14px;
@@ -17520,6 +17584,13 @@ div#banners .bannerText {
   -o-animation: chat-float 0.5s ease forwards;
   -ms-animation: chat-float 0.5s ease forwards;
   animation: chat-float 0.5s ease forwards;
+}
+.ai-explanation.fast-blink:after {
+  -webkit-animation: blink-underline-fast 0.4s ease-in-out infinite;
+  -moz-animation: blink-underline-fast 0.4s ease-in-out infinite;
+  -o-animation: blink-underline-fast 0.4s ease-in-out infinite;
+  -ms-animation: blink-underline-fast 0.4s ease-in-out infinite;
+  animation: blink-underline-fast 0.4s ease-in-out infinite;
 }
 @-moz-keyframes chat-float {
   0% {
@@ -17609,6 +17680,54 @@ div#banners .bannerText {
     transform: translateY(0);
   }
 }
+@-moz-keyframes blink-underline-fast {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-webkit-keyframes blink-underline-fast {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-o-keyframes blink-underline-fast {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@keyframes blink-underline-fast {
+  0%, 100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
 #post {
   border: var(--style-border);
   border-radius: var(--radius);
@@ -17616,17 +17735,8 @@ div#banners .bannerText {
   box-shadow: var(--efu-shadow-border);
   background: var(--efu-card-bg);
 }
-.post-radius-bottom {
-  border-radius: var(--radius) var(--radius) 0 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: var(--efu-background);
-  z-index: 1000;
-}
 [data-theme=dark] {
+  --loading-bg: rgba(0,0,0,0.867);
   --efu-theme: #f6c709;
   --efu-theme-op: rgba(246,199,9,0.137);
   --efu-theme-op-deep: rgba(246,199,9,0.867);
@@ -17672,6 +17782,7 @@ div#banners .bannerText {
   --efu-background: #18171d;
 }
 [data-theme=light] {
+  --loading-bg: rgba(255,255,255,0.867);
   --efu-theme: #312ccb;
   --efu-theme-op: rgba(49,44,203,0.137);
   --efu-theme-op-deep: rgba(49,44,203,0.867);

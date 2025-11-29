@@ -470,7 +470,7 @@ const showErrorMessage = (container) => {
     container.innerHTML = `
         <div class="error-message">
             <div class="error-icon">😕</div>
-            <div class="error-text">抱歉，无法获取信息</div>
+            <div class="error-text">我们无法获取你的信息</div>
             <div class="error-text">请<i class="retry-button solitude fas fa-arrows-rotate" onclick="retryFetchIpInfo()"></i>重试或检查网络连接</div>
         </div>
     `;
@@ -480,8 +480,8 @@ const showErrorMessage = (container) => {
 const showPermissionDialog = (container) => {
     container.innerHTML = `
         <div class="permission-dialog">
-            <div class="error-icon">❓</div>
-            <div class="error-text">是否允许访问您的位置信息？</div>
+            <div class="error-icon">安全提示</div>
+            <div class="error-text">是否允许本站访问您的位置信息？</div>
             <div>
                 <button data-action="allow" onclick="handleLocationPermission('granted')">允许</button>
                 <button data-action="deny" onclick="handleLocationPermission('denied')">拒绝</button>
@@ -505,7 +505,7 @@ const handleLocationPermission = (permission) => {
             container.innerHTML = `
                 <div class="error-message">
                     <div class="error-icon">🔒</div>
-                    <div class="error-text">您已拒绝访问位置信息</div>
+                    <div class="error-text">您已拒绝本站访问位置信息</div>
                 </div>
             `;
         }

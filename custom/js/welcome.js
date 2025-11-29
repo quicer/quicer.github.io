@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", (function() {
                             style='width:80px; height:auto; border-radius: 50%; 
                             display: block; margin: 0 auto;' /><br />
                         您是 ${referrer}<br /><br />
-                        这里有关于学习、前端开发，竞赛等有趣的文章，更新频率正常为一月一篇（除特殊情况）。<br /><br />
+                        这里有关于学习、前端开发，竞赛等有趣的文章，更新频率正常为一月一篇（除特殊情况）。<br />
+                        深色模式会有更棒的视觉效果哦~ <br /><br />
                         请您在继续浏览本站之前，仔细阅读以下协议：<br />
                         1. <a href='/privacy/' title='隐私协议' data-pjax-state=''>隐私协议</a>&nbsp;&nbsp;
                         2. <a href='/cookie/' title='cookies协议' data-pjax-state=''>Cookies</a>&nbsp;&nbsp;<br />
