@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>quicer</title>
+  
+  <subtitle>个人博客</subtitle>
+  <link href="https://quicer.js.cool/atom.xml" rel="self"/>
+  
+  <link href="https://quicer.js.cool/"/>
+  <updated>2025-12-30T12:20:00.000Z</updated>
+  <id>https://quicer.js.cool/</id>
+  
+  <author>
+    <name>quicer</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客2周年纪：回顾2025</title>
+    <link href="https://quicer.js.cool/archives/blog2zhounianji/"/>
+    <id>https://quicer.js.cool/archives/blog2zhounianji/</id>
+    <published>2025-12-30T12:20:00.000Z</published>
+    <updated>2025-12-30T12:20:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;2026年来了，感谢大家从2024年以来对博客的支持！&lt;br&gt;
+最近在家养病，都没去上学，也没有精力更新博客。现在一看，2025年要过去了。闲着也是闲着，那就发布一篇周年纪吧。&lt;br&gt;
+首先当然要祝大家2026年新年快乐，健康，永远活着！&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="博客周年纪" scheme="https://quicer.js.cool/categories/%E5%8D%9A%E5%AE%A2%E5%91%A8%E5%B9%B4%E7%BA%AA/"/>
+    
+    
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    
+    <category term="周年纪" scheme="https://quicer.js.cool/tags/%E5%91%A8%E5%B9%B4%E7%BA%AA/"/>
+    
+    <category term="新年" scheme="https://quicer.js.cool/tags/%E6%96%B0%E5%B9%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修改自己的微信步数</title>
+    <link href="https://quicer.js.cool/archives/weixinbushumogai/"/>
+    <id>https://quicer.js.cool/archives/weixinbushumogai/</id>
+    <published>2025-11-27T08:30:00.000Z</published>
+    <updated>2025-12-31T08:30:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;大家有没有想过自己每天都可以在微信步数中占领第一名的高地。我就想要这种成就感，所以我就试了试。&lt;br&gt;
+首先我自己尝试修改了一下源码，但是被微信制裁了…然后我去网上搜了搜教程，很多教程如今都已经失效。就在我准备放弃时，我找到了一个微信小程序：&lt;str</summary>
+        
+      
+    
+    
+    
+    <category term="经验分享" scheme="https://quicer.js.cool/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    
+    <category term="工具分享" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="微信" scheme="https://quicer.js.cool/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个工具让你的右键菜单变得简洁</title>
+    <link href="https://quicer.js.cool/archives/youjiancaidan/"/>
+    <id>https://quicer.js.cool/archives/youjiancaidan/</id>
+    <published>2025-11-27T06:30:00.000Z</published>
+    <updated>2025-12-31T13:30:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+      &lt;div class=&quot;chat-item user&quot;&gt;
+        &lt;div class=&quot;chat-nickname&quot;&gt;我&lt;/div&gt;
+        &lt;div class=&quot;chat-bubble&quot;&gt;&lt;p&gt;改注册表电脑报废了…&lt;/p&gt;
+&lt;/div&gt;
+  </summary>
+        
+      
+    
+    
+    
+    <category term="经验分享" scheme="https://quicer.js.cool/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    
+    <category term="工具分享" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="Windows" scheme="https://quicer.js.cool/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【重置/最新】下载B站视频的方法</title>
+    <link href="https://quicer.js.cool/archives/xiazaibilibilishipin/"/>
+    <id>https://quicer.js.cool/archives/xiazaibilibilishipin/</id>
+    <published>2025-11-19T10:46:00.000Z</published>
+    <updated>2025-12-31T10:46:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info modern&quot;&gt;&lt;i class=&quot;solitude fas</summary>
+        
+      
+    
+    
+    
+    <category term="经验分享" scheme="https://quicer.js.cool/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    
+    <category term="工具分享" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="Bilibili" scheme="https://quicer.js.cool/tags/Bilibili/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Office Tool Plus免费下载激活Microsoft Office</title>
+    <link href="https://quicer.js.cool/archives/officexiazaijihuo/"/>
+    <id>https://quicer.js.cool/archives/officexiazaijihuo/</id>
+    <published>2025-08-28T18:00:00.000Z</published>
+    <updated>2025-12-31T12:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info modern&quot;&gt;&lt;i class=&quot;solitude fas</summary>
+        
+      
+    
+    
+    
+    <category term="经验分享" scheme="https://quicer.js.cool/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    
+    <category term="工具分享" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="Office 365" scheme="https://quicer.js.cool/tags/Office-365/"/>
+    
+    <category term="Microsoft" scheme="https://quicer.js.cool/tags/Microsoft/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个加速器，让你飞起来！</title>
+    <link href="https://quicer.js.cool/archives/jiasuqituijian/"/>
+    <id>https://quicer.js.cool/archives/jiasuqituijian/</id>
+    <published>2025-08-07T10:07:00.000Z</published>
+    <updated>2025-12-31T12:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info modern&quot;&gt;&lt;i class=&quot;solitude fas</summary>
+        
+      
+    
+    
+    
+    <category term="经验分享" scheme="https://quicer.js.cool/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    
+    <category term="加速器" scheme="https://quicer.js.cool/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/"/>
+    
+    <category term="工具分享" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="Github" scheme="https://quicer.js.cool/tags/Github/"/>
+    
+    <category term="Steam" scheme="https://quicer.js.cool/tags/Steam/"/>
+    
+    <category term="Vercel" scheme="https://quicer.js.cool/tags/Vercel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows10和Windows11哪个好用？</title>
+    <link href="https://quicer.js.cool/archives/windows10vs11/"/>
+    <id>https://quicer.js.cool/archives/windows10vs11/</id>
+    <published>2025-05-03T08:00:00.000Z</published>
+    <updated>2025-12-31T11:30:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note danger modern&quot;&gt;&lt;i class=&quot;solitude fas</summary>
+        
+      
+    
+    
+    
+    <category term="测评系列" scheme="https://quicer.js.cool/categories/%E6%B5%8B%E8%AF%84%E7%B3%BB%E5%88%97/"/>
+    
+    
+    <category term="Microsoft" scheme="https://quicer.js.cool/tags/Microsoft/"/>
+    
+    <category term="Windows" scheme="https://quicer.js.cool/tags/Windows/"/>
+    
+    <category term="测评" scheme="https://quicer.js.cool/tags/%E6%B5%8B%E8%AF%84/"/>
+    
+  </entry>
+  
+</feed>
