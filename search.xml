@@ -84,7 +84,7 @@
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[    <div id="aplayer-CaDCTTly" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
+        <content type="html"><![CDATA[    <div id="aplayer-EExEHvcY" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
       
     </entry>
     
@@ -117,7 +117,7 @@
       <link href="/updates/index.html"/>
       <url>/updates/index.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>测试说明将在正式版上线后删除。</p></blockquote><div class="timeline "><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>测试版</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-19</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.1</strong>测试说明</p><p>博客正式重置，一切从头开始。</p></div>      </div></div>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>测试说明将在正式版上线后删除。</p></blockquote><div class="timeline "><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>测试版</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-19</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.2测试说明</strong></p><p>1.开启pjax，加快加载速度（/music/除外），音乐播放时切换页面不会暂停。<br>2.替换一些图片。</p><p><strong>beta0.1测试说明</strong></p><p>博客正式重置，一切从头开始。</p></div>      </div></div>]]></content>
       
     </entry>
     
