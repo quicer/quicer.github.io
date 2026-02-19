@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>下载你喜欢的B站视频</title>
+      <link href="/archives/bilibilishipinxiazai/"/>
+      <url>/archives/bilibilishipinxiazai/</url>
+      
+        <content type="html"><![CDATA[<div class="note orange icon-padding flat"><i class="note-icon fas fa-triangle-exclamation""></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div><h2 id="前言">前言</h2><p><a href="https://www.bilibili.com">哔哩哔哩</a>作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。</p><p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p><p>在之前，我是使用<a href="https://client.sabe.cc/">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：DownKyi。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。</p><blockquote><p>Github仓库地址：<a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p></blockquote><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图"></p><p>接下来直接上教程。</p><h2 id="教程">教程</h2><div class="note blue icon-padding flat"><i class="note-icon fab fa-windows"></i><p>本教程以Windows操作系统为例，其他操作系统教程略有不同。</p></div><h3 id="1-下载工具">1.下载工具</h3><p>进入仓库的<a href="https://github.com/yaobiao131/downkyicore/releases">releases</a>页面，找到最新的版本，找到<strong>Assets</strong>部分，寻找适于自己系统的文件下载。</p><div class="note purple icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>由于Github服务器在国内不稳定，可能遇到短时间无法访问的情况。如长时间无法访问，可尝试使用加速器（如Watt Toolkit）。</p></div><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2-XlUMnxh1FyENCXjqppeEhwSYTdT3H3.webp" alt="Assets"></p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>如果Assets没有展开，要点及Assets左侧的箭头展开文件。</p></div><p>点击名称即可开始下载。</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>下载速度由于服务器问题可能十分缓慢，需要耐心等待。</p></div><p>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。</p><h3 id="2-下载视频">2.下载视频</h3><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a href="https://www.bilibili.com">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。</p></div><h2 id="最后">最后</h2><p>感谢大佬提供那么厉害的工具！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 哔哩哔哩 </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+    
+    
+    <entry>
+      <title>关于本人</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>我还需要配置一下…</p></blockquote>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>动态</title>
+      <link href="/feed/index.html"/>
+      <url>/feed/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友情链接</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="我的网站信息">我的网站信息</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">quicer</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="string">https://quicer.js.cool</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="string">https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E5%A4%B4%E5%83%8Fwebp-L3OuXuX7WK5SkBTuVJMVpho8aFDZwB.webp</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="string">没有黑暗，星星也无法闪烁。</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure><h2 id="添加友链说明">添加友链说明</h2><p>该站点支持各位提供友链。各位可以在评论区发送自己的博客信息，审核后我会尽快添加。<br>由于本人学业问题，添加友链的速度可能会非常慢，希望大家耐心等待。<br>要先添加本站友链才能审核通过哦~<br>实例：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[    <div id="aplayer-CaDCTTly" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图库</title>
+      <link href="/pictures/index.html"/>
+      <url>/pictures/index.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>暂时没有收集图片。</p></blockquote>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>更新日志</title>
+      <link href="/updates/index.html"/>
+      <url>/updates/index.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>测试说明将在正式版上线后删除。</p></blockquote><div class="timeline "><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>测试版</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-19</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.1</strong>测试说明</p><p>博客正式重置，一切从头开始。</p></div>      </div></div>]]></content>
+      
+    </entry>
+    
+    
+  
+</search>
