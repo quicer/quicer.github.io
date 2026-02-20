@@ -113,6 +113,17 @@
     
     
     <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[    <div id="aplayer-GbIgEdwy" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/js/countup.js"/>
       <url>/js/countup.js</url>
@@ -124,33 +135,11 @@
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[    <div id="aplayer-gsaHCVxm" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>图库</title>
       <link href="/pictures/index.html"/>
       <url>/pictures/index.html</url>
       
         <content type="html"><![CDATA[<blockquote><p>暂时没有收集图片。</p></blockquote>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -173,6 +162,17 @@
       <url>/updates/index.html</url>
       
         <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>详情请前往<a href="https://github.com/quicer/quicer.github.io/releases">releases</a>查看。<br>若遇到问题请提<a href="https://github.com/quicer/quicer.github.io/issues">issues</a>。</p></div><div class="timeline "><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>测试版</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-20</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.3测试说明</strong></p><p>1.修改文章。<br>2.将/music/页面也算入pjax。<br>3.新增rewards页面。<br>4.新增rewards侧边栏。<br>5.新增poem侧边栏。<br>6.新增welcome侧边栏。<br>7.51LA统计。<br>8.修复/games/被错误渲染的问题。<br>…</p></div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-19</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.2测试说明</strong></p><p>1.开启pjax，加快加载速度（/music/除外），音乐播放时切换页面不会暂停。<br>2.替换一些图片。</p><p><strong>beta0.1测试说明</strong></p><p>博客正式重置，一切从头开始。</p></div>      </div></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
