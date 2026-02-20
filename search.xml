@@ -102,28 +102,6 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="我的网站信息">我的网站信息</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">quicer</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="string">https://quicer.js.cool</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="string">https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E5%A4%B4%E5%83%8Fwebp-L3OuXuX7WK5SkBTuVJMVpho8aFDZwB.webp</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="string">没有黑暗，星星也无法闪烁。</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure><h2 id="添加友链说明">添加友链说明</h2><p>该站点支持各位提供友链。各位可以在评论区发送自己的博客信息，审核后我会尽快添加。<br>由于本人学业问题，添加友链的速度可能会非常慢，希望大家耐心等待。<br>要先添加本站友链才能审核通过哦~<br>实例：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[    <div id="aplayer-GbIgEdwy" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/js/countup.js"/>
       <url>/js/countup.js</url>
@@ -135,11 +113,55 @@
     
     
     <entry>
-      <title>图库</title>
+      <title>友情链接</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="我的网站信息">我的网站信息</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">quicer</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="string">https://quicer.js.cool</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="string">https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E5%A4%B4%E5%83%8Fwebp-L3OuXuX7WK5SkBTuVJMVpho8aFDZwB.webp</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="string">没有黑暗，星星也无法闪烁。</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure><h2 id="添加友链说明">添加友链说明</h2><p>该站点支持各位提供友链。各位可以在评论区发送自己的博客信息，审核后我会尽快添加。<br>由于本人学业问题，添加友链的速度可能会非常慢，希望大家耐心等待。<br>要先添加本站友链才能审核通过哦~<br>实例：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>个人照片库</title>
+      <link href="/mine/index.html"/>
+      <url>/mine/index.html</url>
+      
+        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213504_13_29-ELcEnLytNRxNcRysXVBF2AxEAgJJx3.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213505_14_29-5I2LgXOwiifeuwugAdbuxEuS9oi5Zz.webp","alt":"2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213506_15_29-i5zOf8ka4Hi7kTveRNbA0poTDBJHDs.webp","alt":"3","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213507_16_29-SLasVTnMYBiBeaiTup6GlFNg1B4kmE.webp","alt":"4","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213517_26_29-BcXhXua0mE0MrKv1PYeBc4404PtFjL.webp","alt":"5","title":""}]</div>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>魔丸要破顶啦！！！？</title>
+      <link href="/mowan/index.html"/>
+      <url>/mowan/index.html</url>
+      
+        <content type="html"><![CDATA[    <div id="aplayer-LjDHdEHK" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="576118344" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div><p>可恶，这都被你发现了！！</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>此页面仅供娱乐，无不良引导。</p></div><h2 id="魔丸的帅照">魔丸的帅照</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1%20%281%29-L8l4gJ27aAKue7Daj65fHbOFy4LNrQ.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2%20%281%29-emPGJw5U4BP1RlrksPMs8nBIsGEvQR.webp","alt":"2","title":""}]</div>  </div><p>太帅啦！！！！</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[]</div>  </div><h2 id="魔丸的成就">魔丸的成就</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E8%80%81%E5%8F%8B%E8%AE%B02-3Kfzfl9fdR2br34B7qLuySy9D2xnHu.webp","alt":"老友","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E8%80%81%E5%8F%8B%E8%AE%B01-EeaCgJ1kHkEDCqHIWuWPdaU7jW9kO8.webp","alt":"老友","title":""}]</div>  </div><p>老友！！！</p><h2 id="其他照片">其他照片</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213513_22_29-8f8VNtdzirlg0zEb6HLJBLb5ae4JZe.webp","alt":"jianwen","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213512_21_29-YeCe8djcu6JEnh0Fyu1S5Lyhh6TXgT.webp","alt":"jianwen","title":""}]</div>  </div><h2 id="彩蛋">彩蛋</h2><p>如果你有作者微信，私信作者：“<strong>魔丸要破顶啦！</strong>”后可以领拜年红包！！！！<br>（有人看到这里吗？）</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mowan%E5%B0%81%E9%9D%A2-DoCs9jOLFfQn9NBRyHszR9NZaQMAo1.webp","alt":"jianwen","title":""}]</div>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[    <div id="aplayer-qAwgetea" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图片收藏夹</title>
       <link href="/pictures/index.html"/>
       <url>/pictures/index.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>暂时没有收集图片。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<div class="gallery-group-main"><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/zazhijingxuan%E5%B0%81%E9%9D%A2-ZQleTvwltODbxJcdMhfNXNK7eBvSjC.webp' alt="Group Image Gallery">    <figcaption>      <div class="gallery-group-name">精选杂志</div>      <p>每个人都有一双发现美的眼睛</p>      <a href='/zazhijingxuan/'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mine%E5%B0%81%E9%9D%A2-HPYhBsJjrGaw50tecrZ9LrPtWGWIP1.webp' alt="Group Image Gallery">    <figcaption>      <div class="gallery-group-name">个人照片库</div>      <p>我专属的图片集</p>      <a href='/mine/'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mowan%E5%B0%81%E9%9D%A2-DoCs9jOLFfQn9NBRyHszR9NZaQMAo1.webp' alt="Group Image Gallery">    <figcaption>      <div class="gallery-group-name">？？？？？</div>      <p>魔丸要破顶了！！！</p>      <a href='/mowan/'></a>    </figcaption>  </figure></div>]]></content>
       
     </entry>
     
@@ -150,7 +172,18 @@
       <link href="/rewards/index.html"/>
       <url>/rewards/index.html</url>
       
-        <content type="html"><![CDATA[<p>感谢每一份慷慨的赞赏，它不仅是支持，更是我前行路上温暖的光。这份心意我已悉心珍藏，会化作动力，努力为大家创造更多价值！</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>如果您在赞赏时，能留下备注或在下方评论区说一声，就能方便我将这份心意与您对应上，为您记录在专属的感谢名单里。期待与您相遇！</p></div>]]></content>
+        <content type="html"><![CDATA[<p>感谢每一份慷慨的赞赏，它不仅是支持，更是我前行路上温暖的光。这份心意我已悉心珍藏，会化作动力，努力为大家创造更多价值！</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>如果您在赞赏时，能留下备注或在下方评论区说一声，就能方便我将这份心意与您对应上，为您记录在专属的感谢名单里。<br>期待与您相遇！</p></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -168,11 +201,11 @@
     
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>杂志精选</title>
+      <link href="/zazhijingxuan/index.html"/>
+      <url>/zazhijingxuan/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>本页面内容均来自<strong>杂志锁屏</strong>。</p></div><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213501_11_29-98Yt1lV6hNvDbizlfmF7xu4u3ILmeZ.webp","alt":"杂志1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213500_10_29-RfKlGnGEygX0lh4l7WfHub8Ae2FHKQ.webp","alt":"杂志2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213459_9_29-Kpmxv6dDDzdnXgHfNpbpx7q2TpPJZt.webp","alt":"杂志3","title":""}]</div>  </div>]]></content>
       
     </entry>
     
