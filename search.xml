@@ -1,214 +1,1371 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>下载你喜欢的B站视频</title>
-      <link href="/archives/bilibilishipinxiazai/"/>
-      <url>/archives/bilibilishipinxiazai/</url>
-      
-        <content type="html"><![CDATA[<div class="note orange icon-padding flat"><i class="note-icon fas fa-triangle-exclamation""></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div><h2 id="前言">前言</h2><p><a href="https://www.bilibili.com">哔哩哔哩</a>作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。</p><p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p><p>在之前，我是使用<a href="https://client.sabe.cc/">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：DownKyi。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。</p><blockquote><p>Github仓库地址：<a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p></blockquote><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图"></p><p>接下来直接上教程。</p><h2 id="教程">教程</h2><div class="note blue icon-padding flat"><i class="note-icon fab fa-windows"></i><p>本教程以Windows操作系统为例，其他操作系统教程略有不同。</p></div><h3 id="1-下载工具">1.下载工具</h3><p>这里提供2种下载方式。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">Sep's Cloud（推荐，速度快）</button><button type="button" class="tab">Github（不稳定）</button></div><div class="tab-contents"><div class="tab-item-content active"><blockquote><p><a href="https://cloud.mc-sep.top/">Sep’s Cloud</a> by @<a href="https://mc-sep.top">MC-Sep</a>：A self-hosted file management system with muilt-cloud support.</p></blockquote><div class="note orange icon-padding flat"><i class="note-icon fab fa-windows""></i><p>此方法仅适用于Windows系统！，其他操作系统请前往Github方式。</p></div><p>进入<a href="https://cloud.mc-sep.top/s/RnUg">分享链接</a>，找到适合自己系统的zip，下载即可。</p></div><div class="tab-item-content"><div class="note orange icon-padding flat"><i class="note-icon fas fa-triangle-exclamation""></i><p>Github服务器在国内极不稳定，中国大陆内用户建议不要使用此方法，否则将非常浪费时间。</p></div><p>进入仓库的<a href="https://github.com/yaobiao131/downkyicore/releases">releases</a>页面，找到最新的版本，找到<strong>Assets</strong>部分，寻找适于自己系统的文件下载。</p><div class="note purple icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>由于Github服务器在国内不稳定，可能遇到短时间无法访问的情况。如长时间无法访问，可尝试使用加速器（如Watt Toolkit）。</p></div><p><img src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2-XlUMnxh1FyENCXjqppeEhwSYTdT3H3.webp" alt="Assets"></p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>如果Assets没有展开，要点及Assets左侧的箭头展开文件。</p></div><p>点击名称即可开始下载。</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>下载速度由于服务器问题可能十分缓慢，需要耐心等待。</p></div></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。</p><h3 id="2-下载视频">2.下载视频</h3><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a href="https://www.bilibili.com">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。</p></div><h2 id="最后">最后</h2><p>感谢大佬提供那么厉害的工具！</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>下载你喜欢的B站视频</title>
+    <url>/archives/30b0f4bb/</url>
+    <content><![CDATA[此方法仅适用于Windows系统！，其他操作系统请前往Github方式。
+
+进入分享链接，找到适合自己系统的zip，下载即可。]]></content>
       <categories>
-          
-          <category> 实用教程 </category>
-          
+        <category>实用教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 哔哩哔哩 </tag>
-            
-            <tag> Github </tag>
-            
-            <tag> 工具 </tag>
-            
-        </tags>
-      
-    </entry>
+      <tags>
+        <tag>哔哩哔哩</tag>
+        <tag>Github</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>免费下载激活Microsoft Office</title>
+    <url>/archives/b74f9f5a/</url>
+    <content><![CDATA[本教程仅适用于Windows操作系统，其他操作系统似乎无法使用Office（也许吧，我没用过其它系统）。
+
+官方文档：https://www.officetool.plus/zh-cn/
+
+前言
+使用Windows系统的用户都知道，电脑上的Office会自动升级为Microsoft 365，并且365网页免费版在中国无法正常使用，必须使用魔法才可以进入。并且微软的定价也非常昂贵。
+
+所以，在这里，我将推荐一个非常好用的工具：Office Tool Plus。
+让我们看看怎么使用这个工具下载并激活Office吧！
+教程
+1.下载工具
+进入下载界面，里面有很多种下载方式，自己选择一种你喜欢的即可。
+建议选择一个离你比较近的镜像站，会快点。
+
+有人会发现，里面包含很多个压缩包，有包含with runtime的，还有普通的。
+这里简单说一下区别：
+
+
+包含框架版本（with runtime）：包含 .NET Runtime，可以在不安装 .NET Runtime 的情况下直接运行 Office Tool Plus。
+
+
+普通版本：仅包含 Office Tool Plus 以及基本组件。
+
+
+小白直接下框架版本即可，方便使用（就是体积比较大，带with runtime的那个）。
+2.解压与运行
+下载完成后，请将整个压缩包解压到一个合适的位置。
+
+1.建议不要选择Microsoft 365，因为Office Tool Plus没有对应的许可证，激活它们需要使用其他产品的许可证，可能会导致使用问题。
+2.不要选择带有“ - 批量许可证”的产品！不然我也不知道会发生什么。
+
+我选择了Office2019专业增强版，大家可以选其他的。
+选择后，大家勾选自己想要安装的应用程序，推荐勾选常用的即可。
+
+然后点击添加语言，选择你想使用的语言（搜素“简体中文”就可以找到简体中文了）。
+
+最后点击最上方的“开始部署”即可开始下载文件。
+下载完成后会自动弹出一个窗口，继续等待下载即可。
+
+4.激活Office
+点击Office Tool Plus左侧边栏的“激活”。
+在“许可证管理”的右侧有个小箭头，需要点击它以展开里面的内容。
+
+
+可以看到展开后有三个“安装”选项，点击第一个，会弹出许可证列表。
+在列表中选择你的Office版本的批量许可证（可以有LTSC），比如我选择的就是“Office  专业增强版 2019 - 批量许可证”。
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Office</tag>
+        <tag>Microsoft</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的过敏性紫癜肾炎治病历程</title>
+    <url>/archives/b8439c6/</url>
+    <content><![CDATA[从我2025年11月查出紫癜肾炎，到现在已经快4个月了，现在仍在服用激素与其他药物。
+最近没什么好更新的文章，就简单谈一谈我的经历吧。
+一开始我是腿上开始长一些红点，并且按压它们还不会褪色。当时我并没有想那么多，觉得长一些红点很正常，可能是被什么东西咬了，没有去多管。之后红点越来越多，一开始是小腿下部，后来蔓延到了脚上还有膝盖。我慢慢慌了，因为我是住宿生，只有周六下午（或晚上）才放学，就没有及时去医院。后来我告诉了我妈，我妈觉得不对劲，就把我硬拉去了医院（逃了一节体育课嘿嘿）。学校附近的医院看了，说可能是紫癜，要去市里的大医院看，于是我和我妈又打滴滴去了中医院，直接就办了入院。
+当时是这么说的，说紫癜会影响消化道（主要是胃和肠道）和肾，但是我来得比较及时，并且紫癜相对来说比较少，一般没啥问题，打几天针，做一些检查就没问题了。没想到第二天就出问题了，我的晨尿出问题了。
+我的晨尿尿蛋白2+，尿隐血3+。
+于是医院紧急给我开了个24h蛋白尿检，尿蛋白是2000多！（正常其实才2位数）
+当时是真的慌了，医院也很蒙，他们说只有紫癜发展到很严重时才会慢慢影响到肾，我这tm直接到肾了，并且消化道一切正常，直接跳过了消化道这一步。
+其实就是我运气太差了…
+于是我就开始服用激素了。激素副作用是真的多。我服用的是甲波尼龙片，大家可以自己去搜有啥副作用。反正现在我的脸是直接肿起来了。
+现在已经出院，尿常规也慢慢正常了。但是这个病它复发率非常高，而且每一次复发都会变得更加难治（因为有抗药性了）。我现在尽量不能感染任何病原体，否则会刺激免疫系统，很容易又导致复发。并且因为激素原因，我的免疫力现在非常低。12月份的时候我就一个小感冒，血常规白细胞直接急剧降低到零点几，办理紧急入院抢救的…
+3月开学后，我的饮食限制会变松，可以吃一些不那么清淡的东西了。希望我能在1年内临床治愈，然后永不复发（根治不了，别想了…）。
+]]></content>
+      <categories>
+        <category>琐事杂谈</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>生病</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全部分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>关于本站</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[现在大家看到的本站其实是本人在2026年初重置得到的，一开始本站使用Butterfly主题，之后改为Anzhiyu。后来又有朋友推荐给我Solitude主题，于是我又选择了Solitude。
+那么我为什么又要回到Butterfly呢？
+因为我是前端小白，对于更加高级的东西不是非常懂。Solitude是一款适合于专业开发者的优美主题，我这种小白还是回避比较好（稍稍魔改就一堆报错）。而Butterfly网上的教程非常丰富，并且魔改起来我觉得比较简单。反正就是我灵机一动就回到了Butterfly。
+希望这个网站可以继续运营下去！
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/icat.css</url>
+    <content><![CDATA[/* 欢迎信息栏样式 */
+
+#welcome-info {
+  overflow: hidden;
+  --icat-card-welcome: #49b1f5;
+}
+#welcome-info .welcome-time {
+  width: 100%;
+  margin: 12px 0 0;
+  display: inline-flex;
+}
+#welcome-info .welcome-message {
+  width: 100%;
+  margin-bottom: 8px;
+  display: inline-flex;
+}
+#welcome-info .welcome-region {
+  background: var(--icat-background);
+  border: var(--style-border);
+  color: var(--icat-fontcolor);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  margin: 6px 0;
+}
+
+/* 宽屏适配 */
+.layout{
+    width: 100%;
+    max-width:1400px;
+}
+
+.layout > div:first-child {
+    width: 100%;
+}
+#post {
+    width: 78%;
+}
+.aside-content {
+    max-width: 312px;
+    min-width: 300px;
+}
+.layout.hide-aside {
+    max-width: 1400px;
+}
+
+#recent-posts > .recent-post-item {
+    height: 19em;
+    border: var(--style-border);
+}
+#recent-posts > .recent-post-item >.recent-post-info {
+    padding: 0 56px;
+    width: 64%;
+}
+@media screen and (max-width: 768px) {
+    #recent-posts > .recent-post-item {
+        height: auto;
+    }
+    #recent-posts > .recent-post-item >.recent-post-info {
+        padding: 20px 20px 30px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 页脚透明 */
+#footer {
+    background: var(--icat-footer-background);
+}
+  
+#footer #footer-wrap {
+    color: var(--font-color)
+}
+  
+#footer #footer-wrap a {
+    color: var(--font-color)
+}
+
+/* 个人卡片背景 */
+[data-theme="light"] #aside-content > .card-widget.card-info {
+    background-image: url(/img/card.webp);
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-size: 100%;
+}
+[data-theme="dark"] #aside-content > .card-widget.card-info {
+    background-image: url(/img/card.webp);
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-size: 100%;
+}
+
+
+/* 评论编辑块调整 */
+
+.tk-submit-action-icon.__markdown {
+    display: none;
+}
+/* markdown编辑快隐藏 */
+
+.tk-avatar {
+    border-radius: 4px !important;
+}
+.tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+}
+.tk-comment .tk-submit .tk-avatar .tk-avatar-img, .tk-replies .tk-avatar .tk-avatar-img {
+    height: 2.5rem !important;
+}
+.tk-ruser {
+    color: #409eff;
+    opacity: .8;
+}
+@media screen and (max-width: 768px) {
+    .tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar {
+        height: 2rem !important;
+        width: 2rem !important;
+    }
+    .tk-comment .tk-submit .tk-avatar .tk-avatar-img, .tk-replies .tk-avatar .tk-avatar-img {
+        height: 2rem !important;
+    }
+}
+.tk-nick,
+.tk-meta a strong {
+    font-size: 18px;
+    color: #409eff;
+}
+.tk-tag-green {
+    border: var(--style-border) !important;
+    border-radius: 4px !important;
+    margin-left: 0.2rem;
+}
+.tk-time {
+    margin-left: 0.4rem;
+}
+
+.tk-extras {
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--hr-border);
+}
+.tk-extra {
+    border: var(--style-border-always);
+    padding: 4px 6px 4px 6px;
+    border-radius: 8px;
+    margin-right: 4px !important;
+}
+.tk-expand {
+    margin-top: 8px;
+    background-color: var(--icat-background);
+    color: var(--icat-fontcolor);
+    border-radius: 8px;
+    border: var(--style-border);
+}
+.tk-footer {
+    padding-bottom: 1em;
+}
+.tk-footer a {
+    color: #999999;
+}
+.tk-footer a:hover {
+    color: #409eff;
+}
+
+.tk-admin-comment-item {
+    padding: 1em;
+    background: var(--global-bg);
+    border-radius: 12px;
+    border: var(--style-border-always);
+    margin-bottom: 12px;
+}
+.tk-admin-comment-meta,
+.tk-content {
+    color: var(--icat-fontcolor);
+}
+.tk-admin-actions {
+    margin-bottom: 0 !important;
+    border-bottom: 0 !important;
+}
+/* 评论管理 */
+
+.tk-panel {
+    border: var(--style-border-always);
+}
+.tk-admin-config-groups {
+    padding: 0.5em;
+    background: var(--global-bg);
+    border-radius: 12px;
+    border: var(--style-border-always);
+}
+.tk-admin-config-groups .tk-admin-config-group-title {
+    background: var(--icat-background) !important;
+    border-radius: 6px;
+    border: var(--style-border-always);
+    color: var(--icat-fontcolor);
+}
+.tk-admin-config-item {
+    color: var(--icat-fontcolor);
+}
+
+/* 主页文章卡片擦亮动画 */
+#recent-posts > .recent-post-item .post_cover {
+    position: relative;
+}
+#recent-posts>.recent-post-item .post_cover::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.5);
+    content: '';
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+    -ms-transition: -ms-transform .3s;
+    transition: transform .3s;
+    -webkit-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    -moz-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    -o-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    -ms-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+}
+#recent-posts>.recent-post-item .post_cover:hover::after {
+    -webkit-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    -moz-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    -o-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    -ms-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+}
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/blur.css</url>
+    <content><![CDATA[/* #card-newest-comments img {border-radius: 10px; /* 设置最新评论圆角半径为10px，可以根据需要调整} */
+
+/* 说说轮播 */
+#bber-talk {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 说说轮播 */
+[data-theme=dark] #bber-talk {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 侧边栏个人信息卡片动态渐变色 */
+#aside-content>.card-widget.card-info {
+    position: relative;
+    z-index: 1; /* 确保原内容在上层显示 */
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+#aside-content > .card-widget.card-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+		rgba(255, 255, 255, 0.0),
+		rgba(255, 255, 255, 0.3),
+		rgba(255, 255, 255, 0.6),
+		rgba(255, 255, 255, 0.7)),
+		url('/config/img/dog.jpg'); /* 鼠标悬停时显示的背景图片 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition: opacity 0.8s; /* 过渡效果持续时间 */
+    z-index: -1;
+}
+
+[data-theme=dark] #aside-content > .card-widget.card-info::before {
+    background: linear-gradient(to bottom, 
+		rgba(24, 40, 72, .1),
+		rgba(35, 37, 58, .3),
+        rgba(35, 37, 58, .6),
+        rgba(24, 40, 72, .7)), 
+        url('/config/img/dog.jpg'); /* 鼠标悬停时显示的背景图片 */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#aside-content > .card-widget.card-info:hover::before {
+    opacity: 1;
+}
+/* 卡片动态效果，好好看哈哈 */
+#aside-content div.card-widget.card-info .avatar-img {
+    transition: opacity 0.3s ease; /* 添加渐变效果 */
+}
+
+#aside-content div.card-widget.card-info .avatar-img:hover {
+    opacity: 0; /* 鼠标移上去时完全透明 */
+}
+
+#card-info-btn:hover, #card-info-btn:hover .icon, #card-info-btn:hover span {
+  transform: scale(1.1); /* 鼠标悬停时放大到110% */
+}
+
+[data-theme=dark] #aside-content>.card-widget.card-info {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .6),
+            rgba(35, 37, 58, .5),
+            rgba(35, 37, 58, .5),
+            rgba(24, 40, 72, .6));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 侧边栏公告栏卡片渐变色 */
+#aside-content>.card-widget.card-announcement {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] #aside-content>.card-widget.card-announcement {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 侧边栏目录最新文章卡片渐变色 */
+#aside-content>.sticky_layout>.card-widget {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] #aside-content>.sticky_layout>.card-widget {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 侧边栏欢迎卡片渐变色 */
+#aside-content>.card-widget.welcomeBoxClass {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] #aside-content>.card-widget.welcomeBoxClass {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 公告卡片渐变色 */
+#recent-posts>#noticeList {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] #recent-posts>#noticeList {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/* 个人信息Follow me按钮 */
+#aside-content>.card-widget.card-info>#card-info-btn {
+    background-color: #3eb8be;
+    border-radius: 10px;
+}
+
+/*文章页面*/
+.layout>#post {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] .layout>#post {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/*主页文章预览页面*/
+#recent-posts>.recent-post-item {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] #recent-posts>.recent-post-item {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/*分类页面*/
+.layout>#page {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+    /* -webkit-backdrop-filter: blur(10px); 兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] .layout>#page {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+    /* -webkit-backdrop-filter: blur(10px); 兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+
+/*时间轴页面*/
+.layout>#archive {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] .layout>#archive {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/*分类点进去的页面*/
+.layout>#category {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] .layout>#category {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+/*标签点进去的页面*/
+.layout>#tag {
+    background: linear-gradient(-45deg, rgba(255, 255, 255, .7),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .8),
+            rgba(255, 255, 255, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+[data-theme=dark] .layout>#tag {
+    background: linear-gradient(-45deg, rgba(24, 40, 72, .7),
+            rgba(35, 37, 58, .8),
+            rgba(35, 37, 58, .8),
+            rgba(24, 40, 72, .7));
+    /* backdrop-filter: blur(10px); 应用高斯模糊效果，可以根据需要调整模糊程度 */
+     /* -webkit-backdrop-filter: blur(10px);兼容性前缀，适用于一些旧版本的浏览器 */
+}
+
+.layout.hide-aside {
+   max-width: 1200px;
+}
+
+/* 设置黑夜的时候，社交按钮为白色 */
+[data-theme=dark] .social-icon i {
+    color: rgba(188, 188, 188) !important; /* 设置为白色 */
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/icat_change.css</url>
+    <content><![CDATA[/* pace 加载的胶囊样式 */
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    z-index: 2000;
+    position: fixed;
+    margin: auto;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    border-radius: 8px;
+    width: 4rem;
+    background: #eaecf2;
+    border: 1px #e3e8f7;
+    overflow: hidden;
+}
+.pace-inactive .pace-progress {
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+.pace .pace-progress {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    max-width: 200px;
+    position: absolute;
+    z-index: 2000;
+    display: block;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 1.5s ease infinite;
+    background-size: 200%;
+}
+.pace.pace-inactive {
+    opacity: 0;
+    transition: 0.3s;
+    top: -8px;
+}
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+/* 顶部波浪 */
+.main-hero-waves-area {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -11px;
+  z-index: 5;
+}
+.waves-area .waves-svg {
+  width: 100%;
+  height: 5rem;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: #f7f9febd;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: #f7f9fe82;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: #f7f9fe36;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: #f7f9fe;
+}
+
+[data-theme="dark"] .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: #070709c8;
+}
+[data-theme="dark"] .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: #07070980;
+}
+[data-theme="dark"] .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: #0707093e;
+}
+[data-theme="dark"] .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: #070709;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+@media (max-width: 768px) {
+  .waves-area .waves-svg {
+    height: 40px;
+    min-height: 40px;
+  }
+}
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/transparent.css</url>
+    <content><![CDATA[/* 文章页背景 */
+.layout_post>#post {
+    /* 以下代表透明度为0.5 可以自行修改*/
+    background: rgba(255, 255, 255, .5);
+}
+
+/* 所有页面背景 */
+#aside_content .card-widget,
+#recent-posts>.recent-post-item,
+.layout_page>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    /* 以下代表透明度为0.7 */
+    background: rgba(255, 255, 255, .7);
+}
+
+/*侧边卡片的透明度 */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 暗色模式下的卡片透明度 */
+[data-theme='dark'] {
+    --card-bg: rgba(18, 18, 18, 0.7) !important;
+}
+
+/* 页脚透明 */
+#footer {
+    /* 以下代表透明度为0.1*/
+    background: rgba(255, 255, 255, .1);
+}
+]]></content>
+  </entry>
+  <entry>
+    <title>我的动态</title>
+    <url>/feed/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/about.js</url>
+    <content><![CDATA[function whenDOMReady() {
+	if (location.pathname.startsWith('/about/')) meuicat.comments(), meuicat.Introduction(), meuicat.runtimen(), meuicat.fiftyonela();
+}
+
+whenDOMReady() // 打开网站先执行一次
+document.addEventListener("pjax:complete", whenDOMReady) // pjax加载完成（切换页面）后再执行一次
+
+let lastSayHello = "";
+var meuicat = {
+	comments: function() {
+		fetch('/article.json')
+		.then(res => res.json())
+		.then(articleData => {
+			const urls = Object.keys(articleData);
+		
+			fetch('https://quicer-twikoo.zeabur.app/', {
+			method: "POST",
+			body: JSON.stringify({ event: "GET_RECENT_COMMENTS", accessToken: "b05c6c58249b23583c4de2a63ad228be", includeReply: true, pageSize: -1 }),
+			headers: { 'Content-Type': 'application/json' }
+			})
+			.then(res => res.json())
+			.then(({ data }) => {
+				const totalComments = data.length;
+				const commentElements = document.querySelectorAll('.N_comments');
+				commentElements.forEach(element => {
+					if (element.classList.contains('N_comments')) {
+						element.innerText = totalComments + '条评论';
+					} else {
+						console.log(`iCat提醒您：\n\n评论总数功能无法获取到正确的元素，请检查页面是否正常！\n\n教程地址：https://meuicat.com/blog/78/`);
+					}
+				});
+			});
+		});
+	}, // 总评论数量
+	Introduction: function() {
+		const e = [
+				"🤖️ 数码科技爱好者",
+				"🔍 分享与热心帮助",
+				"🏠 智能家居小能手",
+				"🔨 设计开发一条龙",
+				"📷 人文摄影的坚定者",
+				"🏃 脚踏实地行动派",
+				"📚 热爱阅读的书虫迷",
+				"🎵 热爱电音的音游人",
+				"🏋️‍♀️ 坚韧不拔的健身达人",
+				"🍜 走哪吃哪的美食迷",
+				"🎮 Minecraft骨灰级玩家",
+				"👨‍🍳 一位爱做饭的程序猿",
+			],
+			t = document.getElementById("Introduction");
+		let o = e[Math.floor(Math.random() * e.length)];
+		for (; o === lastSayHello;) o = e[Math.floor(Math.random() * e.length)];
+		(t.textContent = o), (lastSayHello = o);
+	}, // about 个人介绍词
+	runtimen: function() {
+		let t = new Date("2026/02/19 00:00:00")
+			.getTime(),
+			n = new Date()
+			.getTime(),
+			a = Math.round((n - t) / 1e3),
+			l = (a / 7884e4)
+			.toFixed(2);
+		let c = document.getElementById("run-time");
+		c && (c.innerHTML = `已稳定运行 ${l} 坤年 🏀`),
+			setTimeout(meuicat.runtime, 1e3);
+	}, // about 运行时间
+	fiftyonela: function() {
+		fetch('https://v6-widget.51.la/v6/3Nehh0mnf1xQsuVw/quote.js')
+			.then(res => res.text())
+			.then((data) => {
+				let title = ['今日人数', '今日访问', '昨日人数', '昨日访问', '本月访问']
+				let num = data.match(/().*?(\/span>)/g)
+	
+				num = num.map((el) => {
+					let val = el.replace(/()/g, '')
+					let str = val.replace(/()/g, '')
+					return str
+				})
+	
+				let statisticEl = document.getElementById('statistic')
+				let activeVisitors = num[0]
+	
+				// 添加最近活跃访客的内容
+				let TBoxEl = document.querySelector('.T-box')
+				if (TBoxEl) {
+					TBoxEl.innerHTML = '最近活跃：' + activeVisitors + '&ensp;|&ensp;' + TBoxEl.innerHTML
+				}
+	
+				// 自定义不显示哪个或者显示哪个，如下不显示总访问量
+				for (let i = 0; i < num.length; i++) {
+					if (!statisticEl) return
+					if (i == 0 || i == num.length - 1) continue;
+					statisticEl.innerHTML += '' + title[i - 1] + '' + num[i] + ''
+				}
+			});
+	} // about 51la统计显示
+}
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/icat.js</url>
+    <content><![CDATA[// changeTime函数
+const changeTime = (time, more = false) => {
+  const currentDate = new Date()
+
+  const formatTimestamp = (date) => {
+    const d = new Date(date)
+    const pad = (num) => String(num).padStart(2, '0')
+    return `${pad(d.getFullYear())}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ` + `${pad(d.getHours())}:${pad(d.getMinutes())}`
+  }
+
+  const calculateDiff = (date1, date2, unit) => {
+    const units = { day: 24 * 60 * 60 * 1000, hour: 60 * 60 * 1000 }
+    return Math.floor(Math.abs(date1 - date2) / units[unit])
+  }
+
+  const describeTime = (datetime) => {
+    const timeObj = new Date(datetime)
+    const diffDays = calculateDiff(timeObj, currentDate, 'day')
+    const diffHours = calculateDiff(timeObj, currentDate, 'hour')
+
+    if (diffHours < 1) return `最近`
+    if (diffHours 9){
+        str += mm;
+      }else{
+        str += "0" + mm;
+      }
+      if(currentdate.getDate()>9){
+        str += currentdate.getDate();
+      }else{
+        str += "0" + currentdate.getDate();
+      }
+      if(PSFarr.indexOf(str)>-1){
+          return 1;
+      }else{
+          return 0;
+      }
+  }
+
+// 0707 - 七七事变
+// 0909 - 毛主席忌辰
+// 0918 - 九一八事变
+// 1109 - 娣外公忌辰
+// 1213 - 南京公祭日
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/txmap.js</url>
+    <content><![CDATA[function welcometxmap() {
+    // 请求数据
+    ipLoacation = window.saveToLocal.get('ipLocation');
+    if (ipLoacation) {
+        // 使用 ipLocation
+    } else {
+        // 数据已过期或不存在
+        var script = document.createElement('script');
+        var url = `https://apis.map.qq.com/ws/location/v1/ip?key=${txkey}&output=jsonp`;
+        script.src = url;
+        window.QQmap = function (data) {
+            ipLoacation = data;
+            // 将数据保存到 localStorage，过期时间设置为 1 天
+            window.saveToLocal.set('ipLocation', ipLoacation, 1);
+            document.body.removeChild(script);
+            delete window.QQmap;
+        };
+        document.body.appendChild(script);
+    }
+    showWelcome();
+}
+function getDistance(e1, n1, e2, n2) {
+    const R = 6371
+    const { sin, cos, asin, PI, hypot } = Math
+    let getPoint = (e, n) => {
+        e *= PI / 180
+        n *= PI / 180
+        return { x: cos(n) * cos(e), y: cos(n) * sin(e), z: sin(n) }
+    }
+
+    let a = getPoint(e1, n1)
+    let b = getPoint(e2, n2)
+    let c = hypot(a.x - b.x, a.y - b.y, a.z - b.z)
+    let r = asin(c / 2) * 2 * R
+    return Math.round(r);
+}
+
+function showWelcome() {
+
+    let dist = getDistance(longitude, Latitude, ipLoacation.result.location.lng, ipLoacation.result.location.lat);
+    let pos = ipLoacation.result.ad_info.nation;
+    let ip;
+    let posdesc;
+    //根据国家、省份、城市信息自定义欢迎语
+    switch (ipLoacation.result.ad_info.nation) {
+        case "日本":
+            posdesc = "よろしく，一起去看樱花吗";
+            break;
+        case "美国":
+            posdesc = "Let us live in peace!";
+            break;
+        case "英国":
+            posdesc = "想同你一起夜乘伦敦眼";
+            break;
+        case "俄罗斯":
+            posdesc = "干了这瓶伏特加！";
+            break;
+        case "法国":
+            posdesc = "C'est La Vie";
+            break;
+        case "德国":
+            posdesc = "Die Zeit verging im Fluge.";
+            break;
+        case "澳大利亚":
+            posdesc = "一起去大堡礁吧！";
+            break;
+        case "加拿大":
+            posdesc = "拾起一片枫叶赠予你";
+            break;
+        case "中国":
+            pos = ipLoacation.result.ad_info.province + " " + ipLoacation.result.ad_info.city + " " + ipLoacation.result.ad_info.district;
+            ip = ipLoacation.result.ip;
+            switch (ipLoacation.result.ad_info.province) {
+                case "北京市":
+                    posdesc = "北——京——欢迎你~~~";
+                    break;
+                case "天津市":
+                    posdesc = "讲段相声吧";
+                    break;
+                case "河北省":
+                    posdesc = "山势巍巍成壁垒，天下雄关铁马金戈由此向，无限江山";
+                    break;
+                case "山西省":
+                    posdesc = "展开坐具长三尺，已占山河五百余";
+                    break;
+                case "内蒙古自治区":
+                    posdesc = "天苍苍，野茫茫，风吹草低见牛羊";
+                    break;
+                case "辽宁省":
+                    posdesc = "我想吃烤鸡架！";
+                    break;
+                case "吉林省":
+                    posdesc = "状元阁就是东北烧烤之王";
+                    break;
+                case "黑龙江省":
+                    posdesc = "很喜欢哈尔滨大剧院";
+                    break;
+                case "上海市":
+                    posdesc = "众所周知，中国只有两个城市";
+                    break;
+                case "江苏省":
+                    switch (ipLoacation.result.ad_info.city) {
+                        case "南京市":
+                            posdesc = "这是我挺想去的城市啦";
+                            break;
+                        case "苏州市":
+                            posdesc = "上有天堂，下有苏杭";
+                            break;
+                        default:
+                            posdesc = "散装是必须要散装的";
+                            break;
+                    }
+                    break;
+                case "浙江省":
+                    posdesc = "东风渐绿西湖柳，雁已还人未南归";
+                    break;
+                case "河南省":
+                    switch (ipLoacation.result.ad_info.city) {
+                        case "郑州市":
+                            posdesc = "豫州之域，天地之中";
+                            break;
+                        case "南阳市":
+                            posdesc = "臣本布衣，躬耕于南阳此南阳非彼南阳！";
+                            break;
+                        case "驻马店市":
+                            posdesc = "峰峰有奇石，石石挟仙气嵖岈山的花很美哦！";
+                            break;
+                        case "开封市":
+                            posdesc = "刚正不阿包青天";
+                            break;
+                        case "洛阳市":
+                            posdesc = "洛阳牡丹甲天下";
+                            break;
+                        default:
+                            posdesc = "可否带我品尝河南烩面啦？";
+                            break;
+                    }
+                    break;
+                case "安徽省":
+                    posdesc = "蚌埠住了，芜湖起飞";
+                    break;
+                case "福建省":
+                    posdesc = "井邑白云间，岩城远带山";
+                    break;
+                case "江西省":
+                    posdesc = "落霞与孤鹜齐飞，秋水共长天一色";
+                    break;
+                case "山东省":
+                    posdesc = "遥望齐州九点烟，一泓海水杯中泻";
+                    break;
+                case "湖北省":
+                    switch (ipLoacation.result.ad_info.city) {
+                        case "黄冈市":
+                            posdesc = "红安将军县！辈出将才！";
+                            break;
+                        default:
+                            posdesc = "来碗热干面~";
+                            break;
+                    }
+                    break;
+                case "湖南省":
+                    posdesc = "74751，长沙斯塔克";
+                    break;
+                case "广东省":
+                    switch (ipLoacation.result.ad_info.city) {
+                        case "广州市":
+                            posdesc = "看小蛮腰，喝早茶了嘛~";
+                            break;
+                        case "深圳市":
+                            switch (ipLoacation.result.ad_info.district) {
+                                case "坪山区":
+                                    posdesc = "好巧！博主也在坪山区生活喔~";
+                                    break;
+                                default:
+                                    posdesc = "今天你996了嘛~";
+                                    break;
+                            }
+                            break;
+                        case "阳江市":
+                            posdesc = "阳春合水！博主家乡~ 欢迎来玩~";
+                            break;
+                        default:
+                            posdesc = "来两斤福建人~";
+                            break;
+                    }
+                    break;
+                case "广西壮族自治区":
+                    posdesc = "桂林山水甲天下";
+                    break;
+                case "海南省":
+                    posdesc = "朝观日出逐白浪，夕看云起收霞光";
+                    break;
+                case "四川省":
+                    posdesc = "康康川妹子";
+                    break;
+                case "贵州省":
+                    posdesc = "茅台，学生，再塞200";
+                    break;
+                case "云南省":
+                    posdesc = "玉龙飞舞云缠绕，万仞冰川直耸天";
+                    break;
+                case "西藏自治区":
+                    posdesc = "躺在茫茫草原上，仰望蓝天";
+                    break;
+                case "陕西省":
+                    posdesc = "来份臊子面加馍";
+                    break;
+                case "甘肃省":
+                    posdesc = "羌笛何须怨杨柳，春风不度玉门关";
+                    break;
+                case "青海省":
+                    posdesc = "牛肉干和老酸奶都好好吃";
+                    break;
+                case "宁夏回族自治区":
+                    posdesc = "大漠孤烟直，长河落日圆";
+                    break;
+                case "新疆维吾尔自治区":
+                    posdesc = "驼铃古道丝绸路，胡马犹闻唐汉风";
+                    break;
+                case "台湾省":
+                    posdesc = "我在这头，大陆在那头";
+                    break;
+                case "香港特别行政区":
+                    posdesc = "永定贼有残留地鬼嚎，迎击光非岁玉";
+                    break;
+                case "澳门特别行政区":
+                    posdesc = "性感荷官，在线发牌";
+                    break;
+                default:
+                    posdesc = "带我去你的城市逛逛吧！";
+                    break;
+            }
+            break;
+        default:
+            posdesc = "带我去你的国家逛逛吧";
+            break;
+    }
+
+    //根据本地时间切换欢迎语
+    let timeChange;
+    let date = new Date();
+    if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "🌤️ 早上好，一日之计在于晨";
+    else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "☀️ 中午好，记得午休喔~";
+    else if (date.getHours() >= 13 && date.getHours() < 17) timeChange = "🕞 下午好，饮茶先啦！";
+    else if (date.getHours() >= 17 && date.getHours() < 19) timeChange = "🚶‍♂️ 即将下班，记得按时吃饭~";
+    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "🌙 晚上好，夜生活嗨起来！";
+    else timeChange = "夜深了，早点休息，少熬夜";
+
+    try {
+        //自定义文本和需要放的位置
+        document.getElementById("welcome-info").innerHTML =
+            `你好！欢迎来自${pos} 的访客${posdesc}您当前位置距博主约 ${dist} 公里！您的IP地址为：${ip}${timeChange}`;
+    } catch (err) {
+        // console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
+    }
+}
+]]></content>
+  </entry>
+  <entry>
+    <title>友情链接</title>
+    <url>/links/index.html</url>
+    <content><![CDATA[我的网站信息
+name: quicer # 名称link: https://quicer.js.cool # 网址avater: https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E5%A4%B4%E5%83%8Fwebp-L3OuXuX7WK5SkBTuVJMVpho8aFDZwB.webp # 头像URLdescr: 没有黑暗，星星也无法闪烁。 # 描述
+添加友链说明
+由于学业问题，博主无法继续添加友链，请等待大型法定节假日时提交友链申请。
+
+该站点支持各位提供友链。各位可以在评论区发送自己的博客信息，审核后我会尽快添加。
+发送申请前请先确保以添加本站友链。
+
+实例：
+name: # 名称link: # 网址avater: # 头像URLdescr: # 描述]]></content>
+  </entry>
+  <entry>
+    <title>音乐馆</title>
+    <url>/music/index.html</url>
+    <content><![CDATA[
+    ]]></content>
+  </entry>
+  <entry>
+    <title>图片收藏夹</title>
+    <url>/pictures/index.html</url>
+    <content><![CDATA[
+
     
+    
+      杂志精选
+      每个人都有一双发现美的眼睛
+      
     
   
-  
+
     
     
-    <entry>
-      <title>关于本人</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      个人照片库
+      我专属的图片集
       
-        <content type="html"><![CDATA[<p>》我还需要配置一下…</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/card-poem.css"/>
-      <url>/css/card-poem.css</url>
-      
-        <content type="html"><![CDATA[/* 古诗词卡片 */#card-poem    display: flex    flex-direction: column    padding: 0.5rem !importantdiv#poem_sentence    text-align: center    font-family: serif, cursive    line-height: 1.4    margin-bottom: 0.5rem    padding: 1rem    border-radius: 8px    background: var(--liushen-card-bg)    min-height: 62pxdiv#poem_info    display: flex    color: var(--liushen-secondtext)    font-size: 0.5rem    justify-content: center    flex-wrap: wrapdiv#poem_author    order: 1    padding: 2px    margin-left: 8pxdiv#poem_dynasty    order: 0    padding: 2px 4px 2px 6px    background: var(--liushen-button-bg)    color: var(--liushen-text)    border-radius: 8px]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/twikoo.css"/>
-      <url>/css/twikoo.css</url>
-      
-        <content type="html"><![CDATA[/* ========================twikoo美化====================== *//* 隐藏评论者头像 */#twikoo .tk-comments .tk-submit .tk-avatar.tk-has-avatar {    display: none;}/* 下面表情和按钮那一栏的设置 */#twikoo .tk-comments .tk-submit .tk-row.actions{    margin-bottom: 0;    margin-left: 0;}/* 个人信息和文本输入之间的空位置 */.tk-main .tk-submit .tk-col .tk-meta-input,#twikoo .tk-comments .tk-submit .tk-col .tk-meta-input{    margin-bottom: 16px;}/* 直接固定高度，解决提交按钮有时高度不起作用的问题 */.tk-row.actions button.el-button {    height: 32px;}/* 解决图片大小超出范围问题 */.tk-main .tk-content img {  max-width: 100%;  height: auto;}/* 圆角设置 */.tk-meta-input input {    border-top-right-radius: 12px;    border-bottom-right-radius: 12px;}.tk-meta-input div {    border-top-left-radius: 12px;    border-bottom-left-radius: 12px;}/* 输入框样式 */.tk-input.el-textarea textarea {    border-radius: 12px;    min-height: 150px !important;    height: auto;}/* 宽度太窄的时候去掉预览按钮 */@media screen and (max-width:420px) {    .tk-main .tk-submit .tk-row.actions button.el-button.tk-preview.el-button--default.el-button--small{        display: none;    }}:root {  --liushen-radius: 12px;  --liushen-card-border-width: 1px;}/* 浅色模式颜色 */[data-theme=light] {  --liushen-border-color: #e3e8f7;  --liushen-card-bg: #fff;  --liushen-card-border: #e3e8f7;  --style-border-always: 1px solid var(--liushen-card-border);  --liushen-blue: #425AEF;}/* 深色模式颜色 */[data-theme=dark] {  --liushen-border-color: #42444a;  --liushen-card-bg: #2c2c2c;  --liushen-card-border: #42444a;  --style-border-always: 1px solid var(--liushen-card-border);  --liushen-blue: #0084FF;}/* 评论区评论大框 */.twikoo .tk-comments-container>.tk-comment,.twikoo .tk-comments .tk-submit {  /* 内边距 */  padding: 20px;  margin-top: 0px;  margin-bottom: 20px;  /* 圆角 */  border-radius: var(--liushen-radius);  /* 背景颜色 */  background: var(--liushen-card-bg);  /* 变动动画时长 */  transition: .3s;}/* 浅色模式评论区评论大框 */[data-theme=light] .twikoo .tk-comments-container>.tk-comment,.twikoo .tk-comments .tk-submit {  /* 阴影 */  box-shadow: var(--card-box-shadow);}/* 浅色模式评论区评论大框阴影悬浮加深 */[data-theme=light] .twikoo .tk-comments-container>.tk-comment:hover,.twikoo .tk-comments .tk-submit:hover {  /* 阴影（浅色模式突出层次感） */  box-shadow: var(--card-hover-box-shadow);}/* 黑暗模式评论区评论大框 */[data-theme=dark] .twikoo .tk-comments-container>.tk-comment,.twikoo .tk-comments .tk-submit {  /* 边框样式 */  border-style: solid;  /* 边框宽度 */  border-width: var(--liushen-card-border-width);  /* 边框颜色 */  border-color: var(--liushen-card-border);}/* 设备信息 */.twikoo .tk-extra {  /* 圆角 */  border-radius: var(--liushen-radius);  /* 背景颜色 */  background: var(--liushen-card-bg);  /* 内边距 */  padding: 0.4rem;  /* 底边距 */  margin-bottom: 1rem;  /* 变动动画时长 */  transition: .3s;}/* 浅色模式设备信息 */[data-theme=light] .twikoo .tk-extra {  /* 阴影 */  box-shadow: var(--card-box-shadow);}/* 浅色模式设备信息阴影悬浮加深 */[data-theme=light] .twikoo .tk-extra:hover {  /* 阴影 */  box-shadow: var(--card-hover-box-shadow);}/* 黑暗模式设备信息 */[data-theme=dark] .twikoo .tk-extra {  /* 边框样式 */  border-style: solid;  /* 边框宽度 */  border-width: var(--liushen-card-border-width);  /* 边框颜色 */  border-color: var(--liushen-card-border);}/* 加载更多按钮 */.twikoo .tk-expand {  /* 圆角 */  border-radius: var(--liushen-radius);}/* 浅色模式加载更多按钮 */[data-theme=light] .twikoo .tk-expand {  /* 阴影 */  box-shadow: var(--card-box-shadow);}/* 浅色模式加载更多按钮（鼠标悬浮时） */[data-theme=light] .twikoo .tk-expand:hover {  /* 阴影 */  box-shadow: var(--card-hover-box-shadow);  /* 背景颜色 */  background-color: var(--btn-bg);}/* 黑暗模式加载更多按钮（鼠标悬浮时） */[data-theme=dark] .twikoo .tk-expand:hover {  /* 背景颜色 */  background-color: var(--liushen-blue);}/* 黑暗模式加载更多按钮 */[data-theme=dark] .twikoo .tk-expand {  /* 边框样式 */  border-style: solid;  /* 边框宽度 */  border-width: var(--liushen-card-border-width);  /* 边框颜色 */  border-color: var(--liushen-card-border);}/* 分类卡片移动端个人信息卡片只显示两个 */@media screen and (max-width:570px) {    .tk-main .tk-extras {        display: none;    }}/* 评论区按钮样式 */.tk-row.actions button.el-button {    border-radius: 12px !important;}/* 由于twikoo内部函数不宜修改，为了合适，去掉弹窗中的刷新按钮，该部分不需要，这是为了适配右键回复弹窗的内容的#popup #twikoo .tk-comments .tk-comments-container .tk-comments-title > span:nth-child(2) > span:nth-child(1) {display: none;} *//* ========================twikoo美化====================== */]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>动态</title>
-      <link href="/feed/index.html"/>
-      <url>/feed/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/card-welcome.js"/>
-      <url>/js/card-welcome.js</url>
-      
-        <content type="html"><![CDATA[// 显示欢迎信息function showWelcome(ipLocation) {    if (!ipLocation || !ipLocation.data) {        console.error('ipLocation data is not available.');        return;    }    let dist = getDistance(113.392, 22.574, ipLocation.data.lng, ipLocation.data.lat);    let pos = ipLocation.data.country;    let ip = ipLocation.ip;    let posdesc;    // 以下的代码需要根据新API返回的结果进行相应的调整    switch (ipLocation.data.country) {        case "日本":            posdesc = "よろしく，一起去看樱花吗";            break;        case "美国":            posdesc = "Let us live in peace!";            break;        case "英国":            posdesc = "想同你一起夜乘伦敦眼";            break;        case "俄罗斯":            posdesc = "干了这瓶伏特加！";            break;        case "法国":            posdesc = "C'est La Vie";            break;        case "德国":            posdesc = "Die Zeit verging im Fluge.";            break;        case "澳大利亚":            posdesc = "一起去大堡礁吧！";            break;        case "加拿大":            posdesc = "拾起一片枫叶赠予你";            break;        case "中国":            pos = ipLocation.data.prov + " " + ipLocation.data.city + " " + ipLocation.data.district;            switch (ipLocation.data.prov) {                case "北京市":                    posdesc = "北——京——欢迎你~~~";                    break;                case "天津市":                    posdesc = "讲段相声吧";                    break;                case "河北省":                    posdesc = "山势巍巍成壁垒，天下雄关铁马金戈由此向，无限江山";                    break;                case "山西省":                    posdesc = "展开坐具长三尺，已占山河五百余";                    break;                case "内蒙古自治区":                    posdesc = "天苍苍，野茫茫，风吹草低见牛羊";                    break;                case "辽宁省":                    posdesc = "我想吃烤鸡架！";                    break;                case "吉林省":                    posdesc = "状元阁就是东北烧烤之王";                    break;                case "黑龙江省":                    posdesc = "很喜欢哈尔滨大剧院";                    break;                case "上海市":                    posdesc = "众所周知，中国只有两个城市";                    break;                case "江苏省":                    switch (ipLocation.data.city) {                        case "南京市":                            posdesc = "这是我挺想去的城市啦";                            break;                        case "苏州市":                            posdesc = "上有天堂，下有苏杭";                            break;                        default:                            posdesc = "散装是必须要散装的";                            break;                    }                    break;                case "浙江省":                    switch (ipLocation.data.city) {                        case "杭州市":                            posdesc = "东风渐绿西湖柳，雁已还人未南归";                            break;                        default:                            posdesc = "望海楼明照曙霞,护江堤白蹋晴沙";                            break;                    }                    break;                case "河南省":                    switch (ipLocation.data.city) {                        case "郑州市":                            posdesc = "豫州之域，天地之中";                            break;                        case "信阳市":                            posdesc = "品信阳毛尖，悟人间芳华";                            break;                        case "南阳市":                            posdesc = "臣本布衣，躬耕于南阳此南阳非彼南阳！";                            break;                        case "驻马店市":                            posdesc = "峰峰有奇石，石石挟仙气嵖岈山的花很美哦！";                            break;                        case "开封市":                            posdesc = "刚正不阿包青天";                            break;                        case "洛阳市":                            posdesc = "洛阳牡丹甲天下";                            break;                        default:                            posdesc = "可否带我品尝河南烩面啦？";                            break;                    }                    break;                case "安徽省":                    posdesc = "蚌埠住了，芜湖起飞";                    break;                case "福建省":                    posdesc = "井邑白云间，岩城远带山";                    break;                case "江西省":                    posdesc = "落霞与孤鹜齐飞，秋水共长天一色";                    break;                case "山东省":                    posdesc = "遥望齐州九点烟，一泓海水杯中泻";                    break;                case "湖北省":                    switch (ipLocation.data.city) {                        case "黄冈市":                            posdesc = "红安将军县！辈出将才！";                            break;                        case "武汉市":                            posdesc = "你想去长江游泳嘛？";                            break;                        default:                            posdesc = "来碗热干面~";                            break;                    }                    break;                case "湖南省":                    posdesc = "74751，长沙斯塔克";                    break;                case "广东省":                    switch (ipLocation.data.city) {                        case "广州市":                            posdesc = "看小蛮腰，喝早茶了嘛~";                            break;                        case "深圳市":                            posdesc = "今天你逛商场了嘛~";                            break;                        case "阳江市":                            posdesc = "阳春合水！博主家乡~ 欢迎来玩~";                            break;                        default:                            posdesc = "来两斤福建人~";                            break;                    }                    break;                case "广西壮族自治区":                    posdesc = "桂林山水甲天下";                    break;                case "海南省":                    posdesc = "朝观日出逐白浪，夕看云起收霞光";                    break;                case "四川省":                    posdesc = "康康川妹子";                    break;                case "贵州省":                    posdesc = "茅台，学生，再塞200";                    break;                case "云南省":                    posdesc = "玉龙飞舞云缠绕，万仞冰川直耸天";                    break;                case "西藏自治区":                    posdesc = "躺在茫茫草原上，仰望蓝天";                    break;                case "陕西省":                    posdesc = "来份臊子面加馍";                    break;                case "甘肃省":                    posdesc = "羌笛何须怨杨柳，春风不度玉门关";                    break;                case "青海省":                    posdesc = "牛肉干和老酸奶都好好吃";                    break;                case "宁夏回族自治区":                    posdesc = "大漠孤烟直，长河落日圆";                    break;                case "新疆维吾尔自治区":                    posdesc = "驼铃古道丝绸路，胡马犹闻唐汉风";                    break;                case "台湾省":                    posdesc = "我在这头，大陆在那头";                    break;                case "香港特别行政区":                    posdesc = "永定贼有残留地鬼嚎，迎击光非岁玉";                    break;                case "澳门特别行政区":                    posdesc = "性感荷官，在线发牌";                    break;                default:                    posdesc = "带我去你的城市逛逛吧！";                    break;            }            break;        default:            posdesc = "带我去你的国家逛逛吧";            break;    }    // 根据本地时间切换欢迎语    let timeChange;    let date = new Date();    if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>🌤️ 早上好，快趁机多睡点懒觉！</span>";    else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>☀️ 中午好，记得午休喔~</span>";    else if (date.getHours() >= 13 && date.getHours() < 19) timeChange = "<span>🕞 下午好，饮茶先啦！</span>";    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>🌙 晚上好，不要熬夜啊，会肾虚的😭</span>";    else timeChange = "夜深了，早点休息，少熬夜";    let welcomeInfoElement = document.getElementById("welcome-info");    if (welcomeInfoElement) {        welcomeInfoElement.innerHTML =            `欢迎来自<br><b><span style="color: var(--default-bg-color)">${pos}</span></b><br> 的访客，你好呀！😝<br>${posdesc}🍂<br>你目前距博主约 <b><span style="color: var(--default-bg-color)">${dist}</span></b> 公里！<br>你的网络IP为：<b><span class="ip-address" style="font-size: 15px;">${ip}</span></b><br>${timeChange} <br>`;    } else {        console.log("Pjax无法获取元素");    }}// 判断是否存在 "welcome-info" 元素function isWelcomeInfoAvailable() {    let welcomeInfoElement = document.getElementById("welcome-info");    return welcomeInfoElement !== null;}// Pjax 完成后调用的处理函数function handlePjaxComplete(ipLocation) {    if (isWelcomeInfoAvailable()) {        showWelcome(ipLocation);    }}// 加载时调用function onLoad() {    fetchIpLocation().then(ipLocation => {        if (isWelcomeInfoAvailable()) {            showWelcome(ipLocation);        }        document.addEventListener("pjax:complete", () => handlePjaxComplete(ipLocation));    });}// 绑定 window.onload 事件window.onload = onLoad;]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/countup.js"/>
-      <url>/js/countup.js</url>
-      
-        <content type="html"><![CDATA[var CountUp = function (target, startVal, endVal, decimals, duration, options) {  var self = this;  self.version = function () {    return "1.9.2";  };  self.options = {    useEasing: true,    useGrouping: true,    separator: ",",    decimal: ".",    easingFn: easeOutExpo,    formattingFn: formatNumber,    prefix: "",    suffix: "",    numerals: [],  };  if (options && typeof options === "object") {    for (var key in self.options) {      if (options.hasOwnProperty(key) && options[key] !== null) {        self.options[key] = options[key];      }    }  }  if (self.options.separator === "") {    self.options.useGrouping = false;  } else {    self.options.separator = "" + self.options.separator;  }  var lastTime = 0;  var vendors = ["webkit", "moz", "ms", "o"];  for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {    window.requestAnimationFrame = window[vendors[x] + "RequestAnimationFrame"];    window.cancelAnimationFrame =      window[vendors[x] + "CancelAnimationFrame"] || window[vendors[x] + "CancelRequestAnimationFrame"];  }  if (!window.requestAnimationFrame) {    window.requestAnimationFrame = function (callback, element) {      var currTime = new Date().getTime();      var timeToCall = Math.max(0, 16 - (currTime - lastTime));      var id = window.setTimeout(function () {        callback(currTime + timeToCall);      }, timeToCall);      lastTime = currTime + timeToCall;      return id;    };  }  if (!window.cancelAnimationFrame) {    window.cancelAnimationFrame = function (id) {      clearTimeout(id);    };  }  function formatNumber(num) {    num = num.toFixed(self.decimals);    num += "";    var x, x1, x2, x3, i, l;    x = num.split(".");    x1 = x[0];    x2 = x.length > 1 ? self.options.decimal + x[1] : "";    if (self.options.useGrouping) {      x3 = "";      for (i = 0, l = x1.length; i < l; ++i) {        if (i !== 0 && i % 3 === 0) {          x3 = self.options.separator + x3;        }        x3 = x1[l - i - 1] + x3;      }      x1 = x3;    }    if (self.options.numerals.length) {      x1 = x1.replace(/[0-9]/g, function (w) {        return self.options.numerals[+w];      });      x2 = x2.replace(/[0-9]/g, function (w) {        return self.options.numerals[+w];      });    }    return self.options.prefix + x1 + x2 + self.options.suffix;  }  function easeOutExpo(t, b, c, d) {    return (c * (-Math.pow(2, (-10 * t) / d) + 1) * 1024) / 1023 + b;  }  function ensureNumber(n) {    return typeof n === "number" && !isNaN(n);  }  self.initialize = function () {    if (self.initialized) {      return true;    }    self.error = "";    self.d = typeof target === "string" ? document.getElementById(target) : target;    if (!self.d) {      self.error = "[CountUp] target is null or undefined";      return false;    }    self.startVal = Number(startVal);    self.endVal = Number(endVal);    if (ensureNumber(self.startVal) && ensureNumber(self.endVal)) {      self.decimals = Math.max(0, decimals || 0);      self.dec = Math.pow(10, self.decimals);      self.duration = Number(duration) * 1000 || 2000;      self.countDown = self.startVal > self.endVal;      self.frameVal = self.startVal;      self.initialized = true;      return true;    } else {      self.error = "[CountUp] startVal (" + startVal + ") or endVal (" + endVal + ") is not a number";      return false;    }  };  self.printValue = function (value) {    var result = self.options.formattingFn(value);    if (self.d.tagName === "INPUT") {      this.d.value = result;    } else {      if (self.d.tagName === "text" || self.d.tagName === "tspan") {        this.d.textContent = result;      } else {        this.d.innerHTML = result;      }    }  };  self.count = function (timestamp) {    if (!self.startTime) {      self.startTime = timestamp;    }    self.timestamp = timestamp;    var progress = timestamp - self.startTime;    self.remaining = self.duration - progress;    if (self.options.useEasing) {      if (self.countDown) {        self.frameVal = self.startVal - self.options.easingFn(progress, 0, self.startVal - self.endVal, self.duration);      } else {        self.frameVal = self.options.easingFn(progress, self.startVal, self.endVal - self.startVal, self.duration);      }    } else {      if (self.countDown) {        self.frameVal = self.startVal - (self.startVal - self.endVal) * (progress / self.duration);      } else {        self.frameVal = self.startVal + (self.endVal - self.startVal) * (progress / self.duration);      }    }    if (self.countDown) {      self.frameVal = self.frameVal < self.endVal ? self.endVal : self.frameVal;    } else {      self.frameVal = self.frameVal > self.endVal ? self.endVal : self.frameVal;    }    self.frameVal = Math.round(self.frameVal * self.dec) / self.dec;    self.printValue(self.frameVal);    if (progress < self.duration) {      self.rAF = requestAnimationFrame(self.count);    } else {      if (self.callback) {        self.callback();      }    }  };  self.start = function (callback) {    if (!self.initialize()) {      return;    }    self.callback = callback;    self.rAF = requestAnimationFrame(self.count);  };  self.pauseResume = function () {    if (!self.paused) {      self.paused = true;      cancelAnimationFrame(self.rAF);    } else {      self.paused = false;      delete self.startTime;      self.duration = self.remaining;      self.startVal = self.frameVal;      requestAnimationFrame(self.count);    }  };  self.reset = function () {    self.paused = false;    delete self.startTime;    self.initialized = false;    if (self.initialize()) {      cancelAnimationFrame(self.rAF);      self.printValue(self.startVal);    }  };  self.update = function (newEndVal) {    if (!self.initialize()) {      return;    }    newEndVal = Number(newEndVal);    if (!ensureNumber(newEndVal)) {      self.error = "[CountUp] update() - new endVal is not a number: " + newEndVal;      return;    }    self.error = "";    if (newEndVal === self.frameVal) {      return;    }    cancelAnimationFrame(self.rAF);    self.paused = false;    delete self.startTime;    self.startVal = self.frameVal;    self.endVal = newEndVal;    self.countDown = self.startVal > self.endVal;    self.rAF = requestAnimationFrame(self.count);  };  if (self.initialize()) {    self.printValue(self.startVal);  }};]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友情链接</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="我的网站信息">我的网站信息</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">quicer</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="string">https://quicer.js.cool</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="string">https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E5%A4%B4%E5%83%8Fwebp-L3OuXuX7WK5SkBTuVJMVpho8aFDZwB.webp</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="string">没有黑暗，星星也无法闪烁。</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure><h2 id="添加友链说明">添加友链说明</h2><p>该站点支持各位提供友链。各位可以在评论区发送自己的博客信息，审核后我会尽快添加。<br>由于本人学业问题，添加友链的速度可能会非常慢，希望大家耐心等待。<br>要先添加本站友链才能审核通过哦~<br>实例：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="comment"># 名称</span></span><br><span class="line"><span class="attr">link:</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">avater:</span> <span class="comment"># 头像URL</span></span><br><span class="line"><span class="attr">descr:</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>个人照片库</title>
-      <link href="/mine/index.html"/>
-      <url>/mine/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213504_13_29-ELcEnLytNRxNcRysXVBF2AxEAgJJx3.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213505_14_29-5I2LgXOwiifeuwugAdbuxEuS9oi5Zz.webp","alt":"2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213506_15_29-i5zOf8ka4Hi7kTveRNbA0poTDBJHDs.webp","alt":"3","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213507_16_29-SLasVTnMYBiBeaiTup6GlFNg1B4kmE.webp","alt":"4","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213517_26_29-BcXhXua0mE0MrKv1PYeBc4404PtFjL.webp","alt":"5","title":""}]</div>  </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>魔丸要破顶啦！！！？</title>
-      <link href="/mowan/index.html"/>
-      <url>/mowan/index.html</url>
-      
-        <content type="html"><![CDATA[    <div id="aplayer-LjDHdEHK" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="576118344" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div><p>可恶，这都被你发现了！！</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>此页面仅供娱乐，无不良引导。</p></div><h2 id="魔丸的帅照">魔丸的帅照</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1%20%281%29-L8l4gJ27aAKue7Daj65fHbOFy4LNrQ.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2%20%281%29-emPGJw5U4BP1RlrksPMs8nBIsGEvQR.webp","alt":"2","title":""}]</div>  </div><p>太帅啦！！！！</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[]</div>  </div><h2 id="魔丸的成就">魔丸的成就</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E8%80%81%E5%8F%8B%E8%AE%B02-3Kfzfl9fdR2br34B7qLuySy9D2xnHu.webp","alt":"老友","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E8%80%81%E5%8F%8B%E8%AE%B01-EeaCgJ1kHkEDCqHIWuWPdaU7jW9kO8.webp","alt":"老友","title":""}]</div>  </div><p>老友！！！</p><h2 id="其他照片">其他照片</h2><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213513_22_29-8f8VNtdzirlg0zEb6HLJBLb5ae4JZe.webp","alt":"jianwen","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213512_21_29-YeCe8djcu6JEnh0Fyu1S5Lyhh6TXgT.webp","alt":"jianwen","title":""}]</div>  </div><h2 id="彩蛋">彩蛋</h2><p>如果你有作者微信，私信作者：“<strong>魔丸要破顶啦！</strong>”后可以领拜年红包！！！！<br>（有人看到这里吗？）</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mowan%E5%B0%81%E9%9D%A2-DoCs9jOLFfQn9NBRyHszR9NZaQMAo1.webp","alt":"jianwen","title":""}]</div>  </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[    <div id="aplayer-qAwgetea" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="13908245149" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"    ></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>图片收藏夹</title>
-      <link href="/pictures/index.html"/>
-      <url>/pictures/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="gallery-group-main"><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/zazhijingxuan%E5%B0%81%E9%9D%A2-ZQleTvwltODbxJcdMhfNXNK7eBvSjC.webp' alt="Group Image Gallery">    <figcaption>      <div class="gallery-group-name">精选杂志</div>      <p>每个人都有一双发现美的眼睛</p>      <a href='/zazhijingxuan/'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mine%E5%B0%81%E9%9D%A2-HPYhBsJjrGaw50tecrZ9LrPtWGWIP1.webp' alt="Group Image Gallery">    <figcaption>      <div class="gallery-group-name">个人照片库</div>      <p>我专属的图片集</p>      <a href='/mine/'></a>    </figcaption>  </figure><figure class="gallery-group">    <img class="gallery-group-img no-lightbox" src='https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mowan%E5%B0%81%E9%9D%A2-DoCs9jOLFfQn9NBRyHszR9NZaQMAo1.webp' alt="Group Image Gallery">    <figcaption>      <div class="gallery-group-name">？？？？？</div>      <p>魔丸要破顶了！！！</p>      <a href='/mowan/'></a>    </figcaption>  </figure></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>赞助作者</title>
-      <link href="/rewards/index.html"/>
-      <url>/rewards/index.html</url>
-      
-        <content type="html"><![CDATA[<p>感谢每一份慷慨的赞赏，它不仅是支持，更是我前行路上温暖的光。这份心意我已悉心珍藏，会化作动力，努力为大家创造更多价值！</p><div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>如果您在赞赏时，能留下备注或在下方评论区说一声，就能方便我将这份心意与您对应上，为您记录在专属的感谢名单里。<br>期待与您相遇！</p></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>更新日志</title>
-      <link href="/updates/index.html"/>
-      <url>/updates/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>详情请前往<a href="https://github.com/quicer/quicer.github.io/releases">releases</a>查看。<br>若遇到问题请提<a href="https://github.com/quicer/quicer.github.io/issues">issues</a>。</p></div><div class="timeline "><div class='timeline-item headline'>        <div class='timeline-item-title'>          <div class='item-circle'><p>测试版</p></div>        </div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-20</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.3测试说明</strong></p><p>1.修改文章。<br>2.将/music/页面也算入pjax。<br>3.新增rewards页面。<br>4.新增rewards侧边栏。<br>5.新增poem侧边栏。<br>6.新增welcome侧边栏。<br>7.51LA统计。<br>8.修复/games/被错误渲染的问题。<br>…</p></div>      </div><div class='timeline-item'>        <div class='timeline-item-title'>          <div class='item-circle'><p>2025-2-19</p></div>        </div>        <div class='timeline-item-content'><p><strong>beta0.2测试说明</strong></p><p>1.开启pjax，加快加载速度（/music/除外），音乐播放时切换页面不会暂停。<br>2.替换一些图片。</p><p><strong>beta0.1测试说明</strong></p><p>博客正式重置，一切从头开始。</p></div>      </div></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>杂志精选</title>
-      <link href="/zazhijingxuan/index.html"/>
-      <url>/zazhijingxuan/index.html</url>
-      
-        <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-wand-magic-sparkles"></i><p>本页面内容均来自<strong>杂志锁屏</strong>。</p></div><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213501_11_29-98Yt1lV6hNvDbizlfmF7xu4u3ILmeZ.webp","alt":"杂志1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213500_10_29-RfKlGnGEygX0lh4l7WfHub8Ae2FHKQ.webp","alt":"杂志2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_20260220213459_9_29-Kpmxv6dDDzdnXgHfNpbpx7q2TpPJZt.webp","alt":"杂志3","title":""}]</div>  </div>]]></content>
-      
-    </entry>
-    
     
   
+
+    
+    
+      ？？？？？
+      魔丸要破鼎了！！！？
+      
+    
+  
+
+]]></content>
+  </entry>
+  <entry>
+    <title>赞助作者</title>
+    <url>/rewards/index.html</url>
+    <content><![CDATA[感谢每一份慷慨的赞赏，它不仅是支持，更是我前行路上温暖的光。这份心意我已悉心珍藏，会化作动力，努力为大家创造更多价值！
+如果您在赞赏时，能留下备注或在下方评论区说一声，就能方便我将这份心意与您对应上，为您记录在专属的感谢名单里。期待与您相遇！
+]]></content>
+  </entry>
+  <entry>
+    <title>全部标签</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>更新日志</title>
+    <url>/updates/index.html</url>
+    <content><![CDATA[了解更多详细信息请前往releases查看，所有版本说明仅供参考，请以实际效果为准。
+
+
+        
+          2025
+
+        
+      
+        
+          2-24
+
+        
+        V1.0.0版本说明
+博客正式版已经正式发布，未开发功能已经陆续开放。接下来博客将进行进一步的完善，欢迎大家反馈访问过程中遇到的问题！
+
+      
+]]></content>
+  </entry>
+  <entry>
+    <title>个人照片库</title>
+    <url>/pictures/mine/index.html</url>
+    <content><![CDATA[
+    [{"url":"/img/pictures/mine/1.webp","alt":"1","title":""},{"url":"/img/pictures/mine/2.webp","alt":"2","title":""},{"url":"/img/pictures/mine/3.webp","alt":"3","title":""},{"url":"/img/pictures/mine/4.webp","alt":"4","title":""},{"url":"/img/pictures/mine/5.webp","alt":"5","title":""}]
+  ]]></content>
+  </entry>
+  <entry>
+    <title>杂志精选</title>
+    <url>/pictures/zazhijingxuan/index.html</url>
+    <content><![CDATA[本页面内容均来自杂志锁屏。
+
+
+    [{"url":"/img/pictures/zazhijingxuan/1.webp","alt":"杂志1","title":""},{"url":"/img/pictures/zazhijingxuan/2.webp","alt":"杂志2","title":""},{"url":"/img/pictures/zazhijingxuan/3.webp","alt":"杂志3","title":""}]
+  ]]></content>
+  </entry>
+  <entry>
+    <title>魔丸要破鼎啦！！！？</title>
+    <url>/pictures/mowan/index.html</url>
+    <content><![CDATA[可恶，这都被你发现了！！
+此页面仅供娱乐，无不良引导。
+
+魔丸的帅照
+
+    [{"url":"/img/pictures/mowan/mowan1.webp","alt":"mowan1","title":""},{"url":"/img/pictures/mowan/mowan2.webp","alt":"mowan2","title":""}]
+  
+太帅啦！！！！
+
+    [{"url":"/img/pictures/mowan/1.webp","alt":"我不行了！","title":""}]
+  
+魔丸的成就
+
+    [{"url":"/img/pictures/mowan/laoyou1.webp","alt":"老友记1","title":""},{"url":"/img/pictures/mowan/laoyou2.webp","alt":"老友记2","title":""}]
+  
+老友！！！
+其他照片
+
+    [{"url":"/img/pictures/mowan/jianwen1.webp","alt":"jianwen","title":""},{"url":"/img/pictures/mowan/jianwen2.webp","alt":"jianwen","title":""}]
+  
+基文！！
+（最近精神状态良好！）
+]]></content>
+  </entry>
 </search>
