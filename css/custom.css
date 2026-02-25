@@ -52,6 +52,7 @@ top: -1.9rem; /*C位置*/
 color: #49b1f540; /*C颜色*/
 font-size: 6rem; /*C大小*/
 }
+
 /* Twikoo评论系统样式 */
 /* 设置文字内容 :nth-child(1)的作用是选择第几个 */
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
@@ -236,4 +237,3 @@ font-size: 6rem; /*C大小*/
   /* 边框颜色 */
   border-color: var(--cxl2020mc-card-border);
 }
-

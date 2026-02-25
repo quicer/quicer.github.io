@@ -2868,7 +2868,7 @@ figure.highlight pre .javascript .function {
   background-position-y: 50%;
 }
 #icat-about-page #one .map {
-  background: url("/img/map/light.webp") no-repeat center;
+  background: url("https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/light-D76A3iUQPqK5KYAqtOuGFV3G45U0JL.webp") no-repeat center;
   background-size: 100%;
   overflow: hidden;
   -webkit-transition: 2s;
@@ -3077,7 +3077,7 @@ figure.highlight pre .javascript .function {
   }
 }
 #icat-about-page .Socialize .S-img .img-box {
-  background: url("/img/social.webp") no-repeat center;
+  background: url("https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/social-bY6s77rJdhZJasGfAT779nZrZejTTo.webp") no-repeat center;
   background-size: contain;
   aspect-ratio: 8/16;
   height: 95%;
@@ -3469,7 +3469,7 @@ figure.highlight pre .javascript .function {
   padding: 2.25rem 2rem;
 }
 [data-theme='dark'] #icat-about-page #one .map {
-  background: url("/img/map/dark.webp") no-repeat center;
+  background: url("https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/dark-d7EXn2Dsr524DfV3tu7vIKt0JSmRe5.webp") no-repeat center;
   background-size: 100%;
 }
 [data-theme='dark'] #icat-about-page #one .map:hover {

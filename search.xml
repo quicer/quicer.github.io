@@ -98,6 +98,11 @@
       </tags>
   </entry>
   <entry>
+    <title>全部分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于本站</title>
     <url>/about/index.html</url>
     <content><![CDATA[现在大家看到的本站其实是本人在2026年初重置得到的，一开始本站使用Butterfly主题，之后改为Anzhiyu。后来又有朋友推荐给我Solitude主题，于是我又选择了Solitude。
@@ -114,224 +119,135 @@
 
 
 
-
-
 ]]></content>
-  </entry>
-  <entry>
-    <title>全部分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/css/icat.css</url>
-    <content><![CDATA[
-/* 宽屏适配 */
-.layout{
-    width: 100%;
-    max-width:1400px;
+    <url>/css/baiduhistory.css</url>
+    <content><![CDATA[.swiper-slide.history_slide {
+    display: flex;
+    flex-direction:column !important;
+}
+.history_slide {
+    text-align:left;
+    font-size: 16px;
+    background: var(--card-bg);
+    display: flex;
+    flex-direction:column !important;
+    align-items: flex-start;
+}
+#history-baidu > .blog-slider__pagination{
+    display:none
+}
+.history_slide_time{
+    color: #858585;
+    Font-style: italic;
+    font-weight: lighter;
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/color.css</url>
+    <content><![CDATA[/* 颜色 */
+:root {
+    --june: #E68282;
+    --june-theme-op: #4259ef23;
+    --june-gray-op: #9999992b;
+    --june-white: #fff;
+    --june-black: #000;
+    --june-none: rgba(0, 0, 0, 0);
+    --june-purple: #E764FF;
+    --june-gray: #999999;
+    --june-light-grey: #F2F2F2;
+    --june-yellow: #ffc93e;
+    --june-orange: #ff9900;
+    --june-border-radius: 8px;
+    --june-main: var(--june-theme);
+    --june-main-op: var(--june-theme-op);
+    --june-shadow-theme: 0 8px 12px -3px var(--june-theme-op);
+    --june-shadow-main: 0 8px 12px -3px var(--june-main-op);
+    --june-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
+    --june-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
+    --june-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
+    --june-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
+    --june-shadow-red: 0 8px 12px -3px #ee7d7936;
+    --june-shadow-green: 0 8px 12px -3px #87ee7936;
+    --june-shadow-border: 0 8px 16px -4px #2c2d300c;
+    --june-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
+    --style-border: 1px solid var(--june-card-border);
+    --june-blue-main: #3b70fc;
+    --style-border-hover: 1px solid var(--june-main);
+    --style-border-dashed: 1px dashed var(--june-theme-op);
+    --style-border-avatar: 4px solid var(--june-background);
+    --style-border-always: 1px solid var(--june-card-border);
+    --june-white-acrylic1: #fefeff !important;
+    --june-white-acrylic2: #fcfdff !important;
+    --june-black-acrylic2: #08080a !important;
+    --june-black-acrylic1: #0b0b0e !important;
+    --middle-y-multiplier: 1.5; /* 假设元素在 Y 轴上的平移为原始位置的 1.5 倍 */
+    --middle-scale-multiplier: 1.2; /* 假设元素的纵向缩放为原始大小的 1.2 倍 */
+    --heo-theme: var(--june-border) !important;
 }
 
-.layout > div:first-child {
-    width: 100%;
-}
-#post {
-    width: 78%;
-}
-.aside-content {
-    max-width: 312px;
-    min-width: 300px;
-}
-.layout.hide-aside {
-    max-width: 1400px;
-}
-
-#recent-posts > .recent-post-item {
-    height: 19em;
-    border: var(--style-border);
-}
-#recent-posts > .recent-post-item >.recent-post-info {
-    padding: 0 56px;
-    width: 64%;
-}
-@media screen and (max-width: 768px) {
-    #recent-posts > .recent-post-item {
-        height: auto;
-    }
-    #recent-posts > .recent-post-item >.recent-post-info {
-        padding: 20px 20px 30px;
-        width: 100%;
-        text-align: center;
-    }
+[data-theme="light"] {
+    --june-theme: #E68282;
+    --june-theme-op: #4259ef23;
+    --june-blue: #3b70fc;
+    --june-red: #d8213c;
+    --june-pink: #ff7c7c;
+    --june-green: #57bd6a;
+    --june-fontcolor: #4c4948;
+    --june-background: #f7f9fe;
+    --june-reverse: #000;
+    --june-maskbg: rgba(255, 255, 255, 0.6);
+    --june-maskbgdeep: rgba(255, 255, 255, 0.85);
+    --june-hovertext: var(--june);
+    --june-ahoverbg: #f7f7fa;
+    --june-lighttext: var(--june-main);
+    --june-secondtext: rgba(60, 60, 67, 0.6);
+    --june-scrollbar: rgba(60, 60, 67, 0.4);
+    --june-card-btn-bg: #edf0f7;
+    --june-post-blockquote-bg: #fafcff;
+    --june-post-tabs-bg: #f2f5f8;
+    --june-secondbg: #f7f7f9;
+    --june-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
+    --june-card-bg: #fff;
+    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-card-border: #c0c6d8;
+    --june-copyright-bg: #eff1f3;
+    --june-border: #E68282
 }
 
-/* 页脚透明 */
-#footer {
-    background: var(--icat-footer-background);
-}
-  
-#footer #footer-wrap {
-    color: var(--font-color)
-}
-  
-#footer #footer-wrap a {
-    color: var(--font-color)
-}
-
-/* 个人卡片背景 */
-[data-theme="light"] #aside-content > .card-widget.card-info {
-    background-image: url(/img/card.webp);
-    background-repeat: no-repeat;
-    background-attachment: inherit;
-    background-size: 100%;
-}
-[data-theme="dark"] #aside-content > .card-widget.card-info {
-    background-image: url(/img/card.webp);
-    background-repeat: no-repeat;
-    background-attachment: inherit;
-    background-size: 100%;
-}
-
-
-/* 评论编辑块调整 */
-
-.tk-submit-action-icon.__markdown {
-    display: none;
-}
-/* markdown编辑快隐藏 */
-
-.tk-avatar {
-    border-radius: 4px !important;
-}
-.tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar {
-    height: 2.5rem !important;
-    width: 2.5rem !important;
-}
-.tk-comment .tk-submit .tk-avatar .tk-avatar-img, .tk-replies .tk-avatar .tk-avatar-img {
-    height: 2.5rem !important;
-}
-.tk-ruser {
-    color: #409eff;
-    opacity: .8;
-}
-@media screen and (max-width: 768px) {
-    .tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar {
-        height: 2rem !important;
-        width: 2rem !important;
-    }
-    .tk-comment .tk-submit .tk-avatar .tk-avatar-img, .tk-replies .tk-avatar .tk-avatar-img {
-        height: 2rem !important;
-    }
-}
-.tk-nick,
-.tk-meta a strong {
-    font-size: 18px;
-    color: #409eff;
-}
-.tk-tag-green {
-    border: var(--style-border) !important;
-    border-radius: 4px !important;
-    margin-left: 0.2rem;
-}
-.tk-time {
-    margin-left: 0.4rem;
-}
-
-.tk-extras {
-    padding-bottom: 15px;
-    border-bottom: 1px dashed var(--hr-border);
-}
-.tk-extra {
-    border: var(--style-border-always);
-    padding: 4px 6px 4px 6px;
-    border-radius: 8px;
-    margin-right: 4px !important;
-}
-.tk-expand {
-    margin-top: 8px;
-    background-color: var(--icat-background);
-    color: var(--icat-fontcolor);
-    border-radius: 8px;
-    border: var(--style-border);
-}
-.tk-footer {
-    padding-bottom: 1em;
-}
-.tk-footer a {
-    color: #999999;
-}
-.tk-footer a:hover {
-    color: #409eff;
-}
-
-.tk-admin-comment-item {
-    padding: 1em;
-    background: var(--global-bg);
-    border-radius: 12px;
-    border: var(--style-border-always);
-    margin-bottom: 12px;
-}
-.tk-admin-comment-meta,
-.tk-content {
-    color: var(--icat-fontcolor);
-}
-.tk-admin-actions {
-    margin-bottom: 0 !important;
-    border-bottom: 0 !important;
-}
-/* 评论管理 */
-
-.tk-panel {
-    border: var(--style-border-always);
-}
-.tk-admin-config-groups {
-    padding: 0.5em;
-    background: var(--global-bg);
-    border-radius: 12px;
-    border: var(--style-border-always);
-}
-.tk-admin-config-groups .tk-admin-config-group-title {
-    background: var(--icat-background) !important;
-    border-radius: 6px;
-    border: var(--style-border-always);
-    color: var(--icat-fontcolor);
-}
-.tk-admin-config-item {
-    color: var(--icat-fontcolor);
-}
-
-/* 主页文章卡片擦亮动画 */
-#recent-posts > .recent-post-item .post_cover {
-    position: relative;
-}
-#recent-posts>.recent-post-item .post_cover::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,.5);
-    content: '';
-    -webkit-transition: -webkit-transform .3s;
-    -moz-transition: -moz-transform .3s;
-    -o-transition: -o-transform .3s;
-    -ms-transition: -ms-transform .3s;
-    transition: transform .3s;
-    -webkit-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
-    -moz-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
-    -o-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
-    -ms-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
-    transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
-}
-#recent-posts>.recent-post-item .post_cover:hover::after {
-    -webkit-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
-    -moz-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
-    -o-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
-    -ms-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
-    transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
-}
-]]></content>
+[data-theme="dark"] {
+    --june-theme: #333333;
+    --june-theme-op: #0084ff23;
+    --june-blue: #0084ff;
+    --june-red: #ff3842;
+    --june-pink: #ff7c7c;
+    --june-green: #57bd6a;
+    --june-fontcolor: #f7f7fa;
+    --june-background: #18171d;
+    --june-reverse: #fff;
+    --june-maskbg: rgba(0, 0, 0, 0.6);
+    --june-maskbgdeep: rgba(0, 0, 0, 0.85);
+    --june-hovertext: #0a84ff;
+    --june-ahoverbg: #fff;
+    --june-lighttext: #f2b94b;
+    --june-secondtext: #a1a2b8;
+    --june-scrollbar: rgba(200, 200, 223, 0.4);
+    --june-card-btn-bg: #30343f;
+    --june-post-blockquote-bg: #000;
+    --june-post-tabs-bg: #121212;
+    --june-secondbg: #30343f;
+    --june-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
+    --june-card-bg: #1b1c20;
+    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-card-border: #42444a;
+    --june-copyright-bg: #323335;
+    --june-border: #c8c8c8
+}]]></content>
   </entry>
   <entry>
     <title></title>
@@ -390,6 +306,7 @@ top: -1.9rem; /*C位置*/
 color: #49b1f540; /*C颜色*/
 font-size: 6rem; /*C大小*/
 }
+
 /* Twikoo评论系统样式 */
 /* 设置文字内容 :nth-child(1)的作用是选择第几个 */
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
@@ -574,12 +491,11 @@ font-size: 6rem; /*C大小*/
   /* 边框颜色 */
   border-color: var(--cxl2020mc-card-border);
 }
-
 ]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/css/icat_change.css</url>
+    <url>/css/dingbubolang.css</url>
     <content><![CDATA[
 /* 顶部波浪 */
 .main-hero-waves-area {
@@ -653,6 +569,67 @@ font-size: 6rem; /*C大小*/
     min-height: 40px;
   }
 }
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/icat.css</url>
+    <content><![CDATA[
+/* 宽屏适配 */
+.layout{
+    width: 100%;
+    max-width:1400px;
+}
+
+.layout > div:first-child {
+    width: 100%;
+}
+#post {
+    width: 78%;
+}
+.aside-content {
+    max-width: 312px;
+    min-width: 300px;
+}
+.layout.hide-aside {
+    max-width: 1400px;
+}
+
+#recent-posts > .recent-post-item {
+    height: 19em;
+    border: var(--style-border);
+}
+#recent-posts > .recent-post-item >.recent-post-info {
+    padding: 0 56px;
+    width: 64%;
+}
+@media screen and (max-width: 768px) {
+    #recent-posts > .recent-post-item {
+        height: auto;
+    }
+    #recent-posts > .recent-post-item >.recent-post-info {
+        padding: 20px 20px 30px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* 个人卡片背景 */
+[data-theme="light"] #aside-content > .card-widget.card-info {
+    background-image: url(/img/card.webp);
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-size: 100%;
+}
+[data-theme="dark"] #aside-content > .card-widget.card-info {
+    background-image: url(/img/card.webp);
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-size: 100%;
+}
+
+
 ]]></content>
   </entry>
   <entry>
@@ -873,6 +850,83 @@ var meuicat = {
   </entry>
   <entry>
     <title></title>
+    <url>/js/baiduhistory.js</url>
+    <content><![CDATA[if(document.getElementById('history-container')){
+    function append(parent, text) {
+        if (typeof text === 'string') {
+            var temp = document.createElement('div');
+            temp.innerHTML = text;
+            // 防止元素太多 进行提速
+            var frag = document.createDocumentFragment();
+            while (temp.firstChild) {
+                frag.appendChild(temp.firstChild);
+            }
+            parent.appendChild(frag);
+        }
+        else {
+            parent.appendChild(text);
+        }
+    }
+
+    function history_get_data(){
+        var myDate = new Date();
+        var myMonth = myDate.getMonth() + 1;
+        if (myMonth < 10) {
+            getMonth = "0" + String(myMonth);
+        } else {
+            getMonth = String(myMonth);
+        }
+        var getDate = String(myDate.getDate());
+        if (getDate < 10) {
+            getDate = "0" + String(getDate);
+        } else {
+            getDate = String(getDate);
+        }
+        var getMonthDate = "S" + getMonth + getDate;
+        return ["https://gcore.jsdelivr.net/gh/Zfour/Butterfly-card-history@latest/baiduhistory/json/" + getMonth + ".json",getMonthDate]
+    }
+    var history_data = history_get_data()
+    fetch(history_data[0]).then(data=>data.json()).then(data=>{
+        console.log(data[history_data[1]])
+        html_item =''
+        for (var item of data[history_data[1]]){
+            html_item += 'A.D.' +
+                item.year +'' + ''+ item.title +''
+
+        }
+        var history_container_wrapper = document.getElementById('history_container_wrapper')
+        append(history_container_wrapper, html_item);
+        var swiper_history = new Swiper('.history_swiper-container', {
+            passiveListeners:true,
+            spaceBetween: 30,
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 30,
+                slideShadows: false,
+            },
+            loop: true,
+            direction: 'vertical',
+            autoplay: {
+                disableOnInteraction: true,
+                delay:5000
+            },
+
+            mousewheel:false,
+            // autoHeight: true,
+
+        });
+
+        var history_comtainer = document.getElementById('history-container');
+        history_comtainer.onmouseenter = function () {
+            swiper_history.autoplay.stop();
+        };
+        history_comtainer.onmouseleave = function () {
+            swiper_history.autoplay.start();
+        }
+    })}]]></content>
+  </entry>
+  <entry>
+    <title></title>
     <url>/js/icat.js</url>
     <content><![CDATA[// changeTime函数
 const changeTime = (time, more = false) => {
@@ -999,6 +1053,25 @@ name: # 名称link: # 网址avater: # 头像URLdescr: # 描述]]></content>
         
       
         
+          2-25
+
+        
+        V1.0.2版本说明
+由于更新后图片加载缓慢，甚至无法加载，本人在V1.0.1发布后以最快的速度优化了图片，并且发布更新。
+本次更新内容如下：
+
+优化图片加载速度。
+修复统计页面需要二次加载才可显示统计图的问题。
+删除无用css。
+优化懒加载。
+
+本次更新仍然存在或可能存在的问题：
+
+文章目录无法正确同步正在浏览的内容。
+
+
+      
+        
           2-24
 
         
@@ -1050,7 +1123,7 @@ V1.0.0版本说明
     <title>个人照片库</title>
     <url>/pictures/mine/index.html</url>
     <content><![CDATA[
-    [{"url":"/img/pictures/mine/1.webp","alt":"1","title":""},{"url":"/img/pictures/mine/2.webp","alt":"2","title":""},{"url":"/img/pictures/mine/3.webp","alt":"3","title":""},{"url":"/img/pictures/mine/4.webp","alt":"4","title":""},{"url":"/img/pictures/mine/5.webp","alt":"5","title":""}]
+    [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-qxfftZ9myQUjvPiCTtb2sCk36NjaJM.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2-i0jHLREfGEa2M6RgqcGMJkkrvlkR70.webp","alt":"2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/3-Sy3BzpwnRdNnYDVxrvXYoyKi8GaXXO.webp","alt":"3","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/4-q7WNfDRnDDBPDFktW62toaRcE56K8T.webp","alt":"4","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/5-pw0yJVlIINdcLy9zkZ1NJC84XSx596.webp","alt":"5","title":""}]
   ]]></content>
   </entry>
   <entry>
@@ -1061,20 +1134,20 @@ V1.0.0版本说明
 
 魔丸的帅照
 
-    [{"url":"/img/pictures/mowan/mowan1.webp","alt":"mowan1","title":""},{"url":"/img/pictures/mowan/mowan2.webp","alt":"mowan2","title":""}]
+    [{"url":"https://img.mc-sep.top/i/aae13b32-f53e-4a79-9595-e54097254cd4.webp","alt":"mowan1","title":""},{"url":"https://img.mc-sep.top/i/e62bb0e6-f58b-4cdb-b2ee-552b19f6d385.webp","alt":"mowan2","title":""}]
   
 太帅啦！！！！
 
-    [{"url":"/img/pictures/mowan/1.webp","alt":"我不行了！","title":""}]
+    [{"url":"https://img.mc-sep.top/i/4ed17981-e1c9-44a5-9708-e737ddad1da3.webp","alt":"我不行了！","title":""}]
   
 魔丸的成就
 
-    [{"url":"/img/pictures/mowan/laoyou1.webp","alt":"老友记1","title":""},{"url":"/img/pictures/mowan/laoyou2.webp","alt":"老友记2","title":""}]
+    [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/laoyou1-79zHxZJD5MFwpO7iJCrIfxQZBZnH0Q.webp","alt":"老友记1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/laoyou2-UrsL7QBEQmEs8DIi1IrXVuABOxDB0p.webp","alt":"老友记2","title":""}]
   
 老友！！！
 其他照片
 
-    [{"url":"/img/pictures/mowan/jianwen1.webp","alt":"jianwen","title":""},{"url":"/img/pictures/mowan/jianwen2.webp","alt":"jianwen","title":""}]
+    [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/jianwen1-46vECxus7E0v6GXvoR5kO72oqHdWMN.webp","alt":"jianwen","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/jianwen2-QFEyfcTPjoLv2GrDENlLJj3y3BdHMk.webp","alt":"jianwen","title":""}]
   
 基文！！
 （最近精神状态良好！）
@@ -1086,7 +1159,7 @@ V1.0.0版本说明
     <content><![CDATA[本页面内容均来自杂志锁屏。
 
 
-    [{"url":"/img/pictures/zazhijingxuan/1.webp","alt":"杂志1","title":""},{"url":"/img/pictures/zazhijingxuan/2.webp","alt":"杂志2","title":""},{"url":"/img/pictures/zazhijingxuan/3.webp","alt":"杂志3","title":""}]
+    [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-v9ffBvR1vjdcldUrNkEU2FyG55J9Cb.webp","alt":"杂志1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2-Ybo7trOjIcdRlkPzcF0X4sZZbJdkHL.webp","alt":"杂志2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/3-3a8OxH9FuIdYLds5cjqrQF1RBH08ej.webp","alt":"杂志3","title":""}]
   ]]></content>
   </entry>
 </search>
