@@ -111,7 +111,7 @@ hexo cleanhexo generatehexo server
 1.自定义css
 在 [根目录]\source\css\custom.css 文件下方添加以下代码（没有就新建）：
 /* 文章页背景 */.layout_post&gt;#post &#123;    /* 以下代表透明度为0.5，可自行修改*/    background: rgba(255, 255, 255, .5);&#125;/* 所有页面背景 */#aside_content .card-widget,#recent-posts&gt;.recent-post-item,.layout_page&gt;div:first-child:not(.recent-posts),.layout_post&gt;#page,.layout_post&gt;#post,.read-mode .layout_post&gt;#post &#123;    /* 以下代表透明度为0.7，可自行修改*/    background: rgba(255, 255, 255, .5);&#125;/* 侧边卡片的透明度 */:root &#123;    --card-bg: rgba(255, 255, 255, 0.5) !important;&#125;/* 暗色模式下的卡片透明度 */[data-theme=&#x27;dark&#x27;] &#123;    --card-bg: rgba(18, 18, 18, 0.5) !important;&#125;/* 页脚透明 */#footer &#123;    /* 以下代表透明度为0.1，可自行修改 */    background: rgba(255, 255, 255, .1);&#125;
-如果你不想要页脚透明，就把上面代码的26-29行删除即可。
+如果你不想要页脚透明，就把上面代码的28-32行删除即可。
 2.引入css
 在 _config.butterfly.yml 的 inject 部分添加：
 inject:  head:    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/custom.css&quot;&gt;
