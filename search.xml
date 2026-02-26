@@ -16,6 +16,172 @@
       </tags>
   </entry>
   <entry>
+    <title>Github访问慢？一个加速器解决</title>
+    <url>/archives/aec81be5/</url>
+    <content><![CDATA[前言
+Github在中国大陆境内真的太不稳定了QWQ，有的时候上传文件时会something were wrong，有时甚至进不去…
+
+太难受了！
+于是我去网上找加速器，找到了Watt Toolkit（原Steam++）这么一款免费加速器。
+它的官网我放下面了：
+
+官网：https://steampp.net/
+
+刚好没啥文章好些的，就水一篇吧（喜）。
+教程
+本人是在Windows系统操作的，其他操作系统大致相同，跟着做就行。
+
+1.下载加速器
+下面的操作系统都可以下载。
+Windows10/11LinuxMacOSWatt Toolkit在Microsoft Store中已经可以下载，Windows用户直接在Microsoft Store中搜索Watt Toolkit就可以找到并下载了。
+如果你无法使用Microsoft Store，前往官方蓝奏云网盘分享链接，提取码1234，下载就可以了。这是官方的，没有安全问题。
+需要依赖 certutil,jq，zenity 工具。
+Linux目前支持 x64（amd64） 与 loongarch64 架构。
+
+运行下面代码安装脚本：
+curl -sSL https://steampp.net/Install/Linux.sh
+简单说明一下依赖：
+
+certutil工具：初始化nssdb数据库,Chrome信任该数据库
+jq工具：解析更新接口自动获取下载地址。
+zenity工具:图形化提示，显示下载进度。
+
+前往官方gitee链接下载即可。前往官方蓝奏云网盘分享链接，提取码1234，下载就可以了。这是官方的，没有安全问题。
+2.加速！
+
+可以看到它除了支持加速Github，还支持加速Steam，Twitch，Origin，Uplay，公共CDN，Google翻译，Spotify，国外验证码平台，Roblox，Mod，Nexus Modes，OneDrive，MEGA，DropBox，Pinterest，Artstation，Imgur图床，Vercel和appcenter。有的时候大家需要时也可以加速其他东西。
+下滑看到Github，直接勾选。为了防止它崩掉，建议取消勾选默认勾选的Steam，让加速更稳定。然后点击一键加速就可以了。
+如果时间一直在00:00:00且没有任何效果，可以点击停止加速，然后重新加速。
+
+结语
+这款加速器真牛逼！！
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly主题魔改2：适配宽屏</title>
+    <url>/archives/712db69e/</url>
+    <content><![CDATA[前言
+Butterfly主题并不适配宽屏。我使用的宽屏电脑进入我的博客，左右两边会有很大的空白，感觉太紧凑了。于是我就适配了一下宽屏。
+挺好适配的，适配之后就饱满了许多。
+效果预览
+所见即所得，可以去Butterfly官方看我的博客与它的区别。
+教程
+本教程不会涉及到主题文件的修改，所以无需备份，有错误或改动不可观删掉css即可。
+
+1.自定义css
+在 [根目录]\source\css\custom.css 文件下方添加以下代码（没有就新建）：
+/* 重新定义宽度 */.layout&#123;    width: 100%;    max-width:1400px;&#125;/* 定义是否侧边栏的宽度 */.layout &gt; div:first-child &#123;    width: 100%;&#125;#post &#123;    width: 78%;&#125;.aside-content &#123;    max-width: 312px;    min-width: 300px;&#125;.layout.hide-aside &#123;    max-width: 1400px;&#125;/* 主页文章列表图片宽度 */#recent-posts &gt; .recent-post-item &#123;    height: 19em;    border: var(--style-border);&#125;#recent-posts &gt; .recent-post-item &gt;.recent-post-info &#123;    padding: 0 56px;    width: 64%;&#125;@media screen and (max-width: 768px) &#123;    #recent-posts &gt; .recent-post-item &#123;        height: auto;    &#125;    #recent-posts &gt; .recent-post-item &gt;.recent-post-info &#123;        padding: 20px 20px 30px;        width: 100%;        text-align: center;    &#125;&#125;
+2.引入css
+在 _config.butterfly.yml 的 inject 部分添加：
+inject:  head:    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/custom.css&quot;&gt;
+引入过了就不用了。
+3.hexo三连击
+hexo cleanhexo generatehexo server
+去 http://localhost:4000/ 看效果。
+结语
+一样，又简单又实用！
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>Hexo</tag>
+        <tag>主题魔改</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly主题魔改1：修改主题透明度</title>
+    <url>/archives/6d0fd7f2/</url>
+    <content><![CDATA[前言
+最近把博客给魔改完了，短时间内不会再有改动，我会开始正常更新文章了。为了让我之后更好的查看我的魔改，我会把一些魔改的方法分享出来。
+因为Butterfly主题默认是不透明的，所以非常难看。经过魔改后，主题会变得半透明，会变得好看点（自认为）。
+效果预览
+所见即所得，大家魔改完就可以看到效果了。
+教程
+本教程不会涉及到主题文件的修改，所以无需备份，有错误或改动不可观删掉css即可。
+
+1.自定义css
+在 [根目录]\source\css\custom.css 文件下方添加以下代码（没有就新建）：
+/* 文章页背景 */.layout_post&gt;#post &#123;    /* 以下代表透明度为0.5，可自行修改*/    background: rgba(255, 255, 255, .5);&#125;/* 所有页面背景 */#aside_content .card-widget,#recent-posts&gt;.recent-post-item,.layout_page&gt;div:first-child:not(.recent-posts),.layout_post&gt;#page,.layout_post&gt;#post,.read-mode .layout_post&gt;#post &#123;    /* 以下代表透明度为0.7，可自行修改*/    background: rgba(255, 255, 255, .5);&#125;/* 侧边卡片的透明度 */:root &#123;    --card-bg: rgba(255, 255, 255, 0.5) !important;&#125;/* 暗色模式下的卡片透明度 */[data-theme=&#x27;dark&#x27;] &#123;    --card-bg: rgba(18, 18, 18, 0.5) !important;&#125;/* 页脚透明 */#footer &#123;    /* 以下代表透明度为0.1，可自行修改 */    background: rgba(255, 255, 255, .1);&#125;
+如果你不想要页脚透明，就把上面代码的26-29行删除即可。
+2.引入css
+在 _config.butterfly.yml 的 inject 部分添加：
+inject:  head:    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/custom.css&quot;&gt;
+引入过了就不用了。
+3.hexo三连击
+hexo cleanhexo generatehexo server
+去 http://localhost:4000/ 看效果。
+如果不满意，在上面的css文件中我有注释说明可自行修改的地方，大家可以自己修改为自己想要的透明度。
+结语
+这个挺简单的，小白也可以魔改，挺适合我AWA。
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>Hexo</tag>
+        <tag>主题魔改</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly主题魔改3：增加文章统计页面</title>
+    <url>/archives/4c09c669/</url>
+    <content><![CDATA[前言
+没什么好说的，直接上教程吧。
+我参考了Eurkon，但他的那个好像有点小问题，稍稍改了一下。
+参考
+
+Hexo 博客文章统计图 | Eurkon
+Butterfly博客文章统计图详细教程 | 胖达网络
+
+效果预览
+前往我的charts页面看效果。
+教程
+修改了一点点主题文件，但不是很难，无需备份，不满意倒着来一遍就可以回去了。
+
+1.引入ECharts.js
+在 _config.butterfly.yml 的 inject 部分添加：
+inject:  head:    - &lt;script src=&quot;https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js&quot;&gt;&lt;/script&gt;
+最好放在第一个。
+2.创建页面
+运行下面代码创建页面
+hexo n page charts
+这里只是实例，可以改其他名。
+3.统计代码
+在 theme\butterfly\scripts\helpers\ 目录下新建 charts.js 文件，输入：
+const cheerio = require(&#x27;cheerio&#x27;)const moment = require(&#x27;moment&#x27;)hexo.extend.filter.register(&#x27;after_render:html&#x27;, function (locals) &#123;  const $ = cheerio.load(locals)  const post = $(&#x27;#posts-chart&#x27;)  const tag = $(&#x27;#tags-chart&#x27;)  const category = $(&#x27;#categories-chart&#x27;)  const htmlEncode = false  if (post.length &gt; 0 || tag.length &gt; 0 || category.length &gt; 0) &#123;    if (post.length &gt; 0 &amp;&amp; $(&#x27;#postsChart&#x27;).length === 0) &#123;      if (post.attr(&#x27;data-encode&#x27;) === &#x27;true&#x27;) htmlEncode = true      post.after(postsChart(post.attr(&#x27;data-start&#x27;)))    &#125;    if (tag.length &gt; 0 &amp;&amp; $(&#x27;#tagsChart&#x27;).length === 0) &#123;      if (tag.attr(&#x27;data-encode&#x27;) === &#x27;true&#x27;) htmlEncode = true      tag.after(tagsChart(tag.attr(&#x27;data-length&#x27;)))    &#125;    if (category.length &gt; 0 &amp;&amp; $(&#x27;#categoriesChart&#x27;).length === 0) &#123;      if (category.attr(&#x27;data-encode&#x27;) === &#x27;true&#x27;) htmlEncode = true      category.after(categoriesChart())    &#125;    if (htmlEncode) &#123;      return $.root().html().replace(/&amp;amp;#/g, &#x27;&amp;#&#x27;)    &#125; else &#123;      return $.root().html()    &#125;  &#125; else &#123;    return locals  &#125;&#125;, 15)function postsChart (startMonth) &#123;  const startDate = moment(startMonth || &#x27;2022-04&#x27;)  const endDate = moment()  const monthMap = new Map()  const dayTime = 3600 * 24 * 1000  for (let time = startDate; time &lt;= endDate; time += dayTime) &#123;    const month = moment(time).format(&#x27;YYYY-MM&#x27;)    if (!monthMap.has(month)) &#123;      monthMap.set(month, 0)    &#125;  &#125;  hexo.locals.get(&#x27;posts&#x27;).forEach(function (post) &#123;    const month = post.date.format(&#x27;YYYY-MM&#x27;)    if (monthMap.has(month)) &#123;      monthMap.set(month, monthMap.get(month) + 1)    &#125;  &#125;)  const monthArr = JSON.stringify([...monthMap.keys()])  const monthValueArr = JSON.stringify([...monthMap.values()])  return `  &lt;script id=&quot;postsChart&quot;&gt;    var color = document.documentElement.getAttribute(&#x27;data-theme&#x27;) === &#x27;light&#x27; ? &#x27;#4c4948&#x27; : &#x27;rgba(255,255,255,0.7)&#x27;    var postsChart = echarts.init(document.getElementById(&#x27;posts-chart&#x27;), &#x27;light&#x27;);    var postsOption = &#123;      title: &#123;        text: &#x27;文章发布统计图&#x27;,        x: &#x27;center&#x27;,        textStyle: &#123;          color: color        &#125;      &#125;,      tooltip: &#123;        trigger: &#x27;axis&#x27;      &#125;,      xAxis: &#123;        name: &#x27;&#x27;,        type: &#x27;category&#x27;,        boundaryGap: false,        nameTextStyle: &#123;          color: color        &#125;,        axisTick: &#123;          show: false        &#125;,        axisLabel: &#123;          show: true,          color: color,          interval: 0,          rotate: 0        &#125;,        axisLine: &#123;          show: true,          lineStyle: &#123;            color: color          &#125;        &#125;,        data: $&#123;monthArr&#125;      &#125;,      yAxis: &#123;        name: &#x27;文章篇数&#x27;,        type: &#x27;value&#x27;,        nameTextStyle: &#123;          color: color        &#125;,        splitLine: &#123;          show: false        &#125;,        axisTick: &#123;          show: false        &#125;,        axisLabel: &#123;          show: true,          color: color        &#125;,        axisLine: &#123;          show: true,          lineStyle: &#123;            color: color          &#125;        &#125;      &#125;,      series: [&#123;        name: &#x27;文章篇数&#x27;,        type: &#x27;line&#x27;,        smooth: true,        lineStyle: &#123;            width: 0        &#125;,        showSymbol: false,        itemStyle: &#123;          opacity: 1,          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [&#123;            offset: 0,            color: &#x27;rgba(128, 255, 165)&#x27;          &#125;,          &#123;            offset: 1,            color: &#x27;rgba(1, 191, 236)&#x27;          &#125;])        &#125;,        areaStyle: &#123;          opacity: 1,          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [&#123;            offset: 0,            color: &#x27;rgba(128, 255, 165)&#x27;          &#125;, &#123;            offset: 1,            color: &#x27;rgba(1, 191, 236)&#x27;          &#125;])        &#125;,        data: $&#123;monthValueArr&#125;,        markLine: &#123;          data: [&#123;            name: &#x27;平均值&#x27;,            type: &#x27;average&#x27;,            label: &#123;              color: color            &#125;          &#125;]        &#125;      &#125;]    &#125;;    postsChart.setOption(postsOption);    setpRotate();    window.addEventListener(&#x27;resize&#x27;, () =&gt; &#123;       setpRotate();      postsChart.resize();    &#125;);    function setpRotate() &#123;      let postsOptionNew = postsOption      if (document.body.clientWidth&lt;=768) &#123;        postsOptionNew.xAxis.axisLabel.rotate = 40      &#125;else&#123;        postsOptionNew.xAxis.axisLabel.rotate = 0      &#125;      postsChart.setOption(postsOptionNew)    &#125;  &lt;/script&gt;`&#125;function tagsChart (len) &#123;  const tagArr = []  hexo.locals.get(&#x27;tags&#x27;).map(function (tag) &#123;    tagArr.push(&#123; name: tag.name, value: tag.length &#125;)  &#125;)  tagArr.sort((a, b) =&gt; &#123; return b.value - a.value &#125;)  const dataLength = Math.min(tagArr.length, len) || tagArr.length  const tagNameArr = []  const tagCountArr = []  for (let i = 0; i &lt; dataLength; i++) &#123;    tagNameArr.push(tagArr[i].name)    tagCountArr.push(tagArr[i].value)  &#125;  const tagNameArrJson = JSON.stringify(tagNameArr)  const tagCountArrJson = JSON.stringify(tagCountArr)  return `  &lt;script id=&quot;tagsChart&quot;&gt;    var color = document.documentElement.getAttribute(&#x27;data-theme&#x27;) === &#x27;light&#x27; ? &#x27;#4c4948&#x27; : &#x27;rgba(255,255,255,0.7)&#x27;    var tagsChart = echarts.init(document.getElementById(&#x27;tags-chart&#x27;), &#x27;light&#x27;);    var tagsOption = &#123;      title: &#123;        text: &#x27;Top $&#123;dataLength&#125; 标签统计图&#x27;,        x: &#x27;center&#x27;,        textStyle: &#123;          color: color        &#125;      &#125;,      tooltip: &#123;&#125;,      xAxis: &#123;        name: &#x27;&#x27;,        type: &#x27;category&#x27;,        nameTextStyle: &#123;          color: color        &#125;,        axisTick: &#123;          show: false        &#125;,        axisLabel: &#123;          show: true,          color: color,          interval: 0        &#125;,        axisLine: &#123;          show: true,          lineStyle: &#123;            color: color          &#125;        &#125;,        data: $&#123;tagNameArrJson&#125;      &#125;,      yAxis: &#123;        name: &#x27;文章篇数&#x27;,        type: &#x27;value&#x27;,        splitLine: &#123;          show: false        &#125;,        nameTextStyle: &#123;          color: color        &#125;,        axisTick: &#123;          show: false        &#125;,        axisLabel: &#123;          show: true,          color: color        &#125;,        axisLine: &#123;          show: true,          lineStyle: &#123;            color: color          &#125;        &#125;      &#125;,      series: [&#123;        name: &#x27;文章篇数&#x27;,        type: &#x27;bar&#x27;,        data: $&#123;tagCountArrJson&#125;,        itemStyle: &#123;          borderRadius: [5, 5, 0, 0],          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [&#123;            offset: 0,            color: &#x27;rgba(128, 255, 165)&#x27;          &#125;,          &#123;            offset: 1,            color: &#x27;rgba(1, 191, 236)&#x27;          &#125;])        &#125;,        emphasis: &#123;          itemStyle: &#123;            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [&#123;              offset: 0,              color: &#x27;rgba(128, 255, 195)&#x27;            &#125;,            &#123;              offset: 1,              color: &#x27;rgba(1, 211, 255)&#x27;            &#125;])          &#125;        &#125;,        markLine: &#123;          data: [&#123;            name: &#x27;平均值&#x27;,            type: &#x27;average&#x27;,            label: &#123;              color: color            &#125;          &#125;]        &#125;      &#125;]    &#125;;    tagsChart.setOption(tagsOption);    setRotate();    window.addEventListener(&#x27;resize&#x27;, () =&gt; &#123;       setRotate();      tagsChart.resize();    &#125;);    function setRotate() &#123;      let tagsOptionNew = tagsOption      if (document.body.clientWidth&lt;=768) &#123;        tagsOptionNew.xAxis.axisLabel.rotate = -90      &#125;else&#123;        tagsOptionNew.xAxis.axisLabel.rotate = 40      &#125;      tagsChart.setOption(tagsOptionNew)    &#125;    tagsChart.on(&#x27;click&#x27;, &#x27;series&#x27;, (event) =&gt; &#123;      if(event.name != &#x27;平均值&#x27;)&#123;        let href = &#x27;/tags/&#x27; + event.name + &#x27;/&#x27;;        window.location.href = href;      &#125;    &#125;);  &lt;/script&gt;`&#125;function categoriesChart () &#123;  const categoryArr = []  hexo.locals.get(&#x27;categories&#x27;).map(function (category) &#123;    categoryArr.push(&#123; name: category.name, value: category.length &#125;)  &#125;)  categoryArr.sort((a, b) =&gt; &#123; return b.value - a.value &#125;);  const categoryArrJson = JSON.stringify(categoryArr)  return `  &lt;script id=&quot;categoriesChart&quot;&gt;    var color = document.documentElement.getAttribute(&#x27;data-theme&#x27;) === &#x27;light&#x27; ? &#x27;#4c4948&#x27; : &#x27;rgba(255,255,255,0.7)&#x27;    var categoriesChart = echarts.init(document.getElementById(&#x27;categories-chart&#x27;), &#x27;light&#x27;);    var categoriesOption = &#123;      title: &#123;        text: &#x27;文章分类统计图&#x27;,        x: &#x27;center&#x27;,        textStyle: &#123;          color: color        &#125;      &#125;,      legend: &#123;        top: &#x27;bottom&#x27;,        type: &#x27;scroll&#x27;,        textStyle: &#123;          color: color        &#125;      &#125;,      tooltip: &#123;        trigger: &#x27;item&#x27;,        formatter: &#x27;&#123;a&#125; &lt;br/&gt;&#123;b&#125; : &#123;c&#125; (&#123;d&#125;%)&#x27;      &#125;,      series: [&#123;        name: &#x27;文章篇数&#x27;,        type: &#x27;pie&#x27;,        radius: [30, 80],        center: [&#x27;50%&#x27;, &#x27;50%&#x27;],        roseType: &#x27;area&#x27;,        label: &#123;          color: color,          formatter: &#x27;&#123;b&#125; : &#123;c&#125; (&#123;d&#125;%)&#x27;        &#125;,        data: $&#123;categoryArrJson&#125;,        itemStyle: &#123;          emphasis: &#123;            shadowBlur: 10,            shadowOffsetX: 0,            shadowColor: &#x27;rgba(255, 255, 255, 0.5)&#x27;          &#125;        &#125;      &#125;]    &#125;;    categoriesChart.setOption(categoriesOption);    window.addEventListener(&#x27;resize&#x27;, () =&gt; &#123;       categoriesChart.resize();    &#125;);    categoriesChart.on(&#x27;click&#x27;, &#x27;series&#x27;, (event) =&gt; &#123;      let href = &#x27;/categories/&#x27; + event.name + &#x27;/&#x27;;      window.location.href = href;    &#125;);  &lt;/script&gt;`&#125;
+可以自己修改一下。
+4.使用统计图
+在第二步创建的页面的 index.md 文件添加：
+&lt;!-- 文章发布时间统计图 --&gt;&lt;div id=&quot;posts-chart&quot; data-start=&quot;2025-10&quot; style=&quot;border-radius: 8px; height: 300px; padding: 10px;&quot;&gt;&lt;/div&gt;&lt;!-- 文章标签统计图 --&gt;&lt;div id=&quot;tags-chart&quot; data-length=&quot;10&quot; style=&quot;border-radius: 8px; height: 300px; padding: 10px;&quot;&gt;&lt;/div&gt;&lt;!-- 文章分类统计图 --&gt;&lt;div id=&quot;categories-chart&quot; style=&quot;border-radius: 8px; height: 300px; padding: 10px;&quot;&gt;&lt;/div&gt;
+第二行 2025-10 为开始统计的时间，可以自己改为自己第一篇文章的发布时间。
+5.适配明暗模式
+自定义js
+新建 [根目录]\source\js\charts.js：
+function switchPostChart () &#123;  let color = document.documentElement.getAttribute(&#x27;data-theme&#x27;) === &#x27;light&#x27; ? &#x27;#4c4948&#x27; : &#x27;rgba(255,255,255,0.7)&#x27;  if (document.getElementById(&#x27;posts-chart&#x27;) &amp;&amp; postsOption) &#123;    try &#123;      let postsOptionNew = postsOption      postsOptionNew.title.textStyle.color = color      postsOptionNew.xAxis.nameTextStyle.color = color      postsOptionNew.yAxis.nameTextStyle.color = color      postsOptionNew.xAxis.axisLabel.color = color      postsOptionNew.yAxis.axisLabel.color = color      postsOptionNew.xAxis.axisLine.lineStyle.color = color      postsOptionNew.yAxis.axisLine.lineStyle.color = color      postsOptionNew.series[0].markLine.data[0].label.color = color      postsChart.setOption(postsOptionNew)    &#125; catch (error) &#123;      console.log(error)    &#125;  &#125;  if (document.getElementById(&#x27;tags-chart&#x27;) &amp;&amp; tagsOption) &#123;    try &#123;      let tagsOptionNew = tagsOption      tagsOptionNew.title.textStyle.color = color      tagsOptionNew.xAxis.nameTextStyle.color = color      tagsOptionNew.yAxis.nameTextStyle.color = color      tagsOptionNew.xAxis.axisLabel.color = color      tagsOptionNew.yAxis.axisLabel.color = color      tagsOptionNew.xAxis.axisLine.lineStyle.color = color      tagsOptionNew.yAxis.axisLine.lineStyle.color = color      tagsOptionNew.series[0].markLine.data[0].label.color = color      tagsChart.setOption(tagsOptionNew)    &#125; catch (error) &#123;      console.log(error)    &#125;  &#125;  if (document.getElementById(&#x27;categories-chart&#x27;) &amp;&amp; categoriesOption) &#123;    try &#123;      let categoriesOptionNew = categoriesOption      categoriesOptionNew.title.textStyle.color = color      categoriesOptionNew.legend.textStyle.color = color      categoriesOptionNew.series[0].label.color = color      categoriesChart.setOption(categoriesOptionNew)    &#125; catch (error) &#123;      console.log(error)    &#125;  &#125;&#125;document.getElementById(&quot;darkmode&quot;).addEventListener(&quot;click&quot;, function () &#123; setTimeout(switchPostChart, 100) &#125;)
+引入js
+在 _config.butterfly.yml 的 inject 部分添加：
+inject:  bottom:    - &lt;script defer data-pjax src=&quot;/js/charts.js&quot;&gt;&lt;/script&gt;
+]]></content>
+      <categories>
+        <category>实用教程</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>Hexo</tag>
+        <tag>主题魔改</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>免费下载激活Microsoft Office</title>
     <url>/archives/b74f9f5a/</url>
     <content><![CDATA[本教程仅适用于Windows操作系统，其他操作系统似乎无法使用Office（也许吧，我没用过其它系统）。
@@ -98,11 +264,6 @@
       </tags>
   </entry>
   <entry>
-    <title>全部分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>关于本站</title>
     <url>/about/index.html</url>
     <content><![CDATA[现在大家看到的本站其实是本人在2026年初重置得到的，一开始本站使用Butterfly主题，之后改为Anzhiyu。后来又有朋友推荐给我Solitude主题，于是我又选择了Solitude。
@@ -110,6 +271,11 @@
 因为我是前端小白，对于更加高级的东西不是非常懂。Solitude是一款适合于专业开发者的优美主题，我这种小白还是回避比较好（稍稍魔改就一堆报错）。而Butterfly网上的教程非常丰富，并且魔改起来我觉得比较简单。反正就是我灵机一动就回到了Butterfly。
 希望这个网站可以继续运营下去！
 ]]></content>
+  </entry>
+  <entry>
+    <title>全部分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>数据统计</title>
@@ -143,110 +309,6 @@
     color: #858585;
     Font-style: italic;
     font-weight: lighter;
-}]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/css/color.css</url>
-    <content><![CDATA[/* 颜色 */
-:root {
-    --june: #E68282;
-    --june-theme-op: #4259ef23;
-    --june-gray-op: #9999992b;
-    --june-white: #fff;
-    --june-black: #000;
-    --june-none: rgba(0, 0, 0, 0);
-    --june-purple: #E764FF;
-    --june-gray: #999999;
-    --june-light-grey: #F2F2F2;
-    --june-yellow: #ffc93e;
-    --june-orange: #ff9900;
-    --june-border-radius: 8px;
-    --june-main: var(--june-theme);
-    --june-main-op: var(--june-theme-op);
-    --june-shadow-theme: 0 8px 12px -3px var(--june-theme-op);
-    --june-shadow-main: 0 8px 12px -3px var(--june-main-op);
-    --june-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
-    --june-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
-    --june-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
-    --june-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
-    --june-shadow-red: 0 8px 12px -3px #ee7d7936;
-    --june-shadow-green: 0 8px 12px -3px #87ee7936;
-    --june-shadow-border: 0 8px 16px -4px #2c2d300c;
-    --june-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
-    --style-border: 1px solid var(--june-card-border);
-    --june-blue-main: #3b70fc;
-    --style-border-hover: 1px solid var(--june-main);
-    --style-border-dashed: 1px dashed var(--june-theme-op);
-    --style-border-avatar: 4px solid var(--june-background);
-    --style-border-always: 1px solid var(--june-card-border);
-    --june-white-acrylic1: #fefeff !important;
-    --june-white-acrylic2: #fcfdff !important;
-    --june-black-acrylic2: #08080a !important;
-    --june-black-acrylic1: #0b0b0e !important;
-    --middle-y-multiplier: 1.5; /* 假设元素在 Y 轴上的平移为原始位置的 1.5 倍 */
-    --middle-scale-multiplier: 1.2; /* 假设元素的纵向缩放为原始大小的 1.2 倍 */
-    --heo-theme: var(--june-border) !important;
-}
-
-[data-theme="light"] {
-    --june-theme: #E68282;
-    --june-theme-op: #4259ef23;
-    --june-blue: #3b70fc;
-    --june-red: #d8213c;
-    --june-pink: #ff7c7c;
-    --june-green: #57bd6a;
-    --june-fontcolor: #4c4948;
-    --june-background: #f7f9fe;
-    --june-reverse: #000;
-    --june-maskbg: rgba(255, 255, 255, 0.6);
-    --june-maskbgdeep: rgba(255, 255, 255, 0.85);
-    --june-hovertext: var(--june);
-    --june-ahoverbg: #f7f7fa;
-    --june-lighttext: var(--june-main);
-    --june-secondtext: rgba(60, 60, 67, 0.6);
-    --june-scrollbar: rgba(60, 60, 67, 0.4);
-    --june-card-btn-bg: #edf0f7;
-    --june-post-blockquote-bg: #fafcff;
-    --june-post-tabs-bg: #f2f5f8;
-    --june-secondbg: #f7f7f9;
-    --june-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
-    --june-card-bg: #fff;
-    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-card-border: #c0c6d8;
-    --june-copyright-bg: #eff1f3;
-    --june-border: #E68282
-}
-
-[data-theme="dark"] {
-    --june-theme: #333333;
-    --june-theme-op: #0084ff23;
-    --june-blue: #0084ff;
-    --june-red: #ff3842;
-    --june-pink: #ff7c7c;
-    --june-green: #57bd6a;
-    --june-fontcolor: #f7f7fa;
-    --june-background: #18171d;
-    --june-reverse: #fff;
-    --june-maskbg: rgba(0, 0, 0, 0.6);
-    --june-maskbgdeep: rgba(0, 0, 0, 0.85);
-    --june-hovertext: #0a84ff;
-    --june-ahoverbg: #fff;
-    --june-lighttext: #f2b94b;
-    --june-secondtext: #a1a2b8;
-    --june-scrollbar: rgba(200, 200, 223, 0.4);
-    --june-card-btn-bg: #30343f;
-    --june-post-blockquote-bg: #000;
-    --june-post-tabs-bg: #121212;
-    --june-secondbg: #30343f;
-    --june-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
-    --june-card-bg: #1b1c20;
-    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-card-border: #42444a;
-    --june-copyright-bg: #323335;
-    --june-border: #c8c8c8
 }]]></content>
   </entry>
   <entry>
@@ -492,6 +554,110 @@ font-size: 6rem; /*C大小*/
   border-color: var(--cxl2020mc-card-border);
 }
 ]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/color.css</url>
+    <content><![CDATA[/* 颜色 */
+:root {
+    --june: #E68282;
+    --june-theme-op: #4259ef23;
+    --june-gray-op: #9999992b;
+    --june-white: #fff;
+    --june-black: #000;
+    --june-none: rgba(0, 0, 0, 0);
+    --june-purple: #E764FF;
+    --june-gray: #999999;
+    --june-light-grey: #F2F2F2;
+    --june-yellow: #ffc93e;
+    --june-orange: #ff9900;
+    --june-border-radius: 8px;
+    --june-main: var(--june-theme);
+    --june-main-op: var(--june-theme-op);
+    --june-shadow-theme: 0 8px 12px -3px var(--june-theme-op);
+    --june-shadow-main: 0 8px 12px -3px var(--june-main-op);
+    --june-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
+    --june-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
+    --june-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
+    --june-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
+    --june-shadow-red: 0 8px 12px -3px #ee7d7936;
+    --june-shadow-green: 0 8px 12px -3px #87ee7936;
+    --june-shadow-border: 0 8px 16px -4px #2c2d300c;
+    --june-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
+    --style-border: 1px solid var(--june-card-border);
+    --june-blue-main: #3b70fc;
+    --style-border-hover: 1px solid var(--june-main);
+    --style-border-dashed: 1px dashed var(--june-theme-op);
+    --style-border-avatar: 4px solid var(--june-background);
+    --style-border-always: 1px solid var(--june-card-border);
+    --june-white-acrylic1: #fefeff !important;
+    --june-white-acrylic2: #fcfdff !important;
+    --june-black-acrylic2: #08080a !important;
+    --june-black-acrylic1: #0b0b0e !important;
+    --middle-y-multiplier: 1.5; /* 假设元素在 Y 轴上的平移为原始位置的 1.5 倍 */
+    --middle-scale-multiplier: 1.2; /* 假设元素的纵向缩放为原始大小的 1.2 倍 */
+    --heo-theme: var(--june-border) !important;
+}
+
+[data-theme="light"] {
+    --june-theme: #E68282;
+    --june-theme-op: #4259ef23;
+    --june-blue: #3b70fc;
+    --june-red: #d8213c;
+    --june-pink: #ff7c7c;
+    --june-green: #57bd6a;
+    --june-fontcolor: #4c4948;
+    --june-background: #f7f9fe;
+    --june-reverse: #000;
+    --june-maskbg: rgba(255, 255, 255, 0.6);
+    --june-maskbgdeep: rgba(255, 255, 255, 0.85);
+    --june-hovertext: var(--june);
+    --june-ahoverbg: #f7f7fa;
+    --june-lighttext: var(--june-main);
+    --june-secondtext: rgba(60, 60, 67, 0.6);
+    --june-scrollbar: rgba(60, 60, 67, 0.4);
+    --june-card-btn-bg: #edf0f7;
+    --june-post-blockquote-bg: #fafcff;
+    --june-post-tabs-bg: #f2f5f8;
+    --june-secondbg: #f7f7f9;
+    --june-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
+    --june-card-bg: #fff;
+    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-card-border: #c0c6d8;
+    --june-copyright-bg: #eff1f3;
+    --june-border: #E68282
+}
+
+[data-theme="dark"] {
+    --june-theme: #333333;
+    --june-theme-op: #0084ff23;
+    --june-blue: #0084ff;
+    --june-red: #ff3842;
+    --june-pink: #ff7c7c;
+    --june-green: #57bd6a;
+    --june-fontcolor: #f7f7fa;
+    --june-background: #18171d;
+    --june-reverse: #fff;
+    --june-maskbg: rgba(0, 0, 0, 0.6);
+    --june-maskbgdeep: rgba(0, 0, 0, 0.85);
+    --june-hovertext: #0a84ff;
+    --june-ahoverbg: #fff;
+    --june-lighttext: #f2b94b;
+    --june-secondtext: #a1a2b8;
+    --june-scrollbar: rgba(200, 200, 223, 0.4);
+    --june-card-btn-bg: #30343f;
+    --june-post-blockquote-bg: #000;
+    --june-post-tabs-bg: #121212;
+    --june-secondbg: #30343f;
+    --june-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
+    --june-card-bg: #1b1c20;
+    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-card-border: #42444a;
+    --june-copyright-bg: #323335;
+    --june-border: #c8c8c8
+}]]></content>
   </entry>
   <entry>
     <title></title>
@@ -1051,6 +1217,26 @@ name: # 名称link: # 网址avater: # 头像URLdescr: # 描述]]></content>
           2025
 
         
+      
+        
+          2-26
+
+        
+        V1.0.3版本说明
+发布文章：
+
+Butterfly主题魔改1：修改主题透明度
+Github访问慢？一个加速器解决
+Butterfly主题魔改2：适配宽屏
+Butterfly主题魔改3：增加文章统计页面
+
+本次更新内容如下：
+
+修改了about页面。
+透明度微调。
+修改懒加载图片。
+
+
       
         
           2-25
