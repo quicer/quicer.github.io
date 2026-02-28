@@ -264,6 +264,11 @@ inject:  bottom:    - &lt;script defer data-pjax src=&quot;/js/charts.js&quot;&g
       </tags>
   </entry>
   <entry>
+    <title>全部分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于本站</title>
     <url>/about/index.html</url>
     <content><![CDATA[现在大家看到的本站其实是本人在2026年初重置得到的，一开始本站使用Butterfly主题，之后改为Anzhiyu。后来又有朋友推荐给我Solitude主题，于是我又选择了Solitude。
@@ -273,8 +278,8 @@ inject:  bottom:    - &lt;script defer data-pjax src=&quot;/js/charts.js&quot;&g
 ]]></content>
   </entry>
   <entry>
-    <title>全部分类</title>
-    <url>/categories/index.html</url>
+    <title>我的动态</title>
+    <url>/feed/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -286,6 +291,238 @@ inject:  bottom:    - &lt;script defer data-pjax src=&quot;/js/charts.js&quot;&g
 
 
 ]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/about.js</url>
+    <content><![CDATA[function whenDOMReady() {
+	if (location.pathname.startsWith('/about/')) meuicat.comments(), meuicat.Introduction(), meuicat.runtimen(), meuicat.fiftyonela();
+}
+
+whenDOMReady() // 打开网站先执行一次
+document.addEventListener("pjax:complete", whenDOMReady) // pjax加载完成（切换页面）后再执行一次
+
+let lastSayHello = "";
+var meuicat = {
+	comments: function() {
+		fetch('/article.json')
+		.then(res => res.json())
+		.then(articleData => {
+			const urls = Object.keys(articleData);
+		
+			fetch('https://quicer-twikoo.zeabur.app/', {
+			method: "POST",
+			body: JSON.stringify({ event: "GET_RECENT_COMMENTS", accessToken: "b05c6c58249b23583c4de2a63ad228be", includeReply: true, pageSize: -1 }),
+			headers: { 'Content-Type': 'application/json' }
+			})
+			.then(res => res.json())
+			.then(({ data }) => {
+				const totalComments = data.length;
+				const commentElements = document.querySelectorAll('.N_comments');
+				commentElements.forEach(element => {
+					if (element.classList.contains('N_comments')) {
+						element.innerText = totalComments + '条评论';
+					} else {
+						console.log(`iCat提醒您：\n\n评论总数功能无法获取到正确的元素，请检查页面是否正常！\n\n教程地址：https://meuicat.com/blog/78/`);
+					}
+				});
+			});
+		});
+	}, // 总评论数量
+	Introduction: function() {
+		const e = [
+				"🤖️ 数码科技爱好者",
+				"🔍 分享与热心帮助",
+				"🏠 智能家居小能手",
+				"🔨 设计开发一条龙",
+				"📷 人文摄影的坚定者",
+				"🏃 脚踏实地行动派",
+				"📚 热爱阅读的书虫迷",
+				"🎵 热爱电音的音游人",
+				"🏋️‍♀️ 坚韧不拔的健身达人",
+				"🍜 走哪吃哪的美食迷",
+				"🎮 Minecraft骨灰级玩家",
+				"👨‍🍳 一位爱做饭的程序猿",
+			],
+			t = document.getElementById("Introduction");
+		let o = e[Math.floor(Math.random() * e.length)];
+		for (; o === lastSayHello;) o = e[Math.floor(Math.random() * e.length)];
+		(t.textContent = o), (lastSayHello = o);
+	}, // about 个人介绍词
+	runtimen: function() {
+		let t = new Date("2026/02/19 00:00:00")
+			.getTime(),
+			n = new Date()
+			.getTime(),
+			a = Math.round((n - t) / 1e3),
+			l = (a / 7884e4)
+			.toFixed(2);
+		let c = document.getElementById("run-time");
+		c && (c.innerHTML = `已稳定运行 ${l} 坤年 🏀`),
+			setTimeout(meuicat.runtime, 1e3);
+	}, // about 运行时间
+	fiftyonela: function() {
+		fetch('https://v6-widget.51.la/v6/3Nehh0mnf1xQsuVw/quote.js')
+			.then(res => res.text())
+			.then((data) => {
+				let title = ['今日人数', '今日访问', '昨日人数', '昨日访问', '本月访问']
+				let num = data.match(/().*?(\/span>)/g)
+	
+				num = num.map((el) => {
+					let val = el.replace(/()/g, '')
+					let str = val.replace(/()/g, '')
+					return str
+				})
+	
+				let statisticEl = document.getElementById('statistic')
+				let activeVisitors = num[0]
+	
+				// 添加最近活跃访客的内容
+				let TBoxEl = document.querySelector('.T-box')
+				if (TBoxEl) {
+					TBoxEl.innerHTML = '最近活跃：' + activeVisitors + '&ensp;|&ensp;' + TBoxEl.innerHTML
+				}
+	
+				// 自定义不显示哪个或者显示哪个，如下不显示总访问量
+				for (let i = 0; i < num.length; i++) {
+					if (!statisticEl) return
+					if (i == 0 || i == num.length - 1) continue;
+					statisticEl.innerHTML += '' + title[i - 1] + '' + num[i] + ''
+				}
+			});
+	} // about 51la统计显示
+}
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/baiduhistory.js</url>
+    <content><![CDATA[if(document.getElementById('history-container')){
+    function append(parent, text) {
+        if (typeof text === 'string') {
+            var temp = document.createElement('div');
+            temp.innerHTML = text;
+            // 防止元素太多 进行提速
+            var frag = document.createDocumentFragment();
+            while (temp.firstChild) {
+                frag.appendChild(temp.firstChild);
+            }
+            parent.appendChild(frag);
+        }
+        else {
+            parent.appendChild(text);
+        }
+    }
+
+    function history_get_data(){
+        var myDate = new Date();
+        var myMonth = myDate.getMonth() + 1;
+        if (myMonth < 10) {
+            getMonth = "0" + String(myMonth);
+        } else {
+            getMonth = String(myMonth);
+        }
+        var getDate = String(myDate.getDate());
+        if (getDate < 10) {
+            getDate = "0" + String(getDate);
+        } else {
+            getDate = String(getDate);
+        }
+        var getMonthDate = "S" + getMonth + getDate;
+        return ["https://gcore.jsdelivr.net/gh/Zfour/Butterfly-card-history@latest/baiduhistory/json/" + getMonth + ".json",getMonthDate]
+    }
+    var history_data = history_get_data()
+    fetch(history_data[0]).then(data=>data.json()).then(data=>{
+        console.log(data[history_data[1]])
+        html_item =''
+        for (var item of data[history_data[1]]){
+            html_item += 'A.D.' +
+                item.year +'' + ''+ item.title +''
+
+        }
+        var history_container_wrapper = document.getElementById('history_container_wrapper')
+        append(history_container_wrapper, html_item);
+        var swiper_history = new Swiper('.history_swiper-container', {
+            passiveListeners:true,
+            spaceBetween: 30,
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 30,
+                slideShadows: false,
+            },
+            loop: true,
+            direction: 'vertical',
+            autoplay: {
+                disableOnInteraction: true,
+                delay:5000
+            },
+
+            mousewheel:false,
+            // autoHeight: true,
+
+        });
+
+        var history_comtainer = document.getElementById('history-container');
+        history_comtainer.onmouseenter = function () {
+            swiper_history.autoplay.stop();
+        };
+        history_comtainer.onmouseleave = function () {
+            swiper_history.autoplay.start();
+        }
+    })}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/icat.js</url>
+    <content><![CDATA[// changeTime函数
+const changeTime = (time, more = false) => {
+  const currentDate = new Date()
+
+  const formatTimestamp = (date) => {
+    const d = new Date(date)
+    const pad = (num) => String(num).padStart(2, '0')
+    return `${pad(d.getFullYear())}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ` + `${pad(d.getHours())}:${pad(d.getMinutes())}`
+  }
+
+  const calculateDiff = (date1, date2, unit) => {
+    const units = { day: 24 * 60 * 60 * 1000, hour: 60 * 60 * 1000 }
+    return Math.floor(Math.abs(date1 - date2) / units[unit])
+  }
+
+  const describeTime = (datetime) => {
+    const timeObj = new Date(datetime)
+    const diffDays = calculateDiff(timeObj, currentDate, 'day')
+    const diffHours = calculateDiff(timeObj, currentDate, 'hour')
+
+    if (diffHours < 1) return `最近`
+    if (diffHours 9){
+        str += mm;
+      }else{
+        str += "0" + mm;
+      }
+      if(currentdate.getDate()>9){
+        str += currentdate.getDate();
+      }else{
+        str += "0" + currentdate.getDate();
+      }
+      if(PSFarr.indexOf(str)>-1){
+          return 1;
+      }else{
+          return 0;
+      }
+  }
+
+// 0707 - 七七事变
+// 0909 - 毛主席忌辰
+// 0918 - 九一八事变
+// 1109 - 娣外公忌辰
+// 1213 - 南京公祭日
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/js/universe.js</url>
+    <content><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;ithis.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacityn||this.y]]></content>
   </entry>
   <entry>
     <title></title>
@@ -310,6 +547,277 @@ inject:  bottom:    - &lt;script defer data-pjax src=&quot;/js/charts.js&quot;&g
     Font-style: italic;
     font-weight: lighter;
 }]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/color.css</url>
+    <content><![CDATA[/* 颜色 */
+:root {
+    --june: #E68282;
+    --june-theme-op: #4259ef23;
+    --june-gray-op: #9999992b;
+    --june-white: #fff;
+    --june-black: #000;
+    --june-none: rgba(0, 0, 0, 0);
+    --june-purple: #E764FF;
+    --june-gray: #999999;
+    --june-light-grey: #F2F2F2;
+    --june-yellow: #ffc93e;
+    --june-orange: #ff9900;
+    --june-border-radius: 8px;
+    --june-main: var(--june-theme);
+    --june-main-op: var(--june-theme-op);
+    --june-shadow-theme: 0 8px 12px -3px var(--june-theme-op);
+    --june-shadow-main: 0 8px 12px -3px var(--june-main-op);
+    --june-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
+    --june-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
+    --june-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
+    --june-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
+    --june-shadow-red: 0 8px 12px -3px #ee7d7936;
+    --june-shadow-green: 0 8px 12px -3px #87ee7936;
+    --june-shadow-border: 0 8px 16px -4px #2c2d300c;
+    --june-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
+    --style-border: 1px solid var(--june-card-border);
+    --june-blue-main: #3b70fc;
+    --style-border-hover: 1px solid var(--june-main);
+    --style-border-dashed: 1px dashed var(--june-theme-op);
+    --style-border-avatar: 4px solid var(--june-background);
+    --style-border-always: 1px solid var(--june-card-border);
+    --june-white-acrylic1: #fefeff !important;
+    --june-white-acrylic2: #fcfdff !important;
+    --june-black-acrylic2: #08080a !important;
+    --june-black-acrylic1: #0b0b0e !important;
+    --middle-y-multiplier: 1.5; /* 假设元素在 Y 轴上的平移为原始位置的 1.5 倍 */
+    --middle-scale-multiplier: 1.2; /* 假设元素的纵向缩放为原始大小的 1.2 倍 */
+    --heo-theme: var(--june-border) !important;
+}
+
+[data-theme="light"] {
+    --june-theme: #E68282;
+    --june-theme-op: #4259ef23;
+    --june-blue: #3b70fc;
+    --june-red: #d8213c;
+    --june-pink: #ff7c7c;
+    --june-green: #57bd6a;
+    --june-fontcolor: #4c4948;
+    --june-background: #f7f9fe;
+    --june-reverse: #000;
+    --june-maskbg: rgba(255, 255, 255, 0.6);
+    --june-maskbgdeep: rgba(255, 255, 255, 0.85);
+    --june-hovertext: var(--june);
+    --june-ahoverbg: #f7f7fa;
+    --june-lighttext: var(--june-main);
+    --june-secondtext: rgba(60, 60, 67, 0.6);
+    --june-scrollbar: rgba(60, 60, 67, 0.4);
+    --june-card-btn-bg: #edf0f7;
+    --june-post-blockquote-bg: #fafcff;
+    --june-post-tabs-bg: #f2f5f8;
+    --june-secondbg: #f7f7f9;
+    --june-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
+    --june-card-bg: #fff;
+    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-card-border: #c0c6d8;
+    --june-copyright-bg: #eff1f3;
+    --june-border: #E68282
+}
+
+[data-theme="dark"] {
+    --june-theme: #333333;
+    --june-theme-op: #0084ff23;
+    --june-blue: #0084ff;
+    --june-red: #ff3842;
+    --june-pink: #ff7c7c;
+    --june-green: #57bd6a;
+    --june-fontcolor: #f7f7fa;
+    --june-background: #18171d;
+    --june-reverse: #fff;
+    --june-maskbg: rgba(0, 0, 0, 0.6);
+    --june-maskbgdeep: rgba(0, 0, 0, 0.85);
+    --june-hovertext: #0a84ff;
+    --june-ahoverbg: #fff;
+    --june-lighttext: #f2b94b;
+    --june-secondtext: #a1a2b8;
+    --june-scrollbar: rgba(200, 200, 223, 0.4);
+    --june-card-btn-bg: #30343f;
+    --june-post-blockquote-bg: #000;
+    --june-post-tabs-bg: #121212;
+    --june-secondbg: #30343f;
+    --june-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
+    --june-card-bg: #1b1c20;
+    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+    --june-card-border: #42444a;
+    --june-copyright-bg: #323335;
+    --june-border: #c8c8c8
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/dingbubolang.css</url>
+    <content><![CDATA[
+/* 顶部波浪 */
+.main-hero-waves-area {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -11px;
+  z-index: 5;
+}
+.waves-area .waves-svg {
+  width: 100%;
+  height: 5rem;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: #f7f9febd;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: #f7f9fe82;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: #f7f9fe36;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: #f7f9fe;
+}
+
+[data-theme="dark"] .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: #070709c8;
+}
+[data-theme="dark"] .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: #07070980;
+}
+[data-theme="dark"] .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: #0707093e;
+}
+[data-theme="dark"] .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: #070709;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+@media (max-width: 768px) {
+  .waves-area .waves-svg {
+    height: 40px;
+    min-height: 40px;
+  }
+}
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/loading.css</url>
+    <content><![CDATA[
+/* 加载条 */
+.pace {
+    pointer-events: none;
+    user-select: none;
+    z-index: 2;
+    position: fixed;
+    margin: auto;
+    top: 4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    border-radius: 8px;
+    width: 6rem;
+    background: #eaecf2;
+    overflow: hidden;
+}
+
+.pace-inactive .pace-progress {
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+.pace.pace-inactive {
+    opacity: 0;
+    transition: 0.3s;
+    top: -8px;
+}
+
+.pace .pace-progress {
+    box-sizing: border-box;
+    transform: translate3d(0, 0, 0);
+    position: fixed;
+    z-index: 2;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 100%;
+    background: #49b1f5;
+    background: linear-gradient(to right,
+            rgb(18, 194, 233),
+            rgb(196, 113, 237),
+            rgb(246, 79, 89));
+    animation: gradient 2s ease infinite;
+    background-size: 200%;
+}]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css/transparent.css</url>
+    <content><![CDATA[/* 文章页背景 */
+.layout_post>#post {
+    /* 以下代表透明度为0.5 可以自行修改*/
+    background: rgba(255, 255, 255, .5);
+}
+
+/* 所有页面背景 */
+#aside_content .card-widget,
+#recent-posts>.recent-post-item,
+.layout_page>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    /* 以下代表透明度为0.7 */
+    background: rgba(255, 255, 255, .7);
+}
+
+/*侧边卡片的透明度 */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 暗色模式下的卡片透明度 */
+[data-theme='dark'] {
+    --card-bg: rgba(18, 18, 18, 0.7) !important;
+}
+
+/* 页脚透明 */
+#footer {
+    /* 以下代表透明度为0.1*/
+    background: rgba(255, 255, 255, .1);
+}
+]]></content>
   </entry>
   <entry>
     <title></title>
@@ -557,185 +1065,23 @@ font-size: 6rem; /*C大小*/
   </entry>
   <entry>
     <title></title>
-    <url>/css/color.css</url>
-    <content><![CDATA[/* 颜色 */
-:root {
-    --june: #E68282;
-    --june-theme-op: #4259ef23;
-    --june-gray-op: #9999992b;
-    --june-white: #fff;
-    --june-black: #000;
-    --june-none: rgba(0, 0, 0, 0);
-    --june-purple: #E764FF;
-    --june-gray: #999999;
-    --june-light-grey: #F2F2F2;
-    --june-yellow: #ffc93e;
-    --june-orange: #ff9900;
-    --june-border-radius: 8px;
-    --june-main: var(--june-theme);
-    --june-main-op: var(--june-theme-op);
-    --june-shadow-theme: 0 8px 12px -3px var(--june-theme-op);
-    --june-shadow-main: 0 8px 12px -3px var(--june-main-op);
-    --june-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
-    --june-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
-    --june-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
-    --june-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
-    --june-shadow-red: 0 8px 12px -3px #ee7d7936;
-    --june-shadow-green: 0 8px 12px -3px #87ee7936;
-    --june-shadow-border: 0 8px 16px -4px #2c2d300c;
-    --june-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
-    --style-border: 1px solid var(--june-card-border);
-    --june-blue-main: #3b70fc;
-    --style-border-hover: 1px solid var(--june-main);
-    --style-border-dashed: 1px dashed var(--june-theme-op);
-    --style-border-avatar: 4px solid var(--june-background);
-    --style-border-always: 1px solid var(--june-card-border);
-    --june-white-acrylic1: #fefeff !important;
-    --june-white-acrylic2: #fcfdff !important;
-    --june-black-acrylic2: #08080a !important;
-    --june-black-acrylic1: #0b0b0e !important;
-    --middle-y-multiplier: 1.5; /* 假设元素在 Y 轴上的平移为原始位置的 1.5 倍 */
-    --middle-scale-multiplier: 1.2; /* 假设元素的纵向缩放为原始大小的 1.2 倍 */
-    --heo-theme: var(--june-border) !important;
-}
-
-[data-theme="light"] {
-    --june-theme: #E68282;
-    --june-theme-op: #4259ef23;
-    --june-blue: #3b70fc;
-    --june-red: #d8213c;
-    --june-pink: #ff7c7c;
-    --june-green: #57bd6a;
-    --june-fontcolor: #4c4948;
-    --june-background: #f7f9fe;
-    --june-reverse: #000;
-    --june-maskbg: rgba(255, 255, 255, 0.6);
-    --june-maskbgdeep: rgba(255, 255, 255, 0.85);
-    --june-hovertext: var(--june);
-    --june-ahoverbg: #f7f7fa;
-    --june-lighttext: var(--june-main);
-    --june-secondtext: rgba(60, 60, 67, 0.6);
-    --june-scrollbar: rgba(60, 60, 67, 0.4);
-    --june-card-btn-bg: #edf0f7;
-    --june-post-blockquote-bg: #fafcff;
-    --june-post-tabs-bg: #f2f5f8;
-    --june-secondbg: #f7f7f9;
-    --june-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
-    --june-card-bg: #fff;
-    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-card-border: #c0c6d8;
-    --june-copyright-bg: #eff1f3;
-    --june-border: #E68282
-}
-
-[data-theme="dark"] {
-    --june-theme: #333333;
-    --june-theme-op: #0084ff23;
-    --june-blue: #0084ff;
-    --june-red: #ff3842;
-    --june-pink: #ff7c7c;
-    --june-green: #57bd6a;
-    --june-fontcolor: #f7f7fa;
-    --june-background: #18171d;
-    --june-reverse: #fff;
-    --june-maskbg: rgba(0, 0, 0, 0.6);
-    --june-maskbgdeep: rgba(0, 0, 0, 0.85);
-    --june-hovertext: #0a84ff;
-    --june-ahoverbg: #fff;
-    --june-lighttext: #f2b94b;
-    --june-secondtext: #a1a2b8;
-    --june-scrollbar: rgba(200, 200, 223, 0.4);
-    --june-card-btn-bg: #30343f;
-    --june-post-blockquote-bg: #000;
-    --june-post-tabs-bg: #121212;
-    --june-secondbg: #30343f;
-    --june-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
-    --june-card-bg: #1b1c20;
-    --june-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --june-card-border: #42444a;
-    --june-copyright-bg: #323335;
-    --june-border: #c8c8c8
-}]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/css/dingbubolang.css</url>
-    <content><![CDATA[
-/* 顶部波浪 */
-.main-hero-waves-area {
-  width: 100%;
-  position: absolute;
+    <url>/css/universe.css</url>
+    <content><![CDATA[/* 背景宇宙星光  */
+#universe{
+  display: block;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
   left: 0;
-  bottom: -11px;
-  z-index: 5;
-}
-.waves-area .waves-svg {
+  top: 0;
   width: 100%;
-  height: 5rem;
-}
-
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-}
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-  fill: #f7f9febd;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-  fill: #f7f9fe82;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-  fill: #f7f9fe36;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-  fill: #f7f9fe;
-}
-
-[data-theme="dark"] .parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-  fill: #070709c8;
-}
-[data-theme="dark"] .parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-  fill: #07070980;
-}
-[data-theme="dark"] .parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-  fill: #0707093e;
-}
-[data-theme="dark"] .parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-  fill: #070709;
-}
-
-@keyframes move-forever {
-  0% {
-    transform: translate3d(-90px, 0, 0);
-  }
-  100% {
-    transform: translate3d(85px, 0, 0);
-  }
-}
-@media (max-width: 768px) {
-  .waves-area .waves-svg {
-    height: 40px;
-    min-height: 40px;
-  }
-}
-]]></content>
+  height: 100%;
+  pointer-events: none;
+  /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */
+  z-index: -1;
+}]]></content>
   </entry>
   <entry>
     <title></title>
@@ -797,352 +1143,6 @@ font-size: 6rem; /*C大小*/
 
 
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/css/loading.css</url>
-    <content><![CDATA[
-/* 加载条 */
-.pace {
-    pointer-events: none;
-    user-select: none;
-    z-index: 2;
-    position: fixed;
-    margin: auto;
-    top: 4px;
-    left: 0;
-    right: 0;
-    height: 8px;
-    border-radius: 8px;
-    width: 6rem;
-    background: #eaecf2;
-    overflow: hidden;
-}
-
-.pace-inactive .pace-progress {
-    opacity: 0;
-    transition: 0.3s ease-in;
-}
-
-.pace.pace-inactive {
-    opacity: 0;
-    transition: 0.3s;
-    top: -8px;
-}
-
-.pace .pace-progress {
-    box-sizing: border-box;
-    transform: translate3d(0, 0, 0);
-    position: fixed;
-    z-index: 2;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    height: 100%;
-    width: 100%;
-    background: #49b1f5;
-    background: linear-gradient(to right,
-            rgb(18, 194, 233),
-            rgb(196, 113, 237),
-            rgb(246, 79, 89));
-    animation: gradient 2s ease infinite;
-    background-size: 200%;
-}]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/css/transparent.css</url>
-    <content><![CDATA[/* 文章页背景 */
-.layout_post>#post {
-    /* 以下代表透明度为0.5 可以自行修改*/
-    background: rgba(255, 255, 255, .5);
-}
-
-/* 所有页面背景 */
-#aside_content .card-widget,
-#recent-posts>.recent-post-item,
-.layout_page>div:first-child:not(.recent-posts),
-.layout_post>#page,
-.layout_post>#post,
-.read-mode .layout_post>#post {
-    /* 以下代表透明度为0.7 */
-    background: rgba(255, 255, 255, .7);
-}
-
-/*侧边卡片的透明度 */
-:root {
-    --card-bg: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* 暗色模式下的卡片透明度 */
-[data-theme='dark'] {
-    --card-bg: rgba(18, 18, 18, 0.7) !important;
-}
-
-/* 页脚透明 */
-#footer {
-    /* 以下代表透明度为0.1*/
-    background: rgba(255, 255, 255, .1);
-}
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/css/universe.css</url>
-    <content><![CDATA[/* 背景宇宙星光  */
-#universe{
-  display: block;
-  position: fixed;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */
-  z-index: -1;
-}]]></content>
-  </entry>
-  <entry>
-    <title>我的动态</title>
-    <url>/feed/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/js/about.js</url>
-    <content><![CDATA[function whenDOMReady() {
-	if (location.pathname.startsWith('/about/')) meuicat.comments(), meuicat.Introduction(), meuicat.runtimen(), meuicat.fiftyonela();
-}
-
-whenDOMReady() // 打开网站先执行一次
-document.addEventListener("pjax:complete", whenDOMReady) // pjax加载完成（切换页面）后再执行一次
-
-let lastSayHello = "";
-var meuicat = {
-	comments: function() {
-		fetch('/article.json')
-		.then(res => res.json())
-		.then(articleData => {
-			const urls = Object.keys(articleData);
-		
-			fetch('https://quicer-twikoo.zeabur.app/', {
-			method: "POST",
-			body: JSON.stringify({ event: "GET_RECENT_COMMENTS", accessToken: "b05c6c58249b23583c4de2a63ad228be", includeReply: true, pageSize: -1 }),
-			headers: { 'Content-Type': 'application/json' }
-			})
-			.then(res => res.json())
-			.then(({ data }) => {
-				const totalComments = data.length;
-				const commentElements = document.querySelectorAll('.N_comments');
-				commentElements.forEach(element => {
-					if (element.classList.contains('N_comments')) {
-						element.innerText = totalComments + '条评论';
-					} else {
-						console.log(`iCat提醒您：\n\n评论总数功能无法获取到正确的元素，请检查页面是否正常！\n\n教程地址：https://meuicat.com/blog/78/`);
-					}
-				});
-			});
-		});
-	}, // 总评论数量
-	Introduction: function() {
-		const e = [
-				"🤖️ 数码科技爱好者",
-				"🔍 分享与热心帮助",
-				"🏠 智能家居小能手",
-				"🔨 设计开发一条龙",
-				"📷 人文摄影的坚定者",
-				"🏃 脚踏实地行动派",
-				"📚 热爱阅读的书虫迷",
-				"🎵 热爱电音的音游人",
-				"🏋️‍♀️ 坚韧不拔的健身达人",
-				"🍜 走哪吃哪的美食迷",
-				"🎮 Minecraft骨灰级玩家",
-				"👨‍🍳 一位爱做饭的程序猿",
-			],
-			t = document.getElementById("Introduction");
-		let o = e[Math.floor(Math.random() * e.length)];
-		for (; o === lastSayHello;) o = e[Math.floor(Math.random() * e.length)];
-		(t.textContent = o), (lastSayHello = o);
-	}, // about 个人介绍词
-	runtimen: function() {
-		let t = new Date("2026/02/19 00:00:00")
-			.getTime(),
-			n = new Date()
-			.getTime(),
-			a = Math.round((n - t) / 1e3),
-			l = (a / 7884e4)
-			.toFixed(2);
-		let c = document.getElementById("run-time");
-		c && (c.innerHTML = `已稳定运行 ${l} 坤年 🏀`),
-			setTimeout(meuicat.runtime, 1e3);
-	}, // about 运行时间
-	fiftyonela: function() {
-		fetch('https://v6-widget.51.la/v6/3Nehh0mnf1xQsuVw/quote.js')
-			.then(res => res.text())
-			.then((data) => {
-				let title = ['今日人数', '今日访问', '昨日人数', '昨日访问', '本月访问']
-				let num = data.match(/().*?(\/span>)/g)
-	
-				num = num.map((el) => {
-					let val = el.replace(/()/g, '')
-					let str = val.replace(/()/g, '')
-					return str
-				})
-	
-				let statisticEl = document.getElementById('statistic')
-				let activeVisitors = num[0]
-	
-				// 添加最近活跃访客的内容
-				let TBoxEl = document.querySelector('.T-box')
-				if (TBoxEl) {
-					TBoxEl.innerHTML = '最近活跃：' + activeVisitors + '&ensp;|&ensp;' + TBoxEl.innerHTML
-				}
-	
-				// 自定义不显示哪个或者显示哪个，如下不显示总访问量
-				for (let i = 0; i < num.length; i++) {
-					if (!statisticEl) return
-					if (i == 0 || i == num.length - 1) continue;
-					statisticEl.innerHTML += '' + title[i - 1] + '' + num[i] + ''
-				}
-			});
-	} // about 51la统计显示
-}
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/js/baiduhistory.js</url>
-    <content><![CDATA[if(document.getElementById('history-container')){
-    function append(parent, text) {
-        if (typeof text === 'string') {
-            var temp = document.createElement('div');
-            temp.innerHTML = text;
-            // 防止元素太多 进行提速
-            var frag = document.createDocumentFragment();
-            while (temp.firstChild) {
-                frag.appendChild(temp.firstChild);
-            }
-            parent.appendChild(frag);
-        }
-        else {
-            parent.appendChild(text);
-        }
-    }
-
-    function history_get_data(){
-        var myDate = new Date();
-        var myMonth = myDate.getMonth() + 1;
-        if (myMonth < 10) {
-            getMonth = "0" + String(myMonth);
-        } else {
-            getMonth = String(myMonth);
-        }
-        var getDate = String(myDate.getDate());
-        if (getDate < 10) {
-            getDate = "0" + String(getDate);
-        } else {
-            getDate = String(getDate);
-        }
-        var getMonthDate = "S" + getMonth + getDate;
-        return ["https://gcore.jsdelivr.net/gh/Zfour/Butterfly-card-history@latest/baiduhistory/json/" + getMonth + ".json",getMonthDate]
-    }
-    var history_data = history_get_data()
-    fetch(history_data[0]).then(data=>data.json()).then(data=>{
-        console.log(data[history_data[1]])
-        html_item =''
-        for (var item of data[history_data[1]]){
-            html_item += 'A.D.' +
-                item.year +'' + ''+ item.title +''
-
-        }
-        var history_container_wrapper = document.getElementById('history_container_wrapper')
-        append(history_container_wrapper, html_item);
-        var swiper_history = new Swiper('.history_swiper-container', {
-            passiveListeners:true,
-            spaceBetween: 30,
-            effect: 'coverflow',
-            coverflowEffect: {
-                rotate: 30,
-                slideShadows: false,
-            },
-            loop: true,
-            direction: 'vertical',
-            autoplay: {
-                disableOnInteraction: true,
-                delay:5000
-            },
-
-            mousewheel:false,
-            // autoHeight: true,
-
-        });
-
-        var history_comtainer = document.getElementById('history-container');
-        history_comtainer.onmouseenter = function () {
-            swiper_history.autoplay.stop();
-        };
-        history_comtainer.onmouseleave = function () {
-            swiper_history.autoplay.start();
-        }
-    })}]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/js/icat.js</url>
-    <content><![CDATA[// changeTime函数
-const changeTime = (time, more = false) => {
-  const currentDate = new Date()
-
-  const formatTimestamp = (date) => {
-    const d = new Date(date)
-    const pad = (num) => String(num).padStart(2, '0')
-    return `${pad(d.getFullYear())}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ` + `${pad(d.getHours())}:${pad(d.getMinutes())}`
-  }
-
-  const calculateDiff = (date1, date2, unit) => {
-    const units = { day: 24 * 60 * 60 * 1000, hour: 60 * 60 * 1000 }
-    return Math.floor(Math.abs(date1 - date2) / units[unit])
-  }
-
-  const describeTime = (datetime) => {
-    const timeObj = new Date(datetime)
-    const diffDays = calculateDiff(timeObj, currentDate, 'day')
-    const diffHours = calculateDiff(timeObj, currentDate, 'hour')
-
-    if (diffHours < 1) return `最近`
-    if (diffHours 9){
-        str += mm;
-      }else{
-        str += "0" + mm;
-      }
-      if(currentdate.getDate()>9){
-        str += currentdate.getDate();
-      }else{
-        str += "0" + currentdate.getDate();
-      }
-      if(PSFarr.indexOf(str)>-1){
-          return 1;
-      }else{
-          return 0;
-      }
-  }
-
-// 0707 - 七七事变
-// 0909 - 毛主席忌辰
-// 0918 - 九一八事变
-// 1109 - 娣外公忌辰
-// 1213 - 南京公祭日
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/js/universe.js</url>
-    <content><![CDATA[function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;ithis.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacityn||this.y]]></content>
   </entry>
   <entry>
     <title>友情链接</title>
@@ -1208,13 +1208,20 @@ name: # 名称link: # 网址avater: # 头像URLdescr: # 描述]]></content>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>个人照片库</title>
+    <url>/pictures/mine/index.html</url>
+    <content><![CDATA[
+    [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-qxfftZ9myQUjvPiCTtb2sCk36NjaJM.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2-i0jHLREfGEa2M6RgqcGMJkkrvlkR70.webp","alt":"2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/3-Sy3BzpwnRdNnYDVxrvXYoyKi8GaXXO.webp","alt":"3","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/4-q7WNfDRnDDBPDFktW62toaRcE56K8T.webp","alt":"4","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/5-pw0yJVlIINdcLy9zkZ1NJC84XSx596.webp","alt":"5","title":""}]
+  ]]></content>
+  </entry>
+  <entry>
     <title>更新日志</title>
     <url>/updates/index.html</url>
     <content><![CDATA[了解更多详细信息请前往releases查看，所有版本说明仅供参考，请以实际效果为准。
 
 
         
-          2025
+          2026
 
         
       
@@ -1306,13 +1313,6 @@ V1.0.0版本说明
 ]]></content>
   </entry>
   <entry>
-    <title>个人照片库</title>
-    <url>/pictures/mine/index.html</url>
-    <content><![CDATA[
-    [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-qxfftZ9myQUjvPiCTtb2sCk36NjaJM.webp","alt":"1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2-i0jHLREfGEa2M6RgqcGMJkkrvlkR70.webp","alt":"2","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/3-Sy3BzpwnRdNnYDVxrvXYoyKi8GaXXO.webp","alt":"3","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/4-q7WNfDRnDDBPDFktW62toaRcE56K8T.webp","alt":"4","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/5-pw0yJVlIINdcLy9zkZ1NJC84XSx596.webp","alt":"5","title":""}]
-  ]]></content>
-  </entry>
-  <entry>
     <title>魔丸要破鼎啦！！！？</title>
     <url>/pictures/mowan/index.html</url>
     <content><![CDATA[可恶，这都被你发现了！！
@@ -1322,7 +1322,7 @@ V1.0.0版本说明
 
     [{"url":"https://img.mc-sep.top/i/aae13b32-f53e-4a79-9595-e54097254cd4.webp","alt":"mowan1","title":""},{"url":"https://img.mc-sep.top/i/e62bb0e6-f58b-4cdb-b2ee-552b19f6d385.webp","alt":"mowan2","title":""}]
   
-太帅啦！！！！
+太帅啦！！！！AWA
 
     [{"url":"https://img.mc-sep.top/i/4ed17981-e1c9-44a5-9708-e737ddad1da3.webp","alt":"我不行了！","title":""}]
   
@@ -1330,12 +1330,13 @@ V1.0.0版本说明
 
     [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/laoyou1-79zHxZJD5MFwpO7iJCrIfxQZBZnH0Q.webp","alt":"老友记1","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/laoyou2-UrsL7QBEQmEs8DIi1IrXVuABOxDB0p.webp","alt":"老友记2","title":""}]
   
-老友！！！
+课上随便看老友。
 其他照片
 
     [{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/jianwen1-46vECxus7E0v6GXvoR5kO72oqHdWMN.webp","alt":"jianwen","title":""},{"url":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/jianwen2-QFEyfcTPjoLv2GrDENlLJj3y3BdHMk.webp","alt":"jianwen","title":""}]
   
-基文！！
+基文的帅照AWA。
+感谢同学为我提供照片！
 （最近精神状态良好！）
 ]]></content>
   </entry>
