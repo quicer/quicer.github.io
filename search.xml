@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Github访问慢？一个加速器解决</title>
+      <link href="/posts/b74f9f5b.html"/>
+      <url>/posts/b74f9f5b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Github在中国大陆境内真的太不稳定了QWQ，有的时候上传文件时会something were wrong，有时甚至进不去…<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-s2txptu82mnzxa2b-mSft7IFPBKnEePtPunzC90ZpG3CzSJ.webp" alt="悲"><br>太难受了！<br>于是我去网上找加速器，找到了Watt Toolkit（原Steam++）这么一款免费加速器。  </p><a class="tag-link" href="https://steampp.net/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Watt Toolkit</div>            <div class="tag-link-sitename">一个开源跨平台的多功能 Steam 工具箱。</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>   <p>刚好没啥文章好些的，就水一篇吧（喜）。  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>本人是在Windows系统操作的，其他操作系统大致相同，跟着做就行。</p></div> <h2 id="1-下载加速器"><a href="#1-下载加速器" class="headerlink" title="1.下载加速器"></a>1.下载加速器</h2><p>下面的操作系统都可以下载。  </p><div class="tabs" id="system_download"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#system_download-0">Windows10/11</button></li><li class="tab"><button type="button" data-href="#system_download-1">Linux</button></li><li class="tab"><button type="button" data-href="#system_download-2">MacOS</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="system_download-0"><p>Watt Toolkit在Microsoft Store中已经可以下载，Windows用户直接在Microsoft Store中搜索Watt Toolkit就可以找到并下载了。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>如果你无法使用Microsoft Store，前往官方<a href="https://wwn.lanzouy.com/b01v4iz1g">蓝奏云网盘分享链接</a>，提取码1234，下载就可以了。这是官方的，没有安全问题。</p></div></div><div class="tab-item-content" id="system_download-1"><div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>需要依赖 <code>certutil</code>,<code>jq</code>，<code>zenity</code> 工具。<br>Linux目前支持 <code>x64（amd64）</code> 与 <code>loongarch64</code> 架构。</p></div>   <p>运行下面代码安装脚本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://steampp.net/Install/Linux.sh</span><br></pre></td></tr></table></figure><p>简单说明一下依赖：</p><ul><li><code>certutil</code>工具：初始化<code>nssdb</code>数据库,<code>Chrome</code>信任该数据库</li><li><code>jq</code>工具：解析更新接口自动获取下载地址。</li><li><code>zenity</code>工具:图形化提示，显示下载进度。</li></ul><p>前往<a href="https://gitee.com/rmbgame/SteamTools/releases/tag/3.0.0-rc.16">官方gitee链接</a>下载即可。</p></div><div class="tab-item-content" id="system_download-2"><p>前往<a href="https://wwe.lanzouy.com/b01v4izaf">官方蓝奏云网盘分享链接</a>，提取码1234，下载就可以了。这是官方的，没有安全问题。</p></div></div></div> <h2 id="2-加速！"><a href="#2-加速！" class="headerlink" title="2.加速！"></a>2.加速！</h2><p><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-uex14i6aw5ziebzz-wRyqtvlDqJ3aI1DEGy11LLpmJOhvR7.webp" alt="网络加速界面"><br>可以看到它除了支持加速Github，还支持加速Steam，Twitch，Origin，Uplay，公共CDN，Google翻译，Spotify，国外验证码平台，Roblox，Mod，Nexus Modes，OneDrive，MEGA，DropBox，Pinterest，Artstation，Imgur图床，Vercel和appcenter。有的时候大家需要时也可以加速其他东西。<br>下滑看到Github，直接勾选。为了防止它崩掉，建议取消勾选默认勾选的Steam，让加速更稳定。然后点击<strong>一键加速</strong>就可以了。  </p><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>如果时间一直在00:00:00且没有任何效果，可以点击停止加速，然后重新加速。</p></div> <h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>这款加速器真牛逼！！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> 热门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费下载激活Microsoft Office</title>
+      <link href="/posts/b74f9f5a.html"/>
+      <url>/posts/b74f9f5a.html</url>
+      
+        <content type="html"><![CDATA[<div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本教程仅适用于Windows操作系统，其他操作系统似乎无法使用Office（也许吧，我没用过其它系统）。</p></div> <div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>本文参考的官方文档：<a href="https://www.officetool.plus/zh-cn/">https://www.officetool.plus/zh-cn/</a></p></div> <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用Windows系统的用户都知道，电脑上的Office会自动升级为Microsoft 365，并且365网页免费版在中国无法正常使用，必须使用魔法才可以进入。并且微软的定价也非常昂贵。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E6%98%82%E8%B4%B5%E5%AE%9A%E4%BB%B7-EgmbofPUJo4JtD0QDdowBCZvaKgWOh.webp" alt="昂贵的定价"><br>所以，在这里，我将推荐一个非常好用的工具：<strong>Office Tool Plus</strong>。<br>让我们看看怎么使用这个工具下载并激活Office吧！  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>进入下载界面，里面有很多种下载方式，自己选择一种你喜欢的即可。  </p><a class="tag-link" href="https://www.officetool.plus/zh-cn/introduction/download.html" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Office Tool Plus</div>            <div class="tag-link-sitename">下载页面</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a> <div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>建议选择一个离你比较近的镜像站，会快点。</p></div> <p>有人会发现，里面包含很多个压缩包，有包含with runtime的，还有普通的。<br>这里简单说一下区别：</p><ul><li><p>包含框架版本（with runtime）：包含 .NET Runtime，可以在不安装 .NET Runtime 的情况下直接运行 Office Tool Plus。</p></li><li><p>普通版本：仅包含 Office Tool Plus 以及基本组件。</p></li></ul><p>小白直接下框架版本即可，方便使用（就是体积比较大，带with runtime的那个）。</p><h2 id="2-解压和运行"><a href="#2-解压和运行" class="headerlink" title="2.解压和运行"></a>2.解压和运行</h2><p>下载完成后，请将整个压缩包解压到一个合适的位置。<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/ing-57MuUofKn0jQQp29VRhHYdb8IHeEDt.webp" alt="解压ing">   </p><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>请勿在压缩包内直接双击运行 Office Tool Plus。</p></div> <p>打开解压后的文件夹，找到并双击 <strong>Office Tool Plus.exe</strong> 以运行程序。</p><p><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Office%20Tool%20Plus-kEvDoN7zMVuoTPBzJu3fcaIeIllHjM.webp" alt="打开Office"><br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E4%B8%BB%E9%A1%B5-CkbKzNd6xSVBM6foicUcMyodQayIMN.webp" alt="主页">  </p><h2 id="3-部署（下载）Office"><a href="#3-部署（下载）Office" class="headerlink" title="3.部署（下载）Office"></a>3.部署（下载）Office</h2><p>点击左边的“<strong>部署</strong>”，按照下面进行配置：  </p><table><thead><tr><th>部署项</th><th>配置项</th></tr></thead><tbody><tr><td>部署模式</td><td>安装</td></tr><tr><td>体系结构</td><td>根据自己的系统选择，一般是64位</td></tr><tr><td>更新通道</td><td>当前通道</td></tr><tr><td>安装模块</td><td>Office部署工具</td></tr><tr><td>下载后再部署</td><td>打开</td></tr><tr><td>创建桌面快捷方式</td><td>根据自己的喜好设置（建议打开）</td></tr><tr><td>安装iSlide插件</td><td>根据自己的情况决定</td></tr></tbody></table><p>然后点击<strong>添加产品</strong>，选择一项你想要的Office版本。</p><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>1.建议不要选择Microsoft 365，因为Office Tool Plus没有对应的许可证，激活它们需要使用其他产品的许可证，可能会导致使用问题。<br>2.不要选择带有“ - 批量许可证”的产品！不然我也不知道会发生什么。</p></div> <p>我选择了Office2019专业增强版，大家可以选其他的。<br>选择后，大家勾选自己想要安装的应用程序，推荐勾选常用的即可。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1%20%281%29-8lWC6QoiiFLx6ITztzTWlQ2Yvk6LaX.webp" alt="实例"><br>然后点击<strong>添加语言</strong>，选择你想使用的语言（搜素“简体中文”就可以找到简体中文了）。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2%20%281%29-bmf7xhxqcrfNwbRWrUpKoVU6SdnMNT.webp" alt="实例"><br>最后点击最上方的“<strong>开始部署</strong>”即可开始下载文件。<br>下载完成后会自动弹出一个窗口，继续等待下载即可。<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Office%E4%B8%AD...-swCJYkqPyxOdTtresvduyKYtXaGVQR.webp" alt="等待">  </p><h2 id="4-激活"><a href="#4-激活" class="headerlink" title="4.激活"></a>4.激活</h2><p>点击Office Tool Plus左侧边栏的“激活”。<br>在“许可证管理”的右侧有个小箭头，需要点击它以展开里面的内容。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/3-wYQ021rVbqmJNlmWO38cSDGHB1dFpX.webp" alt="展开前"><br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/4-4hqR1S28RGAJ0M3nbcN6spiOUMyM6s.webp" alt="展开后"><br>可以看到展开后有三个“安装”选项，点击第一个，会弹出许可证列表。<br>在列表中选择你的Office版本的<strong>批量许可证</strong>（可以有<strong>LTSC</strong>），比如我选择的就是“<strong>Office 专业增强版 2019 - 批量许可证</strong>”。  </p><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>1.选择的许可证后面一定要带有“ - 批量许可证”！不然激活时会出错！！！<br>2.LTSC可有可无，不会造成影响。</p></div>   <p>然后在<strong>KMS主机</strong>那一栏中输入下面的主机名称：  </p><blockquote><p>kms.loli.beer</p></blockquote><p>输入后点击“<strong>设置主机</strong>”，等待设置完成。<br>完成后点击顶部的“<strong>激活</strong>”，等待激活成功。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/5-kGvHRU3w93WXrnuLtEgpjbq1qmreO7.webp" alt="激活成功">  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>如果激活失败，请再次尝试。如果还是不行，请往下看“<strong>激活失败常见原因</strong>”。  </p></div> <p>成功后，你就可以尽情使用了！</p><h1 id="激活失败常见原因"><a href="#激活失败常见原因" class="headerlink" title="激活失败常见原因"></a>激活失败常见原因</h1><p>如果你激活失败了，下面是一些常见的原因，如果仍然没有解决问题，请在评论区说明你遇到的问题，我会尽力解决。  </p><h2 id="1-选择的许可证不是批量许可证"><a href="#1-选择的许可证不是批量许可证" class="headerlink" title="1.选择的许可证不是批量许可证"></a>1.选择的许可证不是批量许可证</h2><p><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-57gv644fa926ibx7-z1xGnVIZmeBn225aLHtnMv3tmCmttR.webp" alt="许可证管理"><br>在这里点击第一个“安装”时，可以看到很多的许可证。<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-rgjne91ua8au71yx-pjcEtqtPtXOOxc7fZHoK7XTiv5V2aZ.webp" alt="许可证列表"><br>可以发现，这里有一部分后面没有带“- <strong>批量许可证</strong>”，有些带了。<br><strong>这里必须选择带有“- 批量许可证”的许可证！</strong>（LTSC可有可无）<br>前面也有说过，Microsoft 365没有批量许可证，只可以自己付钱去365官网购买。如果你真的想用Microsoft 365，可以试试用其他的许可证去激活它（可能造成使用问题）。  </p><h2 id="2-网络不稳定"><a href="#2-网络不稳定" class="headerlink" title="2.网络不稳定"></a>2.网络不稳定</h2><p>你连接的网络不稳定也可能造成激活失败。这个时候需要检查你的网络。检查后再次尝试。  </p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>真的是一个很好用的工具！WPS Office太多广告了，很多功能都要会员，且占用大。Office相对来说更加轻量，没有广告，且速度快，基本功能也齐全。有这么一个工具下载激活Office，真的是很多人的福音。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> Office </tag>
+            
+            <tag> Microsoft </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的过敏性紫癜肾炎治病历程</title>
+      <link href="/posts/b8439c6.html"/>
+      <url>/posts/b8439c6.html</url>
+      
+        <content type="html"><![CDATA[<p>从我2025年11月查出紫癜肾炎，到现在已经快4个月了，现在仍在服用激素与其他药物。<br>最近没什么好更新的文章，就简单谈一谈我的经历吧。<br>一开始我是腿上开始长一些红点，并且按压它们还不会褪色。当时我并没有想那么多，觉得长一些红点很正常，可能是被什么东西咬了，没有去多管。之后红点越来越多，一开始是小腿下部，后来蔓延到了脚上还有膝盖。我慢慢慌了，因为我是住宿生，只有周六下午（或晚上）才放学，就没有及时去医院。后来我告诉了我妈，我妈觉得不对劲，就把我硬拉去了医院（逃了一节体育课嘿嘿）。学校附近的医院看了，说可能是紫癜，要去市里的大医院看，于是我和我妈又打滴滴去了中医院，直接就办了入院。<br>当时是这么说的，说紫癜会影响消化道（主要是胃和肠道）和肾，但是我来得比较及时，并且紫癜相对来说比较少，一般没啥问题，打几天针，做一些检查就没问题了。没想到第二天就出问题了，我的晨尿出问题了。<br>我的晨尿尿蛋白2+，尿隐血3+。<br>于是医院紧急给我开了个24h蛋白尿检，尿蛋白是2000多！（正常其实才2位数）<br>当时是真的慌了，医院也很蒙，他们说只有紫癜发展到很严重时才会慢慢影响到肾，我这tm直接到肾了，并且消化道一切正常，直接跳过了消化道这一步。<br>其实就是我运气太差了…<br>于是我就开始服用激素了。激素副作用是真的多。我服用的是甲波尼龙片，大家可以自己去搜有啥副作用。反正现在我的脸是直接肿起来了。<br>现在已经出院，尿常规也慢慢正常了。但是这个病它复发率非常高，而且每一次复发都会变得更加难治（因为有抗药性了）。我现在尽量不能感染任何病原体，否则会刺激免疫系统，很容易又导致复发。并且因为激素原因，我的免疫力现在非常低。12月份的时候我就一个小感冒，血常规白细胞直接急剧降低到零点几，办理紧急入院抢救的…<br>3月开学后，我的饮食限制会变松，可以吃一些不那么清淡的东西了。希望我能在1年内临床治愈，然后永不复发（根治不了，别想了…）。<br>活着就好。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 琐事杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+            <tag> 生病 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>下载你喜欢的B站视频</title>
+      <link href="/posts/30b0f4bb.html"/>
+      <url>/posts/30b0f4bb.html</url>
+      
+        <content type="html"><![CDATA[<div class="note danger modern"><i class="solitude fas fa-triangle-exclamation"></i><p>本工具作者由于在2026年7月6日收到了B站的律师函，已经将该工具在Github删除，因此该工具已经无法通过官方渠道下载。<br>因为作者已经不再提供支持，此工具随时可能报废，请不要对长期使用它抱有过多希望。<br>切记不要滥用此工具，若被B站发现，等来的可能是律师函。珍惜现在可以使用它的机会，不要下载一些B站很火的视频，下载一些小视频就行了。<br>想了解详细情况请前往 <a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a> 查看README。</p></div>   <div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div> <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>哔哩哔哩作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。  </p><a class="tag-link" href="https://www.bilibili.com/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">哔哩哔哩</div>            <div class="tag-link-sitename">哔哩哔哩 (゜-゜)つロ 干杯~</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p><p>在之前，我是使用<a href="https://client.sabe.cc/">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：<strong>DownKyi</strong>。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。  </p><blockquote><p>Github仓库地址：<a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图">  </p><p>接下来上教程！  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>这里只提供一种下载方式（原因见文章开头）。  </p><blockquote><p><a href="https://cloud.mc-sep.top/">Sep’s Cloud</a> by @<a href="https://mc-sep.top/">MC-Sep</a>：A self-hosted file management system with muilt-cloud support.  </p></blockquote><div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本方式仅适用于Windows操作系统。</p></div> <p>点击进入<a href="https://cloud.mc-sep.top/s/RnUg">分享链接</a>，找到适合自己系统的zip，下载即可。<br>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。  </p><h2 id="2-下载视频"><a href="#2-下载视频" class="headerlink" title="2.下载视频"></a>2.下载视频</h2><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a href="https://www.bilibili.com/">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。 </p></div>   <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个工具被删了很可惜，感谢大佬提供这样的工具。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 哔哩哔哩 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

@@ -1,0 +1,686 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>下载你喜欢的B站视频 | quicer</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/avatar.webp"><link rel="stylesheet" href="/css/index.css?v=2.0.0%20Beta"><link rel="canonical" href="http://quicer.us.ci/posts/30b0f4bb.html"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><!-- Feature-specific CSS--><!-- aplayer--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"><!-- fancybox ui--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css"><!-- katex--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><!-- Open Graph--><meta name="description" content="下载B站视频"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="quicer"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/avatar.webp"><link rel="apple-touch-icon" href="/img/avatar.webp" sizes="180x180"><script>console.log(' %c AstraBay %c ' + '2.0.0 Beta' + ' %c https://github.com/Stars-harbor/astrabay',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>let mdate = "5-12,7-7,9-11,9-18,12-13";
+mdate = (mdate.split(","));
+let ndate = new Date();
+for (let i of mdate) {
+    if (i === (ndate.getMonth()+1) + "-" + (ndate.getDate())) {
+        document.documentElement.classList.add('memorial');
+    }
+}
+</script><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"3Nehh0mnf1xQsuVw",ck:"3Nehh0mnf1xQsuVw",autoTrack:true})</script><link rel="stylesheet" href="/custom/css/custom.css"><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><script src="/custom/js/welcome.js"></script><script src="//instant.page/5.2.0" type="module"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+            },
+            diffDateFormat: (selector) => {
+                selector.forEach(item => {
+                    const date = new Date(item.getAttribute('datetime') || item.textContent);
+                    item.textContent = (date.getMonth() + 1).toString()+'/'+date.getDate().toString();
+                });
+            },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":true,"path":"/search.xml"},
+    runtime: '2026-07-10 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/error_load.webp'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: true,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。","loading":"搜索中..."},"barrage":{"title":"热评"}},
+    aside: {
+        state: {
+            morning: "✨ 早上好，新的一天开始了",
+            noon: "🍲 午餐时间",
+            afternoon: "🌞 下午好",
+            night: "早点休息",
+            goodnight: "晚安 😴",
+        },
+        witty_words: ["U3D游戏独立开发","电音爱好者","高中生","音游人"],
+        witty_comment: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: true
+    },
+    comment: {"avatar":"https://gravatar.com/avatar","commentBarrage":true},
+    lightbox: 'fancybox',
+    right_menu: {"mode":{"dark":"深色模式","light":"浅色模式"},"img_error":"此图片无法复制与下载","barrage":{"open":"显示热评","close":"关闭热评"},"translate":true,"ctrlOriginalMenu":"按住Ctrl+右键可打开浏览器右键菜单"},
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: false,
+    expire: {"time":100,"position":"top","text_prev":"这篇文章距离最后一次更新已经过去了","text_next":"天，文章内容可能已经过期，请联系作者更新文章。"},
+};</script><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: true,
+    ai_text: '本文介绍 B 站视频下载工具 DownKyi，该工具因作者收到 B 站律师函已下架 Github 官方源，仅第三方云盘可获取，仅支持 Windows。工具可下载高清视频、弹幕、封面等；使用需登录、粘贴视频链接解析下载，同时提醒仅可个人观看，勿滥用侵权。',
+    color: false,
+    expire: true,
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="quicer" type="application/atom+xml">
+</head><body id="body"><div><canvas id="universe"></canvas></div><div id="global_bg"></div><div><div id="loading-box" onclick="preloader.endLoading();" style="zoom:1"><div class="loading-bg"><img class="loading-img nolazyload" src="/img/avatar.webp" alt="loading image"></div></div><script>const preloader = {
+    isLoaded: false,
+    endLoading: () => {
+        if (!preloader.isLoaded) {
+            document.getElementById('loading-box').classList.add('loaded');
+            preloader.isLoaded = true;
+            preloader.togglePaceDone();
+        }
+    },
+    initLoading: () => {
+        document.getElementById('loading-box').classList.remove('loaded');
+        preloader.isLoaded = false;
+        preloader.togglePaceDone();
+    },
+    togglePaceDone: () => {
+        document.getElementById('body').className = preloader.isLoaded ? 'pace-done' : '';
+    }
+}
+
+window.addEventListener('load', () => {
+    preloader.endLoading();
+});
+
+window.addEventListener('pjax:send', () => {
+    preloader.initLoading();
+});
+
+document.addEventListener('pjax:complete', () => {
+    preloader.endLoading();
+});
+
+setTimeout(() => {
+    preloader.endLoading();
+}, 5000);</script></div><div><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="astrabay fas fa-xmark"></i></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><div class="author-content-item-title">最新评论<a class="recent-comment-more" href="/recentcomments/" title="最近评论"><i class="astrabay fas fa-circle-chevron-right"></i></a></div></div><div class="console_recentcomments"><script pjax="">(async () => {
+    document.querySelector('.console-card .console_recentcomments').textContent = `加载中...`
+    const emojiReg = /<img [^>]+ class="wl-emoji">/g
+    let cache = utils.saveToLocal.get('waline-recent-comments-console')
+    if (cache) {
+        setHtml(document.querySelector('.console-card .console_recentcomments'), cache)
+        return
+    }
+    let ls = []
+    await fetch('https://quicer-waline.cc.cd//api/comment?type=recent&count=6', {method: 'GET'}).then(async res => res.json())
+        .then(async data => {
+            for (const i of data.data) {
+                let title = ''
+                if (i.url) {
+                    await fetch(i.url).then(res => res.text()).then(html => {
+                        const parser = new DOMParser()
+                        const doc = parser.parseFromString(html, 'text/html')
+                        title = doc.querySelector('title').innerText
+                    }).catch(() => {
+                        title = i.url
+                    })
+                }
+                if (title.indexOf('|') > 0) {
+                    title = title.split('|')[0]
+                }
+                ls.push({
+                    title: title,
+                    url: i.url,
+                    nick: i.nick,
+                    avatar: i.avatar,
+                    time: new Date(i.time),
+                    content: formatContent(i.comment)
+                })
+            }
+            setHtml(document.querySelector('.console-card .console_recentcomments'), ls)
+            utils.saveToLocal.set('waline-recent-comments-console', ls, 0.5)
+        })
+
+    function setHtml(el, data) {
+        el.innerHTML = data.length !== 0 ? data.map(i => `
+                            <div class="comment-card" title="${i.title}" onclick="pjax.loadUrl('${i.url}')">
+                                <div class="comment-info">
+                                    <img src="${i.avatar}" class="nolazyload" alt="${i.nick}">
+                                    <div>
+                                        <span class="comment-user">${i.nick}</span>
+                                    </div>
+                                    <time class="comment-time" datetime="${i.time}"></time>
+                                </div>
+                                <div class="comment-content">${i.content}</div>
+                                <div class="comment-title">
+                                <i class="astrabay fas fa-comment"></i>
+                                ${i.title}</div>
+                            </div>
+                        `).join('') : `暂无评论...`
+        if (typeof utils !== 'undefined') utils.diffDateFormat(document.querySelectorAll('.comment-time'))
+        else {
+            document.addEventListener('pjax:complete', () => utils.diffDateFormat(document.querySelectorAll('.comment-time')))
+            document.addEventListener('DOMContentLoaded', () => utils.diffDateFormat(document.querySelectorAll('.comment-time')))
+        }
+    }
+
+    function formatContent(content) {
+        content = content.replace(emojiReg, '[表情]')
+        content = content.replace(/<img.*?>/g, '[图片]');
+        content = content.replace(/<a.*?>.*?<\/a>/g, '[链接]');
+        content = content.replace(/<pre.*?>.*?<\/pre>/g, '[代码]');
+        content = content.replace(/<.*?>/g, '');
+        return content
+    }
+})()</script></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"><a href="/tags/%E5%B7%A5%E5%85%B7/">工具<sup>3</sup></a><a href="/tags/Github/">Github<sup>1</sup></a><a href="/tags/%E7%83%AD%E9%97%A8/">热门<sup>3</sup></a><a href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/">哔哩哔哩<sup>1</sup></a><a href="/tags/Office/">Office<sup>1</sup></a><a href="/tags/Microsoft/">Microsoft<sup>1</sup></a><a href="/tags/%E7%94%9F%E6%B4%BB/">生活<sup>1</sup></a><a href="/tags/%E7%94%9F%E7%97%85/">生病<sup>1</sup></a></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="item"><a href="/archives/2026/02/"><span class="date">2026/02</span><div class="count-group"><span class="count">4</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/"><span class="date">全部文章</span><div class="count-group"><span class="count">4</span><span class="unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="astrabay fas fa-circle-half-stroke"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="astrabay fas fa-arrows-left-right-to-line"></i></span></div><div class="console-btn-item" id="consoleKeyboard" onclick="sco.switchKeyboard()"><span class="keyboardSwitch" title="键盘快捷键"><i class="astrabay fas fa-keyboard"></i></span></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"><span class="commentBarrage"><i class="astrabay fas fa-comment"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div></div><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/recentcomments/"><div class="headline">评论</div><div class="length-num" id="waline_allcount"><i class="astrabay fas fa-spinner fa-spin"></i></div><script pjax="pjax">(async () => {
+  await fetch('https://quicer-waline.cc.cd//api/comment?type=count', {method: 'GET'}).then(async res => res.json())
+    .then(async data => {
+      document.querySelector('#waline_allcount').innerHTML = data.data
+    })
+})()</script></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="astrabay fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">主题与框架</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9zb2xpdHVkZS5qcy5vcmcv" title="Solitude"><img class="nolazyload back-menu-item-icon" src="https://s2.loli.net/2024/10/10/hOTRIKV4vy6EMf2.webp" alt="Solitude"><span class="back-menu-item-text">Solitude</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.io" title="Hexo"><img class="nolazyload back-menu-item-icon" src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" alt="Hexo"><span class="back-menu-item-text">Hexo</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">搜索引擎</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jbi5iaW5nLmNvbS8" title="微软必应"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-9fp4hxqx0q8coig7-DgKRMRERHCQM9Ou64Wx1cxXgWU1HIE.webp" alt="微软必应"><span class="back-menu-item-text">微软必应</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuYmFpZHUuY29tLw" title="百度"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-dr5zy7y24o4t3666-MBDFvvInZr4ZYygO0lr8JjV0myHYmC.webp" alt="百度"><span class="back-menu-item-text">百度</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly95YW5kZXguY29tLw" title="Yandex"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Yandex-uPYJZh0VlDZSl7NVRrYEmQrhhi3eny.webp" alt="Yandex"><span class="back-menu-item-text">Yandex</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuc29nb3UuY29tLw" title="搜狗"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-m8w9ronyn32fwu3d-DHZY7K4S3rbqiLWQweuE0fxTYYhpWx.webp" alt="搜狗"><span class="back-menu-item-text">搜狗</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9oYW8uMzYwLmNvbS8" title="360导航"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/360-4KbmR2iyS2dnjrZZWf9VHadMw4n5VI.webp" alt="360导航"><span class="back-menu-item-text">360导航</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8" title="Google"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Google-FW6wLYPX5wGI31okrPx6azjTptfmmR.webp" alt="Google"><span class="back-menu-item-text">Google</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">图床</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9pbWdzZS5jb20v" title="路过图床"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-po0wv8bumuewk3qy-HVmbCgA0X3IkbwMhYDpkNBAnaO54Is.webp" alt="路过图床"><span class="back-menu-item-text">路过图床</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuaGVsbG9pbWcuY29tLw" title="Hello图床"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Hello%E5%9B%BE%E5%BA%8A-8cXYwLeGJjKFgFi47z8Y5VE3J5z2LO.webp" alt="Hello图床"><span class="back-menu-item-text">Hello图床</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">国产AI</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jaGF0LmRlZXBzZWVrLmNvbS8" title="Deepseek"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Deepseek-EZV4QutQNdtjB8jdytBKqT76DfLpjr.webp" alt="Deepseek"><span class="back-menu-item-text">Deepseek</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuZG91YmFvLmNvbS9jaGF0Lw" title="豆包"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-dxfm5tb2pozqs9sd-ypg9m4C5AqRygdE3Z0xNUgquXGlY3X.webp" alt="豆包"><span class="back-menu-item-text">豆包</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">快捷链接</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.luogu.com.cn/" title="洛谷"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-5y8tqzco7at8r7ni-fhjCAyDUXDjL8AQRzkVbHTSc57oAW3.webp" alt="洛谷"><span class="back-menu-item-text">洛谷</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/" title="Github"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Github-7jts6ISqjOeWyqGY80hZVvwlP6vnl5.webp" alt="Github"><span class="back-menu-item-text">Github</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>归档</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="astrabay  fas fa-book"></i><span>文章</span></a></li><li><a class="site-page child" href="/categories/"><i class="astrabay  fas fa-clone"></i><span>分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="astrabay  fas fa-tags"></i><span>标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="astrabay  fas fa-chart-bar"></i><span>统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>社交</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="astrabay  fas fa-user-group"></i><span>友链</span></a></li><li><a class="site-page child" href="/message/"><i class="astrabay  fas fa-envelope"></i><span>留言</span></a></li><li><a class="site-page child" href="/recentcomments/"><i class="astrabay  fas fa-comments"></i><span>新评</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>娱乐</span></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://quicer-music.cc.cd/?id=13908245149&amp;server=netease"><i class="astrabay  fas fa-music"></i><span>音乐</span></a></li><li><a class="site-page child" href="/games/"><i class="astrabay  fas fa-gamepad"></i><span>游戏</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="astrabay  fas fa-paper-plane"></i><span>追番</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/updates/"><i class="astrabay  fas fa-bolt"></i><span>更新</span></a></li><li><a class="site-page child" href="/about/"><i class="astrabay  fas fa-user"></i><span>关于</span></a></li><li><a class="site-page child" href="/reward/"><i class="astrabay  fas fa-hand-holding-heart"></i><span>赞赏</span></a></li><li><a class="site-page child" href="/essay/"><i class="astrabay  fas fa-newspaper"></i><span>动态</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"><a href="/tags/%E5%B7%A5%E5%85%B7/">工具<sup>3</sup></a><a href="/tags/Github/">Github<sup>1</sup></a><a href="/tags/%E7%83%AD%E9%97%A8/">热门<sup>3</sup></a><a href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/">哔哩哔哩<sup>1</sup></a><a href="/tags/Office/">Office<sup>1</sup></a><a href="/tags/Microsoft/">Microsoft<sup>1</sup></a><a href="/tags/%E7%94%9F%E6%B4%BB/">生活<sup>1</sup></a><a href="/tags/%E7%94%9F%E7%97%85/">生病<sup>1</sup></a></div></div><span class="sidebar-menu-item-title">网站信息</span><div class="webinfo"><div class="webinfo-item"><div class="item-name">全站字数 :</div><div class="item-count">3.2k</div></div></div></div></div><div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keyboardList"><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">K</div></div><div class="keyContent"><div class="content">关闭快捷菜单</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">A</div></div><div class="keyContent"><div class="content">打开控制台</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">L</div></div><div class="keyContent"><div class="content">打开友链</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">R</div></div><div class="keyContent"><div class="content">随机文章</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">S</div></div><div class="keyContent"><div class="content">打开搜索</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">N</div></div><div class="keyContent"><div class="content">深浅色更换</div></div></div></div></div><script>const keyboard_addKeyup = (e) => {
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.remove('show');
+    }
+}
+
+const keyboard_addKeydown = (e) => {
+    const keyboards = [{"name":"关闭快捷菜单","key":"K","func":"keyboard"},{"name":"打开控制台","key":"A","sco":"showConsole"},{"name":"返回首页","key":"H","url":"/"},{"name":"播放/暂停音乐","key":"M","sco":"musicToggle"},{"name":"打开友链","key":"L","url":"/links/"},{"name":"随机文章","key":"R","func":"toRandomPost"},{"name":"打开搜索","key":"S","func":"openSearch"},{"name":"深浅色更换","key":"N","sco":"switchDarkMode"}];
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.add('show');
+    }
+
+    for (let i = 0; i < keyboards.length; i++) {
+        if (keyboards[i].url) {
+            if (keyboards[i].url.startsWith('http')) {
+                if (e.key === keyboards[i].key) {
+                    window.open(keyboards[i].url);
+                }
+            } else {
+                if (e.key === keyboards[i].key) {
+                    pjax.loadUrl(keyboards[i].url);
+                }
+            }
+        } else if (keyboards[i].sco) {
+            if (e.key === keyboards[i].key) {
+                sco[keyboards[i].sco]();
+            }
+        } else if (keyboards[i].func) {
+            if (e.key === keyboards[i].key) {
+                window[keyboards[i].func]();
+            }
+        }
+    }
+}
+
+function openKeyboard() {
+
+    window.addEventListener('keyup', keyboard_addKeyup);
+
+    window.addEventListener('keydown', keyboard_addKeydown);
+}
+function closeKeyboard() {
+
+    window.removeEventListener('keyup', keyboard_addKeyup);
+
+    window.removeEventListener('keydown', keyboard_addKeydown);
+}
+
+var sco_keyboards = localStorage.getItem('keyboard') === 'true'
+if (sco_keyboards) {
+    openKeyboard();
+    let keyboard = document.getElementById('consoleKeyboard');
+    keyboard?.classList.add('on');
+}</script></div><div><div class="needEndHide" id="rightside"><div class="rs_hide"><button class="translate" type="button" title="简繁转换">简</button><button class="mode" type="button" title="显示模式切换" onclick="sco.switchDarkMode()"><i class="fas fa-circle-half-stroke"></i></button><button class="aside pc" type="button" title="侧边栏" onclick="sco.switchHideAside()"><i class="fas fa-arrows-alt-h"></i></button><button class="keyboard pc" type="button" title="键盘快捷键" onclick="sco.switchKeyboard()"><i class="fas fa-keyboard"></i></button></div><div class="rs_show"><button class="config" type="button" title="扩展" onclick="document.querySelector(&quot;.rs_hide&quot;).classList.toggle(&quot;show&quot;)"><i class="fas fa-gear fa-spin"></i></button><button class="mobile toc" type="button" title="目录" onclick="document.querySelector('#card-toc').classList.toggle('open')"><i class="fas fa-list"></i></button><button class="comment" type="button" title="评论" onclick="sco.scrollTo('post-comment')"><i class="fas fa-comment"></i></button><button class="barrage pc" type="button" title="弹" onclick="sco.switchCommentBarrage()"><span>弹</span></button><button class="top" type="button" title="返回顶部" onclick="sco.toTop()"><i class="fas fa-arrow-up"></i><span id="percent">0</span></button></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="astrabay fas fa-bars-progress"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">主题与框架</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9zb2xpdHVkZS5qcy5vcmcv" title="Solitude"><img class="nolazyload back-menu-item-icon" src="https://s2.loli.net/2024/10/10/hOTRIKV4vy6EMf2.webp" alt="Solitude"><span class="back-menu-item-text">Solitude</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.io" title="Hexo"><img class="nolazyload back-menu-item-icon" src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" alt="Hexo"><span class="back-menu-item-text">Hexo</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">搜索引擎</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jbi5iaW5nLmNvbS8" title="微软必应"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-9fp4hxqx0q8coig7-DgKRMRERHCQM9Ou64Wx1cxXgWU1HIE.webp" alt="微软必应"><span class="back-menu-item-text">微软必应</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuYmFpZHUuY29tLw" title="百度"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-dr5zy7y24o4t3666-MBDFvvInZr4ZYygO0lr8JjV0myHYmC.webp" alt="百度"><span class="back-menu-item-text">百度</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly95YW5kZXguY29tLw" title="Yandex"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Yandex-uPYJZh0VlDZSl7NVRrYEmQrhhi3eny.webp" alt="Yandex"><span class="back-menu-item-text">Yandex</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuc29nb3UuY29tLw" title="搜狗"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-m8w9ronyn32fwu3d-DHZY7K4S3rbqiLWQweuE0fxTYYhpWx.webp" alt="搜狗"><span class="back-menu-item-text">搜狗</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9oYW8uMzYwLmNvbS8" title="360导航"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/360-4KbmR2iyS2dnjrZZWf9VHadMw4n5VI.webp" alt="360导航"><span class="back-menu-item-text">360导航</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8" title="Google"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Google-FW6wLYPX5wGI31okrPx6azjTptfmmR.webp" alt="Google"><span class="back-menu-item-text">Google</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">图床</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9pbWdzZS5jb20v" title="路过图床"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-po0wv8bumuewk3qy-HVmbCgA0X3IkbwMhYDpkNBAnaO54Is.webp" alt="路过图床"><span class="back-menu-item-text">路过图床</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuaGVsbG9pbWcuY29tLw" title="Hello图床"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Hello%E5%9B%BE%E5%BA%8A-8cXYwLeGJjKFgFi47z8Y5VE3J5z2LO.webp" alt="Hello图床"><span class="back-menu-item-text">Hello图床</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">国产AI</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jaGF0LmRlZXBzZWVrLmNvbS8" title="Deepseek"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Deepseek-EZV4QutQNdtjB8jdytBKqT76DfLpjr.webp" alt="Deepseek"><span class="back-menu-item-text">Deepseek</span></a><a class="back-menu-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuZG91YmFvLmNvbS9jaGF0Lw" title="豆包"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-dxfm5tb2pozqs9sd-ypg9m4C5AqRygdE3Z0xNUgquXGlY3X.webp" alt="豆包"><span class="back-menu-item-text">豆包</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">快捷链接</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.luogu.com.cn/" title="洛谷"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-5y8tqzco7at8r7ni-fhjCAyDUXDjL8AQRzkVbHTSc57oAW3.webp" alt="洛谷"><span class="back-menu-item-text">洛谷</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/" title="Github"><img class="nolazyload back-menu-item-icon" src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Github-7jts6ISqjOeWyqGY80hZVvwlP6vnl5.webp" alt="Github"><span class="back-menu-item-text">Github</span></a></div></div></div></div><a href="/" title="返回博客主页" id="site-name"><span class="title">quicer</span><i class="astrabay fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">下载你喜欢的B站视频</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>归档</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="astrabay  fas fa-book"></i><span>文章</span></a></li><li><a class="site-page child" href="/categories/"><i class="astrabay  fas fa-clone"></i><span>分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="astrabay  fas fa-tags"></i><span>标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="astrabay  fas fa-chart-bar"></i><span>统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>社交</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="astrabay  fas fa-user-group"></i><span>友链</span></a></li><li><a class="site-page child" href="/message/"><i class="astrabay  fas fa-envelope"></i><span>留言</span></a></li><li><a class="site-page child" href="/recentcomments/"><i class="astrabay  fas fa-comments"></i><span>新评</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>娱乐</span></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://quicer-music.cc.cd/?id=13908245149&amp;server=netease"><i class="astrabay  fas fa-music"></i><span>音乐</span></a></li><li><a class="site-page child" href="/games/"><i class="astrabay  fas fa-gamepad"></i><span>游戏</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="astrabay  fas fa-paper-plane"></i><span>追番</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/updates/"><i class="astrabay  fas fa-bolt"></i><span>更新</span></a></li><li><a class="site-page child" href="/about/"><i class="astrabay  fas fa-user"></i><span>关于</span></a></li><li><a class="site-page child" href="/reward/"><i class="astrabay  fas fa-hand-holding-heart"></i><span>赞赏</span></a></li><li><a class="site-page child" href="/essay/"><i class="astrabay  fas fa-newspaper"></i><span>动态</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="travellings_button"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html" title=""><i class="astrabay fas fa-train"></i></a></div><div class="nav-button"><a class="site-page" target="_blank" rel="noopener" href="https://qun.qq.com/universal-share/share?ac=1&amp;authKey=5rGxdlKlaNkedbuc87v4OVC8wK%2B9BGKLQ62opAy8q0Q%2BqmttRkKtCt5CuQNGEiqa&amp;busi_data=eyJncm91cENvZGUiOiIxMDY3MTg4Mzc1IiwidG9rZW4iOiI4RHkyVnQ4SjljSlRWTWpxbThralRjNjNwMEhmRkQ0RXc3MEVJRitpcHgyWEE4eDFsOTc1b0RZbWtFYVUxMjJBIiwidWluIjoiMzYyODYxMTUzMCJ9&amp;data=bm11e-sUMCd5yfuxsdzPwKWqrZjcREvdgTotOIAdYdhvxkDM0vTtW8XdrNaUvFnJNaStkdNW0rtOXIQpxTQrkw&amp;svctype=4&amp;tempid=h5_group_info" title=""><i class="astrabay fab fa-qq"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);"><i class="astrabay fas fa-dice-d20"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="astrabay fas fa-magnifying-glass"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);"><label><i class="left"></i><i class="center"></i><i class="right"></i></label></a></div><div id="toggle-menu"><a class="site-page"><i class="astrabay fas fa-bars"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/cover/bilibilishipinxiazai.webp" alt="下载你喜欢的B站视频"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tags-name tags-punctuation"><i class="astrabay fas fa-hashtag"></i>工具</span></a><a class="post-meta__tags" href="/tags/%E7%83%AD%E9%97%A8/"><span class="tags-name tags-punctuation"><i class="astrabay fas fa-hashtag"></i>热门</span></a><a class="post-meta__tags" href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"><span class="tags-name tags-punctuation"><i class="astrabay fas fa-hashtag"></i>哔哩哔哩</span></a></div></div></div></div><h1 class="post-title">下载你喜欢的B站视频</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date" title="发布于 2026-02-19 12:00:00"><i class="post-meta-icon astrabay fas fa-calendar-days"></i><time datetime="2026-02-19T04:00:00.000Z">2026-02-19T04:00:00.000Z</time></span><span class="post-meta-date" title="最后更新于 2026-07-10 17:05:00"><i class="post-meta-icon astrabay fas fa-arrows-rotate"></i><time datetime="2026-07-10T09:05:00.000Z">2026-07-10T09:05:00.000Z</time></span><span class="post-meta-wordcount"><i class="post-meta-icon astrabay fas fa-file-word" title="文章字数"></i><span class="word-count">731</span><span class="post-meta-separator"></span><i class="post-meta-icon astrabay fas fa-clock" title="阅读耗时"></i><span>2 分钟</span></span><span class="post-meta-position" title="作者IP归属地为广东中山"><i class="post-meta-icon astrabay fas fa-location-dot"></i><span>广东中山</span></span><a class="post-meta-pv" href="/posts/30b0f4bb.html" title="文章热度"><i class="post-meta-icon astrabay fas fa-fire-flame-curved"></i><span class="waline-pageview-count"><i class="astrabay fas fa-spinner fa-spin"></i></span></a><span class="post-meta-commentcount" title="评论数" onclick="sco.scrollTo('post-comment')"><i class="astrabay fas fa-comment"></i><a href="/posts/30b0f4bb.html#post-comment"><span class="waline-comment-count"><i class="astrabay fas fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content article-container"><div class="post-ai"><div class="ai-title"><div class="ai-title-left"><i class="ai-title-icon astrabay fas fa-newspaper"></i><div class="ai-title-text">文章摘要</div></div><div class="ai-tag" id="ai-tag">文章AI助手</div></div><div class="ai-explanation" style="display: block;">AI拼命加载中···</div></div><div class="note danger modern"><i class="solitude fas fa-triangle-exclamation"></i><p>本工具作者由于在2026年7月6日收到了B站的律师函，已经将该工具在Github删除，因此该工具已经无法通过官方渠道下载。<br>因为作者已经不再提供支持，此工具随时可能报废，请不要对长期使用它抱有过多希望。<br>切记不要滥用此工具，若被B站发现，等来的可能是律师函。珍惜现在可以使用它的机会，不要下载一些B站很火的视频，下载一些小视频就行了。<br>想了解详细情况请前往 <a target="_blank" rel="noopener" href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a> 查看README。</p></div>   
+
+<div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div> 
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>哔哩哔哩作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。  </p>
+<a class="tag-link" href="https://www.bilibili.com/" target="_blank">
+    <div class="tag-link-tips">引用站外链接</div>
+    <div class="tag-link-bottom">
+        <div class="tag-link-left">
+          <i class="solitude fas fa-link"></i>
+        </div>
+        <div class="tag-link-right">
+            <div class="tag-link-title">哔哩哔哩</div>
+            <div class="tag-link-sitename">哔哩哔哩 (゜-゜)つロ 干杯~</div>
+        </div>
+        <i class="solitude fas fa-chevron-right"></i>
+    </div></a>  
+
+<p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p>
+<p>在之前，我是使用<a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jbGllbnQuc2FiZS5jYy8">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：<strong>DownKyi</strong>。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。  </p>
+<blockquote>
+<p>Github仓库地址：<a target="_blank" rel="noopener" href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p>
+</blockquote>
+<p><img src="/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图">  </p>
+<p>接下来上教程！  </p>
+<h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>这里只提供一种下载方式（原因见文章开头）。  </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://cloud.mc-sep.top/">Sep’s Cloud</a> by @<a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9tYy1zZXAudG9wLw">MC-Sep</a>：A self-hosted file management system with muilt-cloud support.  </p>
+</blockquote>
+<div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本方式仅适用于Windows操作系统。</p></div> 
+<p>点击进入<a target="_blank" rel="noopener" href="https://cloud.mc-sep.top/s/RnUg">分享链接</a>，找到适合自己系统的zip，下载即可。<br>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。  </p>
+<h2 id="2-下载视频"><a href="#2-下载视频" class="headerlink" title="2.下载视频"></a>2.下载视频</h2><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a target="_blank" rel="noopener" href="https://www.bilibili.com/">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。  </p>
+<div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。 </p></div>   
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个工具被删了很可惜，感谢大佬提供这样的工具。</p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><div class="post-copyright__author_img"><img class="post-copyright__author_img_front" src="/img/avatar.webp"></div><div class="post-copyright__author_name">quicer</div><div class="post-copyright__author_desc">个人博客</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div><div class="post-reward"><div class="reward-button" title="赞赏作者" onclick="AddRewardMask()"><i class="astrabay fas fa-heart"></i>赞赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢您的赞赏</span><ul class="reward-group"><li class="reward-item"><a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9ibWd1Y25sY3ZxcG55amR5LnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS9fY2dpLWJpbl9tbXdlYnd4LWJpbl93ZWJ3eGdldG1zZ2ltZ19fTXNnSUQlM0Q3NDk3MjUwNDI2ODEzNzE3ODYyc2tleSUzRCU0MGNyeXB0XzcxNmI3ZmQyXzk1MGE5M2M0MjlkNjYzNTVhZTQ3ZmJmYWE2MmMxNWM1bW13ZWJfYXBwaWQlM0R3eF93ZWJmaWxlaGVscGVyLWgzZjhWQlQyNWVVM0FNWmxYYjhaa1JabHVocEVwUC53ZWJw"><img class="post-qr-code-img nolazyload" src="/img/award/wechat.webp" alt="微信" style="border-color: var(--efu-green)"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9ibWd1Y25sY3ZxcG55amR5LnB1YmxpYy5ibG9iLnZlcmNlbC1zdG9yYWdlLmNvbS9fY2dpLWJpbl9tbXdlYnd4LWJpbl93ZWJ3eGdldG1zZ2ltZ19fTXNnSUQlM0Q1Mzc1NTY0ODE2MjQ2NjIxMTlza2V5JTNEJTQwY3J5cHRfNzE2YjdmZDJfOTUwYTkzYzQyOWQ2NjM1NWFlNDdmYmZhYTYyYzE1YzVtbXdlYl9hcHBpZCUzRHd4X3dlYmZpbGVoZWxwZXItVmUydWROdDkzQlAyNnlEYmJyMzNGZ2h1WTAxWEVZLndlYnA"><img class="post-qr-code-img nolazyload" src="/img/award/alipay.webp" alt="支付宝" style="border-color: var(--efu-blue)"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/reward/"><div class="reward-text">赞赏名单</div><div class="reward-dec">由于您的支持，我才能够实现写作的价值。</div></a></ul></div></div><script>function RemoveRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "none";
+    }
+}
+
+function AddRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "flex";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "flex";
+    }
+}</script><div class="reward-link mode"><a class="reward-link-button" href="/atom.xml"><i class="astrabay fas fa-seedling"></i>订阅</a></div></div></div><div class="social-share"><a class="social-share-ico icon-qq" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jb25uZWN0LnFxLmNvbS93aWRnZXQvc2hhcmVxcS9pbmRleC5odG1sP3VybD1odHRwJTNBJTJGJTJGcXVpY2VyLnVzLmNpJTJGcG9zdHMlMkYzMGIwZjRiYi5odG1sJnRpdGxlPSVFNCVCOCU4QiVFOCVCRCVCRCVFNCVCRCVBMCVFNSU5NiU5QyVFNiVBQyVBMiVFNyU5QSU4NEIlRTclQUIlOTklRTglQTclODYlRTklQTIlOTEmZGVzYz0lRTQlQjglOEIlRTglQkQlQkRCJUU3JUFCJTk5JUU4JUE3JTg2JUU5JUEyJTkxJnN1bW1hcnk9JUU0JUI4JThCJUU4JUJEJUJEQiVFNyVBQiU5OSVFOCVBNyU4NiVFOSVBMiU5MSZzaXRlPSVFNCVCOCU4QiVFOCVCRCVCRCVFNCVCRCVBMCVFNSU5NiU5QyVFNiVBQyVBMiVFNyU5QSU4NEIlRTclQUIlOTklRTglQTclODYlRTklQTIlOTEmcGljcz0lMkZpbWclMkZjb3ZlciUyRmJpbGliaWxpc2hpcGlueGlhemFpLndlYnA" title="分享到QQ"><i class="astrabay fab fa-qq"></i></a><a class="social-share-ico icon-weibo" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cDovL3NlcnZpY2Uud2VpYm8uY29tL3NoYXJlL3NoYXJlLnBocD91cmw9aHR0cCUzQSUyRiUyRnF1aWNlci51cy5jaSUyRnBvc3RzJTJGMzBiMGY0YmIuaHRtbCZ0aXRsZT0lRTQlQjglOEIlRTglQkQlQkQlRTQlQkQlQTAlRTUlOTYlOUMlRTYlQUMlQTIlRTclOUElODRCJUU3JUFCJTk5JUU4JUE3JTg2JUU5JUEyJTkxJnBpYz0lMkZpbWclMkZjb3ZlciUyRmJpbGliaWxpc2hpcGlueGlhemFpLndlYnA" title="分享到微博"><i class="astrabay fab fa-weibo"></i></a><a class="social-share-ico icon-twitter" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly90d2l0dGVyLmNvbS9pbnRlbnQvdHdlZXQ_dXJsPWh0dHAlM0ElMkYlMkZxdWljZXIudXMuY2klMkZwb3N0cyUyRjMwYjBmNGJiLmh0bWwmdGV4dD0lRTQlQjglOEIlRTglQkQlQkQlRTQlQkQlQTAlRTUlOTYlOUMlRTYlQUMlQTIlRTclOUElODRCJUU3JUFCJTk5JUU4JUE3JTg2JUU5JUEyJTkx" title="分享到Twitter"><i class="astrabay fab fa-twitter"></i></a><a class="social-share-ico icon-facebook" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NoYXJlci9zaGFyZXIucGhwP3U9aHR0cCUzQSUyRiUyRnF1aWNlci51cy5jaSUyRnBvc3RzJTJGMzBiMGY0YmIuaHRtbA" title="分享到Facebook"><i class="astrabay fab fa-facebook"></i></a><a class="social-share-ico icon-telegram" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly90Lm1lL3NoYXJlL3VybD91cmw9aHR0cCUzQSUyRiUyRnF1aWNlci51cy5jaSUyRnBvc3RzJTJGMzBiMGY0YmIuaHRtbCZ0ZXh0PSVFNCVCOCU4QiVFOCVCRCVCRCVFNCVCRCVBMCVFNSU5NiU5QyVFNiVBQyVBMiVFNyU5QSU4NEIlRTclQUIlOTklRTglQTclODYlRTklQTIlOTE" title="分享到Telegram"><i class="astrabay fab fa-telegram"></i></a><a class="social-share-ico icon-whatsapp" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9hcGkud2hhdHNhcHAuY29tL3NlbmQ_dGV4dD0lRTQlQjglOEIlRTglQkQlQkQlRTQlQkQlQTAlRTUlOTYlOUMlRTYlQUMlQTIlRTclOUElODRCJUU3JUFCJTk5JUU4JUE3JTg2JUU5JUEyJTkxIGh0dHAlM0ElMkYlMkZxdWljZXIudXMuY2klMkZwb3N0cyUyRjMwYjBmNGJiLmh0bWw" title="分享到WhatsApp"><i class="astrabay fab fa-whatsapp"></i></a><a class="social-share-ico icon-linkedin" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL3NoYXJlQXJ0aWNsZT9taW5pPXRydWUmdXJsPWh0dHAlM0ElMkYlMkZxdWljZXIudXMuY2klMkZwb3N0cyUyRjMwYjBmNGJiLmh0bWwmdGl0bGU9JUU0JUI4JThCJUU4JUJEJUJEJUU0JUJEJUEwJUU1JTk2JTlDJUU2JUFDJUEyJUU3JTlBJTg0QiVFNyVBQiU5OSVFOCVBNyU4NiVFOSVBMiU5MSZzdW1tYXJ5PSVFNCVCOCU4QiVFOCVCRCVCREIlRTclQUIlOTklRTglQTclODYlRTklQTIlOTEmc291cmNlPSVFNCVCOCU4QiVFOCVCRCVCRCVFNCVCRCVBMCVFNSU5NiU5QyVFNiVBQyVBMiVFNyU5QSU4NEIlRTclQUIlOTklRTglQTclODYlRTklQTIlOTE" title="分享到LinkedIn"><i class="astrabay fab fa-linkedin"></i></a><div class="social-share-ico icon-link" onclick="utils.copy(&quot;http://quicer.us.ci/posts/30b0f4bb.html&quot;)" title="复制文章链接"><i class="astrabay fas fa-link"></i></div><div class="social-share-ico icon-qrcode" title="使用手机扫码阅读这篇文章"><i class="astrabay fas fa-qrcode"></i><div class="share-main"><div class="share-main-all"><div id="qrcode"></div><div class="reward-dec">使用手机扫码阅读这篇文章</div></div></div><script pjax="">typeof QRCode === 'function' && new QRCode(document.getElementById("qrcode"), {
+    text: 'http://quicer.us.ci/posts/30b0f4bb.html',
+    correctLevel : QRCode.CorrectLevel.L
+});
+window.addEventListener('DOMContentLoaded', () => {
+    new QRCode(document.getElementById("qrcode"), {
+        text: 'http://quicer.us.ci/posts/30b0f4bb.html',
+        correctLevel : QRCode.CorrectLevel.L
+    });
+});
+</script></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpoLWhhbnM">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">quicer</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tags-punctuation"><i class="astrabay fas fa-hashtag"></i>工具<span class="tagsPageCount">3</span></span></a><a class="post-meta__tags" href="/tags/%E7%83%AD%E9%97%A8/"><span class="tags-punctuation"><i class="astrabay fas fa-hashtag"></i>热门<span class="tagsPageCount">3</span></span></a><a class="post-meta__tags" href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"><span class="tags-punctuation"><i class="astrabay fas fa-hashtag"></i>哔哩哔哩<span class="tagsPageCount">1</span></span></a></div></div></div>
+        <div class="relatedPosts">
+            <div class="headline">
+                <i class="astrabay fas fa-star"></i>
+                <span>喜欢这篇的人也看了</span>
+                <div class="relatedPosts-link">
+                    <a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a>
+                </div>
+            </div>
+            <div class="relatedPosts-list">
+            <div>
+                <a href="/posts/b74f9f5b.html" title="Github访问慢？一个加速器解决">
+                    <img class="cover" src="/img/cover/githubjiasuqi.webp" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">Github访问慢？一个加速器解决</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/posts/b74f9f5a.html" title="免费下载激活Microsoft Office">
+                    <img class="cover" src="/img/cover/xiazaijihuooffice.webp" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">免费下载激活Microsoft Office</div>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="astrabay fas fa-comment"></i><span> 评论</span><span class="count"> (<span class="waline-comment-count"><i class="astrabay fas fa-spinner fa-spin"></i></span>)</span></div></div><div class="comment-wrap"><div id="waline-wrap"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="top-group"><div class="sayhi" id="sayhi" onclick="sco.changeWittyWord()"></div></div></div><div class="avatar"><img alt="头像" src="/img/avatar.webp"><div class="sticker"><img class="sticker-img" src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-jjasuxcw7aa7lfji-HFvvf3VIFmj3vKk7Lrd4ZUx5padRFy.webp" alt="心情贴纸"></div></div><div class="description">学习很难，坚持很酷。<br> 生活很难，热爱很酷。<br> 生活不止眼前的苟且，还有诗和远方。<br> 你可以的，你一定可以的。</div><div class="bottom-group"><span class="left"><div class="name">quicer</div><div class="desc">没有黑暗<br>星星也无法闪烁</div></span><div class="social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/3493139027331888" title="哔哩哔哩"><i class="astrabay  fab fa-bilibili"></i></a><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/quicer" title="Github"><i class="astrabay  fab fa-github"></i></a></div></div></div></div><div><div class="card-widget" id="card-widget-calendar"><div class="item-headline"><i></i><span></span></div><div class="item-content"><div id="calendar-area-left">
+  <div id="calendar-week"></div>
+  <div id="calendar-date" style="font-size: 48px;"></div>
+  <div id="calendar-solar"></div>
+  <div id="calendar-lunar"></div>
+</div>
+<div id="calendar-area-right">
+  <div id="calendar-main">
+  </div>
+</div>
+</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="astrabay fas fa-bars"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%99%E7%A8%8B"><span class="toc-text">教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7"><span class="toc-text">1.下载工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E8%A7%86%E9%A2%91"><span class="toc-text">2.下载视频</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-text">最后</span></a></li></ol></div></div><div class="card-widget card-reward"><div class="item-headline"><div class="headline-content"><i class="fa-solid fa-person-praying"></i><span>赞赏名单</span></div><div class="show-more-inline"><a class="btn-show-more-inline" href="/reward/"><span>前往赞赏</span></a></div></div><div class="item-content"><div class="top-sponsor-carousel"><div class="carousel-container"><div class="carousel-item"><a class="sponsor-link-card" target="_blank" rel="nofollow noopener"><div class="sponsor-avatar"><img class="sponsor-avatar-img" src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mc-sep-JZNOoLIsCMHkh84AbKtrtn5jyl4RVW.webp" alt="MC-Sep" onerror="this.onerror=null;this.src='/img/default_avatar.webp';"></div><div class="sponsor-info"><div class="sponsor-name">MC-Sep</div><div class="sponsor-desc">留言：早日康复</div></div></a></div></div></div><div class="sponsors-list"><a class="sponsor-item" href="/go.html?safego=aHR0cHM6Ly9tYy1zZXAudG9wLw" target="_blank" rel="external nofollow noopener noreferrer"><div class="sponsor-small-name">MC-Sep</div></a><div class="sponsor-item"><div class="sponsor-small-name">Raintale</div></div><div class="sponsor-item"><div class="sponsor-small-name">Reminiscence.</div></div><div class="sponsor-item"><div class="sponsor-small-name">不知名网友</div></div><div class="sponsor-item"><div class="sponsor-small-name">曹（）；</div></div><div class="sponsor-item"><div class="sponsor-small-name">Czxlgyz</div></div><a class="sponsor-item" href="/go.html?safego=aHR0cHM6Ly9tYy1zZXAudG9wLw" target="_blank" rel="external nofollow noopener noreferrer"><div class="sponsor-small-name">MC-Sep</div></a></div><div class="sponsors-note"><p>你们的赞赏是我最大的动力</p><p>※ 排名不分先后</p></div><script>if (!window.sponsorsData) {
+  window.sponsorsData = [{"name":"MC-Sep","money":1,"time":"2026-02-18T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mc-sep-JZNOoLIsCMHkh84AbKtrtn5jyl4RVW.webp","website":"https://mc-sep.top/","description":"留言：早日康复"},{"name":"Raintale","money":10,"time":"2026-02-16T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/Raintale-tXy8YUV4CU38126fJI2H2xAXDvUZPS.webp","description":"留言：早日康复"},{"name":"Reminiscence.","money":1,"time":"2025-12-14T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/Reminiscence.-VK3xcYc6nUlEgxmsXNj42oPKOx9yla.webp","description":"留言：早日康复"},{"name":"不知名网友","money":1,"time":"2025-12-16T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/user-PShrWgZc5zyEXObKf7xb5UNCDwxwYT.webp","description":"留言：早日康复"},{"name":"曹（）；","money":1,"time":"2025-12-16T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E6%9B%B9%EF%BC%88%EF%BC%89%EF%BC%9B-Rc6efM7LnMLYO41DeOkW4uxuFvJXmv.webp","description":"留言：早日康复"},{"name":"Czxlgyz","money":0.16,"time":"2025-08-25T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://fjh8gsbyo9u00beb.public.blob.vercel-storage.com/hCPFNl0-Y41q1301xVQrOetYyR8nVaR9FDubvg.webp","description":"TA没有留下更多信息"},{"name":"MC-Sep","money":6.6,"time":"2025-07-23T00:00:00.000Z","icon":"fab fa-weixin","color":"green","avatar":"https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/mc-sep-JZNOoLIsCMHkh84AbKtrtn5jyl4RVW.webp","website":"https://mc-sep.top/","description":"人生能有几回搏"}];
+}
+
+function initRewardCarousel() {
+  const container = document.querySelector('.carousel-container');
+  const link = container.querySelector('.sponsor-link-card');
+  const avatar = container.querySelector('.sponsor-avatar-img');
+  const name = container.querySelector('.sponsor-name');
+  const desc = container.querySelector('.sponsor-desc');
+  
+  if (!container || sponsorsData.length === 0) return;
+  
+  let currentIndex = 0;
+  let intervalId = null;
+  let isTransitioning = false;
+  
+  function updateSponsorInfo(sponsor) {
+    if (sponsor.website) {
+      link.href = sponsor.website;
+      // 确保有链接时移除 pointer-events 样式
+      link.style.pointerEvents = '';
+      link.style.cursor = 'pointer';
+    } else {
+      link.removeAttribute('href');
+      // 只有在没有链接时才添加 pointer-events: none
+      link.style.pointerEvents = 'none';
+      link.style.cursor = 'default';
+    }
+    
+    avatar.src = sponsor.avatar;
+    avatar.alt = sponsor.name;
+    
+    name.textContent = sponsor.name;
+    desc.textContent = sponsor.description;
+  }
+  
+  function showSponsor(index) {
+    if (index < 0 || index >= sponsorsData.length || isTransitioning) return;
+    
+    isTransitioning = true;
+    const sponsor = sponsorsData[index];
+    
+    container.style.opacity = '0';
+    
+    setTimeout(() => {
+      updateSponsorInfo(sponsor);
+      container.style.opacity = '1';
+      currentIndex = index;
+      
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 300);
+    }, 300);
+  }
+  
+  function nextSponsor() {
+    const nextIndex = (currentIndex + 1) % sponsorsData.length;
+    showSponsor(nextIndex);
+  }
+  
+  function startAutoPlay() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(nextSponsor, 3000);
+  }
+  
+  function stopAutoPlay() {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  }
+  
+  const carousel = document.querySelector('.top-sponsor-carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+  }
+  
+  container.style.transition = 'opacity 0.3s ease-in-out';
+  
+  // 初始化第一个赞助者信息
+  updateSponsorInfo(sponsorsData[0]);
+  
+  startAutoPlay();
+  
+  return {
+    showSponsor,
+    nextSponsor,
+    startAutoPlay,
+    stopAutoPlay
+  };
+}
+initRewardCarousel();
+//- document.addEventListener("pjax:complete", function() {
+//-   initRewardCarousel();
+//- });</script></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="astrabay fas fa-map"></i><span>最近发布</span></div><div class="aside-list"><a class="aside-list-item" href="/posts/b74f9f5b.html" title="Github访问慢？一个加速器解决"><div class="thumbnail"><img alt="Github访问慢？一个加速器解决" src="/img/cover/githubjiasuqi.webp"></div><div class="content"><span class="title" href="/posts/b74f9f5b.html" title="Github访问慢？一个加速器解决">Github访问慢？一个加速器解决</span><span class="categories" href="/posts/b74f9f5b.html">实用教程</span></div></a><a class="aside-list-item" href="/posts/b74f9f5a.html" title="免费下载激活Microsoft Office"><div class="thumbnail"><img alt="免费下载激活Microsoft Office" src="/img/cover/xiazaijihuooffice.webp"></div><div class="content"><span class="title" href="/posts/b74f9f5a.html" title="免费下载激活Microsoft Office">免费下载激活Microsoft Office</span><span class="categories" href="/posts/b74f9f5a.html">实用教程</span></div></a><a class="aside-list-item" href="/posts/b8439c6.html" title="我的过敏性紫癜肾炎治病历程"><div class="thumbnail"><img alt="我的过敏性紫癜肾炎治病历程" src="/img/cover/zidianshenyan.webp"></div><div class="content"><span class="title" href="/posts/b8439c6.html" title="我的过敏性紫癜肾炎治病历程">我的过敏性紫癜肾炎治病历程</span><span class="categories" href="/posts/b8439c6.html">琐事杂谈</span></div></a><a class="aside-list-item" href="/posts/30b0f4bb.html" title="下载你喜欢的B站视频"><div class="thumbnail"><img alt="下载你喜欢的B站视频" src="/img/cover/bilibilishipinxiazai.webp"></div><div class="content"><span class="title" href="/posts/30b0f4bb.html" title="下载你喜欢的B站视频">下载你喜欢的B站视频</span><span class="categories" href="/posts/30b0f4bb.html">实用教程</span></div></a></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>quicer</span></div><div class="footer-bar-description">© 版权所有 侵权必究</div><a class="footer-bar-link" href="/about/">了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://www.weibo.com/u/7898066696" title="微博"><i class="astrabay  fab fa-weibo"></i></a><a class="deal_link" href="/contact/" title="联系"><i class="astrabay  far fa-envelope"></i></a><div><div class="nolazyload footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img src="/img/avatar.webp" alt="返回顶部"></div></div><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/3493139027331888" title="哔哩哔哩"><i class="astrabay  fab fa-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/quicer" title="Github"><i class="astrabay  fa-brands fa-github"></i></a></div><div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">开始</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="全部文章">全部文章</a><a class="footer-item" href="/categories/" title="全部分类">全部分类</a><a class="footer-item" href="/tags/" title="全部标签">全部标签</a><a class="footer-item" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html" title="友链接力">友链接力</a></div></div><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/about/" title="关于本站">关于本站</a><a class="footer-item" href="/updates/" title="更新日志">更新日志</a><a class="footer-item" href="/message/" title="留言板">留言板</a><a class="footer-item" href="/essay/" title="即刻动态">即刻动态</a></div></div><div class="footer-group"><h3 class="footer-title">访客</h3><div class="footer-links"><a class="footer-item" href="/darkname/" title="黑名单">黑名单</a><a class="footer-item" href="/reward/" title="赞助作者">赞助作者</a><a class="footer-item" href="/contact/" title="联系我们">联系我们</a><a class="footer-item" href="/recentcomments/" title="最新评论">最新评论</a></div></div><div class="footer-group"><h3 class="footer-title">入站必看</h3><div class="footer-links"><a class="footer-item" href="/privacy/" title="隐私政策">隐私政策</a><a class="footer-item" href="/cookies/" title="Cookies协议">Cookies协议</a><a class="footer-item" href="/about/" title="关于本站">关于本站</a><a class="footer-item" href="/tags/%E7%83%AD%E9%97%A8/" title="热门标签">热门标签</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://hexo.io" title="Hexo">Hexo</a><a class="footer-item" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?safego=aHR0cHM6Ly9zb2xpdHVkZS5qcy5vcmc" title="Solitude">Solitude</a><a class="footer-item" target="_blank" rel="noopener" href="https://github.com" title="Github">Github</a><a class="footer-item" target="_blank" rel="noopener" href="https://www.luogu.com.cn" title="洛谷">洛谷</a></div></div><div class="footer-group"><div class="footer-title-group"><h3 class="footer-title">友链</h3><button class="random-friends-btn" onclick="randomLinksList()" title="友链"><i class="astrabay fas fa-arrows-rotate"></i></button></div><div class="footer-links" id="friend-links-in-footer"></div></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2026 By<a class="footer-bar-link" href="/" title="quicer">quicer</a></div><div class="beian-group"><div><a class="footer-bar-link" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20252084" title="萌ICP备20252084号"><div><img class="beian-icon" src="https://fjh8gsbyo9u00beb.public.blob.vercel-storage.com/3znWpwp-gWP5slCchQmw5GGehEh6HM7SDpq47A.webp" alt="萌ICP备20252084号"></div><span class="beian-name">萌ICP备20252084号</span></a></div><a class="footer-bar-link" target="_blank" rel="noopener" href="https://hexo.io/" title="框架：Hexo">框架：Hexo</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/Stars-harbor/astrabay" title="主题：Astrabay">主题：Astrabay</a></div></div><div><div class="footer-bar-right"><a class="footer-bar-link" href="/updates/" title="">V1.0.0</a><a class="footer-bar-link" href="/privacy/" title="">隐私政策</a><a class="footer-bar-link" href="/cookies/" title="">Cookies</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude/blob/main/LICENSE" title=""><i class="astrabay fas fa-copyright"></i><i class="astrabay fab fa-creative-commons-by"></i><i class="astrabay fab fa-creative-commons-nc"></i><i class="astrabay fab fa-creative-commons-nd"></i></a></div></div></div></div><div><div class="comment-barrage needEndHide"></div></div></footer></div><div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="astrabay fas fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="astrabay fas fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="astrabay fas fa-arrows-rotate"></i></div><div class="rightMenu-item" id="menu-top"><i class="astrabay fas fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="astrabay fas fa-clone"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="astrabay fas fa-clipboard"></i><span>粘贴文本</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="astrabay fas fa-comment-medical"></i><span>引用到评论</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="astrabay far fa-window-maximize"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="astrabay fas fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="astrabay fas fa-clone"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="astrabay fas fa-cloud-arrow-down"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-search"><i class="astrabay fas fa-magnifying-glass"></i><span>站内搜索</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-randomPost" onclick="toRandomPost()||rm.hideRightMenu()"><i class="astrabay fas fa-tower-broadcast"></i><span>随机文章</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/categories/')||rm.hideRightMenu()"><i class="astrabay fas fa-list"></i><span>全部分类</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/tags/')||rm.hideRightMenu()"><i class="astrabay fas fa-tags"></i><span>全部标签</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-commentBarrage" onclick="sco.switchCommentBarrage()"><i class="astrabay fas fa-comment"></i><span class="menu-commentBarrage-text">关闭热评</span></div><div class="rightMenu-item" id="menu-darkmode" onclick="sco.switchDarkMode()"><i class="astrabay fas fa-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></div><div class="rightMenu-item" id="menu-translate"><i class="astrabay fas fa-language"></i><span>轉為繁體</span></div></div></div><div id="rightmenu-mask"></div></div><div><!-- Critical scripts loaded synchronously--><script src="/js/utils.js?v=2.0.0%20Beta"></script><script src="/js/main.js?v=2.0.0%20Beta"></script><!-- Non-critical scripts loaded asynchronously--><script async="" src="/js/third_party/waterfall.min.js?v=2.0.0%20Beta"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><!-- Feature-specific scripts loaded asynchronously--><script async="" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.8.7/index.umd.min.js"></script><script defer="" src="/js/third_party/universe.min.js?v=2.0.0%20Beta"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  if (typeof dark === 'function') dark();
+});
+</script><script defer="" src="/js/tw_cn.js?v=2.0.0%20Beta"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"><script>(() => {
+  document.querySelectorAll('.article-container span.katex-display').forEach(item => {
+    utils.wrap(item, 'div', {class: 'katex-wrap'})
+  })
+})();
+</script><!-- UI enhancement scripts--><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/19.1.3/lazyload.iife.min.js"></script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><script defer="" src="/js/post_ai.js?v=2.0.0%20Beta"></script><!-- Music player scripts--><script>var meting_api = 'https://meting域名/?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script><!-- Cover color processing scripts--><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.6.0/color-thief.min.js"></script><script defer="" src="/js/covercolor/local.js?v=2.0.0%20Beta"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+utils.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!-- Search functionality--><!-- Right menu functionality--><script defer="" src="/js/right_menu.js?v=2.0.0%20Beta"></script><script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/3Nehh0mnf1xQsuVw/quote.js?theme=0&amp;col=true&amp;f=12&amp;badge=icon_0&amp;icon=center"></script><script defer="" pjax="" src="/custom/js/custom.js"></script><script src="https://open.lightxi.com/unpkg/chinese-lunar@0.1.4/lib/chinese-lunar.js"></script><div class="js-pjax"><script>(() => {
+    let walineInitFunction = window.walineFn || null
+
+    function initWaline(initFn) {
+        const walineOptions = {
+            el: '#waline-wrap',
+            serverURL: 'https://quicer-waline.cc.cd/',
+            pageview: true,
+            dark: 'html[data-theme="dark"]',
+            path: window.location.pathname,
+            comment: true,
+            ...null
+        }
+        const walineInstance = initFn(walineOptions)
+        utils.addGlobalFn('pjax', () => walineInstance.destroy(), 'destroyWaline')
+        GLOBAL_CONFIG.lightbox && utils.lightbox(document.querySelectorAll('#comment .wl-content img:not(.wl-emoji)'))
+        sco.owoBig({
+            body: '.wl-emoji-popup',
+            item: '.wl-tab-wrapper button'
+        })
+    }
+
+    async function loadWaline() {
+        if (walineInitFunction) initWaline(walineInitFunction)
+        else {
+            await utils.getCSS('https://cdnjs.cloudflare.com/ajax/libs/waline/3.4.3/waline.min.css')
+            const {init} = await import('https://cdnjs.cloudflare.com/ajax/libs/waline/3.4.3/waline.min.js')
+            walineInitFunction = init || Waline.init
+            initWaline(walineInitFunction)
+            window.walineFn = walineInitFunction
+        }
+        true && barrageWaline()
+    }
+
+    if (true || false) {
+        if (false) utils.loadComment(document.getElementById('waline-wrap'), loadWaline)
+        else loadWaline()
+    } else window.loadTwoComment = loadWaline
+})()
+</script><script>async function barrageWaline() {
+    const url = new URL('https://quicer-waline.cc.cd//api/comment')
+    const params = {path: window.location.pathname, sortBy: 'insertedAt_asc'}
+    Object.entries(params).forEach(([key, value]) => url.searchParams.append(key, value))
+    await fetch(url).then(async res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
+        const data = await res.json();
+        const regex = /<img [^>]*class="wl-emoji"[^>]*>/;
+        const init = () => {
+            initializeCommentBarrage(data.data.data
+                .map(item => ({
+                    nick: item.nick,
+                    mailId: item.avatar,
+                    content: item.comment.replace(regex, ''),
+                    id: item.objectId
+                })))
+        }
+        if (typeof initializeCommentBarrage === "undefined") await utils.getScript('/js/third_party/barrage.min.js?v=2.0.0%20Beta').then(init)
+        else init()
+    }).catch(error => console.error("An error occurred while fetching comments: ", error))
+}</script><script defer="" pjax="" src="https://cdnjs.cloudflare.com/ajax/libs/busuanzi/2.3.0/bsz.pure.mini.min.js"></script></div></div><script>const links = [{"name":"Hexo","link":"https://hexo.io"},{"name":"Solitude","link":"https://solitude.js.org/"},{"name":"伍拾柒","link":"https://www.efu.me/"},{"name":"青桔气球","link":"https://blog.qjqq.cn/"},{"name":"❖星港◎Star☆","link":"https://blog.starsharbor.com"},{"name":"张洪Heo","link":"https://blog.zhheo.com/"},{"name":"新锐博客","link":"https://blog.xrbk.cn/"},{"name":"白衣INK","link":"https://baiyi.ink"},{"name":"叶泯希","link":"https://blog.418121.xyz/"},{"name":"MC-Sep","link":"https://mc-sep.top/"},{"name":"莱姆Lime","link":"https://limeblogs.github.io/"}]
+const randomText = '点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：⌈ ${name} ⌋'
+function travelling() {
+    const link = links[utils.randomNum(links.length)];
+    Snackbar.show({
+        text: randomText.replace(/\$\{name}/,link.name),
+        duration: 8000,
+        pos: 'top-center',
+        actionText: '前往',
+        onActionClick: function(element) {
+            element.style.opacity = 0;
+            window.open(link.link, '_blank');
+        }
+    });
+}
+</script><script>function randomLinksList() {
+    const linkcard = document.getElementById('friend-links-in-footer');
+    if (linkcard == null) return;
+
+    let data = '';
+    let linksCopy = [...links];
+    let count = Math.min(3, linksCopy.length);
+
+    for (let i = 0; i < count; i++) {
+        let index = utils.randomNum(linksCopy.length);
+        const {link, name} = linksCopy[index];
+        data += `<a class="footer-item" href="${link}" target="_blank" rel="noopener noreferrer nofollow">${name}</a>`;
+        linksCopy.splice(index, 1);
+    }
+
+    linkcard.innerHTML = data + '<a class="footer-item" href="/links/">更多</a>';
+}</script><!-- pjax--><script>let pjax = null;
+
+function initPjax() {
+    if (typeof Pjax === 'undefined') {
+        console.warn('Pjax is not loaded yet, retrying...');
+        setTimeout(initPjax, 100);
+        return;
+    }
+
+    pjax = new Pjax({
+        elements: 'a:not([target="_blank"])',
+        selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+        cacheBust: false,
+        analytics: false,
+        scrollRestoration: false
+    })
+
+    // 将 pjax 实例挂载到全局
+    window.pjax = pjax;
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    document.addEventListener('pjax:complete', () => {
+        window.refreshFn()
+
+        document.querySelectorAll('script[data-pjax]').forEach(item => {
+            const newScript = document.createElement('script')
+            const content = item.text || item.textContent || item.innerHTML || ""
+            Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+            newScript.appendChild(document.createTextNode(content))
+            item.parentNode.replaceChild(newScript, item)
+        })
+
+        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+    })
+
+    document.addEventListener('pjax:error', (e) => {
+        if (e.request.status === 404) {
+            pjax.loadUrl('/404.html')
+        }
+    })
+}
+
+// 初始化 Pjax
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPjax);
+} else {
+    initPjax();
+}</script><!-- google adsense--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="astrabay fas fa-xmark"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=2.0.0%20Beta"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body></html>
+        <script>
+            const posts = ["posts/b74f9f5b.html","posts/b74f9f5a.html","posts/b8439c6.html","posts/30b0f4bb.html"];
+            function toRandomPost() {
+                const randomPost = posts[Math.floor(Math.random() * posts.length)];
+                pjax.loadUrl(GLOBAL_CONFIG.root + randomPost);
+            }
+        </script>
