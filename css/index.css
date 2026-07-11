@@ -4082,9 +4082,9 @@ span.tags-punctuation i {
 }
 #global_bg {
   position: fixed;
-  opacity: 0.4;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-  filter: alpha(opacity=40);
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
   width: 100%;
   height: 100%;
   background-image: url("/img/light.webp");
