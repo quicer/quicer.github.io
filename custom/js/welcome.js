@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", (function() {
                             style='width:80px; height:auto; border-radius: 50%; 
                             display: block; margin: 0 auto;' /><br />
                         您来自: ${referrer}<br />
-                        使用深色模式会有更棒的视觉体验！<br /><br />
+                        使用深色模式会有更棒的视觉体验！<br />
                         请您在继续浏览本站之前，仔细阅读以下协议：<br />
                         1. <a href='/privacy/' title='隐私政策' data-pjax-state=''>隐私政策</a>&nbsp;&nbsp;
-                        2. <a href='/cookies/' title='Cookies' data-pjax-state=''>Cookies</a>&nbsp;&nbsp;<br /><br />
+                        2. <a href='/cookies/' title='Cookies' data-pjax-state=''>Cookies</a>&nbsp;&nbsp;<br />
                         点击“同意”表示您已阅读并同意遵守以上协议。
                     `
                 }
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", (function() {
                 cancel: "不同意",
                 confirm: "同意"
             },
-            text: "若未获取新内容请尝试Ctrl+F5清理浏览器缓存"
+            text: "由于本站存在缓存问题，建议你在每次访问本站时按下Ctrl+F5强制刷新页面（或直接刷新），以确保你看到的是最新的内容。",
         }).then(willProceed => {
             willProceed ? setCookie("agreementAccepted", "true", 30) :
             window.history.length > 1 ? window.history.back() :

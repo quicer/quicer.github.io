@@ -4082,9 +4082,9 @@ span.tags-punctuation i {
 }
 #global_bg {
   position: fixed;
-  opacity: 0.2;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-  filter: alpha(opacity=20);
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
   width: 100%;
   height: 100%;
   background-image: url("/img/light.webp");
@@ -9924,8 +9924,8 @@ span.tags-punctuation {
     height: 100%;
     top: 0;
     left: 0;
-    -webkit-box-shadow: 0 -109px 133px -9px  inset;
-    box-shadow: 0 -109px 133px -9px  inset;
+    -webkit-box-shadow: 0 -109px 133px -9px #e9d5ff inset;
+    box-shadow: 0 -109px 133px -9px #e9d5ff inset;
   }
   .topGroup .todayCard.hide {
     opacity: 0;
