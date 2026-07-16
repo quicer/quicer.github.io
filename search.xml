@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>推荐一款更好的加速器</title>
+      <link href="/posts/be200f2a.html"/>
+      <url>/posts/be200f2a.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>@<a href="https://mc-sep.top/">MC-Sep</a>给我推荐了一款比<a href="/posts/b74f9f5b.html">之前文章</a>的Watt Toolkit更牛逼的加速器：<strong>Steamcommunity 302</strong>（太好了，又能水一篇文章）。  </p><h1 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h1><a class="tag-link" href="https://www.dogfight360.com/blog/18682/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Steamcommunity 302 Ver.14.0.02</div>            <div class="tag-link-sitename">羽翼城个人博客</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a> <p>下载后解压即可。</p><h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-16%20183748-2zTokLD5D0wgTT61gpNycgfKvtbaU7.webp" alt="预览"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 我的推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> Steam </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Github访问慢？一个加速器解决</title>
       <link href="/posts/b74f9f5b.html"/>
       <url>/posts/b74f9f5b.html</url>
@@ -22,9 +49,11 @@
             
             <tag> 工具 </tag>
             
-            <tag> 热门 </tag>
-            
             <tag> Github </tag>
+            
+            <tag> steam </tag>
+            
+            <tag> 热门 </tag>
             
         </tags>
       
@@ -95,7 +124,7 @@
       <link href="/posts/30b0f4bb.html"/>
       <url>/posts/30b0f4bb.html</url>
       
-        <content type="html"><![CDATA[<div class="note danger modern"><i class="solitude fas fa-triangle-exclamation"></i><p>本工具作者由于在2026年7月6日收到了B站的律师函，已经将该工具在Github删除，因此该工具已经无法通过官方渠道下载。<br>因为作者已经不再提供支持，此工具随时可能报废，请不要对长期使用它抱有过多希望。<br>切记不要滥用此工具，若被B站发现，等来的可能是律师函。珍惜现在可以使用它的机会，不要下载一些B站很火的视频，下载一些小视频就行了。<br>想了解详细情况请前往 <a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a> 查看README。</p></div>   <div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div> <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>哔哩哔哩作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。  </p><a class="tag-link" href="https://www.bilibili.com/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">哔哩哔哩</div>            <div class="tag-link-sitename">哔哩哔哩 (゜-゜)つロ 干杯~</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p><p>在之前，我是使用<a href="https://client.sabe.cc/">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：<strong>DownKyi</strong>。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。  </p><blockquote><p>Github仓库地址：<a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图">  </p><p>接下来上教程！  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>这里只提供一种下载方式（原因见文章开头）。  </p><blockquote><p><a href="https://cloud.mc-sep.top/">Sep’s Cloud</a> by @<a href="https://mc-sep.top/">MC-Sep</a>：A self-hosted file management system with muilt-cloud support.  </p></blockquote><div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本方式仅适用于Windows操作系统。</p></div> <p>点击进入<a href="https://cloud.mc-sep.top/s/RnUg">分享链接</a>，找到适合自己系统的zip，下载即可。<br>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。  </p><h2 id="2-下载视频"><a href="#2-下载视频" class="headerlink" title="2.下载视频"></a>2.下载视频</h2><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a href="https://www.bilibili.com/">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。 </p></div>   <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个工具被删了很可惜，感谢大佬提供这样的工具。</p>]]></content>
+        <content type="html"><![CDATA[<div class="note danger modern"><i class="solitude fas fa-triangle-exclamation"></i><p>本工具作者由于在2026年7月6日收到了B站的律师函，已经将该工具在Github删除，因此该工具已经无法通过官方渠道下载。<br>因为作者已经不再提供支持，此工具随时可能报废，请不要对长期使用它抱有过多希望。<br>切记不要滥用此工具，若被B站发现，等来的可能是律师函。珍惜现在可以使用它的机会，不要下载一些B站很火的视频，下载一些小视频就行了。<br>想了解详细情况请点击前往<a href="https://github.com/yaobiao131/downkyicore">仓库</a>查看README，谢谢。</p></div>   <div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div> <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>哔哩哔哩作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。  </p><a class="tag-link" href="https://www.bilibili.com/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">哔哩哔哩</div>            <div class="tag-link-sitename">哔哩哔哩 (゜-゜)つロ 干杯~</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p><p>在之前，我是使用<a href="https://client.sabe.cc/">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：<strong>DownKyi</strong>。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。  </p><blockquote><p>Github仓库地址：<a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图">  </p><p>接下来上教程！  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>这里只提供一种下载方式（原因见文章开头）。  </p><blockquote><p><a href="https://cloud.mc-sep.top/">Sep’s Cloud</a> by @<a href="https://mc-sep.top/">MC-Sep</a>：A self-hosted file management system with muilt-cloud support.  </p></blockquote><div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本方式仅适用于Windows操作系统。</p></div> <p>点击进入<a href="https://cloud.mc-sep.top/s/RnUg">分享链接</a>，找到适合自己系统的zip，下载即可。<br>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。  </p><h2 id="2-下载视频"><a href="#2-下载视频" class="headerlink" title="2.下载视频"></a>2.下载视频</h2><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a href="https://www.bilibili.com/">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。 </p></div>   <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个工具被删了很可惜，感谢大佬提供这样的工具。</p>]]></content>
       
       
       <categories>
@@ -107,11 +136,11 @@
       
         <tags>
             
-            <tag> 哔哩哔哩 </tag>
-            
             <tag> 工具 </tag>
             
             <tag> 热门 </tag>
+            
+            <tag> 哔哩哔哩 </tag>
             
         </tags>
       

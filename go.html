@@ -411,7 +411,7 @@
       }).join(""));
     }
 
-    let countdown = 5;
+    let countdown = -1;
     let jump_url = GetQueryString('safego');
     let copyToastTimer = null;
 
@@ -461,8 +461,8 @@
       }
 
       countdownElement.textContent = countdown;
-      if (progressElement && 5 > 0) {
-        progressElement.style.width = (countdown / 5 * 100) + "%";
+      if (progressElement && -1 > 0) {
+        progressElement.style.width = (countdown / -1 * 100) + "%";
       }
 
       if (countdown === 0) {
@@ -596,10 +596,6 @@
       </div>
 
       <div class="countdown-text">⚡将在<span class="countdown-number" id="countdown"></span>秒后跳转，请自行确认链接安全性</div>
-      
-      <div class="progress-bar">
-        <div class="progress" id="progress"></div>
-      </div>
       
 
       <div class="button-container">
