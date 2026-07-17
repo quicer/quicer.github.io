@@ -11,36 +11,24 @@ const loadFeatureModules = async () => {
   const features = Solitude.config.feature_modules || {};
   const requests = [];
 
-  const loadModule = (path, callback) => {
-    requests.push(
-      import(path)
-        .then((module) => {
-          if (callback) callback(module);
-        })
-        .catch((error) => {
-          console.error(`Failed to load feature module ${path}:`, error);
-        })
-    );
-  };
-
-  if (features.search === "local") loadModule("./search/local.js");
-  if (features.search === "algolia") loadModule("./search/algolia.js");
-  if (features.friend_links) loadModule("./friend_links.js");
-  if (features.right_menu) loadModule("./right_menu.js");
-  if (features.translate) loadModule("./tw_cn.js");
+  if (features.search === "local") requests.push(import("./search/local.js"));
+  if (features.search === "algolia") requests.push(import("./search/algolia.js"));
+  if (features.friend_links) requests.push(import("./friend_links.js"));
+  if (features.right_menu) requests.push(import("./right_menu.js"));
+  if (features.translate) requests.push(import("./tw_cn.js"));
   if (features.post_ai && Solitude.page.is_post) {
-    loadModule("./post_ai.js", (module) => { ai = module.default; });
+    requests.push(import("./post_ai.js").then((module) => { ai = module.default; }));
   }
   if (features.music) {
-    loadModule("./music.js", (module) => {
+    requests.push(import("./music.js").then((module) => {
       initializeMusicPlayer = module.initializeMusicPlayer;
-    });
+    }));
   }
   if (features.covercolor) {
-    loadModule(`./covercolor/${features.covercolor}.js`, (module) => {
+    requests.push(import(`./covercolor/${features.covercolor}.js`).then((module) => {
       coverColor = module.coverColor;
       Solitude.coverColor = coverColor;
-    });
+    }));
   }
 
   await Promise.all(requests);
@@ -156,7 +144,7 @@ const percent = () => {
     ? Math.round((scrollPos / totalScrollableHeight) * 100)
     : 0;
   const navToTop = document.querySelector("#nav-totop");
-  const rsToTop = document.querySelector(".rs_show .top");
+  const rsToTop = document.querySelector(".rs_show .top i");
   const percentDisplay = document.querySelector("#percent");
   const endTarget =
     document.getElementById("post-comment") || document.getElementById("footer");
@@ -950,7 +938,7 @@ const actions = {
       const greeting = greetings.find(
         (g) => hours >= g.start && hours <= g.end
       );
-      if (greeting) el.innerText = greeting.text;
+      el.innerText = greeting.text;
     }
   },
   tagPageActive() {
@@ -1431,6 +1419,44 @@ const forPostFn = () => {
   scrollFnToDo();
 };
 
+const initPostCoverTilt = () => {
+  const cover = document.querySelector(".post-cover-aside");
+  const canTilt = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  ).matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  if (!cover || !canTilt || reduceMotion) return;
+
+  const updateTilt = (event) => {
+    const rect = cover.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    const rotateX = (0.5 - y) * 10;
+    const rotateY = (x - 0.5) * 10;
+
+    cover.style.setProperty("--post-cover-glow-x", `${(x * 100).toFixed(2)}%`);
+    cover.style.setProperty("--post-cover-glow-y", `${(y * 100).toFixed(2)}%`);
+    cover.style.setProperty("--post-cover-rotate-x", `${rotateX.toFixed(2)}deg`);
+    cover.style.setProperty("--post-cover-rotate-y", `${rotateY.toFixed(2)}deg`);
+    cover.style.setProperty("--post-cover-img-x", `${(-rotateY).toFixed(2)}px`);
+    cover.style.setProperty("--post-cover-img-y", `${rotateX.toFixed(2)}px`);
+  };
+
+  const resetTilt = () => {
+    cover.style.setProperty("--post-cover-rotate-x", "0deg");
+    cover.style.setProperty("--post-cover-rotate-y", "0deg");
+    cover.style.setProperty("--post-cover-img-x", "0px");
+    cover.style.setProperty("--post-cover-img-y", "0px");
+  };
+
+  lifecycle.listen(cover, "pointerenter", updateTilt);
+  lifecycle.listen(cover, "pointermove", updateTilt);
+  lifecycle.listen(cover, "pointerleave", resetTilt);
+  lifecycle.listen(cover, "pointercancel", resetTilt);
+};
+
 const initAboutCardGlow = () => {
   const aboutPage = document.getElementById("about-page");
   const canHover = window.matchMedia(
@@ -1503,6 +1529,7 @@ Solitude.refresh = async () => {
   randomlink && Solitude.randomLinksList?.();
   Solitude.config.friend_links.async && Solitude.friendLinks?.init();
   if (is_post) {
+    initPostCoverTilt();
     if (ai_text && ai) {
       ai.init();
       lifecycle.add(() => ai.cancel());
