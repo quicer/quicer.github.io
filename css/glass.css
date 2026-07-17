@@ -1,0 +1,86 @@
+#page-header.nav-fixed #nav #blog_name,
+#page-header.nav-fixed #nav #nav-right,
+#page-header.nav-fixed #nav #page-name {
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight) !important;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+#page-header.nav-fixed.nav-visible #nav div.menus_items {
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight) !important;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+#page-header.nav-fixed #nav #page-name::before {
+  background: transparent !important;
+}
+#aside-content .card-widget {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+#aside-content .card-widget:hover {
+  background: var(--glass-bg-hover);
+}
+.recent-post-item {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+.recent-post-item:hover {
+  background: var(--glass-bg-hover);
+}
+#console .console-card {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+#console .console-mask {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+.menus_item_child,
+.back-menu-list-groups {
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+#rightside .rs_show,
+#rightside .rs_hide {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+}
+#rightside button {
+  background: transparent;
+  border-radius: 20px;
+}
+#rightside button:hover,
+#rightside button:focus-visible {
+  color: var(--efu-main) !important;
+  background: var(--glass-bg-hover) !important;
+  box-shadow: 0 4px 12px var(--efu-main-op);
+}
+#rightside button.top #percent {
+  color: var(--efu-fontcolor);
+}
+[data-theme='dark'] #rightside .rs_show,
+[data-theme='dark'] #rightside .rs_hide {
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight) !important;
+}
