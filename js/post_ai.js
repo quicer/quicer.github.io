@@ -15,11 +15,18 @@ class AIPostRenderer {
   }
 
   init() {
-    if (this.initialized) return;
-    this.initialized = true;
+    // PJAX 导航后需要重新 initialize，否则会卡在"拼命加载中..."
+    // 因为单例的 explanationElement 仍指向已被移除的旧 DOM。
+    // 若上一次动画尚未结束（理论上 lifecycle.disposePage 已 cancel，这里兜底），先取消。
+    if (this.isAnimating) this.cancel();
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", this.initialize.bind(this), { once: true });
+      // 首次加载：只绑定一次 DOMContentLoaded
+      if (!this.initialized) {
+        this.initialized = true;
+        document.addEventListener("DOMContentLoaded", this.initialize.bind(this), { once: true });
+      }
     } else {
+      // PJAX 后：每次都重新 initialize，重新缓存新页面的 DOM 元素
       this.initialize();
     }
   }

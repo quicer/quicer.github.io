@@ -361,8 +361,12 @@ const initHomeCenter = () => {
     );
     item.addEventListener("click", (event) => {
       if (pointerType === "touch" && window.innerWidth <= 768) {
-        event.preventDefault();
-        select(index);
+        if (activeIndex === index) {
+          navigate(item.dataset.link, event);
+        } else {
+          event.preventDefault();
+          select(index);
+        }
       } else {
         navigate(item.dataset.link, event);
       }
@@ -461,11 +465,19 @@ const initObserver = () => {
   const commentElement = document.getElementById("post-comment");
   const paginationElement = document.getElementById("pagination");
   const commentBarrageElement = document.querySelector(".comment-barrage");
+  const nextPostFloatElement = document.getElementById("next-post-float");
 
-  if (commentElement && paginationElement) {
+  if (commentElement) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        paginationElement.classList.toggle("show-window", entry.isIntersecting);
+        // 控制旧的 pagination 显示/隐藏（如果存在）
+        if (paginationElement) {
+          paginationElement.classList.toggle("show-window", entry.isIntersecting);
+        }
+        // 控制浮动下一篇按钮的显示/隐藏
+        if (nextPostFloatElement) {
+          nextPostFloatElement.classList.toggle("show", entry.isIntersecting);
+        }
         if (Solitude.config.comment?.commentBarrage && commentBarrageElement) {
           commentBarrageElement.style.bottom = entry.isIntersecting
             ? "-200px"
