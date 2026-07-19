@@ -10,7 +10,48 @@
   <rights>All rights reserved 2026, quicer</rights>
   <subtitle>个人博客</subtitle>
   <title>quicer</title>
-  <updated>2026-07-16T10:23:07.000Z</updated>
+  <updated>2026-07-19T07:39:55.000Z</updated>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="经验分享" scheme="https://quicer.us.ci/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <category term="代码" scheme="https://quicer.us.ci/tags/%E4%BB%A3%E7%A0%81/"/>
+    <id>https://quicer.us.ci/posts/2b56d23b.html</id>
+    <link href="https://quicer.us.ci/posts/2b56d23b.html"/>
+    <published>2026-07-19T07:39:55.000Z</published>
+    <summary>粗光标</summary>
+    <title>切换模式来解决打字时光标由细变粗的问题</title>
+    <updated>2026-07-19T07:39:55.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.us.ci/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="白嫖" scheme="https://quicer.us.ci/tags/%E7%99%BD%E5%AB%96/"/>
+    <category term="热门" scheme="https://quicer.us.ci/tags/%E7%83%AD%E9%97%A8/"/>
+    <id>https://quicer.us.ci/posts/fc417bc9.html</id>
+    <link href="https://quicer.us.ci/posts/fc417bc9.html"/>
+    <published>2026-07-19T06:51:58.000Z</published>
+    <summary>免费复制</summary>
+    <title>免费地让你复制网页中付钱才可复制的文字</title>
+    <updated>2026-07-19T06:51:58.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.us.ci/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="热门" scheme="https://quicer.us.ci/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="工具" scheme="https://quicer.us.ci/tags/%E5%B7%A5%E5%85%B7/"/>
+    <id>https://quicer.us.ci/posts/8a9565cd.html</id>
+    <link href="https://quicer.us.ci/posts/8a9565cd.html"/>
+    <published>2026-07-19T06:00:00.000Z</published>
+    <summary>右键菜单</summary>
+    <title>一个工具让你的右键菜单变得简洁</title>
+    <updated>2026-07-19T06:00:00.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>quicer</name>
@@ -30,8 +71,8 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.us.ci/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <category term="工具" scheme="https://quicer.us.ci/tags/%E5%B7%A5%E5%85%B7/"/>
     <category term="热门" scheme="https://quicer.us.ci/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="工具" scheme="https://quicer.us.ci/tags/%E5%B7%A5%E5%85%B7/"/>
     <category term="Github" scheme="https://quicer.us.ci/tags/Github/"/>
     <category term="steam" scheme="https://quicer.us.ci/tags/steam/"/>
     <id>https://quicer.us.ci/posts/b74f9f5b.html</id>
@@ -46,8 +87,9 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.us.ci/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <category term="工具" scheme="https://quicer.us.ci/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="白嫖" scheme="https://quicer.us.ci/tags/%E7%99%BD%E5%AB%96/"/>
     <category term="热门" scheme="https://quicer.us.ci/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="工具" scheme="https://quicer.us.ci/tags/%E5%B7%A5%E5%85%B7/"/>
     <category term="Office" scheme="https://quicer.us.ci/tags/Office/"/>
     <category term="Microsoft" scheme="https://quicer.us.ci/tags/Microsoft/"/>
     <id>https://quicer.us.ci/posts/b74f9f5a.html</id>
@@ -76,9 +118,9 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.us.ci/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="热门" scheme="https://quicer.us.ci/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="哔哩哔哩" scheme="https://quicer.us.ci/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
     <category term="工具" scheme="https://quicer.us.ci/tags/%E5%B7%A5%E5%85%B7/"/>
-    <category term="热门" scheme="https://quicer.us.ci/tags/%E7%83%AD%E9%97%A8/"/>
     <id>https://quicer.us.ci/posts/30b0f4bb.html</id>
     <link href="https://quicer.us.ci/posts/30b0f4bb.html"/>
     <published>2026-02-19T04:00:00.000Z</published>

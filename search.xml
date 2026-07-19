@@ -4,6 +4,85 @@
   
     
     <entry>
+      <title>切换模式来解决打字时光标由细变粗的问题</title>
+      <link href="/posts/2b56d23b.html"/>
+      <url>/posts/2b56d23b.html</url>
+      
+        <content type="html"><![CDATA[<p>额，虽然我不知道大家是否了解，但在我上小学的时候，由于不咋懂电脑，有的时候会发现这种情况：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20154753-pY7hNKjK9Lnd96MH8GaNoABEOgUK6q.webp" alt="原本光标"><br>变成了：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20155013-ecMBbSJJtmdJJx3u7fi9Nb5bmmXVXx.webp" alt="不知道是什么鬼的光标"><br>而且在这种模式下打字，后面的字会被自己打出来的字吞掉。<br>一开始我并不知道这是咋回事，我都是直接重启电脑的（不要学我），后来我慢慢懂了，就知道原因了。<br>我来简单说明一下两种模式：  </p><ul><li>细光标：插入模式  </li><li>粗光标：改写模式</li></ul><p>要切换模式，只需要按键盘中的 <span class="keyboard-tag">Insert</span> 键即可。<br>这个键在键盘的位置如图：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20155918-0rOAjmcTl9i4nutpa6khmxAb8zVIlM.webp" alt="键盘"><br>改写模式其实是程序员在修改代码时为了不影响缩进而使用的功能，现在我就经常使用，因此它并不是一个无用的功能。想了解更多关于这个功能的东西，可以前往互联网搜索。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 代码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费地让你复制网页中付钱才可复制的文字</title>
+      <link href="/posts/fc417bc9.html"/>
+      <url>/posts/fc417bc9.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我想每个人肯定都有这样的经历：在制作文档时想加入一些文案，去网上搜了搜，找到了一篇好的文案，然后…<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20150135-DBAT7wOhEva9fIG7b6Kmh3YbOzqW0C.webp" alt="憋"><br>我去！根本复制不下来啊！<br>很多人就只好退出找其他的，还有人硬着头皮一个一个字打到文档里，更有胜者直接开通了VIP（真的有人会这样吗？）！<br>到底有没有解决方法呢？当然有！<br>接下来我教大家一个无需下载任何插件的方法来解决这个问题。  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>我以Microsoft Edge浏览器为例进行说明，其他浏览器做法大致相同。如果方法无效，请自行在互联网中搜索或者使用AI工具解决。</p></div> <p>假如我想复制一篇作文。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20150728-VQI6LCjN4tvDmIPDs9dE4vpOG6rk2B.webp" alt="作文"><br>但是不开通会员根本无法复制，解决方法非常简单。<br>在网址栏的最前面输入：  </p><blockquote><p>read:</p></blockquote><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>read后面的冒号<strong>不能打成中文的冒号</strong>，一定要是<strong>英文</strong>的！并且不要加空格。</p></div> <p>然后回车就会发现页面变成了下图的样子。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20151044-SfkEIrUOrF56F3nZWwg74QyaJl7uZR.webp">  </p><p>现在就可以尽情复制啦！！！  </p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个其实是浏览器自带的阅读器模式，让网页中的主要文字单独显示，去除其他与主体无关的元素，让读者全身心投入阅读，之前根本没想到可以用于这里。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 白嫖 </tag>
+            
+            <tag> 热门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一个工具让你的右键菜单变得简洁</title>
+      <link href="/posts/8a9565cd.html"/>
+      <url>/posts/8a9565cd.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为电脑太卡了，所以最近一直在寻找优化电脑性能的方法。突然发现我的右键菜单有很多用不到的东西，就想着优化一下。<br>本来是想通过修改<strong>注册表</strong>去优化的，但是后面电脑崩掉了（？），所以只能找个第三方工具优化了。<br>接下来上教程。  </p><h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>效果仅供参考，因电脑而异。</p></div> <h2 id="优化前"><a href="#优化前" class="headerlink" title="优化前"></a>优化前</h2><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-i0v0squjj1hltsr5-ghKb41GBj8yT6edgcNhYIws2IfTEN1.webp" alt="优化前">  </p><h2 id="优化后"><a href="#优化后" class="headerlink" title="优化后"></a>优化后</h2><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-25hzmuyt5y5z672h-PyGhUDqFGnTIM9dfZnCV9j5U4OS0fl.webp" alt="优化后"></p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>此教程仅适用于Windows系统。</p></div> <h2 id="方法一：修改注册表（大佬专用）"><a href="#方法一：修改注册表（大佬专用）" class="headerlink" title="方法一：修改注册表（大佬专用）"></a>方法一：修改注册表（大佬专用）</h2><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>我使用这个方法后电脑崩掉了，所以不是大佬的话请跳转<strong>方法二</strong>，这里不做过多讲述。</p></div> <span class="keyboard-tag">Win⌘</span> + <span class="keyboard-tag">R</span> 打开运行框，输入regedit，打开后自己找相关配置修改。  <h2 id="方法二：第三方工具（推荐-方便-安全）"><a href="#方法二：第三方工具（推荐-方便-安全）" class="headerlink" title="方法二：第三方工具（推荐&#x2F;方便&#x2F;安全）"></a>方法二：第三方工具（推荐&#x2F;方便&#x2F;安全）</h2><p>进入网盘下载<strong>ContextMenuManager</strong>工具（密码：jshf）。  </p><a class="tag-link" href="https://quicer.lanzoum.com/i4ADr3c9l1cj" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">蓝奏云</div>            <div class="tag-link-sitename">不限速下载文件</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>直接下载即可。<br>打开后，就是下面的界面。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-hi6x6lkt5a5ui61s-dGaArhaROspxLG9i5ngX2hGG7lGIax.webp" alt="界面"><br>把你不想要的右键选项关闭即可。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>优化后建议重启电脑。  </p></div> <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>ContextMenuManager这个工具是真的好用。有的时候借助第三方工具也是一种很好的选择。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>推荐一款更好的加速器</title>
       <link href="/posts/be200f2a.html"/>
       <url>/posts/be200f2a.html</url>
@@ -47,9 +126,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 热门 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> Github </tag>
             
@@ -78,9 +157,11 @@
       
         <tags>
             
-            <tag> 工具 </tag>
+            <tag> 白嫖 </tag>
             
             <tag> 热门 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> Office </tag>
             
@@ -136,11 +217,11 @@
       
         <tags>
             
+            <tag> 热门 </tag>
+            
             <tag> 哔哩哔哩 </tag>
             
             <tag> 工具 </tag>
-            
-            <tag> 热门 </tag>
             
         </tags>
       
