@@ -34,6 +34,16 @@
     },
     snackbarShow: (text, showAction = false, duration = 5000) => {
       Snackbar.show({ text, showAction, duration, pos: "top-center" });
+      // 配合 liquid-glass snackbar 胶囊入场动画：库只设置 opacity 1，
+      // 下一帧把 transform 复位到 translateY(0)，配合 CSS 回弹曲线。
+      // 注意：连续触发时旧 snackbar 仍在 DOM 中，要用 Snackbar.current 指向新实例，
+      // 避免 querySelector 误选到旧元素导致新胶囊没有入场动画。
+      requestAnimationFrame(() => {
+        const el = Snackbar.current;
+        if (el) {
+          el.style.setProperty("transform", "translateX(-50%) translateY(0)", "important");
+        }
+      });
     },
     copy: async (text) => {
       const message = await navigator.clipboard

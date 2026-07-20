@@ -190,6 +190,10 @@ const initHomeCenter = () => {
   const categoryBar = document.getElementById("category-bar");
   let activeIndex = 0;
   let scrollFrame;
+  let autoPlayTimer = null;
+  let isHovering = false;
+  let isVisible = !document.hidden;
+  const AUTO_PLAY_DELAY = 5000;
 
   const getCachedColor = (src) => {
     try {
@@ -316,6 +320,7 @@ const initHomeCenter = () => {
   const select = (index) => {
     if (!banners[index]) return;
     activeIndex = index;
+    resetAutoPlay();
     banners.forEach((banner, bannerIndex) => {
       const isActive = bannerIndex === index;
       banner.classList.toggle("active", isActive);
@@ -342,10 +347,53 @@ const initHomeCenter = () => {
     titleLink.textContent = selected.dataset.title;
     titleLink.href = selected.dataset.link;
     titleTag.textContent = selected.dataset.label;
+    if (titleLink.animate) {
+      titleLink.animate(
+        [
+          { opacity: 0, transform: "translateY(14px)" },
+          { opacity: 1, transform: "translateY(0)" },
+        ],
+        { duration: 520, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)" }
+      );
+      titleTag.animate(
+        [
+          { opacity: 0, transform: "translateY(8px)" },
+          { opacity: 0.8, transform: "translateY(0)" },
+        ],
+        { duration: 520, delay: 80, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)" }
+      );
+    }
     container.style.setProperty("--current-theme", color);
     container.style.setProperty("--current-theme-op", colorOp);
     container.style.setProperty("--current-theme-op-deep", colorDeep);
     categoryBar?.style.setProperty("--current-banner-theme", color);
+  };
+
+  const startAutoPlay = () => {
+    if (autoPlayTimer) return;
+    autoPlayTimer = setInterval(() => {
+      if (!isVisible || isHovering) return;
+      const nextIndex = (activeIndex + 1) % banners.length;
+      select(nextIndex);
+      if (window.innerWidth <= 768 && banner.clientWidth) {
+        banner.scrollTo({
+          left: banner.clientWidth * nextIndex,
+          behavior: "smooth",
+        });
+      }
+    }, AUTO_PLAY_DELAY);
+  };
+
+  const stopAutoPlay = () => {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+  };
+
+  const resetAutoPlay = () => {
+    stopAutoPlay();
+    startAutoPlay();
   };
 
   items.forEach((item, index) => {
@@ -393,7 +441,24 @@ const initHomeCenter = () => {
       select(Math.round(banner.scrollLeft / banner.clientWidth));
     });
   });
+  container.addEventListener("mouseenter", () => {
+    isHovering = true;
+    stopAutoPlay();
+  });
+  container.addEventListener("mouseleave", () => {
+    isHovering = false;
+    resetAutoPlay();
+  });
+  document.addEventListener("visibilitychange", () => {
+    isVisible = !document.hidden;
+    if (isVisible) {
+      resetAutoPlay();
+    } else {
+      stopAutoPlay();
+    }
+  });
   select(0);
+  startAutoPlay();
   banners.forEach((item, index) => {
     if (item.dataset.color) return;
     const image = item.querySelector(".home-center-cover-img");
