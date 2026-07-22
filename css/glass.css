@@ -866,8 +866,8 @@
   transform: translate(-50%, -50%) scale(0.92);
   z-index: 2002;
   max-width: 82vw;
-  padding: 0.9rem 1.5rem;
-  border-radius: 14px;
+  padding: 1.1rem 1.8rem;
+  border-radius: 18px;
   font-size: 0.95rem;
   text-align: center;
   color: var(--efu-fontcolor);
@@ -878,10 +878,24 @@
   backdrop-filter: var(--glass-blur);
   background: var(--glass-bg);
   border: var(--glass-border);
-  box-shadow: var(--glass-shadow), var(--glass-highlight), 0 10px 40px rgba(0,0,0,0.35);
+  box-shadow: var(--glass-shadow), var(--glass-highlight), 0 14px 48px rgba(0,0,0,0.35);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#loading-slow .loading-slow-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+#loading-slow .loading-slow-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid var(--efu-main-op);
+  border-top-color: var(--efu-main);
+  animation: loading-slow-spin 1s linear infinite;
 }
 #loading-slow.show {
   opacity: 1;
@@ -1125,6 +1139,58 @@
   border-color: var(--efu-main) !important;
   box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 4px 14px var(--efu-main-op) !important;
 }
+@media screen and (max-width: 768px) {
+  #waline-wrap [data-waline] .wl-item {
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  #waline-wrap [data-waline] .wl-avatar {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    margin-top: 0.15rem;
+  }
+  #waline-wrap [data-waline] .wl-main {
+    min-width: 0;
+    flex: 1;
+  }
+  #waline-wrap [data-waline] .wl-card {
+    padding: 0.75rem 0.9rem !important;
+    margin: 0.55rem 0 !important;
+    border-radius: 12px !important;
+  }
+  #waline-wrap [data-waline] .wl-meta {
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
+  }
+  #waline-wrap [data-waline] .wl-nick {
+    font-size: 0.9rem;
+  }
+  #waline-wrap [data-waline] .wl-time {
+    font-size: 0.75rem;
+  }
+  #waline-wrap [data-waline] .wl-content {
+    font-size: 0.9rem !important;
+    line-height: 1.75 !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+  #waline-wrap [data-waline] .wl-content p {
+    margin: 0.3rem 0 !important;
+  }
+  #waline-wrap [data-waline] .wl-quote {
+    padding: 0.25rem 0.55rem !important;
+    margin: 0.25rem 0 0.4rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 0 6px 6px 0 !important;
+  }
+  #waline-wrap [data-waline] .wl-actions {
+    margin-top: 0.3rem;
+  }
+  #waline-wrap [data-waline] .wl-action {
+    font-size: 0.8rem;
+  }
+}
 .swal-overlay {
   background: rgba(0,0,0,0.45) !important;
   backdrop-filter: blur(8px) saturate(1.2) !important;
@@ -1203,7 +1269,12 @@
   background: var(--glass-bg) !important;
   border: var(--glass-border) !important;
   box-shadow: var(--glass-shadow), var(--glass-highlight), 0 16px 40px rgba(0,0,0,0.08) !important;
-maxWidth768()
+}
+@media screen and (max-width: 768px) {
+  .flink.article-container {
+    padding: 1rem 0.75rem !important;
+    border-radius: 14px !important;
+  }
 }
 .flink.article-container .flink-list-item,
 .flink.article-container .site-card {
@@ -1301,6 +1372,26 @@ maxWidth768()
 }
 .flink#banners .banner-button-group .banner-button i {
   margin-right: 8px;
+}
+@-moz-keyframes loading-slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loading-slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading-slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @-moz-keyframes wl-card-in {
   from {
