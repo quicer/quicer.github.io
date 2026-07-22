@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>错过再付费！WorkBuddy混元Hy3限免！</title>
+      <link href="/posts/1a555cfc.html"/>
+      <url>/posts/1a555cfc.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我最近在玩WorkBuddy，还花了70￥买了一个月的标准版，给了4000积分。我本以为一个暑假应该够用了，没想到我就用了2天，就全部用完了。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202206-thj1azGVWeQztAPmS6nIXLR6yJ57tC.webp" alt="哦不"><br>然后我想升级到高级版，但是它居然不给升级？？！！<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202554-JnXy2xavaLxpQiiV7xE2Tm48QWEwt9.webp" alt="不给升级"><br>正当我愁着难道只能找豆包玩的时候，一位“英雄”出现了：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20204943-f3BRrLjXLfF5njXG6fZODazPaD6cYF.webp" alt="限时免费！"><br>好家伙，hy3居然限时免费（我没有关注QWQ）！！！那我充70￥有个屁用啊？（哭哭）<br>e，不说题外话了，我稍微测试了一下这个东西免费到底好不好用，直接进入正题！  </p><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>图像、视频生成会正常消耗积分，不免费。</p></div> <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Hy3是腾讯混元团队2026年7月6日正式发布MoE混合专家大语言模型，WorkBuddy首发搭载深度适配版本，主打“AI智能体+办公生产力”，也是当前WorkBuddy平台旗舰文本模型。<br>在2026年7月6日正式发布，本来说限免时间是从2026年7月6日到2026年7月22日，现在限免截止日期是2026年8月5日（啊啊啊，幸好延迟了，不然就只能玩几天了…）。想去试试的朋友快去玩玩吧，之后就没了！  </p><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h2><p>hy3的上下文长度大约为256K（约20万字），长度完全足够用（就算真不够用了，其实WorkBuddy也会自动压缩上下文）。   </p><h2 id="其他架构参数"><a href="#其他架构参数" class="headerlink" title="其他架构参数"></a>其他架构参数</h2><p>对于架构参数我只懂一点点上下文，其他的都不咋了解，下面是hy3的其他架构参数。  </p><table><thead><tr><th>项目</th><th>规格</th></tr></thead><tbody><tr><td>架构类型</td><td>MoE（混合专家）+ 快慢思考融合</td></tr><tr><td>总参数</td><td>2950 亿（295B）</td></tr><tr><td>激活参数</td><td>210 亿（21B）</td></tr><tr><td>MTP 层参数</td><td>约 38 亿（Multi-token Prediction）</td></tr><tr><td>上下文长度</td><td>256K（约 20 万字）</td></tr><tr><td>层数</td><td>80 层（不含 MTP）</td></tr><tr><td>注意力</td><td>GQA 分组注意力，64 个注意力头（其中 8 个 KV 头）</td></tr><tr><td>专家配置</td><td>192 个专家，每次激活 top-8</td></tr><tr><td>隐藏层维度</td><td>4096（中间层 13312）</td></tr><tr><td>词表</td><td>120,832</td></tr><tr><td>精度</td><td>BF16</td></tr></tbody></table><h2 id="思考速度"><a href="#思考速度" class="headerlink" title="思考速度"></a>思考速度</h2><p>hy3支持更换思考强弱，可以根据自己的需求更换。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20135045-Vvbd4eQAJYeEwyZp7wkwgxL0E9AmiY.webp" alt="思考强度"><br>实测下来，思考强度如果选择弱，速度虽然会加快不少，但在处理一些复杂的任务时往往会不如强思考尽人意。  </p><h2 id="与glm-5-2比较"><a href="#与glm-5-2比较" class="headerlink" title="与glm-5.2比较"></a>与glm-5.2比较</h2><p>他们完成任务的准确度差不多，我让他们帮我优化一下目录的侧边栏，glm-5.2比hy3制作的更好，hy3在经过我的一次“调教”后也成功制作了令我满意的效果，我感觉hy3调教后制作的好一点，于是我就采用了hy3制作的目录侧边栏，是不是还不错？<br>然后在时间花费上，hy3所花费的时间比glm-5.2长出不少（8分钟！），不知道是不是我电脑或者是用的人太多的问题，但glm-5.2在速度上确实比hy3快。  </p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="上下文长度显示"><a href="#上下文长度显示" class="headerlink" title="上下文长度显示"></a>上下文长度显示</h2><ul><li>为什么hy3上下文长度明明是256K，我却显示的是192K？</li></ul><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20132622-Au6UgwbpcJO6pjMZB9UZA3YC9bCqqL.webp" alt="上下文"><br>这个是因为这个192K是输入侧的上下文容量，还有64K是输出侧的，即<strong>192K&#x3D;256K总容量−64K输出预留</strong>。<br>上下文的总容量包括两个东西：你喂给它的（输入侧）和它写出来的（输出侧）。  </p><ul><li>为什么要分开？共用不好吗？</li></ul><p>如果不限输出，模型可能一口气写几万个积分的报告、代码或PPT内容，把256K全部用满，结果你自己对话还没塞进多少它就”装不下”了。所以WorkBuddy把256K切成192K输入和64K输出，这样既能接超长材料，也能让模型放心地写长内容。  </p><h2 id="hy3相比hy2的改进"><a href="#hy3相比hy2的改进" class="headerlink" title="hy3相比hy2的改进"></a>hy3相比hy2的改进</h2><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>数据来自网络。</p></div> <ul><li>Agent 任务成功率（WorkBuddy 内部测评）：72% → 90%，平均耗时缩短 34%</li><li>专家盲测（270 位真实工作场景）：Hy3 得分 2.67&#x2F;4，优于 GLM-5.1 的 2.51&#x2F;4，前端、数据与存储、CI&#x2F;CD 类别优势尤其明显</li><li>Token 效率（对比 GLM-5.2）：文档处理少消耗 47.4% token，PPT 制作少 49% token</li><li>抗幻觉（真实场景评测）：幻觉率 12.5% → 5.4%；常识错误率 25.4% → 12.7%</li><li>多轮对话：指代&#x2F;省略恢复等问题率 17.4% → 7.9%</li><li>代码能力（SWE-bench）：preview 阶段约 74.4%，较 Hy2 的 53.0% 提升超 40%</li></ul><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>hy3适合绝大多数人使用，而且现在限时免费，趁现在赶紧去试试！如果有很着急的任务，还是给glm-5.2比较好，它的服务器不繁忙，速度更加快！<br>另外我并不咋会写测评，因为设备的性能不足以我测试太多东西，以后可能不咋写测评了。如果写得不尽人意，勿喷，谢谢。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术测评 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> 龙虾 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>切换模式来解决打字时光标由细变粗的问题</title>
       <link href="/posts/2b56d23b.html"/>
       <url>/posts/2b56d23b.html</url>
