@@ -8,7 +8,7 @@
       <link href="/posts/b48c7993.html"/>
       <url>/posts/b48c7993.html</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，hexo博客的默认文章链接是：:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;（hexo配置文件的permalink），是一大坨。<br>然后为啥我每篇文章都要写前言？懒得写了，直接看把。</p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><div class="repo-card">  <a class='name-mrg5c6hk2 repo-title fancybox' href="https://github.com/ohroy/hexo-abbrlink"></a>  <p class='desc-mrg5c6hk2 repo-desc'></p>  <div class="repo-gist">    <i class="fas fa-star"></i>    <span class='star-mrg5c6hk2'></span>    <i class="fas fa-code-branch"></i>    <span class='fork-mrg5c6hk2'></span>  </div>  <img class='lang-mrg5c6hk2 repo-language no-lightbox' />  <script>    fetch('https://api.github.com/repos/ohroy/hexo-abbrlink')      .then(res => res.json())      .then(data => {        document.querySelector('.name-mrg5c6hk2').innerText = data.name;        document.querySelector('.desc-mrg5c6hk2').innerText = data.description;        document.querySelector('.star-mrg5c6hk2').innerText = data.stargazers_count;        document.querySelector('.fork-mrg5c6hk2').innerText = data.forks_count;        document.querySelector('.lang-mrg5c6hk2').src = 'https://skillicons.dev/icons?i=' + data.language.toLowerCase();    });  </script>  </div>  <p>博客根目录执行：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改<code>_config.yml</code>配置：  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span> </span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>如果想要改成其他的也没事，喜欢就好。  </p><p>然后将下面的内容复制到<code>_config.yml</code>的最底下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-abbrlink</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> <span class="comment"># 支持crc16和crc32算法（默认crc16）</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> <span class="comment"># 支持dec和hex值（默认dec）</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span> <span class="comment"># true处理草稿，false不处理草稿。（默认false）</span></span><br><span class="line">  <span class="comment"># 从目录树生成类别</span></span><br><span class="line">  <span class="comment"># 深度：要生成的目录树的最大深度应大于0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 默认true</span></span><br><span class="line">    <span class="attr">depth:</span> <span class="comment"># 默认3</span></span><br><span class="line">    <span class="attr">over_write:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment"># 启用自动标题，可以按路径自动填充标题</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment"># 启用自动日期，它可以自动填写日期的时间今天</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment"># 启用强制模式，在这种模式下，插件将忽略缓存，并为每个帖子计算abbrlink，即使它已经有了abbrlink</span></span><br></pre></td></tr></table></figure><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>注意不是主题配置文件<code>_config.solitude.yml</code>。</p></div> <h2 id="hexo三连击"><a href="#hexo三连击" class="headerlink" title="hexo三连击"></a>hexo三连击</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>观察在你文章的Front Matter是否多了一项abbrlink。  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">abbrlink:</span> <span class="string">example</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><p>并且你的文章链接变化了。</p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>仅实例，每个人生成的都不一样。</p></div> <p>生成的链接将呈现如下：  </p><h3 id="crc16-hex"><a href="#crc16-hex" class="headerlink" title="crc16 &amp; hex"></a>crc16 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/66c8.html</span><br></pre></td></tr></table></figure><h3 id="crc16-dec"><a href="#crc16-dec" class="headerlink" title="crc16 &amp; dec"></a>crc16 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/65535.html</span><br></pre></td></tr></table></figure><h3 id="crc32-hex"><a href="#crc32-hex" class="headerlink" title="crc32 &amp; hex"></a>crc32 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/8ddf18fb.html</span><br></pre></td></tr></table></figure><h3 id="crc32-dec"><a href="#crc32-dec" class="headerlink" title="crc32 &amp; dec"></a>crc32 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/1690090958.html</span><br></pre></td></tr></table></figure><h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>如果之前你已经配置了评论，并且已经有人在之前的文章链接评论过了，更新后那些评论将不能定位到新的文章链接。因此请备份好评论数据，完成上面的操作后再修改每条评论对应的url，再导入回去。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，hexo博客的默认文章链接是：:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;（hexo配置文件的permalink），是一大坨。<br>然后为啥我每篇文章都要写前言？懒得写了，直接看把。</p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><div class="repo-card">  <a class='name-xa584ilnp repo-title fancybox' href="https://github.com/ohroy/hexo-abbrlink"></a>  <p class='desc-xa584ilnp repo-desc'></p>  <div class="repo-gist">    <i class="fas fa-star"></i>    <span class='star-xa584ilnp'></span>    <i class="fas fa-code-branch"></i>    <span class='fork-xa584ilnp'></span>  </div>  <img class='lang-xa584ilnp repo-language no-lightbox' />  <script>    fetch('https://api.github.com/repos/ohroy/hexo-abbrlink')      .then(res => res.json())      .then(data => {        document.querySelector('.name-xa584ilnp').innerText = data.name;        document.querySelector('.desc-xa584ilnp').innerText = data.description;        document.querySelector('.star-xa584ilnp').innerText = data.stargazers_count;        document.querySelector('.fork-xa584ilnp').innerText = data.forks_count;        document.querySelector('.lang-xa584ilnp').src = 'https://skillicons.dev/icons?i=' + data.language.toLowerCase();    });  </script>  </div>  <p>博客根目录执行：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改<code>_config.yml</code>配置：  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span> </span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>如果想要改成其他的也没事，喜欢就好。  </p><p>然后将下面的内容复制到<code>_config.yml</code>的最底下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-abbrlink</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> <span class="comment"># 支持crc16和crc32算法（默认crc16）</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> <span class="comment"># 支持dec和hex值（默认dec）</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span> <span class="comment"># true处理草稿，false不处理草稿。（默认false）</span></span><br><span class="line">  <span class="comment"># 从目录树生成类别</span></span><br><span class="line">  <span class="comment"># 深度：要生成的目录树的最大深度应大于0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 默认true</span></span><br><span class="line">    <span class="attr">depth:</span> <span class="comment"># 默认3</span></span><br><span class="line">    <span class="attr">over_write:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment"># 启用自动标题，可以按路径自动填充标题</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment"># 启用自动日期，它可以自动填写日期的时间今天</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment"># 启用强制模式，在这种模式下，插件将忽略缓存，并为每个帖子计算abbrlink，即使它已经有了abbrlink</span></span><br></pre></td></tr></table></figure><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>注意不是主题配置文件<code>_config.solitude.yml</code>。</p></div> <h2 id="hexo三连击"><a href="#hexo三连击" class="headerlink" title="hexo三连击"></a>hexo三连击</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>观察在你文章的Front Matter是否多了一项abbrlink。  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">abbrlink:</span> <span class="string">example</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><p>并且你的文章链接变化了。</p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>仅实例，每个人生成的都不一样。</p></div> <p>生成的链接将呈现如下：  </p><h3 id="crc16-hex"><a href="#crc16-hex" class="headerlink" title="crc16 &amp; hex"></a>crc16 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/66c8.html</span><br></pre></td></tr></table></figure><h3 id="crc16-dec"><a href="#crc16-dec" class="headerlink" title="crc16 &amp; dec"></a>crc16 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/65535.html</span><br></pre></td></tr></table></figure><h3 id="crc32-hex"><a href="#crc32-hex" class="headerlink" title="crc32 &amp; hex"></a>crc32 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/8ddf18fb.html</span><br></pre></td></tr></table></figure><h3 id="crc32-dec"><a href="#crc32-dec" class="headerlink" title="crc32 &amp; dec"></a>crc32 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/1690090958.html</span><br></pre></td></tr></table></figure><h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>如果之前你已经配置了评论，并且已经有人在之前的文章链接评论过了，更新后那些评论将不能定位到新的文章链接。因此请备份好评论数据，完成上面的操作后再修改每条评论对应的url，再导入回去。</p>]]></content>
       
       
       <categories>
@@ -20,13 +20,13 @@
       
         <tags>
             
-            <tag> hexo </tag>
+            <tag> 前端 </tag>
             
             <tag> 插件 </tag>
             
             <tag> 热门 </tag>
             
-            <tag> 前端 </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -51,9 +51,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> AI </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> 龙虾 </tag>
             
@@ -132,9 +132,9 @@
       
         <tags>
             
-            <tag> 热门 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
             
         </tags>
       
@@ -186,13 +186,13 @@
       
         <tags>
             
-            <tag> 热门 </tag>
-            
             <tag> 工具 </tag>
             
-            <tag> Github </tag>
+            <tag> 热门 </tag>
             
             <tag> steam </tag>
+            
+            <tag> Github </tag>
             
         </tags>
       
@@ -217,9 +217,9 @@
       
         <tags>
             
-            <tag> 热门 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
             
             <tag> 白嫖 </tag>
             
@@ -277,11 +277,11 @@
       
         <tags>
             
+            <tag> 工具 </tag>
+            
             <tag> 热门 </tag>
             
             <tag> 哔哩哔哩 </tag>
-            
-            <tag> 工具 </tag>
             
         </tags>
       

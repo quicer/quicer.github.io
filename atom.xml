@@ -16,10 +16,10 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <category term="hexo" scheme="https://quicer.js.cool/tags/hexo/"/>
+    <category term="前端" scheme="https://quicer.js.cool/tags/%E5%89%8D%E7%AB%AF/"/>
     <category term="插件" scheme="https://quicer.js.cool/tags/%E6%8F%92%E4%BB%B6/"/>
     <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
-    <category term="前端" scheme="https://quicer.js.cool/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="hexo" scheme="https://quicer.js.cool/tags/hexo/"/>
     <id>https://quicer.js.cool/posts/b48c7993.html</id>
     <link href="https://quicer.js.cool/posts/b48c7993.html"/>
     <published>2026-07-23T01:19:20.000Z</published>
@@ -32,8 +32,8 @@
       <name>quicer</name>
     </author>
     <category term="技术测评" scheme="https://quicer.js.cool/categories/%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%84/"/>
-    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
     <category term="AI" scheme="https://quicer.js.cool/tags/AI/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
     <category term="龙虾" scheme="https://quicer.js.cool/tags/%E9%BE%99%E8%99%BE/"/>
     <id>https://quicer.js.cool/posts/1a555cfc.html</id>
     <link href="https://quicer.js.cool/posts/1a555cfc.html"/>
@@ -74,8 +74,8 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <id>https://quicer.js.cool/posts/8a9565cd.html</id>
     <link href="https://quicer.js.cool/posts/8a9565cd.html"/>
     <published>2026-07-19T06:00:00.000Z</published>
@@ -102,10 +102,10 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
-    <category term="Github" scheme="https://quicer.js.cool/tags/Github/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="steam" scheme="https://quicer.js.cool/tags/steam/"/>
+    <category term="Github" scheme="https://quicer.js.cool/tags/Github/"/>
     <id>https://quicer.js.cool/posts/b74f9f5b.html</id>
     <link href="https://quicer.js.cool/posts/b74f9f5b.html"/>
     <published>2026-02-26T09:00:00.000Z</published>
@@ -118,8 +118,8 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="白嫖" scheme="https://quicer.js.cool/tags/%E7%99%BD%E5%AB%96/"/>
     <category term="Office" scheme="https://quicer.js.cool/tags/Office/"/>
     <category term="Microsoft" scheme="https://quicer.js.cool/tags/Microsoft/"/>
@@ -149,9 +149,9 @@
       <name>quicer</name>
     </author>
     <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
     <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
     <category term="哔哩哔哩" scheme="https://quicer.js.cool/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
-    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
     <id>https://quicer.js.cool/posts/30b0f4bb.html</id>
     <link href="https://quicer.js.cool/posts/30b0f4bb.html"/>
     <published>2026-02-19T04:00:00.000Z</published>
