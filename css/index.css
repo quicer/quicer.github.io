@@ -2502,6 +2502,9 @@ span.tags-punctuation i {
 [data-theme=dark] #global_bg {
   background-image: url("/img/dark.webp");
 }
+.repo-language {
+  display: none !important;
+}
 .article-container {
   overflow-wrap: break-word;
 }
