@@ -32,6 +32,8 @@ export const initPreloader = (api) => {
     document.removeEventListener("click", dismissOnClick);
     if (slowObserver) slowObserver.disconnect();
     sync();
+    // 通知其它模块：全屏加载动画已结束（用于缓存清理提示等，避免其傻等 window.load）
+    document.dispatchEvent(new Event("solitude:preloader-end"));
   };
 
   const showSlowIfNeeded = () => {

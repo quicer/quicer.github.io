@@ -1760,9 +1760,21 @@ const checkCacheUpdate = () => {
   try {
     const last = localStorage.getItem(KEY);
     if (last && last !== String(buildVersion)) {
-      // 博客已更新：清空本地缓存（localStorage），确保访客拿到最新内容
-      localStorage.clear();
+      // 博客已更新：需要清空本地缓存，确保访客拿到最新内容
       needPopup = true;
+      // 把清理操作放到微任务里，避免阻塞首屏/页面初始化
+      const keysToRemove = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k !== KEY) keysToRemove.push(k);
+      }
+      queueMicrotask(() => {
+        try {
+          keysToRemove.forEach((k) => localStorage.removeItem(k));
+        } catch (e) {
+          /* ignore */
+        }
+      });
     }
     localStorage.setItem(KEY, String(buildVersion));
   } catch (e) {
@@ -1785,21 +1797,26 @@ const initializeApp = async () => {
   Solitude.initConsoleState();
   lifecycle.emit("ready", { config: Solitude.config, page: Solitude.page });
 
-  // 加载完成后弹出“缓存清理完成”提示（与“复制成功”同款 snackbar）
+  // “缓存清理完成”提示：在全屏加载动画结束时立即弹出（与“复制成功”同款 snackbar）。
+  // 不再等待 window.load —— 图片多的页面 window.load 会滞后数秒，造成“清理慢”的错觉。
   if (needCachePopup) {
+    const text =
+      (Solitude.config.cacheClean && Solitude.config.cacheClean.text) ||
+      Solitude.config.lang.cache_clean_done ||
+      "缓存清理完成，已更新到最新版本！";
+    let shown = false;
     const showCachePopup = () => {
-      setTimeout(() => {
-        const text =
-          (Solitude.config.cacheClean && Solitude.config.cacheClean.text) ||
-          Solitude.config.lang.cache_clean_done ||
-          "缓存清理完成，已更新到最新版本！";
-        Solitude.snackbarShow(text, false, 3000);
-      }, 800);
+      if (shown) return;
+      shown = true;
+      Solitude.snackbarShow(text, false, 3000);
     };
+    // 主要触发：预加载器结束（点击提前关闭 / 5s 兜底 / 加载完成任一），确保弹窗可见且不延迟
+    document.addEventListener("solitude:preloader-end", showCachePopup, { once: true });
     if (document.readyState === "complete") {
-      showCachePopup();
+      requestAnimationFrame(showCachePopup); // 页面已就绪，预加载器早已结束
     } else {
-      window.addEventListener("load", showCachePopup, { once: true });
+      window.addEventListener("load", showCachePopup, { once: true }); // 双保险
+      setTimeout(showCachePopup, 5500); // 终极兜底：任何异常下也会弹出
     }
   }
 };
