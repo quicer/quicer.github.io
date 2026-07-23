@@ -4,11 +4,42 @@
   
     
     <entry>
+      <title>使用abbrlink插件优化你的hexo文章链接</title>
+      <link href="/posts/b48c7993.html"/>
+      <url>/posts/b48c7993.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，hexo博客的默认文章链接是：:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;（hexo配置文件的permalink），是一大坨。<br>然后为啥我每篇文章都要写前言？懒得写了，直接看把。</p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><div class="repo-card">  <a class='name-172avzm7y repo-title fancybox' href="https://github.com/ohroy/hexo-abbrlink"></a>  <p class='desc-172avzm7y repo-desc'></p>  <div class="repo-gist">    <i class="fas fa-star"></i>    <span class='star-172avzm7y'></span>    <i class="fas fa-code-branch"></i>    <span class='fork-172avzm7y'></span>  </div>  <img class='lang-172avzm7y repo-language no-lightbox' />  <script>    fetch('https://api.github.com/repos/ohroy/hexo-abbrlink')      .then(res => res.json())      .then(data => {        document.querySelector('.name-172avzm7y').innerText = data.name;        document.querySelector('.desc-172avzm7y').innerText = data.description;        document.querySelector('.star-172avzm7y').innerText = data.stargazers_count;        document.querySelector('.fork-172avzm7y').innerText = data.forks_count;        document.querySelector('.lang-172avzm7y').src = 'https://skillicons.dev/icons?i=' + data.language.toLowerCase();    });  </script>  </div>  <p>博客根目录执行：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改<code>_config.yml</code>配置：  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span> </span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>如果想要改成其他的也没事，喜欢就好。  </p><p>然后将下面的内容复制到<code>_config.yml</code>的最底下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-abbrlink</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> <span class="comment"># 支持crc16和crc32算法（默认crc16）</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> <span class="comment"># 支持dec和hex值（默认dec）</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span> <span class="comment"># true处理草稿，false不处理草稿。（默认false）</span></span><br><span class="line">  <span class="comment"># 从目录树生成类别</span></span><br><span class="line">  <span class="comment"># 深度：要生成的目录树的最大深度应大于0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 默认true</span></span><br><span class="line">    <span class="attr">depth:</span> <span class="comment"># 默认3</span></span><br><span class="line">    <span class="attr">over_write:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment"># 启用自动标题，可以按路径自动填充标题</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment"># 启用自动日期，它可以自动填写日期的时间今天</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment"># 启用强制模式，在这种模式下，插件将忽略缓存，并为每个帖子计算abbrlink，即使它已经有了abbrlink</span></span><br></pre></td></tr></table></figure><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>注意不是主题配置文件<code>_config.solitude.yml</code>。</p></div> <h2 id="hexo三连击"><a href="#hexo三连击" class="headerlink" title="hexo三连击"></a>hexo三连击</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>观察在你文章的Front Matter是否多了一项abbrlink。  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">abbrlink:</span> <span class="string">example</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><p>并且你的文章链接变化了。</p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>仅实例，每个人生成的都不一样。</p></div> <p>生成的链接将呈现如下：  </p><h3 id="crc16-hex"><a href="#crc16-hex" class="headerlink" title="crc16 &amp; hex"></a>crc16 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/66c8.html</span><br></pre></td></tr></table></figure><h3 id="crc16-dec"><a href="#crc16-dec" class="headerlink" title="crc16 &amp; dec"></a>crc16 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/65535.html</span><br></pre></td></tr></table></figure><h3 id="crc32-hex"><a href="#crc32-hex" class="headerlink" title="crc32 &amp; hex"></a>crc32 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/8ddf18fb.html</span><br></pre></td></tr></table></figure><h3 id="crc32-dec"><a href="#crc32-dec" class="headerlink" title="crc32 &amp; dec"></a>crc32 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/1690090958.html</span><br></pre></td></tr></table></figure><h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>如果之前你已经配置了评论，并且已经有人在之前的文章链接评论过了，更新后那些评论将不能定位到新的文章链接。因此请备份好评论数据，完成上面的操作后再修改每条评论对应的url，再导入回去。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 插件 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>错过再付费！WorkBuddy混元Hy3限免！</title>
       <link href="/posts/1a555cfc.html"/>
       <url>/posts/1a555cfc.html</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我最近在玩WorkBuddy，还花了70￥买了一个月的标准版，给了4000积分。我本以为一个暑假应该够用了，没想到我就用了2天，就全部用完了。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202206-thj1azGVWeQztAPmS6nIXLR6yJ57tC.webp" alt="哦不"><br>然后我想升级到高级版，但是它居然不给升级？？！！<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202554-JnXy2xavaLxpQiiV7xE2Tm48QWEwt9.webp" alt="不给升级"><br>正当我愁着难道只能找豆包玩的时候，一位“英雄”出现了：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20204943-f3BRrLjXLfF5njXG6fZODazPaD6cYF.webp" alt="限时免费！"><br>好家伙，hy3居然限时免费（我没有关注QWQ）！！！那我充70￥有个屁用啊？（哭哭）<br>e，不说题外话了，我稍微测试了一下这个东西免费到底好不好用，直接进入正题！  </p><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>图像、视频生成会正常消耗积分，不免费。</p></div> <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Hy3是腾讯混元团队2026年7月6日正式发布MoE混合专家大语言模型，WorkBuddy首发搭载深度适配版本，主打“AI智能体+办公生产力”，也是当前WorkBuddy平台旗舰文本模型。<br>在2026年7月6日正式发布，本来说限免时间是从2026年7月6日到2026年7月22日，现在限免截止日期是2026年8月5日（啊啊啊，幸好延迟了，不然就只能玩几天了…）。想去试试的朋友快去玩玩吧，之后就要钱了！  </p><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h2><p>hy3的上下文长度大约为256K（约20万字），长度完全足够用（就算真不够用了，其实WorkBuddy也会自动压缩上下文）。   </p><h2 id="其他架构参数"><a href="#其他架构参数" class="headerlink" title="其他架构参数"></a>其他架构参数</h2><p>对于架构参数我只懂一点点上下文，其他的都不咋了解，下面是hy3的其他架构参数。  </p><table><thead><tr><th>项目</th><th>规格</th></tr></thead><tbody><tr><td>架构类型</td><td>MoE（混合专家）+ 快慢思考融合</td></tr><tr><td>总参数</td><td>2950 亿（295B）</td></tr><tr><td>激活参数</td><td>210 亿（21B）</td></tr><tr><td>MTP 层参数</td><td>约 38 亿（Multi-token Prediction）</td></tr><tr><td>上下文长度</td><td>256K（约 20 万字）</td></tr><tr><td>层数</td><td>80 层（不含 MTP）</td></tr><tr><td>注意力</td><td>GQA 分组注意力，64 个注意力头（其中 8 个 KV 头）</td></tr><tr><td>专家配置</td><td>192 个专家，每次激活 top-8</td></tr><tr><td>隐藏层维度</td><td>4096（中间层 13312）</td></tr><tr><td>词表</td><td>120,832</td></tr><tr><td>精度</td><td>BF16</td></tr></tbody></table><h2 id="思考速度"><a href="#思考速度" class="headerlink" title="思考速度"></a>思考速度</h2><p>hy3支持更换思考强弱，可以根据自己的需求更换。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20135045-Vvbd4eQAJYeEwyZp7wkwgxL0E9AmiY.webp" alt="思考强度"><br>实测下来，思考强度如果选择弱，速度虽然会加快不少，但在处理一些复杂的任务时往往会不如强思考尽人意。  </p><h2 id="与glm-5-2比较"><a href="#与glm-5-2比较" class="headerlink" title="与glm-5.2比较"></a>与glm-5.2比较</h2><p>他们完成任务的准确度差不多，我让他们帮我优化一下目录的侧边栏，glm-5.2比hy3制作的更好，hy3在经过我的一次“调教”后也成功制作了令我满意的效果，我感觉hy3调教后制作的好一点，于是我就采用了hy3制作的目录侧边栏，是不是还不错？<br>然后在时间花费上，hy3所花费的时间比glm-5.2长出不少（8分钟！），不知道是不是我电脑或者是用的人太多的问题，但glm-5.2在速度上确实比hy3快。  </p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="上下文长度显示"><a href="#上下文长度显示" class="headerlink" title="上下文长度显示"></a>上下文长度显示</h2><ul><li>为什么hy3上下文长度明明是256K，我却显示的是192K？</li></ul><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20132622-Au6UgwbpcJO6pjMZB9UZA3YC9bCqqL.webp" alt="上下文"><br>这个是因为这个192K是输入侧的上下文容量，还有64K是输出侧的，即<strong>192K&#x3D;256K总容量−64K输出预留</strong>。<br>上下文的总容量包括两个东西：你喂给它的（输入侧）和它写出来的（输出侧）。  </p><ul><li>为什么要分开？共用不好吗？</li></ul><p>如果不限输出，模型可能一口气写几万个积分的报告、代码或PPT内容，把256K全部用满，结果你自己对话还没塞进多少它就”装不下”了。所以WorkBuddy把256K切成192K输入和64K输出，这样既能接超长材料，也能让模型放心地写长内容。  </p><h2 id="hy3相比hy2的改进"><a href="#hy3相比hy2的改进" class="headerlink" title="hy3相比hy2的改进"></a>hy3相比hy2的改进</h2><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>数据来自网络。</p></div> <ul><li>Agent 任务成功率（WorkBuddy 内部测评）：72% → 90%，平均耗时缩短 34%</li><li>专家盲测（270 位真实工作场景）：Hy3 得分 2.67&#x2F;4，优于 GLM-5.1 的 2.51&#x2F;4，前端、数据与存储、CI&#x2F;CD 类别优势尤其明显</li><li>Token 效率（对比 GLM-5.2）：文档处理少消耗 47.4% token，PPT 制作少 49% token</li><li>抗幻觉（真实场景评测）：幻觉率 12.5% → 5.4%；常识错误率 25.4% → 12.7%</li><li>多轮对话：指代&#x2F;省略恢复等问题率 17.4% → 7.9%</li><li>代码能力（SWE-bench）：preview 阶段约 74.4%，较 Hy2 的 53.0% 提升超 40%</li></ul><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>hy3适合绝大多数人使用，而且现在限时免费，趁现在赶紧去试试！如果有很着急的任务，还是给glm-5.2比较好，它的服务器不繁忙，速度更加快！<br>另外我并不咋会写测评，因为设备的性能不足以我测试太多东西，以后可能不咋写测评了。如果写得不尽人意，勿喷，谢谢。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我最近在玩WorkBuddy，还花了70￥买了一个月的标准版，给了4000积分。我本以为一个暑假应该够用了，没想到我就用了2天，就全部用完了。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202206-thj1azGVWeQztAPmS6nIXLR6yJ57tC.webp" alt="哦不"><br>然后我想升级到高级版，但是它居然不给升级？？！！<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202554-JnXy2xavaLxpQiiV7xE2Tm48QWEwt9.webp" alt="不给升级"><br>正当我愁着难道只能找豆包玩的时候，一位“英雄”出现了：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20204943-f3BRrLjXLfF5njXG6fZODazPaD6cYF.webp" alt="限时免费！"><br>好家伙，hy3居然限时免费（我没有关注QWQ）！！！那我充70￥有个屁用啊？（哭哭）<br>e，不说题外话了，我稍微测试了一下这个东西免费到底好不好用，直接进入正题！  </p><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>图像、视频生成会正常消耗积分，不免费。</p></div> <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Hy3是腾讯混元团队2026年7月6日正式发布MoE混合专家大语言模型，WorkBuddy首发搭载深度适配版本，主打“AI智能体+办公生产力”，也是当前WorkBuddy平台旗舰文本模型。<br>在2026年7月6日正式发布，本来说限免时间是从2026年7月6日到2026年7月22日，现在限免截止日期是2026年8月5日（啊啊啊，幸好延迟了，不然就只能玩几天了…）。想去试试的朋友快去玩玩吧，之后就要钱了！  </p><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h2><p>hy3的上下文长度大约为256K（约20万字），长度完全足够用（就算真不够用了，其实WorkBuddy也会自动压缩上下文）。   </p><h2 id="其他架构参数"><a href="#其他架构参数" class="headerlink" title="其他架构参数"></a>其他架构参数</h2><p>对于架构参数我只懂一点点上下文，其他的都不咋了解，下面是hy3的其他架构参数。  </p><table><thead><tr><th>项目</th><th>规格</th></tr></thead><tbody><tr><td>架构类型</td><td>MoE（混合专家）+ 快慢思考融合</td></tr><tr><td>总参数</td><td>2950 亿（295B）</td></tr><tr><td>激活参数</td><td>210 亿（21B）</td></tr><tr><td>MTP 层参数</td><td>约 38 亿（Multi-token Prediction）</td></tr><tr><td>上下文长度</td><td>256K（约 20 万字）</td></tr><tr><td>层数</td><td>80 层（不含 MTP）</td></tr><tr><td>注意力</td><td>GQA 分组注意力，64 个注意力头（其中 8 个 KV 头）</td></tr><tr><td>专家配置</td><td>192 个专家，每次激活 top-8</td></tr><tr><td>隐藏层维度</td><td>4096（中间层 13312）</td></tr><tr><td>词表</td><td>120,832</td></tr><tr><td>精度</td><td>BF16</td></tr></tbody></table><h2 id="思考速度"><a href="#思考速度" class="headerlink" title="思考速度"></a>思考速度</h2><p>hy3支持更换思考强弱，可以根据自己的需求更换。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20135045-Vvbd4eQAJYeEwyZp7wkwgxL0E9AmiY.webp" alt="思考强度"><br>实测下来，思考强度如果选择弱，速度虽然会加快不少，但在处理一些复杂的任务时往往会不如强思考尽人意。  </p><h2 id="与glm-5-2比较"><a href="#与glm-5-2比较" class="headerlink" title="与glm-5.2比较"></a>与glm-5.2比较</h2><p>他们完成任务的准确度差不多，我让他们帮我优化一下目录的侧边栏，glm-5.2比hy3制作的更好，hy3在经过我的一次“调教”后也成功制作了令我满意的效果，我感觉hy3调教后制作的好一点，于是我就采用了hy3制作的目录侧边栏，是不是还不错？<br>然后在时间花费上，hy3所花费的时间比glm-5.2长出不少（8分钟！），不知道是不是我电脑或者是用的人太多的问题，但glm-5.2在速度上确实比hy3快。  </p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="上下文长度显示"><a href="#上下文长度显示" class="headerlink" title="上下文长度显示"></a>上下文长度显示</h2><ul><li>为什么hy3上下文长度明明是256K，我却显示的是192K？</li></ul><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20132622-Au6UgwbpcJO6pjMZB9UZA3YC9bCqqL.webp" alt="上下文"><br>这个是因为这个192K是输入侧的上下文容量，还有64K是输出侧的，即<strong>192K&#x3D;256K总容量−64K输出预留</strong>。<br>上下文的总容量包括两个东西：你喂给它的（输入侧）和它写出来的（输出侧）。  </p><ul><li>为什么要分开？共用不好吗？</li></ul><p>如果不限输出，模型可能一口气写几万个积分的报告、代码或PPT内容，把256K全部用满，结果你自己对话还没塞进多少它就”装不下”了。所以WorkBuddy把256K切成192K输入和64K输出，这样既能接超长材料，也能让模型放心地写长内容。  </p><h2 id="hy3相比hy2的改进"><a href="#hy3相比hy2的改进" class="headerlink" title="hy3相比hy2的改进"></a>hy3相比hy2的改进</h2><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>数据来自网络。</p></div> <ul><li>Agent 任务成功率（WorkBuddy 内部测评）：72% → 90%，平均耗时缩短 34%</li><li>专家盲测（270 位真实工作场景）：Hy3 得分 2.67&#x2F;4，优于 GLM-5.1 的 2.51&#x2F;4，前端、数据与存储、CI&#x2F;CD 类别优势尤其明显</li><li>Token 效率（对比 GLM-5.2）：文档处理少消耗 47.4% token，PPT 制作少 49% token</li><li>抗幻觉（真实场景评测）：幻觉率 12.5% → 5.4%；常识错误率 25.4% → 12.7%</li><li>多轮对话：指代&#x2F;省略恢复等问题率 17.4% → 7.9%</li><li>代码能力（SWE-bench）：preview 阶段约 74.4%，较 Hy2 的 53.0% 提升超 40%</li></ul><h1 id="邀请"><a href="#邀请" class="headerlink" title="邀请"></a>邀请</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>截止日期8月11日。</p></div> <p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/workbuddy-invite-poster%20%281%29-SIECLrup2JUYu7flBAmmHOMCJcFQIp.webp" alt="扫描二维码注册"><br>看完这篇文章不要直接注册啊！要扫描上面的二维码注册！因为扫码后可以立即得2000积分！我也可以得积分！双赢啊！  </p><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>hy3适合绝大多数人使用，而且现在限时免费，趁现在赶紧去试试！如果有很着急的任务，还是给glm-5.2比较好，它的服务器不繁忙，速度更加快！<br>另外我并不咋会写测评，因为设备的性能不足以我测试太多东西，以后可能不咋写测评了。如果写得不尽人意，勿喷，谢谢。</p>]]></content>
       
       
       <categories>
@@ -101,9 +132,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 热门 </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -155,9 +186,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 热门 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> Github </tag>
             
@@ -186,9 +217,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 热门 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> 白嫖 </tag>
             
@@ -246,11 +277,11 @@
       
         <tags>
             
+            <tag> 热门 </tag>
+            
             <tag> 哔哩哔哩 </tag>
             
             <tag> 工具 </tag>
-            
-            <tag> 热门 </tag>
             
         </tags>
       

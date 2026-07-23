@@ -915,30 +915,76 @@ const actions = {
         Solitude.config.lang.day;
     }
   },
-  toTalk(txt) {
+  toTalk(txt, event, element) {
     const inputs = [
+      ".wl-editor",
       "#wl-edit",
       ".el-textarea__inner",
       "#veditor",
       ".atk-textarea",
     ];
-    inputs.forEach((selector) => {
+    let filledEl = null;
+    const quote = "> " + txt.replace(/\n/g, "\n> ") + "\n";
+    for (const selector of inputs) {
       const el = document.querySelector(selector);
-      if (el) {
-        el.dispatchEvent(
-          new Event("input", { bubble: true, cancelable: true })
-        );
-        el.value = "> " + txt.replace(/\n/g, "\n> ") + "\n\n";
-        Solitude.scrollToDest(
-          Solitude.getEleTop(document.getElementById("post-comment")),
-          300
-        );
-        el.focus();
-        el.setSelectionRange(-1, -1);
-      }
-    });
-    Solitude.snackbarShow(Solitude.config.lang.totalk, false, 2000);
+      if (!el) continue;
+      el.value = quote;
+      el.dispatchEvent(new Event("input", { bubbles: true, cancelable: true }));
+      filledEl = el;
+      break;
+    }
+    if (!filledEl) {
+      Solitude.snackbarShow(Solitude.config.lang.totalk, false, 2000);
+      return;
+    }
+
+    const postComment = document.getElementById("post-comment");
+    if (postComment) {
+      Solitude.scrollToDest(Solitude.getEleTop(postComment), 300);
+    }
+    filledEl.focus();
+    const len = filledEl.value.length;
+    filledEl.setSelectionRange(len, len);
+
+    const isFromBber = element && element.closest && element.closest(".bber-reply");
+    if (isFromBber) {
+      this.showQuoteToast(filledEl, Solitude.config.lang.totalk_bber || "已引用短文内容");
+    } else {
+      Solitude.snackbarShow(Solitude.config.lang.totalk, false, 2000);
+    }
   },
+  showQuoteToast(targetEl, text) {
+    let toast = document.querySelector(".bber-quote-toast");
+    if (toast) toast.remove();
+
+    toast = document.createElement("div");
+    toast.className = "bber-quote-toast";
+    toast.textContent = text;
+    document.body.appendChild(toast);
+
+    const rect = targetEl.getBoundingClientRect();
+    const toastRect = toast.getBoundingClientRect();
+    const gap = 12;
+    let left = rect.left + (rect.width - toastRect.width) / 2 + window.scrollX;
+    let top = rect.top + window.scrollY - toastRect.height - gap;
+
+    const minLeft = 12;
+    const maxLeft = document.documentElement.clientWidth - toastRect.width - 12;
+    left = Math.max(minLeft, Math.min(left, maxLeft));
+    if (top < window.scrollY + 12) {
+      top = rect.bottom + window.scrollY + gap;
+    }
+
+    toast.style.left = `${left}px`;
+    toast.style.top = `${top}px`;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 2000);
+  },
+
   initbbtalk() {
     const bberTalkElement = document.querySelector("#bber-talk");
     const container = document.querySelector("#bbtalk");
@@ -1703,15 +1749,59 @@ Solitude.refresh = async () => {
   forPostFn();
 };
 
+// 博客更新后自动清理访客本地缓存，并在加载完成后弹出提示
+const checkCacheUpdate = () => {
+  const cfg = Solitude.config || {};
+  if (!cfg.cacheClean || !cfg.cacheClean.enable) return false;
+  const buildVersion = cfg.buildVersion;
+  if (!buildVersion) return false;
+  const KEY = "solitude-build-version";
+  let needPopup = false;
+  try {
+    const last = localStorage.getItem(KEY);
+    if (last && last !== String(buildVersion)) {
+      // 博客已更新：清空本地缓存（localStorage），确保访客拿到最新内容
+      localStorage.clear();
+      needPopup = true;
+    }
+    localStorage.setItem(KEY, String(buildVersion));
+  } catch (e) {
+    /* localStorage 不可用时静默跳过 */
+  }
+  return needPopup;
+};
+
 const initializeApp = async () => {
   initActionDelegation(Solitude);
   initPreloader(Solitude);
   addCopyright();
+
+  // 在页面初始化前检测博客版本并清理缓存
+  const needCachePopup = checkCacheUpdate();
+
   await Solitude.refresh();
   asideStatus();
   window.onscroll = percent;
   Solitude.initConsoleState();
   lifecycle.emit("ready", { config: Solitude.config, page: Solitude.page });
+
+  // 加载完成后弹出“缓存清理完成”提示（与“复制成功”同款 snackbar）
+  if (needCachePopup) {
+    const showCachePopup = () => {
+      setTimeout(() => {
+        const text =
+          (Solitude.config.cacheClean && Solitude.config.cacheClean.text) ||
+          Solitude.config.lang.cache_clean_done ||
+          "缓存清理完成，已更新到最新版本！";
+        Solitude.snackbarShow(text, false, 3000);
+      }, 800);
+    };
+    if (document.readyState === "complete") {
+      showCachePopup();
+    } else {
+      window.addEventListener("load", showCachePopup, { once: true });
+    }
+  }
 };
 
 if (document.readyState === "loading") {
