@@ -138,10 +138,14 @@
   border: var(--glass-border) !important;
   box-shadow: var(--glass-highlight) !important;
   transition: transform 0.3s, background-color 0.35s ease, box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
 }
 #console .console-card .console_recentcomments .comment-card:hover {
   background: var(--glass-bg-hover) !important;
-  transform: scale(1.03);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1), 0 16px 48px rgba(0,0,0,0.06), var(--glass-highlight) !important;
+  z-index: 2;
 }
 #console .console-card .console_recentcomments .comment-card:active {
   transform: scale(1.015);
@@ -213,21 +217,100 @@
 #console .console-btn-item span:hover {
   background: var(--glass-bg-hover) !important;
 }
-#console .console-btn-item.on span {
-  background: var(--efu-orange) !important;
+#console .console-btn-item.on span,
+#console .console-btn-item.on span:hover {
   color: var(--efu-white) !important;
+  background: var(--efu-orange) !important;
+  border-color: var(--efu-orange) !important;
+  box-shadow: 0 0 14px var(--efu-main-op), inset 0 1px 0 rgba(255,255,255,0.25) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-}
-#console [data-theme='dark'] #console .console-btn-item span.darkmode_switchbutton {
-  background: var(--efu-orange) !important;
-  color: var(--efu-white) !important;
 }
 #console .console-mask {
   background: var(--glass-bg);
   -webkit-backdrop-filter: blur(0px) saturate(1.8);
   backdrop-filter: blur(0px) saturate(1.8);
   transition: backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+}
+#console.show .console-mask {
+  -webkit-backdrop-filter: blur(36px) saturate(2) !important;
+  backdrop-filter: blur(36px) saturate(2) !important;
+}
+#console .console-card {
+  background: var(--glass-bg) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.8) !important;
+  backdrop-filter: blur(28px) saturate(1.8) !important;
+  border: var(--glass-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight), 0 0 0 1px rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.25) !important;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease, box-shadow 0.3s;
+}
+#console .console-card:hover {
+  background: var(--glass-bg-hover) !important;
+  transform: scale(1.01);
+}
+#console .button-group .console-btn-item span {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight) !important;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+#console .button-group .console-btn-item span:hover {
+  background: var(--glass-bg-hover) !important;
+  transform: scale(1.12);
+  box-shadow: var(--glass-shadow), var(--glass-highlight), 0 0 22px var(--efu-main-op) !important;
+}
+#console .button-group .console-btn-item.on span,
+#console .button-group .console-btn-item.on span:hover {
+  color: var(--efu-white) !important;
+  background: var(--efu-orange) !important;
+  border-color: var(--efu-orange) !important;
+  box-shadow: 0 0 14px var(--efu-main-op), inset 0 1px 0 rgba(255,255,255,0.25) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#console .console-card.tags .card-tag-cloud a {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-highlight) !important;
+  transition: transform 0.25s, background-color 0.3s, box-shadow 0.3s;
+}
+#console .console-card.tags .card-tag-cloud a:hover {
+  background: var(--efu-main) !important;
+  border-color: var(--efu-main) !important;
+  color: var(--efu-white) !important;
+  transform: scale(1.08);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#console .console-card.history .card-archive-list li.item a {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight) !important;
+  transition: transform 0.25s, background-color 0.3s, box-shadow 0.3s;
+}
+#console .console-card.history .card-archive-list li.item a:hover {
+  background: var(--efu-main) !important;
+  border-color: var(--efu-main) !important;
+  color: var(--efu-white) !important;
+  transform: translateY(-3px) scale(1.02);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 #page-header #nav .back-menu-list-groups {
   background: var(--glass-bg);
@@ -497,6 +580,23 @@
   background: var(--glass-bg-hover) !important;
   transform: scale(1.03);
 }
+.switch_message button {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  backdrop-filter: blur(12px) saturate(1.5);
+  background: var(--glass-bg) !important;
+  border: var(--glass-border) !important;
+  color: var(--efu-fontcolor) !important;
+  box-shadow: var(--glass-shadow), var(--glass-highlight) !important;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s !important;
+}
+.switch_message button:hover {
+  background: var(--glass-bg-hover) !important;
+  transform: scale(1.05);
+  box-shadow: var(--glass-shadow), var(--glass-highlight), 0 0 18px var(--efu-main-op) !important;
+}
 #sidebar #sidebar-menus {
   background: var(--glass-bg) !important;
   border: var(--glass-border) !important;
@@ -580,6 +680,12 @@
   left: 50% !important;
   right: auto !important;
   transform: translateX(-50%) translateY(-30px) !important;
+}
+.snackbar-container.snackbar-in {
+  transform: translateX(-50%) translateY(0) !important;
+}
+.snackbar-container.snackbar-in:hover {
+  transform: translateX(-50%) translateY(0) scale(1.08) !important;
 }
 .pace {
   top: 8px;
@@ -891,10 +997,12 @@
   gap: 0.55rem;
 }
 #loading-slow .loading-slow-icon {
-  width: 14px;
-  height: 14px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 2px solid color-mix(in srgb, var(--efu-fontcolor) 35%, transparent);
+  border: 2px solid color-mix(in srgb, var(--efu-fontcolor) 25%, transparent);
   border-top-color: var(--efu-fontcolor);
   animation: loading-slow-spin 1s linear infinite;
 }
@@ -1375,21 +1483,33 @@
   margin-right: 8px;
 }
 @-moz-keyframes loading-slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
 }
 @-webkit-keyframes loading-slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
 }
 @-o-keyframes loading-slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
 }
 @keyframes loading-slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
