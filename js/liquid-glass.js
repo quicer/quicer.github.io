@@ -181,17 +181,39 @@
   // ---- 左侧返回菜单展开时，临时移除 #blog_name 的 backdrop-filter ----
   // 这样 .back-menu-list-groups 的毛玻璃才能参考真实页面背景。
   // CSS 中已用 :has() 实现，这里提供 JS 后备以兼容旧版浏览器或特殊状态。
+  // 同时实现「鼠标移开后延迟收起」：给 .back-home-button 加 .menu-open 类，
+  // 鼠标离开按钮或菜单后等待一小段时间才移除，期间进入另一侧则取消收起。
   function initMenuBackdropFix() {
     var blogName = document.getElementById('blog_name');
     var backHome = document.querySelector('.back-home-button');
+    var menu = document.querySelector('.back-menu-list-groups');
     if (!blogName || !backHome) return;
 
-    var setMenuOpen = function (isOpen) {
-      blogName.classList.toggle('menu-open', isOpen);
+    var closeTimer = null;
+    // 鼠标移开后等待 280ms 再收起，给「从按钮滑进菜单」留出时间，避免闪关。
+    var CLOSE_DELAY = 280;
+
+    var openMenu = function () {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      backHome.classList.add('menu-open');
+      blogName.classList.add('menu-open');
     };
 
-    backHome.addEventListener('mouseenter', function () { setMenuOpen(true); });
-    backHome.addEventListener('mouseleave', function () { setMenuOpen(false); });
+    var scheduleCloseMenu = function () {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () {
+        backHome.classList.remove('menu-open');
+        blogName.classList.remove('menu-open');
+        closeTimer = null;
+      }, CLOSE_DELAY);
+    };
+
+    backHome.addEventListener('mouseenter', openMenu);
+    backHome.addEventListener('mouseleave', scheduleCloseMenu);
+    if (menu) {
+      menu.addEventListener('mouseenter', openMenu);
+      menu.addEventListener('mouseleave', scheduleCloseMenu);
+    }
   }
 
   if (document.readyState === 'loading') {

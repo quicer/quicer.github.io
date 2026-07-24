@@ -471,6 +471,19 @@ const initHomeCenter = () => {
       });
     }
   });
+
+  // 跨越 768px 断点时保持轮播图状态同步，避免图片和文字不一致
+  let lastWidthOver768 = window.innerWidth > 768;
+  window.addEventListener("resize", () => {
+    const nowOver768 = window.innerWidth > 768;
+    if (nowOver768 === lastWidthOver768) return;
+    lastWidthOver768 = nowOver768;
+    if (!nowOver768 && banner.clientWidth) {
+      banner.scrollTo({ left: banner.clientWidth * activeIndex, behavior: "instant" });
+    } else if (nowOver768) {
+      select(activeIndex);
+    }
+  });
 };
 
 const initTooltip = () => {
@@ -773,12 +786,75 @@ const actions = {
     document.getElementById("keyboard-tips")?.classList.remove("show");
   },
   initConsoleState() {
+    const consoleEl = document.getElementById("console");
+    if (!consoleEl) return;
+
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    consoleEl
+      .querySelector(".console-btn-item .darkmode_switchbutton")
+      ?.closest(".console-btn-item")
+      ?.classList.toggle("on", isDark);
+
     const consoleHideAside = document.querySelector("#consoleHideAside");
-    if (!consoleHideAside) return;
-    consoleHideAside.classList.toggle(
-      "on",
-      document.documentElement.classList.contains("hide-aside")
-    );
+    if (consoleHideAside) {
+      consoleHideAside.classList.toggle(
+        "on",
+        document.documentElement.classList.contains("hide-aside")
+      );
+    }
+
+    const consoleKeyboard = document.querySelector("#consoleKeyboard");
+    if (consoleKeyboard) {
+      const keyboardOn = localStorage.getItem("keyboard") === "true";
+      this.sco_keyboards = keyboardOn;
+      consoleKeyboard.classList.toggle("on", keyboardOn);
+    }
+
+    const consoleMusic = document.querySelector("#consoleMusic");
+    if (consoleMusic) {
+      const $meting = document.querySelector("#nav-music meting-js");
+      const aplayer = $meting?.aplayer;
+      const musicOn = aplayer ? Boolean(aplayer.audio && !aplayer.audio.paused) : false;
+      this.musicPlaying = musicOn;
+      consoleMusic.classList.toggle("on", musicOn);
+    }
+
+    const consoleCommentBarrage = document.querySelector("#consoleCommentBarrage");
+    if (consoleCommentBarrage) {
+      const barrageEl = document.querySelector(".comment-barrage");
+      const barrageOn = barrageEl
+        ? window.getComputedStyle(barrageEl).display !== "none"
+        : Solitude.saveToLocal.get("commentBarrageSwitch") !== false;
+      consoleCommentBarrage.classList.toggle("on", barrageOn);
+    }
+
+    if (!consoleEl.dataset.solitudeLinkCloseBound) {
+      consoleEl.dataset.solitudeLinkCloseBound = "true";
+      consoleEl.addEventListener("click", (event) => {
+        if (!consoleEl.classList.contains("show")) return;
+
+        const link = event.target.closest("a[href]");
+        if (link) {
+          const href = (link.getAttribute("href") || "").trim();
+          if (
+            href &&
+            !href.startsWith("#") &&
+            !href.startsWith("javascript:") &&
+            !href.startsWith("mailto:") &&
+            !href.startsWith("tel:") &&
+            !href.startsWith("sms:")
+          ) {
+            Solitude.hideConsole();
+            return;
+          }
+        }
+
+        const navEl = event.target.closest("[data-solitude-url]");
+        if (navEl) {
+          Solitude.hideConsole();
+        }
+      });
+    }
   },
   changeWittyWord() {
     const greetings = Solitude.config.aside.witty_words || [];
@@ -811,6 +887,10 @@ const actions = {
       Solitude.rightMenu.hideRightMenu();
     }
     handleThemeChange(newMode);
+    document
+      .querySelector("#console .console-btn-item .darkmode_switchbutton")
+      ?.closest(".console-btn-item")
+      ?.classList.toggle("on", newMode === "dark");
   },
   hideTodayCard: () =>
     document.getElementById("todayCard").classList.add("hide"),
@@ -866,13 +946,18 @@ const actions = {
   },
   onNavBlankClickCloseConsole(event) {
     if (!document.getElementById("console")?.classList.contains("show")) return;
+    // 控制台切换按钮本身只负责开关，不在这里关闭
+    if (event.target.closest?.("#nav-console, .console_switchbutton")) return;
+    // 点击 nav 内的任意交互元素（链接、按钮、菜单、分组、右侧图标等）都关闭中控台
     if (
       event.target.closest?.(
-        "a, button, .back-home-button, .menus_item, #page-name"
+        "a, button, .back-home-button, .menus_item, #page-name, #toggle-menu, .nav-button"
       )
     ) {
+      this.hideConsole();
       return;
     }
+    // 点击 nav 空白处也关闭
     this.hideConsole();
   },
   refreshWaterFall() {

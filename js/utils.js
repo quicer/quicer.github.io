@@ -41,7 +41,27 @@
       requestAnimationFrame(() => {
         const el = Snackbar.current;
         if (el) {
-          el.style.setProperty("transform", "translateX(-50%) translateY(0)", "important");
+          // 加 .snackbar-in 触发入场复位（translateY(0)），用 class 而非内联
+          // !important，否则内联样式会压制 :hover 放大效果
+          el.classList.add("snackbar-in");
+          // 点击弹窗本身可提前消失；避免重复绑定
+          if (!el.dataset.snackbarDismissBound) {
+            el.dataset.snackbarDismissBound = "true";
+            el.addEventListener("click", () => {
+              if (el.dataset.snackbarDismissed) return;
+              el.dataset.snackbarDismissed = "true";
+              // 尝试关闭库内部定时器；不同版本实现不同，兜底手动淡出
+              if (typeof Snackbar.close === "function") {
+                try { Snackbar.close(); } catch (_) {}
+              }
+              el.style.transition = "opacity .2s ease, transform .2s ease";
+              el.style.opacity = "0";
+              el.style.setProperty("transform", "translateX(-50%) translateY(-16px) scale(0.95)", "important");
+              setTimeout(() => {
+                if (el.parentNode) el.parentNode.removeChild(el);
+              }, 220);
+            });
+          }
         }
       });
     },
