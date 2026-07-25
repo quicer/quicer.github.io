@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>使用abbrlink插件优化你的hexo文章链接</title>
+      <link href="/posts/b48c7993.html"/>
+      <url>/posts/b48c7993.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，hexo博客的默认文章链接是：:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;（hexo配置文件的permalink），是一大坨。<br>然后为啥我每篇文章都要写前言？懒得写了，直接看把。</p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><div class="repo-card">  <a class='name-mc7o9lc2h repo-title fancybox' href="https://github.com/ohroy/hexo-abbrlink"></a>  <p class='desc-mc7o9lc2h repo-desc'></p>  <div class="repo-gist">    <i class="fas fa-star"></i>    <span class='star-mc7o9lc2h'></span>    <i class="fas fa-code-branch"></i>    <span class='fork-mc7o9lc2h'></span>  </div>  <img class='lang-mc7o9lc2h repo-language no-lightbox' />  <script>    fetch('https://api.github.com/repos/ohroy/hexo-abbrlink')      .then(res => res.json())      .then(data => {        document.querySelector('.name-mc7o9lc2h').innerText = data.name;        document.querySelector('.desc-mc7o9lc2h').innerText = data.description;        document.querySelector('.star-mc7o9lc2h').innerText = data.stargazers_count;        document.querySelector('.fork-mc7o9lc2h').innerText = data.forks_count;        document.querySelector('.lang-mc7o9lc2h').src = 'https://skillicons.dev/icons?i=' + data.language.toLowerCase();    });  </script>  </div>  <p>博客根目录执行：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改<code>_config.yml</code>配置：  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span> </span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>如果想要改成其他的也没事，喜欢就好。  </p><p>然后将下面的内容复制到<code>_config.yml</code>的最底下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo-abbrlink</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> <span class="comment"># 支持crc16和crc32算法（默认crc16）</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span> <span class="comment"># 支持dec和hex值（默认dec）</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span> <span class="comment"># true处理草稿，false不处理草稿。（默认false）</span></span><br><span class="line">  <span class="comment"># 从目录树生成类别</span></span><br><span class="line">  <span class="comment"># 深度：要生成的目录树的最大深度应大于0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 默认true</span></span><br><span class="line">    <span class="attr">depth:</span> <span class="comment"># 默认3</span></span><br><span class="line">    <span class="attr">over_write:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment"># 启用自动标题，可以按路径自动填充标题</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment"># 启用自动日期，它可以自动填写日期的时间今天</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment"># 启用强制模式，在这种模式下，插件将忽略缓存，并为每个帖子计算abbrlink，即使它已经有了abbrlink</span></span><br></pre></td></tr></table></figure><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>注意不是主题配置文件<code>_config.solitude.yml</code>。</p></div> <h2 id="hexo三连击"><a href="#hexo三连击" class="headerlink" title="hexo三连击"></a>hexo三连击</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>观察在你文章的Front Matter是否多了一项abbrlink。  </p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">abbrlink:</span> <span class="string">example</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><p>并且你的文章链接变化了。</p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>仅实例，每个人生成的都不一样。</p></div> <p>生成的链接将呈现如下：  </p><h3 id="crc16-hex"><a href="#crc16-hex" class="headerlink" title="crc16 &amp; hex"></a>crc16 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/66c8.html</span><br></pre></td></tr></table></figure><h3 id="crc16-dec"><a href="#crc16-dec" class="headerlink" title="crc16 &amp; dec"></a>crc16 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/65535.html</span><br></pre></td></tr></table></figure><h3 id="crc32-hex"><a href="#crc32-hex" class="headerlink" title="crc32 &amp; hex"></a>crc32 &amp; hex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/8ddf18fb.html</span><br></pre></td></tr></table></figure><h3 id="crc32-dec"><a href="#crc32-dec" class="headerlink" title="crc32 &amp; dec"></a>crc32 &amp; dec</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://quicer.js.cool/posts/1690090958.html</span><br></pre></td></tr></table></figure><h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>如果之前你已经配置了评论，并且已经有人在之前的文章链接评论过了，更新后那些评论将不能定位到新的文章链接。因此请备份好评论数据，完成上面的操作后再修改每条评论对应的url，再导入回去。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 插件 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>错过再付费！WorkBuddy混元Hy3限免！</title>
+      <link href="/posts/1a555cfc.html"/>
+      <url>/posts/1a555cfc.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我最近在玩WorkBuddy，还花了70￥买了一个月的标准版，给了4000积分。我本以为一个暑假应该够用了，没想到我就用了2天，就全部用完了。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202206-thj1azGVWeQztAPmS6nIXLR6yJ57tC.webp" alt="哦不"><br>然后我想升级到高级版，但是它居然不给升级？？！！<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20202554-JnXy2xavaLxpQiiV7xE2Tm48QWEwt9.webp" alt="不给升级"><br>正当我愁着难道只能找豆包玩的时候，一位“英雄”出现了：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-21%20204943-f3BRrLjXLfF5njXG6fZODazPaD6cYF.webp" alt="限时免费！"><br>好家伙，hy3居然限时免费（我没有关注QWQ）！！！那我充70￥有个屁用啊？（哭哭）<br>e，不说题外话了，我稍微测试了一下这个东西免费到底好不好用，直接进入正题！  </p><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>图像、视频生成会正常消耗积分，不免费。</p></div> <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Hy3是腾讯混元团队2026年7月6日正式发布MoE混合专家大语言模型，WorkBuddy首发搭载深度适配版本，主打“AI智能体+办公生产力”，也是当前WorkBuddy平台旗舰文本模型。<br>在2026年7月6日正式发布，本来说限免时间是从2026年7月6日到2026年7月22日，现在限免截止日期是2026年8月5日（啊啊啊，幸好延迟了，不然就只能玩几天了…）。想去试试的朋友快去玩玩吧，之后就要钱了！  </p><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h2><p>hy3的上下文长度大约为256K（约20万字），长度完全足够用（就算真不够用了，其实WorkBuddy也会自动压缩上下文）。   </p><h2 id="其他架构参数"><a href="#其他架构参数" class="headerlink" title="其他架构参数"></a>其他架构参数</h2><p>对于架构参数我只懂一点点上下文，其他的都不咋了解，下面是hy3的其他架构参数。  </p><table><thead><tr><th>项目</th><th>规格</th></tr></thead><tbody><tr><td>架构类型</td><td>MoE（混合专家）+ 快慢思考融合</td></tr><tr><td>总参数</td><td>2950 亿（295B）</td></tr><tr><td>激活参数</td><td>210 亿（21B）</td></tr><tr><td>MTP 层参数</td><td>约 38 亿（Multi-token Prediction）</td></tr><tr><td>上下文长度</td><td>256K（约 20 万字）</td></tr><tr><td>层数</td><td>80 层（不含 MTP）</td></tr><tr><td>注意力</td><td>GQA 分组注意力，64 个注意力头（其中 8 个 KV 头）</td></tr><tr><td>专家配置</td><td>192 个专家，每次激活 top-8</td></tr><tr><td>隐藏层维度</td><td>4096（中间层 13312）</td></tr><tr><td>词表</td><td>120,832</td></tr><tr><td>精度</td><td>BF16</td></tr></tbody></table><h2 id="思考速度"><a href="#思考速度" class="headerlink" title="思考速度"></a>思考速度</h2><p>hy3支持更换思考强弱，可以根据自己的需求更换。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20135045-Vvbd4eQAJYeEwyZp7wkwgxL0E9AmiY.webp" alt="思考强度"><br>实测下来，思考强度如果选择弱，速度虽然会加快不少，但在处理一些复杂的任务时往往会不如强思考尽人意。  </p><h2 id="与glm-5-2比较"><a href="#与glm-5-2比较" class="headerlink" title="与glm-5.2比较"></a>与glm-5.2比较</h2><p>他们完成任务的准确度差不多，我让他们帮我优化一下目录的侧边栏，glm-5.2比hy3制作的更好，hy3在经过我的一次“调教”后也成功制作了令我满意的效果，我感觉hy3调教后制作的好一点，于是我就采用了hy3制作的目录侧边栏，是不是还不错？<br>然后在时间花费上，hy3所花费的时间比glm-5.2长出不少（8分钟！），不知道是不是我电脑或者是用的人太多的问题，但glm-5.2在速度上确实比hy3快。  </p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="上下文长度显示"><a href="#上下文长度显示" class="headerlink" title="上下文长度显示"></a>上下文长度显示</h2><ul><li>为什么hy3上下文长度明明是256K，我却显示的是192K？</li></ul><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-22%20132622-Au6UgwbpcJO6pjMZB9UZA3YC9bCqqL.webp" alt="上下文"><br>这个是因为这个192K是输入侧的上下文容量，还有64K是输出侧的，即<strong>192K&#x3D;256K总容量−64K输出预留</strong>。<br>上下文的总容量包括两个东西：你喂给它的（输入侧）和它写出来的（输出侧）。  </p><ul><li>为什么要分开？共用不好吗？</li></ul><p>如果不限输出，模型可能一口气写几万个积分的报告、代码或PPT内容，把256K全部用满，结果你自己对话还没塞进多少它就”装不下”了。所以WorkBuddy把256K切成192K输入和64K输出，这样既能接超长材料，也能让模型放心地写长内容。  </p><h2 id="hy3相比hy2的改进"><a href="#hy3相比hy2的改进" class="headerlink" title="hy3相比hy2的改进"></a>hy3相比hy2的改进</h2><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>数据来自网络。</p></div> <ul><li>Agent 任务成功率（WorkBuddy 内部测评）：72% → 90%，平均耗时缩短 34%</li><li>专家盲测（270 位真实工作场景）：Hy3 得分 2.67&#x2F;4，优于 GLM-5.1 的 2.51&#x2F;4，前端、数据与存储、CI&#x2F;CD 类别优势尤其明显</li><li>Token 效率（对比 GLM-5.2）：文档处理少消耗 47.4% token，PPT 制作少 49% token</li><li>抗幻觉（真实场景评测）：幻觉率 12.5% → 5.4%；常识错误率 25.4% → 12.7%</li><li>多轮对话：指代&#x2F;省略恢复等问题率 17.4% → 7.9%</li><li>代码能力（SWE-bench）：preview 阶段约 74.4%，较 Hy2 的 53.0% 提升超 40%</li></ul><h1 id="邀请"><a href="#邀请" class="headerlink" title="邀请"></a>邀请</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>截止日期8月11日。</p></div> <p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/workbuddy-invite-poster%20%281%29-SIECLrup2JUYu7flBAmmHOMCJcFQIp.webp" alt="扫描二维码注册"><br>看完这篇文章不要直接注册啊！要扫描上面的二维码注册！因为扫码后可以立即得2000积分！我也可以得积分！双赢啊！  </p><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>hy3适合绝大多数人使用，而且现在限时免费，趁现在赶紧去试试！如果有很着急的任务，还是给glm-5.2比较好，它的服务器不繁忙，速度更加快！<br>另外我并不咋会写测评，因为设备的性能不足以我测试太多东西，以后可能不咋写测评了。如果写得不尽人意，勿喷，谢谢。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术测评 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 龙虾 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>切换模式来解决打字时光标由细变粗的问题</title>
+      <link href="/posts/2b56d23b.html"/>
+      <url>/posts/2b56d23b.html</url>
+      
+        <content type="html"><![CDATA[<p>额，虽然我不知道大家是否了解，但在我上小学的时候，由于不咋懂电脑，有的时候会发现这种情况：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20154753-pY7hNKjK9Lnd96MH8GaNoABEOgUK6q.webp" alt="原本光标"><br>变成了：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20155013-ecMBbSJJtmdJJx3u7fi9Nb5bmmXVXx.webp" alt="不知道是什么鬼的光标"><br>而且在这种模式下打字，后面的字会被自己打出来的字吞掉。<br>一开始我并不知道这是咋回事，我都是直接重启电脑的（不要学我），后来我慢慢懂了，就知道原因了。<br>我来简单说明一下两种模式：  </p><ul><li>细光标：插入模式  </li><li>粗光标：改写模式</li></ul><p>要切换模式，只需要按键盘中的 <span class="keyboard-tag">Insert</span> 键即可。<br>这个键在键盘的位置如图：<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20155918-0rOAjmcTl9i4nutpa6khmxAb8zVIlM.webp" alt="键盘"><br>改写模式其实是程序员在修改代码时为了不影响缩进而使用的功能，现在我就经常使用，因此它并不是一个无用的功能。想了解更多关于这个功能的东西，可以前往互联网搜索。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 代码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费地让你复制网页中付钱才可复制的文字</title>
+      <link href="/posts/fc417bc9.html"/>
+      <url>/posts/fc417bc9.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我想每个人肯定都有这样的经历：在制作文档时想加入一些文案，去网上搜了搜，找到了一篇好的文案，然后…<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20150135-DBAT7wOhEva9fIG7b6Kmh3YbOzqW0C.webp" alt="憋"><br>我去！根本复制不下来啊！<br>很多人就只好退出找其他的，还有人硬着头皮一个一个字打到文档里，更有胜者直接开通了VIP（真的有人会这样吗？）！<br>到底有没有解决方法呢？当然有！<br>接下来我教大家一个无需下载任何插件的方法来解决这个问题。  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>我以Microsoft Edge浏览器为例进行说明，其他浏览器做法大致相同。如果方法无效，请自行在互联网中搜索或者使用AI工具解决。</p></div> <p>假如我想复制一篇作文。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20150728-VQI6LCjN4tvDmIPDs9dE4vpOG6rk2B.webp" alt="作文"><br>但是不开通会员根本无法复制，解决方法非常简单。<br>在网址栏的最前面输入：  </p><blockquote><p>read:</p></blockquote><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>read后面的冒号<strong>不能打成中文的冒号</strong>，一定要是<strong>英文</strong>的！并且不要加空格。</p></div> <p>然后回车就会发现页面变成了下图的样子。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-19%20151044-SfkEIrUOrF56F3nZWwg74QyaJl7uZR.webp">  </p><p>现在就可以尽情复制啦！！！  </p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个其实是浏览器自带的阅读器模式，让网页中的主要文字单独显示，去除其他与主体无关的元素，让读者全身心投入阅读，之前根本没想到可以用于这里。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 白嫖 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一个工具让你的右键菜单变得简洁</title>
+      <link href="/posts/8a9565cd.html"/>
+      <url>/posts/8a9565cd.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为电脑太卡了，所以最近一直在寻找优化电脑性能的方法。突然发现我的右键菜单有很多用不到的东西，就想着优化一下。<br>本来是想通过修改<strong>注册表</strong>去优化的，但是后面电脑崩掉了（？），所以只能找个第三方工具优化了。<br>接下来上教程。  </p><h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>效果仅供参考，因电脑而异。</p></div> <h2 id="优化前"><a href="#优化前" class="headerlink" title="优化前"></a>优化前</h2><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-i0v0squjj1hltsr5-ghKb41GBj8yT6edgcNhYIws2IfTEN1.webp" alt="优化前">  </p><h2 id="优化后"><a href="#优化后" class="headerlink" title="优化后"></a>优化后</h2><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-25hzmuyt5y5z672h-PyGhUDqFGnTIM9dfZnCV9j5U4OS0fl.webp" alt="优化后"></p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>此教程仅适用于Windows系统。</p></div> <h2 id="方法一：修改注册表（大佬专用）"><a href="#方法一：修改注册表（大佬专用）" class="headerlink" title="方法一：修改注册表（大佬专用）"></a>方法一：修改注册表（大佬专用）</h2><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>我使用这个方法后电脑崩掉了，所以不是大佬的话请跳转<strong>方法二</strong>，这里不做过多讲述。</p></div> <span class="keyboard-tag">Win⌘</span> + <span class="keyboard-tag">R</span> 打开运行框，输入regedit，打开后自己找相关配置修改。  <h2 id="方法二：第三方工具（推荐-方便-安全）"><a href="#方法二：第三方工具（推荐-方便-安全）" class="headerlink" title="方法二：第三方工具（推荐&#x2F;方便&#x2F;安全）"></a>方法二：第三方工具（推荐&#x2F;方便&#x2F;安全）</h2><p>进入网盘下载<strong>ContextMenuManager</strong>工具（密码：jshf）。  </p><a class="tag-link" href="https://quicer.lanzoum.com/i4ADr3c9l1cj" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">蓝奏云</div>            <div class="tag-link-sitename">不限速下载文件</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>直接下载即可。<br>打开后，就是下面的界面。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/-hi6x6lkt5a5ui61s-dGaArhaROspxLG9i5ngX2hGG7lGIax.webp" alt="界面"><br>把你不想要的右键选项关闭即可。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>优化后建议重启电脑。  </p></div> <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>ContextMenuManager这个工具是真的好用。有的时候借助第三方工具也是一种很好的选择。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>推荐一款更好的加速器</title>
+      <link href="/posts/be200f2a.html"/>
+      <url>/posts/be200f2a.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>@<a href="https://mc-sep.top/">MC-Sep</a>给我推荐了一款比<a href="/posts/b74f9f5b.html">之前文章</a>的Watt Toolkit更牛逼的加速器：<strong>Steamcommunity 302</strong>（太好了，又能水一篇文章）。  </p><h1 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h1><a class="tag-link" href="https://www.dogfight360.com/blog/18682/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Steamcommunity 302 Ver.14.0.02</div>            <div class="tag-link-sitename">羽翼城个人博客</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a> <p>下载后解压即可。</p><h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/_2026-07-16%20183748-2zTokLD5D0wgTT61gpNycgfKvtbaU7.webp" alt="预览"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 我的推荐 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> steam </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Github访问慢？一个加速器解决</title>
+      <link href="/posts/b74f9f5b.html"/>
+      <url>/posts/b74f9f5b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Github在中国大陆境内真的太不稳定了QWQ，有的时候上传文件时会something were wrong，有时甚至进不去…<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-s2txptu82mnzxa2b-mSft7IFPBKnEePtPunzC90ZpG3CzSJ.webp" alt="悲"><br>太难受了！<br>于是我去网上找加速器，找到了Watt Toolkit（原Steam++）这么一款免费加速器。  </p><a class="tag-link" href="https://steampp.net/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Watt Toolkit</div>            <div class="tag-link-sitename">一个开源跨平台的多功能 Steam 工具箱。</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>   <p>刚好没啥文章好些的，就水一篇吧（喜）。  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>本人是在Windows系统操作的，其他操作系统大致相同，跟着做就行。</p></div> <h2 id="1-下载加速器"><a href="#1-下载加速器" class="headerlink" title="1.下载加速器"></a>1.下载加速器</h2><p>下面的操作系统都可以下载。  </p><div class="tabs" id="system_download"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#system_download-0">Windows10/11</button></li><li class="tab"><button type="button" data-href="#system_download-1">Linux</button></li><li class="tab"><button type="button" data-href="#system_download-2">MacOS</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="system_download-0"><p>Watt Toolkit在Microsoft Store中已经可以下载，Windows用户直接在Microsoft Store中搜索Watt Toolkit就可以找到并下载了。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>如果你无法使用Microsoft Store，前往官方<a href="https://wwn.lanzouy.com/b01v4iz1g">蓝奏云网盘分享链接</a>，提取码1234，下载就可以了。这是官方的，没有安全问题。</p></div></div><div class="tab-item-content" id="system_download-1"><div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>需要依赖 <code>certutil</code>,<code>jq</code>，<code>zenity</code> 工具。<br>Linux目前支持 <code>x64（amd64）</code> 与 <code>loongarch64</code> 架构。</p></div>   <p>运行下面代码安装脚本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://steampp.net/Install/Linux.sh</span><br></pre></td></tr></table></figure><p>简单说明一下依赖：</p><ul><li><code>certutil</code>工具：初始化<code>nssdb</code>数据库,<code>Chrome</code>信任该数据库</li><li><code>jq</code>工具：解析更新接口自动获取下载地址。</li><li><code>zenity</code>工具:图形化提示，显示下载进度。</li></ul><p>前往<a href="https://gitee.com/rmbgame/SteamTools/releases/tag/3.0.0-rc.16">官方gitee链接</a>下载即可。</p></div><div class="tab-item-content" id="system_download-2"><p>前往<a href="https://wwe.lanzouy.com/b01v4izaf">官方蓝奏云网盘分享链接</a>，提取码1234，下载就可以了。这是官方的，没有安全问题。</p></div></div></div> <h2 id="2-加速！"><a href="#2-加速！" class="headerlink" title="2.加速！"></a>2.加速！</h2><p><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-uex14i6aw5ziebzz-wRyqtvlDqJ3aI1DEGy11LLpmJOhvR7.webp" alt="网络加速界面"><br>可以看到它除了支持加速Github，还支持加速Steam，Twitch，Origin，Uplay，公共CDN，Google翻译，Spotify，国外验证码平台，Roblox，Mod，Nexus Modes，OneDrive，MEGA，DropBox，Pinterest，Artstation，Imgur图床，Vercel和appcenter。有的时候大家需要时也可以加速其他东西。<br>下滑看到Github，直接勾选。为了防止它崩掉，建议取消勾选默认勾选的Steam，让加速更稳定。然后点击<strong>一键加速</strong>就可以了。  </p><div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>如果时间一直在00:00:00且没有任何效果，可以点击停止加速，然后重新加速。</p></div> <h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>这款加速器真牛逼！！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> steam </tag>
+            
+            <tag> Github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免费下载激活Microsoft Office</title>
+      <link href="/posts/b74f9f5a.html"/>
+      <url>/posts/b74f9f5a.html</url>
+      
+        <content type="html"><![CDATA[<div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本教程仅适用于Windows操作系统，其他操作系统似乎无法使用Office（也许吧，我没用过其它系统）。</p></div> <div class="note info modern"><i class="solitude fas fa-circle-info"></i><p>本文参考的官方文档：<a href="https://www.officetool.plus/zh-cn/">https://www.officetool.plus/zh-cn/</a></p></div> <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用Windows系统的用户都知道，电脑上的Office会自动升级为Microsoft 365，并且365网页免费版在中国无法正常使用，必须使用魔法才可以进入。并且微软的定价也非常昂贵。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E6%98%82%E8%B4%B5%E5%AE%9A%E4%BB%B7-EgmbofPUJo4JtD0QDdowBCZvaKgWOh.webp" alt="昂贵的定价"><br>所以，在这里，我将推荐一个非常好用的工具：<strong>Office Tool Plus</strong>。<br>让我们看看怎么使用这个工具下载并激活Office吧！  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>进入下载界面，里面有很多种下载方式，自己选择一种你喜欢的即可。  </p><a class="tag-link" href="https://www.officetool.plus/zh-cn/introduction/download.html" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">Office Tool Plus</div>            <div class="tag-link-sitename">下载页面</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a> <div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>建议选择一个离你比较近的镜像站，会快点。</p></div> <p>有人会发现，里面包含很多个压缩包，有包含with runtime的，还有普通的。<br>这里简单说一下区别：</p><ul><li><p>包含框架版本（with runtime）：包含 .NET Runtime，可以在不安装 .NET Runtime 的情况下直接运行 Office Tool Plus。</p></li><li><p>普通版本：仅包含 Office Tool Plus 以及基本组件。</p></li></ul><p>小白直接下框架版本即可，方便使用（就是体积比较大，带with runtime的那个）。</p><h2 id="2-解压和运行"><a href="#2-解压和运行" class="headerlink" title="2.解压和运行"></a>2.解压和运行</h2><p>下载完成后，请将整个压缩包解压到一个合适的位置。<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/ing-57MuUofKn0jQQp29VRhHYdb8IHeEDt.webp" alt="解压ing">   </p><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>请勿在压缩包内直接双击运行 Office Tool Plus。</p></div> <p>打开解压后的文件夹，找到并双击 <strong>Office Tool Plus.exe</strong> 以运行程序。</p><p><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Office%20Tool%20Plus-kEvDoN7zMVuoTPBzJu3fcaIeIllHjM.webp" alt="打开Office"><br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/%E4%B8%BB%E9%A1%B5-CkbKzNd6xSVBM6foicUcMyodQayIMN.webp" alt="主页">  </p><h2 id="3-部署（下载）Office"><a href="#3-部署（下载）Office" class="headerlink" title="3.部署（下载）Office"></a>3.部署（下载）Office</h2><p>点击左边的“<strong>部署</strong>”，按照下面进行配置：  </p><table><thead><tr><th>部署项</th><th>配置项</th></tr></thead><tbody><tr><td>部署模式</td><td>安装</td></tr><tr><td>体系结构</td><td>根据自己的系统选择，一般是64位</td></tr><tr><td>更新通道</td><td>当前通道</td></tr><tr><td>安装模块</td><td>Office部署工具</td></tr><tr><td>下载后再部署</td><td>打开</td></tr><tr><td>创建桌面快捷方式</td><td>根据自己的喜好设置（建议打开）</td></tr><tr><td>安装iSlide插件</td><td>根据自己的情况决定</td></tr></tbody></table><p>然后点击<strong>添加产品</strong>，选择一项你想要的Office版本。</p><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>1.建议不要选择Microsoft 365，因为Office Tool Plus没有对应的许可证，激活它们需要使用其他产品的许可证，可能会导致使用问题。<br>2.不要选择带有“ - 批量许可证”的产品！不然我也不知道会发生什么。</p></div> <p>我选择了Office2019专业增强版，大家可以选其他的。<br>选择后，大家勾选自己想要安装的应用程序，推荐勾选常用的即可。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1%20%281%29-8lWC6QoiiFLx6ITztzTWlQ2Yvk6LaX.webp" alt="实例"><br>然后点击<strong>添加语言</strong>，选择你想使用的语言（搜素“简体中文”就可以找到简体中文了）。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/2%20%281%29-bmf7xhxqcrfNwbRWrUpKoVU6SdnMNT.webp" alt="实例"><br>最后点击最上方的“<strong>开始部署</strong>”即可开始下载文件。<br>下载完成后会自动弹出一个窗口，继续等待下载即可。<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/Office%E4%B8%AD...-swCJYkqPyxOdTtresvduyKYtXaGVQR.webp" alt="等待">  </p><h2 id="4-激活"><a href="#4-激活" class="headerlink" title="4.激活"></a>4.激活</h2><p>点击Office Tool Plus左侧边栏的“激活”。<br>在“许可证管理”的右侧有个小箭头，需要点击它以展开里面的内容。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/3-wYQ021rVbqmJNlmWO38cSDGHB1dFpX.webp" alt="展开前"><br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/4-4hqR1S28RGAJ0M3nbcN6spiOUMyM6s.webp" alt="展开后"><br>可以看到展开后有三个“安装”选项，点击第一个，会弹出许可证列表。<br>在列表中选择你的Office版本的<strong>批量许可证</strong>（可以有<strong>LTSC</strong>），比如我选择的就是“<strong>Office 专业增强版 2019 - 批量许可证</strong>”。  </p><div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>1.选择的许可证后面一定要带有“ - 批量许可证”！不然激活时会出错！！！<br>2.LTSC可有可无，不会造成影响。</p></div>   <p>然后在<strong>KMS主机</strong>那一栏中输入下面的主机名称：  </p><blockquote><p>kms.loli.beer</p></blockquote><p>输入后点击“<strong>设置主机</strong>”，等待设置完成。<br>完成后点击顶部的“<strong>激活</strong>”，等待激活成功。<br><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/5-kGvHRU3w93WXrnuLtEgpjbq1qmreO7.webp" alt="激活成功">  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>如果激活失败，请再次尝试。如果还是不行，请往下看“<strong>激活失败常见原因</strong>”。  </p></div> <p>成功后，你就可以尽情使用了！</p><h1 id="激活失败常见原因"><a href="#激活失败常见原因" class="headerlink" title="激活失败常见原因"></a>激活失败常见原因</h1><p>如果你激活失败了，下面是一些常见的原因，如果仍然没有解决问题，请在评论区说明你遇到的问题，我会尽力解决。  </p><h2 id="1-选择的许可证不是批量许可证"><a href="#1-选择的许可证不是批量许可证" class="headerlink" title="1.选择的许可证不是批量许可证"></a>1.选择的许可证不是批量许可证</h2><p><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-57gv644fa926ibx7-z1xGnVIZmeBn225aLHtnMv3tmCmttR.webp" alt="许可证管理"><br>在这里点击第一个“安装”时，可以看到很多的许可证。<br><img src= "/img/loading.gif" data-lazy-src="https://bmgucnlcvqpnyjdy.public.blob.vercel-storage.com/-rgjne91ua8au71yx-pjcEtqtPtXOOxc7fZHoK7XTiv5V2aZ.webp" alt="许可证列表"><br>可以发现，这里有一部分后面没有带“- <strong>批量许可证</strong>”，有些带了。<br><strong>这里必须选择带有“- 批量许可证”的许可证！</strong>（LTSC可有可无）<br>前面也有说过，Microsoft 365没有批量许可证，只可以自己付钱去365官网购买。如果你真的想用Microsoft 365，可以试试用其他的许可证去激活它（可能造成使用问题）。  </p><h2 id="2-网络不稳定"><a href="#2-网络不稳定" class="headerlink" title="2.网络不稳定"></a>2.网络不稳定</h2><p>你连接的网络不稳定也可能造成激活失败。这个时候需要检查你的网络。检查后再次尝试。  </p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>真的是一个很好用的工具！WPS Office太多广告了，很多功能都要会员，且占用大。Office相对来说更加轻量，没有广告，且速度快，基本功能也齐全。有这么一个工具下载激活Office，真的是很多人的福音。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 白嫖 </tag>
+            
+            <tag> Office </tag>
+            
+            <tag> Microsoft </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的过敏性紫癜肾炎治病历程</title>
+      <link href="/posts/b8439c6.html"/>
+      <url>/posts/b8439c6.html</url>
+      
+        <content type="html"><![CDATA[<p>从我2025年11月查出紫癜肾炎，到现在已经快4个月了，现在仍在服用激素与其他药物。<br>最近没什么好更新的文章，就简单谈一谈我的经历吧。<br>一开始我是腿上开始长一些红点，并且按压它们还不会褪色。当时我并没有想那么多，觉得长一些红点很正常，可能是被什么东西咬了，没有去多管。之后红点越来越多，一开始是小腿下部，后来蔓延到了脚上还有膝盖。我慢慢慌了，因为我是住宿生，只有周六下午（或晚上）才放学，就没有及时去医院。后来我告诉了我妈，我妈觉得不对劲，就把我硬拉去了医院（逃了一节体育课嘿嘿）。学校附近的医院看了，说可能是紫癜，要去市里的大医院看，于是我和我妈又打滴滴去了中医院，直接就办了入院。<br>当时是这么说的，说紫癜会影响消化道（主要是胃和肠道）和肾，但是我来得比较及时，并且紫癜相对来说比较少，一般没啥问题，打几天针，做一些检查就没问题了。没想到第二天就出问题了，我的晨尿出问题了。<br>我的晨尿尿蛋白2+，尿隐血3+。<br>于是医院紧急给我开了个24h蛋白尿检，尿蛋白是2000多！（正常其实才2位数）<br>当时是真的慌了，医院也很蒙，他们说只有紫癜发展到很严重时才会慢慢影响到肾，我这tm直接到肾了，并且消化道一切正常，直接跳过了消化道这一步。<br>其实就是我运气太差了…<br>于是我就开始服用激素了。激素副作用是真的多。我服用的是甲波尼龙片，大家可以自己去搜有啥副作用。反正现在我的脸是直接肿起来了。<br>现在已经出院，尿常规也慢慢正常了。但是这个病它复发率非常高，而且每一次复发都会变得更加难治（因为有抗药性了）。我现在尽量不能感染任何病原体，否则会刺激免疫系统，很容易又导致复发。并且因为激素原因，我的免疫力现在非常低。12月份的时候我就一个小感冒，血常规白细胞直接急剧降低到零点几，办理紧急入院抢救的…<br>3月开学后，我的饮食限制会变松，可以吃一些不那么清淡的东西了。希望我能在1年内临床治愈，然后永不复发（根治不了，别想了…）。<br>活着就好。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 琐事杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+            <tag> 生病 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>下载你喜欢的B站视频</title>
+      <link href="/posts/30b0f4bb.html"/>
+      <url>/posts/30b0f4bb.html</url>
+      
+        <content type="html"><![CDATA[<div class="note danger modern"><i class="solitude fas fa-triangle-exclamation"></i><p>本工具作者由于在2026年7月6日收到了B站的律师函，已经将该工具在Github删除，因此该工具已经无法通过官方渠道下载。<br>因为作者已经不再提供支持，此工具随时可能报废，请不要对长期使用它抱有过多希望。<br>切记不要滥用此工具，若被B站发现，等来的可能是律师函。珍惜现在可以使用它的机会，不要下载一些B站很火的视频，下载一些小视频就行了。<br>想了解详细情况请点击前往<a href="https://github.com/yaobiao131/downkyicore">仓库</a>查看README，谢谢。</p></div>   <div class="note warning modern"><i class="solitude fas fa-triangle-exclamation"></i><p>下载的视频仅供个人观看，请不要盗用B站版权作品。</p></div> <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>哔哩哔哩作为中国知名的视频社区，用户规模已经过亿，其中的优质视频非常多。  </p><a class="tag-link" href="https://www.bilibili.com/" target="_blank">    <div class="tag-link-tips">引用站外链接</div>    <div class="tag-link-bottom">        <div class="tag-link-left">          <i class="solitude fas fa-link"></i>        </div>        <div class="tag-link-right">            <div class="tag-link-title">哔哩哔哩</div>            <div class="tag-link-sitename">哔哩哔哩 (゜-゜)つロ 干杯~</div>        </div>        <i class="solitude fas fa-chevron-right"></i>    </div></a>  <p>但是，当我们想下载某个视频到本地时，却找不到下载键。</p><p>在之前，我是使用<a href="https://client.sabe.cc/">唧唧Down</a>下载B站视频的，但是最近这个工具非常不稳定，而且下载下来的视频画质也被压缩的很低，甚至有时还无法打开视频。我非常苦恼，觉得应该有人和我一样苦恼，总会有大佬自己开发出一个好用的下载工具。于是我就去寻找，终于找到了一个好用的下载工具：<strong>DownKyi</strong>。<br>它非常好用，支持所有清晰度，提供工具箱，可下载弹幕文件，封面，音乐，视频等。  </p><blockquote><p>Github仓库地址：<a href="https://github.com/yaobiao131/downkyicore">https://github.com/yaobiao131/downkyicore</a></p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://pndk6uzakw1qplwl.public.blob.vercel-storage.com/1-85ibBxRBEOomEqoAF57r9hpq5JwSqg.webp" alt="工具截图">  </p><p>接下来上教程！  </p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-下载工具"><a href="#1-下载工具" class="headerlink" title="1.下载工具"></a>1.下载工具</h2><p>这里只提供一种下载方式（原因见文章开头）。  </p><blockquote><p><a href="https://cloud.mc-sep.top/">Sep’s Cloud</a> by @<a href="https://mc-sep.top/">MC-Sep</a>：A self-hosted file management system with muilt-cloud support.  </p></blockquote><div class="note warning modern"><i class="solitude fas fa-circle-info"></i><p>本方式仅适用于Windows操作系统。</p></div> <p>点击进入<a href="https://cloud.mc-sep.top/s/RnUg">分享链接</a>，找到适合自己系统的zip，下载即可。<br>下载压缩包后，解压到任意文件夹，找到叫DownKyi.exe的文件（如果找不到，可以在文件资源管理器中Ctrl+F进行搜索），可以创建一个快捷方式到桌面，以便下次进入。  </p><h2 id="2-下载视频"><a href="#2-下载视频" class="headerlink" title="2.下载视频"></a>2.下载视频</h2><p>进入工具后点击右上角头像进行登录，不登录可能无法体验一些功能。点击设置，根据自己的偏好进行设置。<br>进入<a href="https://www.bilibili.com/">哔哩哔哩</a>网页版，找到自己喜欢的视频，点开后复制浏览器链接，粘贴到工具的网址栏，即可对视频进行解析。  </p><div class="note success modern"><i class="solitude fas fa-wand-magic-sparkles"></i><p>粘贴网址后，需要点击视频，点击<strong>解析视频</strong>，选择画质等基本信息，再点击<strong>下载选中项</strong>，才可以下载（可以在设置里设置自动解析视频）。 </p></div>   <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这个工具被删了很可惜，感谢大佬提供这样的工具。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 热门 </tag>
+            
+            <tag> 哔哩哔哩 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

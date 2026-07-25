@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>quicer</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://quicer.js.cool/</id>
+  <link href="https://quicer.js.cool/" rel="alternate"/>
+  <link href="https://quicer.js.cool/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, quicer</rights>
+  <subtitle>个人博客</subtitle>
+  <title>quicer</title>
+  <updated>2026-07-23T04:19:00.000Z</updated>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="前端" scheme="https://quicer.js.cool/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="插件" scheme="https://quicer.js.cool/tags/%E6%8F%92%E4%BB%B6/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="hexo" scheme="https://quicer.js.cool/tags/hexo/"/>
+    <id>https://quicer.js.cool/posts/b48c7993.html</id>
+    <link href="https://quicer.js.cool/posts/b48c7993.html"/>
+    <published>2026-07-23T01:19:20.000Z</published>
+    <summary>优化文章链接</summary>
+    <title>使用abbrlink插件优化你的hexo文章链接</title>
+    <updated>2026-07-23T04:19:00.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="技术测评" scheme="https://quicer.js.cool/categories/%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%84/"/>
+    <category term="AI" scheme="https://quicer.js.cool/tags/AI/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="龙虾" scheme="https://quicer.js.cool/tags/%E9%BE%99%E8%99%BE/"/>
+    <id>https://quicer.js.cool/posts/1a555cfc.html</id>
+    <link href="https://quicer.js.cool/posts/1a555cfc.html"/>
+    <published>2026-07-22T06:13:00.000Z</published>
+    <summary>龙虾</summary>
+    <title>错过再付费！WorkBuddy混元Hy3限免！</title>
+    <updated>2026-07-23T00:29:00.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="经验分享" scheme="https://quicer.js.cool/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <category term="代码" scheme="https://quicer.js.cool/tags/%E4%BB%A3%E7%A0%81/"/>
+    <id>https://quicer.js.cool/posts/2b56d23b.html</id>
+    <link href="https://quicer.js.cool/posts/2b56d23b.html"/>
+    <published>2026-07-19T07:39:55.000Z</published>
+    <summary>粗光标</summary>
+    <title>切换模式来解决打字时光标由细变粗的问题</title>
+    <updated>2026-07-19T07:39:55.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="白嫖" scheme="https://quicer.js.cool/tags/%E7%99%BD%E5%AB%96/"/>
+    <id>https://quicer.js.cool/posts/fc417bc9.html</id>
+    <link href="https://quicer.js.cool/posts/fc417bc9.html"/>
+    <published>2026-07-19T06:51:58.000Z</published>
+    <summary>免费复制</summary>
+    <title>免费地让你复制网页中付钱才可复制的文字</title>
+    <updated>2026-07-19T06:51:58.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <id>https://quicer.js.cool/posts/8a9565cd.html</id>
+    <link href="https://quicer.js.cool/posts/8a9565cd.html"/>
+    <published>2026-07-19T06:00:00.000Z</published>
+    <summary>右键菜单</summary>
+    <title>一个工具让你的右键菜单变得简洁</title>
+    <updated>2026-07-19T06:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="我的推荐" scheme="https://quicer.js.cool/categories/%E6%88%91%E7%9A%84%E6%8E%A8%E8%8D%90/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="steam" scheme="https://quicer.js.cool/tags/steam/"/>
+    <id>https://quicer.js.cool/posts/be200f2a.html</id>
+    <link href="https://quicer.js.cool/posts/be200f2a.html"/>
+    <published>2026-07-16T10:23:07.000Z</published>
+    <summary>Github加速器</summary>
+    <title>推荐一款更好的加速器</title>
+    <updated>2026-07-16T10:23:07.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="steam" scheme="https://quicer.js.cool/tags/steam/"/>
+    <category term="Github" scheme="https://quicer.js.cool/tags/Github/"/>
+    <id>https://quicer.js.cool/posts/b74f9f5b.html</id>
+    <link href="https://quicer.js.cool/posts/b74f9f5b.html"/>
+    <published>2026-02-26T09:00:00.000Z</published>
+    <summary>Github加速器</summary>
+    <title>Github访问慢？一个加速器解决</title>
+    <updated>2026-07-16T09:04:00.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="白嫖" scheme="https://quicer.js.cool/tags/%E7%99%BD%E5%AB%96/"/>
+    <category term="Office" scheme="https://quicer.js.cool/tags/Office/"/>
+    <category term="Microsoft" scheme="https://quicer.js.cool/tags/Microsoft/"/>
+    <id>https://quicer.js.cool/posts/b74f9f5a.html</id>
+    <link href="https://quicer.js.cool/posts/b74f9f5a.html"/>
+    <published>2026-02-24T09:01:00.000Z</published>
+    <summary>下载Office,激活Office</summary>
+    <title>免费下载激活Microsoft Office</title>
+    <updated>2026-07-10T09:01:00.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="琐事杂谈" scheme="https://quicer.js.cool/categories/%E7%90%90%E4%BA%8B%E6%9D%82%E8%B0%88/"/>
+    <category term="生活" scheme="https://quicer.js.cool/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生病" scheme="https://quicer.js.cool/tags/%E7%94%9F%E7%97%85/"/>
+    <id>https://quicer.js.cool/posts/b8439c6.html</id>
+    <link href="https://quicer.js.cool/posts/b8439c6.html"/>
+    <published>2026-02-24T09:00:00.000Z</published>
+    <summary>过敏性紫癜肾炎</summary>
+    <title>我的过敏性紫癜肾炎治病历程</title>
+    <updated>2026-07-10T09:00:00.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="工具" scheme="https://quicer.js.cool/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="哔哩哔哩" scheme="https://quicer.js.cool/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
+    <id>https://quicer.js.cool/posts/30b0f4bb.html</id>
+    <link href="https://quicer.js.cool/posts/30b0f4bb.html"/>
+    <published>2026-02-19T04:00:00.000Z</published>
+    <summary>下载B站视频</summary>
+    <title>下载你喜欢的B站视频</title>
+    <updated>2026-07-16T09:05:00.000Z</updated>
+  </entry>
+</feed>
