@@ -20,8 +20,9 @@
   if (!heartbeatValue || !heartbeatLine || !loadValue || !memoryValue) return;
 
   var data = new Array(CHART_POINTS).fill(SAMPLE_INTERVAL);
-  var lastTime = performance.now();
-  var idx = 0;
+  var targetData = data.slice();
+  var lastTick = performance.now();
+  var nextTick = lastTick + SAMPLE_INTERVAL;
 
   function formatLoad(ms) {
     if (!ms || ms <= 0) return '—';
@@ -62,37 +63,57 @@
     memoryValue.textContent = mem ? formatMemory(mem.usedJSHeapSize) : '—';
   }
 
-  function updateChart() {
-    var min = Math.min.apply(null, data);
-    var max = Math.max.apply(null, data);
+  function updateChart(points) {
+    var min = Math.min.apply(null, points);
+    var max = Math.max.apply(null, points);
     var range = Math.max(max - min, SAMPLE_INTERVAL);
     var step = SVG_WIDTH / (CHART_POINTS - 1);
 
-    var points = data.map(function (val, i) {
+    var coords = points.map(function (val, i) {
       var ratio = 1 - (val - min) / range;
       var y = Math.max(1, Math.min(SVG_HEIGHT - 1, ratio * SVG_HEIGHT));
       return (i * step).toFixed(2) + ',' + y.toFixed(2);
     }).join(' ');
 
-    heartbeatLine.setAttribute('points', points);
+    heartbeatLine.setAttribute('points', coords);
+  }
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
   }
 
   function tick() {
     var now = performance.now();
-    var delta = now - lastTime;
-    lastTime = now;
 
-    data[idx] = delta;
-    idx = (idx + 1) % CHART_POINTS;
+    if (now >= nextTick) {
+      var delta = now - lastTick;
+      lastTick = now;
+      nextTick = now + SAMPLE_INTERVAL;
 
-    heartbeatValue.textContent = Math.round(delta);
-    updateChart();
+      // 推进数据：上一目标成为当前数据，再左移一位加入新 delta
+      data = targetData.slice();
+      targetData = data.slice(1).concat(delta);
+    }
+
+    var t = Math.min(1, (now - lastTick) / SAMPLE_INTERVAL);
+    var current = new Array(CHART_POINTS);
+    for (var i = 0; i < CHART_POINTS; i++) {
+      current[i] = lerp(data[i], targetData[i], t);
+    }
+
+    heartbeatValue.textContent = Math.round(current[CHART_POINTS - 1]);
+    updateChart(current);
+
+    requestAnimationFrame(tick);
   }
 
   function init() {
     updateLoadTime();
     updateMemory();
-    setInterval(tick, SAMPLE_INTERVAL);
+    lastTick = performance.now();
+    nextTick = lastTick + SAMPLE_INTERVAL;
+    targetData = data.slice(1).concat(SAMPLE_INTERVAL);
+    requestAnimationFrame(tick);
 
     // DOMContentLoaded 时 loadEventEnd 可能还没产生，等 window.load 后再取一次
     if (document.readyState !== 'complete') {
