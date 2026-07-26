@@ -8,7 +8,7 @@
   'use strict';
 
   var CHART_POINTS = 40;
-  var SAMPLE_INTERVAL = 250;
+  var SAMPLE_INTERVAL = 150;
   var SVG_WIDTH = 100;
   var SVG_HEIGHT = 30;
 
