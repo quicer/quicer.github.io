@@ -1,0 +1,29 @@
+/* ============================================================
+   临时关闭全站玻璃（毛玻璃）效果 —— 仅调试期间使用
+   ------------------------------------------------------------
+   恢复方法（二选一即可，主题玻璃代码完全未改动）：
+   1) 删除 _config.Aether.yml 的 extends.head 中下面这一行引用：
+        <link rel="stylesheet" href="/custom/css/glass-off.css">
+   2) 直接删除本文件 source/custom/css/glass-off.css
+   恢复后，glass.styl 及各 .styl 中的 --glass-* 用法会自动重新生效。
+   ============================================================ */
+
+/* 1) 把玻璃变量重定义为“实心卡片”外观，毛玻璃退化为普通卡片 */
+:root {
+  --glass-bg: var(--efu-card-bg) !important;
+  --glass-bg-fixed: var(--efu-card-bg) !important;
+  --glass-bg-hover: var(--efu-card-bg) !important;
+  --glass-border: var(--style-border) !important;
+  --glass-border-hover: var(--style-border-hover) !important;
+  --glass-shadow: var(--efu-shadow-border) !important;
+  --glass-highlight: none !important;
+  --glass-blur: none !important;
+}
+
+/* 2) 关闭一切 backdrop-filter 模糊（含主题里带 !important 的写法） */
+*,
+*::before,
+*::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
