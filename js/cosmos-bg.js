@@ -275,5 +275,24 @@
 
     requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
+
+  // 页面切到后台时停止 canvas 动画循环，回到前台再恢复，避免后台空耗 CPU/GPU/内存
+  var rafId = null;
+  function startLoop() {
+    if (rafId === null) {
+      last = performance.now();
+      rafId = requestAnimationFrame(frame);
+    }
+  }
+  function stopLoop() {
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+  startLoop();
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stopLoop();
+    else startLoop();
+  });
 })();

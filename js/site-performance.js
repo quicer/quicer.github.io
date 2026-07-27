@@ -23,6 +23,7 @@
   var targetData = data.slice();
   var lastTick = performance.now();
   var nextTick = lastTick + SAMPLE_INTERVAL;
+  var rafId = null;
 
   function formatLoad(ms) {
     if (!ms || ms <= 0) return '—';
@@ -104,16 +105,28 @@
     heartbeatValue.textContent = Math.round(current[CHART_POINTS - 1]);
     updateChart(current);
 
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  // 页面切到后台时暂停心跳动画，回到前台再恢复，避免后台空耗 CPU/内存
+  function startLoop() {
+    if (rafId !== null) return;
+    lastTick = performance.now();
+    nextTick = lastTick + SAMPLE_INTERVAL;
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function stopLoop() {
+    if (rafId === null) return;
+    cancelAnimationFrame(rafId);
+    rafId = null;
   }
 
   function init() {
     updateLoadTime();
     updateMemory();
-    lastTick = performance.now();
-    nextTick = lastTick + SAMPLE_INTERVAL;
     targetData = data.slice(1).concat(SAMPLE_INTERVAL);
-    requestAnimationFrame(tick);
+    startLoop();
 
     // DOMContentLoaded 时 loadEventEnd 可能还没产生，等 window.load 后再取一次
     if (document.readyState !== 'complete') {
@@ -135,4 +148,10 @@
       updateMemory();
     });
   }
+
+  // 后台暂停：标签页不可见时停止 requestAnimationFrame，回到前台恢复
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stopLoop();
+    else startLoop();
+  });
 })();
