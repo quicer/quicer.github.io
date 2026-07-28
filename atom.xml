@@ -10,7 +10,24 @@
   <rights>All rights reserved 2026, quicer</rights>
   <subtitle>个人博客</subtitle>
   <title>quicer</title>
-  <updated>2026-07-23T04:19:00.000Z</updated>
+  <updated>2026-07-28T00:53:27.000Z</updated>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="前端" scheme="https://quicer.js.cool/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="魔改" scheme="https://quicer.js.cool/tags/%E9%AD%94%E6%94%B9/"/>
+    <category term="hexo" scheme="https://quicer.js.cool/tags/hexo/"/>
+    <category term="Solitude" scheme="https://quicer.js.cool/tags/Solitude/"/>
+    <id>https://quicer.js.cool/posts/2f815ea5.html</id>
+    <link href="https://quicer.js.cool/posts/2f815ea5.html"/>
+    <published>2026-07-28T00:53:27.000Z</published>
+    <summary>今日热门</summary>
+    <title>用 Umami + Cloudflare Worker 给博客搭建「今日热门」侧边栏</title>
+    <updated>2026-07-28T00:53:27.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>quicer</name>
@@ -25,7 +42,7 @@
     <published>2026-07-23T01:19:20.000Z</published>
     <summary>优化文章链接</summary>
     <title>使用abbrlink插件优化你的hexo文章链接</title>
-    <updated>2026-07-23T04:19:00.000Z</updated>
+    <updated>2026-07-28T02:37:00.000Z</updated>
   </entry>
   <entry>
     <author>
