@@ -10,17 +10,7 @@
   <rights>All rights reserved 2026, quicer</rights>
   <subtitle>个人博客</subtitle>
   <title>quicer</title>
-  <updated>2026-07-29T11:26:58.574Z</updated>
-  <entry>
-    <author>
-      <name>quicer</name>
-    </author>
-    <id>https://quicer.js.cool/posts/c06dc44a.html</id>
-    <link href="https://quicer.js.cool/posts/c06dc44a.html"/>
-    <published>2026-07-29T11:17:37.000Z</published>
-    <title>zhandianxingneng</title>
-    <updated>2026-07-29T11:26:58.574Z</updated>
-  </entry>
+  <updated>2026-07-29T11:17:37.000Z</updated>
   <entry>
     <author>
       <name>quicer</name>
@@ -31,6 +21,25 @@
     <category term="魔改" scheme="https://quicer.js.cool/tags/%E9%AD%94%E6%94%B9/"/>
     <category term="hexo" scheme="https://quicer.js.cool/tags/hexo/"/>
     <category term="Solitude" scheme="https://quicer.js.cool/tags/Solitude/"/>
+    <id>https://quicer.js.cool/posts/c06dc44a.html</id>
+    <link href="https://quicer.js.cool/posts/c06dc44a.html"/>
+    <published>2026-07-29T11:17:37.000Z</published>
+    <summary>站点性能</summary>
+    <title>纯前端实时性能监控，给Solitude主题添加「站点性能」侧边栏</title>
+    <updated>2026-07-29T11:17:37.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>quicer</name>
+    </author>
+    <category term="实用教程" scheme="https://quicer.js.cool/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <category term="前端" scheme="https://quicer.js.cool/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="热门" scheme="https://quicer.js.cool/tags/%E7%83%AD%E9%97%A8/"/>
+    <category term="魔改" scheme="https://quicer.js.cool/tags/%E9%AD%94%E6%94%B9/"/>
+    <category term="hexo" scheme="https://quicer.js.cool/tags/hexo/"/>
+    <category term="Umami" scheme="https://quicer.js.cool/tags/Umami/"/>
+    <category term="Solitude" scheme="https://quicer.js.cool/tags/Solitude/"/>
+    <category term="Cloudflare" scheme="https://quicer.js.cool/tags/Cloudflare/"/>
     <id>https://quicer.js.cool/posts/2f815ea5.html</id>
     <link href="https://quicer.js.cool/posts/2f815ea5.html"/>
     <published>2026-07-28T00:53:27.000Z</published>
