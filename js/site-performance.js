@@ -20,9 +20,8 @@
   if (!heartbeatValue || !heartbeatLine || !loadValue || !memoryValue) return;
 
   var data = new Array(CHART_POINTS).fill(SAMPLE_INTERVAL);
-  var targetData = data.slice();
-  var lastTick = performance.now();
-  var nextTick = lastTick + SAMPLE_INTERVAL;
+  var lastSampleTime = performance.now();
+  var nextSampleTime = lastSampleTime + SAMPLE_INTERVAL;
   var rafId = null;
 
   function formatLoad(ms) {
@@ -64,46 +63,39 @@
     memoryValue.textContent = mem ? formatMemory(mem.usedJSHeapSize) : '—';
   }
 
-  function updateChart(points) {
-    var min = Math.min.apply(null, points);
-    var max = Math.max.apply(null, points);
+  function updateChart(phase) {
+    var min = Math.min.apply(null, data);
+    var max = Math.max.apply(null, data);
     var range = Math.max(max - min, SAMPLE_INTERVAL);
     var step = SVG_WIDTH / (CHART_POINTS - 1);
 
-    var coords = points.map(function (val, i) {
-      var ratio = 1 - (val - min) / range;
+    var coords = [];
+    for (var i = 0; i < CHART_POINTS; i++) {
+      var ratio = 1 - (data[i] - min) / range;
       var y = Math.max(1, Math.min(SVG_HEIGHT - 1, ratio * SVG_HEIGHT));
-      return (i * step).toFixed(2) + ',' + y.toFixed(2);
-    }).join(' ');
+      // x 整体向左滚动 phase * step，采样间平滑平移，不再跳变
+      var x = SVG_WIDTH - ((CHART_POINTS - 1 - i) + phase) * step;
+      coords.push(x.toFixed(2) + ',' + y.toFixed(2));
+    }
 
-    heartbeatLine.setAttribute('points', coords);
-  }
-
-  function lerp(a, b, t) {
-    return a + (b - a) * t;
+    heartbeatLine.setAttribute('points', coords.join(' '));
   }
 
   function tick() {
     var now = performance.now();
 
-    if (now >= nextTick) {
-      var delta = now - lastTick;
-      lastTick = now;
-      nextTick = now + SAMPLE_INTERVAL;
-
-      // 推进数据：上一目标成为当前数据，再左移一位加入新 delta
-      data = targetData.slice();
-      targetData = data.slice(1).concat(delta);
+    // 到采样点：整组数据左移一位，右侧推入新的 delta
+    while (now >= nextSampleTime) {
+      var delta = nextSampleTime - lastSampleTime;
+      lastSampleTime = nextSampleTime;
+      nextSampleTime += SAMPLE_INTERVAL;
+      data.shift();
+      data.push(delta || SAMPLE_INTERVAL);
     }
 
-    var t = Math.min(1, (now - lastTick) / SAMPLE_INTERVAL);
-    var current = new Array(CHART_POINTS);
-    for (var i = 0; i < CHART_POINTS; i++) {
-      current[i] = lerp(data[i], targetData[i], t);
-    }
-
-    heartbeatValue.textContent = Math.round(current[CHART_POINTS - 1]);
-    updateChart(current);
+    var phase = Math.min(1, (now - lastSampleTime) / SAMPLE_INTERVAL);
+    heartbeatValue.textContent = Math.round(data[CHART_POINTS - 1]);
+    updateChart(phase);
 
     rafId = requestAnimationFrame(tick);
   }
@@ -111,8 +103,6 @@
   // 页面切到后台时暂停心跳动画，回到前台再恢复，避免后台空耗 CPU/内存
   function startLoop() {
     if (rafId !== null) return;
-    lastTick = performance.now();
-    nextTick = lastTick + SAMPLE_INTERVAL;
     rafId = requestAnimationFrame(tick);
   }
 
@@ -125,7 +115,8 @@
   function init() {
     updateLoadTime();
     updateMemory();
-    targetData = data.slice(1).concat(SAMPLE_INTERVAL);
+    lastSampleTime = performance.now();
+    nextSampleTime = lastSampleTime + SAMPLE_INTERVAL;
     startLoop();
 
     // DOMContentLoaded 时 loadEventEnd 可能还没产生，等 window.load 后再取一次
