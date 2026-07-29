@@ -76,8 +76,9 @@
     for (var i = 0; i < CHART_POINTS; i++) {
       var ratio = 1 - (data[i] - min) / range;
       var y = Math.max(1, Math.min(SVG_HEIGHT - 1, ratio * SVG_HEIGHT));
-      // x 整体向左滚动 phase * step，采样间平滑平移，不再跳变
-      var x = SVG_WIDTH - ((CHART_POINTS - 1 - i) + phase) * step;
+      // 折线整体向右偏移 step，让最新点从 SVG 右侧外进入并左滚，
+      // 视野内最右端始终贴在右边界，不会突然向右突出。
+      var x = SVG_WIDTH + step - ((CHART_POINTS - 1 - i) + phase) * step;
       coords.push(x.toFixed(2) + ',' + y.toFixed(2));
     }
 
@@ -97,11 +98,14 @@
       var avgDelta = frameDeltas.length
         ? frameDeltas.reduce(function (a, b) { return a + b; }, 0) / frameDeltas.length
         : SAMPLE_INTERVAL;
+      // 轻量 EMA 平滑：新值 70% + 旧值 30%，避免末端因瞬时帧间隔突变而突兀翘起
+      var prev = data[CHART_POINTS - 1] || avgDelta;
+      var smoothed = prev * 0.3 + avgDelta * 0.7;
       frameDeltas = [];
       lastSampleTime = nextSampleTime;
       nextSampleTime += SAMPLE_INTERVAL;
       data.shift();
-      data.push(Math.max(1, Math.round(avgDelta)));
+      data.push(Math.max(1, Math.round(smoothed)));
     }
 
     var phase = Math.min(1, (now - lastSampleTime) / SAMPLE_INTERVAL);
