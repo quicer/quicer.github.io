@@ -114,6 +114,10 @@
   // 页面切到后台时暂停心跳动画，回到前台再恢复，避免后台空耗 CPU/内存
   function startLoop() {
     if (rafId !== null) return;
+    // 从后台切回时重置帧时间基准并清空采样窗口，
+    // 避免把后台停留的超大间隔算进心跳，导致尖峰。
+    lastFrameTime = performance.now();
+    frameDeltas = [];
     rafId = requestAnimationFrame(tick);
   }
 
