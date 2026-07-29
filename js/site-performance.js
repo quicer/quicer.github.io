@@ -22,6 +22,8 @@
   var data = new Array(CHART_POINTS).fill(SAMPLE_INTERVAL);
   var lastSampleTime = performance.now();
   var nextSampleTime = lastSampleTime + SAMPLE_INTERVAL;
+  var lastFrameTime = performance.now();
+  var frameDeltas = [];
   var rafId = null;
 
   function formatLoad(ms) {
@@ -84,13 +86,21 @@
   function tick() {
     var now = performance.now();
 
-    // 到采样点：整组数据左移一位，右侧推入新的 delta
+    // 计算本帧与上一帧的真实间隔，累积到采样窗口
+    var frameDelta = now - lastFrameTime;
+    lastFrameTime = now;
+    frameDeltas.push(frameDelta);
+
+    // 到采样点：取本窗口平均帧间隔作为心跳值，左移推入新数据
     while (now >= nextSampleTime) {
-      var delta = nextSampleTime - lastSampleTime;
+      var avgDelta = frameDeltas.length
+        ? frameDeltas.reduce(function (a, b) { return a + b; }, 0) / frameDeltas.length
+        : SAMPLE_INTERVAL;
+      frameDeltas = [];
       lastSampleTime = nextSampleTime;
       nextSampleTime += SAMPLE_INTERVAL;
       data.shift();
-      data.push(delta || SAMPLE_INTERVAL);
+      data.push(Math.max(1, Math.round(avgDelta)));
     }
 
     var phase = Math.min(1, (now - lastSampleTime) / SAMPLE_INTERVAL);
@@ -115,8 +125,11 @@
   function init() {
     updateLoadTime();
     updateMemory();
-    lastSampleTime = performance.now();
-    nextSampleTime = lastSampleTime + SAMPLE_INTERVAL;
+    var now = performance.now();
+    lastSampleTime = now;
+    nextSampleTime = now + SAMPLE_INTERVAL;
+    lastFrameTime = now;
+    frameDeltas = [];
     startLoop();
 
     // DOMContentLoaded 时 loadEventEnd 可能还没产生，等 window.load 后再取一次
