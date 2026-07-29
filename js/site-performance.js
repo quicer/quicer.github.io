@@ -25,6 +25,7 @@
   var lastFrameTime = performance.now();
   var frameDeltas = [];
   var rafId = null;
+  var warmupId = null;
 
   function formatLoad(ms) {
     if (!ms || ms <= 0) return '—';
@@ -116,10 +117,47 @@
     rafId = requestAnimationFrame(tick);
   }
 
+  function warmUp() {
+    // 预热 200ms：采集真实帧间隔，用平均值填充初始 data，
+    // 避免初始 150ms 高位水平线与真实心率线叠在一起。
+    var samples = [];
+    var start = performance.now();
+    heartbeatValue.textContent = '…';
+
+    function step() {
+      var now = performance.now();
+      var delta = now - lastFrameTime;
+      lastFrameTime = now;
+      if (delta > 0 && delta < 100) samples.push(delta);
+
+      if (now - start < 200 && samples.length < 20) {
+        warmupId = requestAnimationFrame(step);
+        return;
+      }
+
+      var avg = samples.length
+        ? samples.reduce(function (a, b) { return a + b; }, 0) / samples.length
+        : SAMPLE_INTERVAL;
+      var initial = Math.max(1, Math.round(avg));
+      data = new Array(CHART_POINTS).fill(initial);
+      lastSampleTime = performance.now();
+      nextSampleTime = lastSampleTime + SAMPLE_INTERVAL;
+      frameDeltas = [];
+      startLoop();
+    }
+
+    warmupId = requestAnimationFrame(step);
+  }
+
   function stopLoop() {
-    if (rafId === null) return;
-    cancelAnimationFrame(rafId);
-    rafId = null;
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    if (warmupId !== null) {
+      cancelAnimationFrame(warmupId);
+      warmupId = null;
+    }
   }
 
   function init() {
@@ -130,7 +168,7 @@
     nextSampleTime = now + SAMPLE_INTERVAL;
     lastFrameTime = now;
     frameDeltas = [];
-    startLoop();
+    warmUp();
 
     // DOMContentLoaded 时 loadEventEnd 可能还没产生，等 window.load 后再取一次
     if (document.readyState !== 'complete') {
