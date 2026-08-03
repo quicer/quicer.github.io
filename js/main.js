@@ -1762,6 +1762,48 @@ const initRecentCommentCardGlow = () => {
   observer.observe(container, { childList: true, subtree: true });
 };
 
+const initPostTagsScroll = () => {
+  if (!Solitude.page.is_home) return;
+
+  const rows = document.querySelectorAll("[data-tags-scroll]");
+  if (!rows.length) return;
+
+  rows.forEach((row) => {
+    const tags = row.querySelector(".article-meta.tags");
+    const btn = row.querySelector(".tags-scroll-btn");
+    if (!tags) return;
+
+    const checkOverflow = () => {
+      const overflow = tags.scrollWidth > tags.clientWidth + 1;
+      row.classList.toggle("is-overflow", overflow);
+      const atEnd = tags.scrollLeft + tags.clientWidth >= tags.scrollWidth - 1;
+      row.classList.toggle("is-at-end", atEnd);
+    };
+
+    const onScroll = () => checkOverflow();
+    const onResize = () => requestAnimationFrame(checkOverflow);
+
+    tags.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    lifecycle.add(() => {
+      tags.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    });
+
+    if (btn) {
+      const onClick = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        tags.scrollBy({ left: 80, behavior: "smooth" });
+      };
+      btn.addEventListener("click", onClick);
+      lifecycle.add(() => btn.removeEventListener("click", onClick));
+    }
+
+    checkOverflow();
+  });
+};
+
 Solitude.refresh = async () => {
   lifecycle.disposePage();
   await loadFeatureModules();
@@ -1833,6 +1875,7 @@ Solitude.refresh = async () => {
   initAboutCardGlow();
   initEssayCardGlow();
   initRecentCommentCardGlow();
+  initPostTagsScroll();
   forPostFn();
 };
 
