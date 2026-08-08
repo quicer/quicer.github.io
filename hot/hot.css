@@ -8,7 +8,7 @@
     background: var(--efu-secondbg);
     border: var(--style-border-always);
     color: var(--efu-fontcolor);
-    border-radius: 8px;
+    border-radius: 50%;
     margin-right: 4px;
     width: 25px;
     height: 25px;
@@ -79,4 +79,27 @@
     color: var(--efu-fontcolor);
     opacity: 0.7;
     font-size: 14px;
+}
+
+/* 今日热门卡片标题栏右侧的「更多」按钮 */
+.card-hotpost .item-headline {
+    justify-content: space-between;
+    padding-right: 12px;
+}
+
+.card-hotpost .item-headline span:first-of-type {
+    flex: 1;
+}
+
+.hot-more {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--efu-secondtext);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.hot-more:hover {
+    color: var(--efu-theme);
 }

@@ -15,6 +15,18 @@ function initializeHot() {
     const container = document.getElementById("card-hotpost");
     if (!container) return;
 
+    // 在标题栏右侧插入「更多」按钮（链接到归档页）
+    const card = container.closest(".card-hotpost");
+    const headline = card?.querySelector(".item-headline");
+    if (headline && !headline.querySelector(".hot-more")) {
+        const more = document.createElement("a");
+        more.className = "hot-more";
+        more.href = "/archives/";
+        more.textContent = "更多";
+        more.title = "查看更多文章";
+        headline.appendChild(more);
+    }
+
     fetch(`${WORKER_URL}?days=${RANK_DAYS}&limit=${TOP_N}`)
         .then((r) => {
             if (!r.ok) throw new Error("HTTP " + r.status);
