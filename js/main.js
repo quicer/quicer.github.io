@@ -1766,6 +1766,10 @@ const initMusicCapsuleGlow = () => {
   bindGlowCard("#nav-music");
 };
 
+const initAsideCardGlow = () => {
+  bindGlowCard("#aside-content .card-widget");
+};
+
 const initPostTagsScroll = () => {
   if (!Solitude.page.is_home) return;
 
@@ -1880,6 +1884,7 @@ Solitude.refresh = async () => {
   initEssayCardGlow();
   initRecentCommentCardGlow();
   initMusicCapsuleGlow();
+  initAsideCardGlow();
   initPostTagsScroll();
   forPostFn();
 };

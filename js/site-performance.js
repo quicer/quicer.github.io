@@ -78,7 +78,7 @@
       var y = Math.max(1, Math.min(SVG_HEIGHT - 1, ratio * SVG_HEIGHT));
       // 折线整体向右偏移 step，让最新点从 SVG 右侧外进入并左滚，
       // 视野内最右端始终贴在右边界，不会突然向右突出。
-      var x = SVG_WIDTH + step - ((CHART_POINTS - 1 - i) + phase) * step;
+      var x = SVG_WIDTH - ((CHART_POINTS - 1 - i) + phase) * step;
       coords.push(x.toFixed(2) + ',' + y.toFixed(2));
     }
 
