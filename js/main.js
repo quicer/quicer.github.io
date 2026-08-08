@@ -1762,6 +1762,10 @@ const initRecentCommentCardGlow = () => {
   observer.observe(container, { childList: true, subtree: true });
 };
 
+const initMusicCapsuleGlow = () => {
+  bindGlowCard("#nav-music");
+};
+
 const initPostTagsScroll = () => {
   if (!Solitude.page.is_home) return;
 
@@ -1875,6 +1879,7 @@ Solitude.refresh = async () => {
   initAboutCardGlow();
   initEssayCardGlow();
   initRecentCommentCardGlow();
+  initMusicCapsuleGlow();
   initPostTagsScroll();
   forPostFn();
 };
