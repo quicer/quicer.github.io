@@ -197,9 +197,9 @@
     var MENU_GAP = 2;
 
     function positionMenu() {
-      // 现代浏览器用 CSS Anchor Positioning 定位（header.styl 里已设 position-anchor: --blog-name），
-      // 不依赖 JS 计算，也不怕 JS 缓存；这里只为不支持 anchor 的浏览器兜底。
-      if (window.CSS && CSS.supports('top', 'anchor(bottom)')) return;
+      // 始终用 JS 算一次胶囊的实时可视位置（包含 scale(1.06) 的变换），写死 inline 样式。
+      // 这样打开时菜单对齐的是胶囊 hover 状态下的真实左边缘；之后鼠标移到菜单上、胶囊缩回，
+      // inline left/top 不会变，菜单也就不会跟着右移。
       var rect = blogName.getBoundingClientRect();
       menu.style.position = 'fixed';
       menu.style.top = (rect.bottom + MENU_GAP) + 'px';
