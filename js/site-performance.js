@@ -76,9 +76,13 @@
     for (var i = 0; i < CHART_POINTS; i++) {
       var ratio = 1 - (data[i] - min) / range;
       var y = Math.max(1, Math.min(SVG_HEIGHT - 1, ratio * SVG_HEIGHT));
-      // 折线整体向右偏移 step，让最新点从 SVG 右侧外进入并左滚，
-      // 视野内最右端始终贴在右边界，不会突然向右突出。
-      var x = SVG_WIDTH - ((CHART_POINTS - 1 - i) + phase) * step;
+      // 最新点固定在 SVG 右边界，旧点随 phase 向左滚动。
+      // 这样视野内最右端始终贴在 x=100，不会因为新采样到来而水平“弹回”，
+      // 彻底消除右侧抽搐；最右一段线会随采样轻微伸缩，配合 EMA 平滑后几乎不可感知。
+      var dist = CHART_POINTS - 1 - i; // 该点距离最新点有几个采样间隔
+      var x = (i === CHART_POINTS - 1)
+        ? SVG_WIDTH
+        : SVG_WIDTH - (dist + phase) * step;
       coords.push(x.toFixed(2) + ',' + y.toFixed(2));
     }
 
