@@ -193,23 +193,11 @@
     var closeTimer = null;
     // 鼠标移开后等待 280ms 再收起，给「从按钮滑进菜单」留出时间，避免闪关。
     var CLOSE_DELAY = 280;
-    // 菜单顶部与胶囊底部的间距：参考图是紧贴，这里留 2px 防止边框粘连
-    var MENU_GAP = 2;
 
-    function positionMenu() {
-      // 用 offsetLeft/offsetTop 获取胶囊**未缩放时的布局位置**，避免 getBoundingClientRect()
-      // 把 scale(1.06) 的变换也算进去导致菜单偏左/偏下。写死 inline 样式后，胶囊 hover 放大或
-      // 移开缩小都不会再拖动菜单，彻底稳定。
-      var offsetParent = blogName.offsetParent;
-      var parentRect = offsetParent ? offsetParent.getBoundingClientRect() : {left: 0, top: 0};
-      menu.style.position = 'fixed';
-      menu.style.left = (blogName.offsetLeft + parentRect.left) + 'px';
-      menu.style.top = (blogName.offsetTop + blogName.offsetHeight + parentRect.top + MENU_GAP) + 'px';
-    }
-
+    // 菜单位置已完全由 CSS（position:absolute 相对 #nav-group）控制，JS 只负责切换 .show 类。
+    // 这样即使旧版 JS 被缓存，也不会用 inline style 覆盖 CSS 定位，避免反复错位。
     var openMenu = function () {
       if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-      positionMenu();
       backHome.classList.add('menu-open');
       blogName.classList.add('menu-open');
       menu.classList.add('show');
@@ -225,18 +213,10 @@
       }, CLOSE_DELAY);
     };
 
-    function updatePositionIfOpen() {
-      if (menu.classList.contains('show')) {
-        positionMenu();
-      }
-    }
-
     backHome.addEventListener('mouseenter', openMenu);
     backHome.addEventListener('mouseleave', scheduleCloseMenu);
     menu.addEventListener('mouseenter', openMenu);
     menu.addEventListener('mouseleave', scheduleCloseMenu);
-    window.addEventListener('resize', updatePositionIfOpen);
-    window.addEventListener('scroll', updatePositionIfOpen, { passive: true });
   }
 
   if (document.readyState === 'loading') {
