@@ -197,13 +197,14 @@
     var MENU_GAP = 2;
 
     function positionMenu() {
-      // 始终用 JS 算一次胶囊的实时可视位置（包含 scale(1.06) 的变换），写死 inline 样式。
-      // 这样打开时菜单对齐的是胶囊 hover 状态下的真实左边缘；之后鼠标移到菜单上、胶囊缩回，
-      // inline left/top 不会变，菜单也就不会跟着右移。
-      var rect = blogName.getBoundingClientRect();
+      // 用 offsetLeft/offsetTop 获取胶囊**未缩放时的布局位置**，避免 getBoundingClientRect()
+      // 把 scale(1.06) 的变换也算进去导致菜单偏左/偏下。写死 inline 样式后，胶囊 hover 放大或
+      // 移开缩小都不会再拖动菜单，彻底稳定。
+      var offsetParent = blogName.offsetParent;
+      var parentRect = offsetParent ? offsetParent.getBoundingClientRect() : {left: 0, top: 0};
       menu.style.position = 'fixed';
-      menu.style.top = (rect.bottom + MENU_GAP) + 'px';
-      menu.style.left = rect.left + 'px';
+      menu.style.left = (blogName.offsetLeft + parentRect.left) + 'px';
+      menu.style.top = (blogName.offsetTop + blogName.offsetHeight + parentRect.top + MENU_GAP) + 'px';
     }
 
     var openMenu = function () {
