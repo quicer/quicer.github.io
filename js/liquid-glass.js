@@ -179,16 +179,16 @@
   }
 
   // ---- 左侧返回菜单：改为 position: fixed 并动态定位 ----
-  // 子菜单默认嵌套在 #blog_name 内，会被父级 backdrop-filter 创建的 backdrop root
-  // 限制，其 backdrop-filter 只能模糊父级玻璃、无法参考真实页面背景。
-  // 将其改为 fixed 定位后，backdrop-filter 直接参考 viewport，就能和 nav 胶囊一样
-  // 做出真正的液态玻璃效果。top/left 由 JS 根据 .back-home-button 的 viewport 位置
-  // 实时计算；同时保留「鼠标移开后延迟收起」逻辑。
+  // .back-menu-list-groups 已从 #blog_name 内部移出（见 nav.pug），成为 #nav-group 的兄弟元素。
+  // 这样它的 position: fixed 直接参考 viewport，不会被 #blog_name 的 backdrop-filter / transform
+  // 限制，其 backdrop-filter 才能和 nav 胶囊一样直接模糊真实页面背景，做出完全一致的液态玻璃。
+  // top/left 由 JS 根据 #blog_name 胶囊的 viewport 位置实时计算；展开/收起通过 .show 类控制，
+  // 并保留「鼠标移开后延迟收起」逻辑。
   function initMenuBackdropFix() {
     var blogName = document.getElementById('blog_name');
     var backHome = document.querySelector('.back-home-button');
     var menu = document.querySelector('.back-menu-list-groups');
-    if (!blogName || !backHome) return;
+    if (!blogName || !backHome || !menu) return;
 
     var closeTimer = null;
     // 鼠标移开后等待 280ms 再收起，给「从按钮滑进菜单」留出时间，避免闪关。
@@ -196,8 +196,7 @@
     var MENU_GAP = 10;
 
     function positionMenu() {
-      if (!menu) return;
-      var rect = backHome.getBoundingClientRect();
+      var rect = blogName.getBoundingClientRect();
       menu.style.position = 'fixed';
       menu.style.top = (rect.bottom + MENU_GAP) + 'px';
       menu.style.left = rect.left + 'px';
@@ -208,6 +207,7 @@
       positionMenu();
       backHome.classList.add('menu-open');
       blogName.classList.add('menu-open');
+      menu.classList.add('show');
     };
 
     var scheduleCloseMenu = function () {
@@ -215,22 +215,21 @@
       closeTimer = setTimeout(function () {
         backHome.classList.remove('menu-open');
         blogName.classList.remove('menu-open');
+        menu.classList.remove('show');
         closeTimer = null;
       }, CLOSE_DELAY);
     };
 
     function updatePositionIfOpen() {
-      if (backHome.classList.contains('menu-open')) {
+      if (menu.classList.contains('show')) {
         positionMenu();
       }
     }
 
     backHome.addEventListener('mouseenter', openMenu);
     backHome.addEventListener('mouseleave', scheduleCloseMenu);
-    if (menu) {
-      menu.addEventListener('mouseenter', openMenu);
-      menu.addEventListener('mouseleave', scheduleCloseMenu);
-    }
+    menu.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseleave', scheduleCloseMenu);
     window.addEventListener('resize', updatePositionIfOpen);
     window.addEventListener('scroll', updatePositionIfOpen, { passive: true });
   }
