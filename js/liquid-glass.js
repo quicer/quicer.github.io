@@ -193,7 +193,8 @@
     var closeTimer = null;
     // 鼠标移开后等待 280ms 再收起，给「从按钮滑进菜单」留出时间，避免闪关。
     var CLOSE_DELAY = 280;
-    var MENU_GAP = 10;
+    // 菜单顶部与胶囊底部的间距：参考图是紧贴，这里留 2px 防止边框粘连
+    var MENU_GAP = 2;
 
     function positionMenu() {
       var rect = blogName.getBoundingClientRect();
