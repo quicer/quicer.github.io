@@ -1785,8 +1785,9 @@ const initPostTagsScroll = () => {
     const checkOverflow = () => {
       const overflow = tags.scrollWidth > tags.clientWidth + 1;
       row.classList.toggle("is-overflow", overflow);
-      const atStart = tags.scrollLeft <= 1;
-      const atEnd = tags.scrollLeft + tags.clientWidth >= tags.scrollWidth - 1;
+      const sl = Math.round(tags.scrollLeft);
+      const atStart = sl <= 1;
+      const atEnd = sl + tags.clientWidth >= tags.scrollWidth - 1;
       row.classList.toggle("is-at-start", atStart);
       row.classList.toggle("is-at-end", atEnd);
     };
@@ -1795,9 +1796,11 @@ const initPostTagsScroll = () => {
     const onResize = () => requestAnimationFrame(checkOverflow);
 
     tags.addEventListener("scroll", onScroll, { passive: true });
+    tags.addEventListener("scrollend", onScroll);
     window.addEventListener("resize", onResize);
     lifecycle.add(() => {
       tags.removeEventListener("scroll", onScroll);
+      tags.removeEventListener("scrollend", onScroll);
       window.removeEventListener("resize", onResize);
     });
 
