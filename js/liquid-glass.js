@@ -232,14 +232,22 @@
     function show(drop, anchor) {
       var t = timers.get(drop);
       if (t) { clearTimeout(t); timers.delete(drop); }
-      // 保持胶囊缩放态：鼠标从胶囊移到下拉面板时胶囊不再 un-scale，下拉位置稳定不跳
-      if (drop._navContainer) drop._navContainer.classList.add('menu-open');
+
+      var container = drop._navContainer;
+      // 核心：避免胶囊缩放过渡 300ms 期间下拉坐标漂移。打开前先把胶囊瞬间切到缩放终态，
+      // 读出最终锚点位置并定位下拉，再恢复过渡。这样下拉一出现就在正确位置，不会二次跳动。
+      if (container && !container.classList.contains('menu-open')) {
+        var savedTransition = container.style.transition;
+        container.style.transition = 'none';
+        container.classList.add('menu-open');
+        void container.offsetWidth; // force reflow，让 transition:none 立即生效
+        positionDrop(drop, anchor);
+        container.style.transition = savedTransition;
+      } else {
+        positionDrop(drop, anchor);
+      }
+
       drop.classList.add('show');
-      positionDrop(drop, anchor);
-      // 胶囊 hover 缩放过渡结束后再校正一次（位置已与缩放无关，结果≈一致，仅消极微偏移）
-      setTimeout(function () {
-        if (drop.classList.contains('show')) positionDrop(drop, anchor);
-      }, 300);
     }
 
     // 鼠标移到下拉面板自身：仅保持展开、取消收起计时，绝不重新定位（避免胶囊缩放导致的跳动）
@@ -260,6 +268,17 @@
       }, CLOSE_DELAY));
     }
 
+    // 滚动时直接收起所有下拉（而不是重新定位），避免下滑后下拉悬浮在内容上方
+    function hideAllOnScroll() {
+      for (var i = 0; i < dropEls.length; i++) {
+        dropEls[i].classList.remove('show');
+      }
+      var containers = document.querySelectorAll('.menus_items.menu-open');
+      for (var i = 0; i < containers.length; i++) {
+        containers[i].classList.remove('menu-open');
+      }
+    }
+
     for (var p = 0; p < pages.length; p++) {
       (function (page) {
         var item = page.parentElement;
@@ -277,7 +296,7 @@
       })(pages[p]);
     }
 
-    // nav 是吸顶的，滚动/缩放时 viewport 坐标会变，需要同步已展开的下拉
+    // resize 时重定位；scroll 时直接收起（用户要求下滑即消失）
     function repositionShown() {
       for (var i = 0; i < openPairs.length; i++) {
         if (openPairs[i].drop.classList.contains('show')) {
@@ -289,7 +308,7 @@
     if (window.__navDropdownBound !== true) {
       window.__navDropdownBound = true;
       window.addEventListener('resize', repositionShown);
-      window.addEventListener('scroll', repositionShown, true);
+      window.addEventListener('scroll', hideAllOnScroll, { passive: true, capture: true });
     }
   }
 
