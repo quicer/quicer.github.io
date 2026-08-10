@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", (function() {
                             style='width:80px; height:auto; border-radius: 50%; 
                             display: block; margin: 0 auto;' /><br />
                         您来自: ${referrer}<br />
-                        使用深色模式会有更棒的视觉体验！<br />
                         请您在继续浏览本站之前，仔细阅读以下协议：<br />
                         1. <a href='/privacy/' title='隐私政策' data-pjax-state=''>隐私政策</a>&nbsp;&nbsp;
                         2. <a href='/cookies/' title='Cookies' data-pjax-state=''>Cookies</a>&nbsp;&nbsp;<br />
@@ -24,11 +23,11 @@ document.addEventListener("DOMContentLoaded", (function() {
                 cancel: "不同意",
                 confirm: "同意"
             },
-            text: "由于本站存在缓存问题，建议你在每次访问本站时按下Ctrl+F5强制刷新页面（或直接刷新），以确保你看到的是最新的内容。",
+            text: "由于本站存在缓存问题，建议你在每次访问本站时按下Ctrl+F5强制刷新页面，以确保看到的是最新的内容。",
         }).then(willProceed => {
             willProceed ? setCookie("agreementAccepted", "true", 30) :
             window.history.length > 1 ? window.history.back() :
-            window.location.href = "https://quicer.us.ci";// 替换为希望重定向的 URL
+            window.location.href = "https://quicer.js.cool";// 替换为希望重定向的 URL
         });
     }
 
