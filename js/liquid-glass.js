@@ -179,14 +179,29 @@
     initNavDropdowns();
   }
 
-  // ---- 中间 nav 下拉菜单：移出 .menus_items 后的动态定位与显示 ----
-  // .menus_dropdown 已从 .menus_item 内移出到 #menus-dropdowns（见 menu.pug），与 .menus_items 同级。
-  // 这样它不再嵌套在 .menus_items 的 backdrop-filter 内，backdrop-filter 直接模糊真实页面背景，
-  // 液态玻璃效果与 nav 胶囊完全一致。这里只负责：① 计算每项下拉相对 viewport 的位置 ② 切换 .show 类。
+  // ---- 中间 nav 下拉菜单 ----
+  // 关键动作：把 #menus-dropdowns 提升为 <body> 的直属子节点。
+  // 它在模板里位于 #menus 内，而 #menus 有 transform: translateZ(0)，
+  // .menus_items 有 backdrop-filter —— 两者都会创建 backdrop root 并劫持
+  // 后代 fixed 定位的参考系，导致下拉的 backdrop-filter 失效、定位错乱。
+  // 提到 body 后：fixed 参考真实 viewport，backdrop-filter 直接模糊真实页面背景。
+  // 对应 CSS 写在 header.styl 顶层（#menus-dropdowns，不带 #nav 前缀）。
   function initNavDropdowns() {
     var menus = document.getElementById('menus');
-    var dropdowns = document.getElementById('menus-dropdowns');
-    if (!menus || !dropdowns) return;
+    if (!menus) return;
+
+    // 优先取模板里新渲染的那个；PJAX 切页后 body 下可能残留上一份，先清掉避免重复。
+    var dropdowns = menus.querySelector('#menus-dropdowns');
+    if (dropdowns) {
+      var stale = document.querySelectorAll('body > #menus-dropdowns');
+      for (var s = 0; s < stale.length; s++) {
+        if (stale[s] !== dropdowns) stale[s].parentNode.removeChild(stale[s]);
+      }
+      document.body.appendChild(dropdowns);
+    } else {
+      dropdowns = document.querySelector('body > #menus-dropdowns');
+    }
+    if (!dropdowns) return;
 
     var pages = menus.querySelectorAll('.menus_item .site-page[data-menu]');
     var dropEls = dropdowns.querySelectorAll('.menus_dropdown');
@@ -194,6 +209,7 @@
 
     var timers = new WeakMap();
     var CLOSE_DELAY = 220;
+    var openPairs = [];
 
     function findDrop(label) {
       for (var i = 0; i < dropEls.length; i++) {
@@ -202,22 +218,23 @@
       return null;
     }
 
-    // 下拉 position: absolute，offsetParent 为 #menus-dropdowns（absolute 定位祖先）。
-    // 用 getBoundingClientRect 实时计算，能跟随控制台展开、窗口缩放等场景。
-    function positionDrop(drop, item) {
-      var parent = drop.offsetParent;
-      if (!parent) return;
-      var itemRect = item.getBoundingClientRect();
-      var parentRect = parent.getBoundingClientRect();
-      var centerX = itemRect.left + itemRect.width / 2 - parentRect.left;
-      drop.style.left = (centerX - drop.offsetWidth / 2) + 'px';
-      drop.style.top = (itemRect.bottom - parentRect.top + 8) + 'px';
+    // fixed 定位：直接用触发项 a.site-page 的 viewport 坐标。
+    // 用触发项（而非 .menus_item 包装）作锚点，让下拉精确居中在菜单文字下方，
+    // 避免 .menus_item 比 a 宽导致的几个像素偏移。水平居中由 CSS translateX(-50%) 完成。
+    function positionDrop(drop, anchor) {
+      var r = anchor.getBoundingClientRect();
+      drop.style.left = (r.left + r.width / 2) + 'px';
+      drop.style.top = (r.bottom + 8) + 'px';
     }
 
-    function show(drop, item) {
+    function show(drop, anchor) {
       var t = timers.get(drop);
       if (t) { clearTimeout(t); timers.delete(drop); }
-      positionDrop(drop, item);
+      positionDrop(drop, anchor);
+      // 触发项在 :hover 时可能有位移/缩放过渡，下一帧与过渡结束后各校正一次，
+      // 让下拉精确贴合「hover 态」菜单文字中心，避免几像素偏移。
+      requestAnimationFrame(function () { positionDrop(drop, anchor); });
+      setTimeout(function () { positionDrop(drop, anchor); }, 360);
       drop.classList.add('show');
     }
 
@@ -229,29 +246,35 @@
       }, CLOSE_DELAY));
     }
 
-    pages.forEach(function (page) {
-      var item = page.parentElement;
-      var label = page.getAttribute('data-menu');
-      var drop = findDrop(label);
-      if (!drop) return;
-      item.addEventListener('mouseenter', function () { show(drop, item); });
-      item.addEventListener('mouseleave', function () { hide(drop); });
-      drop.addEventListener('mouseenter', function () { show(drop, item); });
-      drop.addEventListener('mouseleave', function () { hide(drop); });
-    });
-
-    // 窗口尺寸变化或控制台展开时，重新定位正在显示的下拉
-    function repositionShown() {
-      pages.forEach(function (page) {
+    for (var p = 0; p < pages.length; p++) {
+      (function (page) {
         var item = page.parentElement;
         var drop = findDrop(page.getAttribute('data-menu'));
-        if (drop && drop.classList.contains('show')) positionDrop(drop, item);
-      });
+        if (!drop) return;
+        openPairs.push({ anchor: page, drop: drop });
+        // PJAX 切页时 nav 常不被替换，init 会再次执行；用标记避免事件重复叠加。
+        if (item.dataset.navDropBound === '1') return;
+        item.dataset.navDropBound = '1';
+        item.addEventListener('mouseenter', function () { show(drop, page); });
+        item.addEventListener('mouseleave', function () { hide(drop); });
+        drop.addEventListener('mouseenter', function () { show(drop, page); });
+        drop.addEventListener('mouseleave', function () { hide(drop); });
+      })(pages[p]);
     }
 
-    if (window.__navDropdownResizeBound !== true) {
-      window.__navDropdownResizeBound = true;
+    // nav 是吸顶的，滚动/缩放时 viewport 坐标会变，需要同步已展开的下拉
+    function repositionShown() {
+      for (var i = 0; i < openPairs.length; i++) {
+        if (openPairs[i].drop.classList.contains('show')) {
+          positionDrop(openPairs[i].drop, openPairs[i].anchor);
+        }
+      }
+    }
+
+    if (window.__navDropdownBound !== true) {
+      window.__navDropdownBound = true;
       window.addEventListener('resize', repositionShown);
+      window.addEventListener('scroll', repositionShown, true);
     }
   }
 
