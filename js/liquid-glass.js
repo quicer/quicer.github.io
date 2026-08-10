@@ -208,7 +208,7 @@
     if (!pages.length || !dropEls.length) return;
 
     var timers = new WeakMap();
-    var CLOSE_DELAY = 220;
+    var CLOSE_DELAY = 90;
     var openPairs = [];
 
     function findDrop(label) {
@@ -218,9 +218,11 @@
       return null;
     }
 
-    // fixed 定位：直接用触发项 a.site-page 的 viewport 坐标。
+    // fixed 定位：用触发项 a.site-page 的实时 viewport 坐标。
     // 用触发项（而非 .menus_item 包装）作锚点，让下拉精确居中在菜单文字下方，
     // 避免 .menus_item 比 a 宽导致的几个像素偏移。水平居中由 CSS translateX(-50%) 完成。
+    // 注：下拉展开期间胶囊一直带 .menu-open（保持 hover 缩放），所以胶囊在 trigger hover
+    // 与 panel hover 两种状态下都是缩放态，实时坐标天然稳定，无需抵消缩放、也不会跳动。
     function positionDrop(drop, anchor) {
       var r = anchor.getBoundingClientRect();
       drop.style.left = (r.left + r.width / 2) + 'px';
@@ -230,11 +232,20 @@
     function show(drop, anchor) {
       var t = timers.get(drop);
       if (t) { clearTimeout(t); timers.delete(drop); }
+      // 保持胶囊缩放态：鼠标从胶囊移到下拉面板时胶囊不再 un-scale，下拉位置稳定不跳
+      if (drop._navContainer) drop._navContainer.classList.add('menu-open');
+      drop.classList.add('show');
       positionDrop(drop, anchor);
-      // 触发项在 :hover 时可能有位移/缩放过渡，下一帧与过渡结束后各校正一次，
-      // 让下拉精确贴合「hover 态」菜单文字中心，避免几像素偏移。
-      requestAnimationFrame(function () { positionDrop(drop, anchor); });
-      setTimeout(function () { positionDrop(drop, anchor); }, 360);
+      // 胶囊 hover 缩放过渡结束后再校正一次（位置已与缩放无关，结果≈一致，仅消极微偏移）
+      setTimeout(function () {
+        if (drop.classList.contains('show')) positionDrop(drop, anchor);
+      }, 300);
+    }
+
+    // 鼠标移到下拉面板自身：仅保持展开、取消收起计时，绝不重新定位（避免胶囊缩放导致的跳动）
+    function keepOpen(drop) {
+      var t = timers.get(drop);
+      if (t) { clearTimeout(t); timers.delete(drop); }
       drop.classList.add('show');
     }
 
@@ -243,6 +254,9 @@
       if (t) clearTimeout(t);
       timers.set(drop, setTimeout(function () {
         drop.classList.remove('show');
+        // 该容器下若没有其它展开的下拉，才解除 menu-open，让胶囊缩放平滑还原
+        var anyShown = dropdowns.querySelector('.menus_dropdown.show');
+        if (!anyShown && drop._navContainer) drop._navContainer.classList.remove('menu-open');
       }, CLOSE_DELAY));
     }
 
@@ -251,13 +265,14 @@
         var item = page.parentElement;
         var drop = findDrop(page.getAttribute('data-menu'));
         if (!drop) return;
+        drop._navContainer = page.closest('.menus_items');
         openPairs.push({ anchor: page, drop: drop });
         // PJAX 切页时 nav 常不被替换，init 会再次执行；用标记避免事件重复叠加。
         if (item.dataset.navDropBound === '1') return;
         item.dataset.navDropBound = '1';
         item.addEventListener('mouseenter', function () { show(drop, page); });
         item.addEventListener('mouseleave', function () { hide(drop); });
-        drop.addEventListener('mouseenter', function () { show(drop, page); });
+        drop.addEventListener('mouseenter', function () { keepOpen(drop); });
         drop.addEventListener('mouseleave', function () { hide(drop); });
       })(pages[p]);
     }
