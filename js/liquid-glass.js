@@ -176,6 +176,83 @@
   function init() {
     requestAnimationFrame(injectSVGFilter);
     initMenuBackdropFix();
+    initNavDropdowns();
+  }
+
+  // ---- 中间 nav 下拉菜单：移出 .menus_items 后的动态定位与显示 ----
+  // .menus_dropdown 已从 .menus_item 内移出到 #menus-dropdowns（见 menu.pug），与 .menus_items 同级。
+  // 这样它不再嵌套在 .menus_items 的 backdrop-filter 内，backdrop-filter 直接模糊真实页面背景，
+  // 液态玻璃效果与 nav 胶囊完全一致。这里只负责：① 计算每项下拉相对 viewport 的位置 ② 切换 .show 类。
+  function initNavDropdowns() {
+    var menus = document.getElementById('menus');
+    var dropdowns = document.getElementById('menus-dropdowns');
+    if (!menus || !dropdowns) return;
+
+    var pages = menus.querySelectorAll('.menus_item .site-page[data-menu]');
+    var dropEls = dropdowns.querySelectorAll('.menus_dropdown');
+    if (!pages.length || !dropEls.length) return;
+
+    var timers = new WeakMap();
+    var CLOSE_DELAY = 220;
+
+    function findDrop(label) {
+      for (var i = 0; i < dropEls.length; i++) {
+        if (dropEls[i].getAttribute('data-menu') === label) return dropEls[i];
+      }
+      return null;
+    }
+
+    // 下拉 position: absolute，offsetParent 为 #menus-dropdowns（absolute 定位祖先）。
+    // 用 getBoundingClientRect 实时计算，能跟随控制台展开、窗口缩放等场景。
+    function positionDrop(drop, item) {
+      var parent = drop.offsetParent;
+      if (!parent) return;
+      var itemRect = item.getBoundingClientRect();
+      var parentRect = parent.getBoundingClientRect();
+      var centerX = itemRect.left + itemRect.width / 2 - parentRect.left;
+      drop.style.left = (centerX - drop.offsetWidth / 2) + 'px';
+      drop.style.top = (itemRect.bottom - parentRect.top + 8) + 'px';
+    }
+
+    function show(drop, item) {
+      var t = timers.get(drop);
+      if (t) { clearTimeout(t); timers.delete(drop); }
+      positionDrop(drop, item);
+      drop.classList.add('show');
+    }
+
+    function hide(drop) {
+      var t = timers.get(drop);
+      if (t) clearTimeout(t);
+      timers.set(drop, setTimeout(function () {
+        drop.classList.remove('show');
+      }, CLOSE_DELAY));
+    }
+
+    pages.forEach(function (page) {
+      var item = page.parentElement;
+      var label = page.getAttribute('data-menu');
+      var drop = findDrop(label);
+      if (!drop) return;
+      item.addEventListener('mouseenter', function () { show(drop, item); });
+      item.addEventListener('mouseleave', function () { hide(drop); });
+      drop.addEventListener('mouseenter', function () { show(drop, item); });
+      drop.addEventListener('mouseleave', function () { hide(drop); });
+    });
+
+    // 窗口尺寸变化或控制台展开时，重新定位正在显示的下拉
+    function repositionShown() {
+      pages.forEach(function (page) {
+        var item = page.parentElement;
+        var drop = findDrop(page.getAttribute('data-menu'));
+        if (drop && drop.classList.contains('show')) positionDrop(drop, item);
+      });
+    }
+
+    if (window.__navDropdownResizeBound !== true) {
+      window.__navDropdownResizeBound = true;
+      window.addEventListener('resize', repositionShown);
+    }
   }
 
   // ---- 左侧返回菜单：改为 position: fixed 并动态定位 ----
