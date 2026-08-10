@@ -1778,13 +1778,16 @@ const initPostTagsScroll = () => {
 
   rows.forEach((row) => {
     const tags = row.querySelector(".article-meta.tags");
-    const btn = row.querySelector(".tags-scroll-btn");
+    const btnLeft = row.querySelector(".tags-scroll-left");
+    const btnRight = row.querySelector(".tags-scroll-right");
     if (!tags) return;
 
     const checkOverflow = () => {
       const overflow = tags.scrollWidth > tags.clientWidth + 1;
       row.classList.toggle("is-overflow", overflow);
+      const atStart = tags.scrollLeft <= 1;
       const atEnd = tags.scrollLeft + tags.clientWidth >= tags.scrollWidth - 1;
+      row.classList.toggle("is-at-start", atStart);
       row.classList.toggle("is-at-end", atEnd);
     };
 
@@ -1798,14 +1801,25 @@ const initPostTagsScroll = () => {
       window.removeEventListener("resize", onResize);
     });
 
-    if (btn) {
-      const onClick = (event) => {
+    const SCROLL_STEP = 80;
+    if (btnLeft) {
+      const onLeft = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        tags.scrollBy({ left: 80, behavior: "smooth" });
+        tags.scrollBy({ left: -SCROLL_STEP, behavior: "smooth" });
       };
-      btn.addEventListener("click", onClick);
-      lifecycle.add(() => btn.removeEventListener("click", onClick));
+      btnLeft.addEventListener("click", onLeft);
+      lifecycle.add(() => btnLeft.removeEventListener("click", onLeft));
+    }
+
+    if (btnRight) {
+      const onRight = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        tags.scrollBy({ left: SCROLL_STEP, behavior: "smooth" });
+      };
+      btnRight.addEventListener("click", onRight);
+      lifecycle.add(() => btnRight.removeEventListener("click", onRight));
     }
 
     checkOverflow();
