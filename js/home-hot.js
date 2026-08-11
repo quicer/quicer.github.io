@@ -1,22 +1,27 @@
 /*
- * 首页「热门文章」面板
+ * 热门文章页 /hot/ 脚本
  * ------------------------------------------------------------
  * 数据源：用户自有的 Umami Worker（Cloudflare 域名）
  *   https://hot.quicer-umami.indevs.in?days=N&limit=20
  *   返回 [{ url, title, views, cover }]，已按浏览量降序。
  *
  * 功能：
- *  1) 在首页时，点击分类栏「热门」按钮切换到热门面板，隐藏默认文章列表与分页；
- *  2) 在非首页（分类/归档等）时，点击「热门」按钮跳转回首页并自动展开热门面板；
- *  3) 支持时间范围切换：当日 / 近一个月 / 近一年；
- *  4) 每条显示小封面、标题、浏览量、右侧箭头（参考 /archives/ 横向列表排版）；
- *  5) 失败时显示占位/错误提示；
- *  6) 监听 pjax:complete，首页被局部刷新后重新绑定事件。
+ *  1) 在 /hot/ 页面拉取 Umami 热门数据并渲染横向列表；
+ *  2) 支持时间范围切换：当日 / 近一个月 / 近一年；
+ *  3) 支持客户端分页，每页 10 篇，分页按钮风格参考主页；
+ *  4) 失败时显示占位/错误提示；
+ *  5) 监听 pjax:complete，PJAX 进入 /hot/ 后重新初始化。
  */
 (function () {
   var WORKER = "https://hot.quicer-umami.indevs.in";
   var LIMIT = 20;
+  var PAGE_SIZE = 10;
   var cache = {};
+  var state = {
+    days: "30",
+    page: 1,
+    items: []
+  };
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
@@ -34,9 +39,8 @@
     });
   }
 
-  function isHomePage() {
-    // 首页 #content-inner 是 layout--home；同时存在 #recent-posts 与 #hot-posts
-    return !!($("#recent-posts") && $("#hot-posts") && document.querySelector(".layout--home#content-inner"));
+  function isHotPage() {
+    return document.body.getAttribute("data-type") === "hot";
   }
 
   function renderItem(item, index) {
@@ -59,23 +63,113 @@
       + '</a>';
   }
 
-  function renderList(items) {
-    var list = $("#hot-posts-list");
-    if (!items || items.length === 0) {
-      list.innerHTML = '<div class="hot-page-state">暂无热门数据</div>';
-      return;
-    }
-    list.innerHTML = items.map(renderItem).join("");
-  }
-
   function setLoading() {
     $("#hot-posts-list").innerHTML = '<div class="hot-page-state"><i class="solitude fas fa-spinner fa-spin"></i> 加载中...</div>';
+  }
+
+  function setEmpty() {
+    $("#hot-posts-list").innerHTML = '<div class="hot-page-state">暂无热门数据</div>';
+  }
+
+  function setError() {
+    $("#hot-posts-list").innerHTML = '<div class="hot-page-state">热门数据加载失败，请稍后再试</div>';
+  }
+
+  function renderList() {
+    var list = $("#hot-posts-list");
+    var total = state.items.length;
+    if (total === 0) {
+      setEmpty();
+      renderPagination(0, 0);
+      return;
+    }
+
+    var totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (state.page > totalPages) state.page = totalPages;
+    if (state.page < 1) state.page = 1;
+
+    var start = (state.page - 1) * PAGE_SIZE;
+    var pageItems = state.items.slice(start, start + PAGE_SIZE);
+
+    list.innerHTML = pageItems.map(function (item, i) {
+      return renderItem(item, start + i);
+    }).join("");
+
+    var countEl = $(".hot-posts-count");
+    if (countEl) {
+      countEl.textContent = "共 " + total + " 篇";
+    }
+
+    renderPagination(totalPages, state.page);
+  }
+
+  function renderPagination(totalPages, current) {
+    var wrap = $("#hot-pagination .pagination");
+    if (!wrap) return;
+    if (totalPages <= 1) {
+      wrap.innerHTML = "";
+      return;
+    }
+
+    var html = "";
+
+    // 上一页
+    if (current > 1) {
+      html += '<a class="extend prev" data-page="' + (current - 1) + '">'
+        + '<i class="solitude fas fa-chevron-left"></i>'
+        + '<div class="pagination_tips_prev">' + _prevText() + '</div>'
+        + '</a>';
+    }
+
+    // 页码：参考 Hexo paginator 风格，简化为连续页码（totalPages 不大，无需折叠）
+    for (var i = 1; i <= totalPages; i++) {
+      if (i === current) {
+        html += '<span class="page-number current">' + i + '</span>';
+      } else {
+        html += '<a class="page-number" data-page="' + i + '">' + i + '</a>';
+      }
+    }
+
+    // 下一页
+    if (current < totalPages) {
+      html += '<a class="extend next" data-page="' + (current + 1) + '">'
+        + '<div class="pagination_tips_next">' + _nextText() + '</div>'
+        + '<i class="solitude fas fa-chevron-right"></i>'
+        + '</a>';
+    }
+
+    wrap.innerHTML = html;
+
+    // 绑定分页点击
+    $$("#hot-pagination .pagination a[data-page]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        var page = parseInt(el.getAttribute("data-page"), 10);
+        if (!isNaN(page) && page !== state.page) {
+          state.page = page;
+          renderList();
+          // 平滑滚动到列表顶部
+          var header = $(".hot-posts-header");
+          if (header && header.scrollIntoView) header.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  }
+
+  // 简单的“上一页/下一页”文案，与主题 _p('pagination.prev') 保持一致（若全局有翻译函数）
+  function _prevText() {
+    return (typeof _p === "function" && _p("pagination.prev")) || "上一页";
+  }
+  function _nextText() {
+    return (typeof _p === "function" && _p("pagination.next")) || "下一页";
   }
 
   function loadHot(days, force) {
     var key = "d" + days;
     if (!force && cache[key]) {
-      renderList(cache[key]);
+      state.items = cache[key];
+      state.page = 1;
+      renderList();
       return;
     }
     setLoading();
@@ -85,103 +179,35 @@
         return r.json();
       })
       .then(function (data) {
-        cache[key] = data;
-        renderList(data);
+        cache[key] = data || [];
+        state.items = cache[key];
+        state.page = 1;
+        renderList();
       })
       .catch(function (err) {
         console.warn("[home-hot] 加载失败:", err);
-        $("#hot-posts-list").innerHTML = '<div class="hot-page-state">热门数据加载失败，请稍后再试</div>';
+        setError();
+        renderPagination(0, 0);
       });
   }
 
-  function switchHotPanel(show) {
-    var recent = $("#recent-posts");
-    var hot = $("#hot-posts");
-    var pagination = $("#pagination, .pagination");
-    if (!recent || !hot) return;
-
-    if (show) {
-      recent.classList.add("hidden");
-      hot.classList.remove("hidden");
-      if (pagination) pagination.classList.add("hidden");
-      var activeTab = $(".hot-posts-tab.active");
-      var days = activeTab ? activeTab.getAttribute("data-days") : "30";
-      loadHot(days);
-    } else {
-      recent.classList.remove("hidden");
-      hot.classList.add("hidden");
-      if (pagination) pagination.classList.remove("hidden");
-    }
-  }
-
   function bindEvents() {
-    var trigger = $("#category-bar-hot");
-    if (!trigger) return;
-
-    // 捕获阶段监听：PJAX 给每个 <a href> 直接绑了冒泡阶段 click，
-    // 会在父级 div 的冒泡处理器之前触发并导致整页 PJAX 导航。
-    // 在捕获阶段拦截可确保 PJAX 放弃导航，保留我们自己的切换/跳转逻辑。
-    trigger.addEventListener("click", function (e) {
-      // 非首页：让链接正常跳回首页，并通过 query 让首页自动展开热门面板
-      if (!isHomePage()) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.href = "/?hot=1";
-        return;
-      }
-
-      // 首页：阻止默认跳转，本地切换面板
-      e.preventDefault();
-      e.stopPropagation();
-      $$(".category-bar-item").forEach(function (item) { item.classList.remove("select"); });
-      trigger.classList.add("select");
-      switchHotPanel(true);
-    }, true);
-
     // 时间范围切换
     $$(".hot-posts-tab").forEach(function (tab) {
       tab.addEventListener("click", function () {
         $$(".hot-posts-tab").forEach(function (t) { t.classList.remove("active"); });
         tab.classList.add("active");
-        loadHot(tab.getAttribute("data-days"), true);
+        state.days = tab.getAttribute("data-days");
+        loadHot(state.days, true);
       });
     });
-
-    // 点击其它分类/首页/归档时退出热门面板
-    $$(".category-bar-item").forEach(function (item) {
-      if (item.id === "category-bar-hot") return;
-      item.addEventListener("click", function () {
-        if ($("#hot-posts") && !$("#hot-posts").classList.contains("hidden")) {
-          trigger.classList.remove("select");
-          switchHotPanel(false);
-        }
-      });
-    });
-  }
-
-  function autoOpenFromUrl() {
-    try {
-      var params = new URLSearchParams(window.location.search);
-      if (params.get("hot") === "1" && isHomePage()) {
-        var trigger = $("#category-bar-hot");
-        if (trigger) {
-          $$(".category-bar-item").forEach(function (item) { item.classList.remove("select"); });
-          trigger.classList.add("select");
-          switchHotPanel(true);
-        }
-        // 替换 URL，去掉 ?hot=1，避免刷新后仍自动打开
-        if (window.history && window.history.replaceState) {
-          window.history.replaceState({}, "", window.location.pathname + window.location.hash);
-        }
-      }
-    } catch (e) {}
   }
 
   function markHotSelected() {
-    // 若面板处于打开状态，确保「热门」按钮高亮。
-    // 主题在加载/pjax:complete 时调用 categoriesBarActive() 会把高亮重置回“首页”，
-    // 因此需在主题刷新之后重新打高亮（见 init 中的延时重应用）。
-    if (!($("#hot-posts") && !$("#hot-posts").classList.contains("hidden"))) return;
+    // 主题 Solitude.refresh 在 pjax:complete / 加载时会调用 categoriesBarActive()，
+    // 它按 pathname 把分类栏高亮重置，但识别不了 /hot/ 对应的 #category-bar-hot。
+    // 因此在 /hot/ 页面强制把高亮留给热门按钮。
+    if (!isHotPage()) return;
     var trigger = $("#category-bar-hot");
     if (!trigger) return;
     $$(".category-bar-item").forEach(function (item) { item.classList.remove("select"); });
@@ -189,12 +215,15 @@
   }
 
   function init() {
-    if (!$("#category-bar-hot")) return;
+    if (!isHotPage()) return;
     bindEvents();
-    autoOpenFromUrl();
+    // 默认激活 tab 为 30 天
+    var activeTab = $(".hot-posts-tab.active");
+    state.days = activeTab ? activeTab.getAttribute("data-days") : "30";
+    state.page = 1;
+    loadHot(state.days);
     markHotSelected();
-    // 主题 Solitude.refresh 在 DOMContentLoaded / pjax:complete 之后会重置分类栏高亮，
-    // 延时重应用确保“热门”按钮在面板打开时保持高亮。
+    // 主题刷新后可能重置高亮，延时再应用一次
     setTimeout(markHotSelected, 400);
   }
 
