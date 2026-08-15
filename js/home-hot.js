@@ -64,15 +64,32 @@
   }
 
   function setLoading() {
-    $("#hot-posts-list").innerHTML = '<div class="hot-page-state"><i class="solitude fas fa-spinner fa-spin"></i> 加载中...</div>';
+    $("#hot-posts-list").innerHTML =
+      '<div class="hot-page-skeleton" aria-busy="true" role="status">' +
+      [1, 2, 3, 4, 5, 6].map(function () {
+        return '<div class="hot-page-skeleton-row">' +
+          '<div class="hot-page-skeleton-thumb"></div>' +
+          '<div class="hot-page-skeleton-body">' +
+          '<div class="hot-page-skeleton-line title"></div>' +
+          '<div class="hot-page-skeleton-line meta"></div>' +
+          '</div>' +
+          '</div>';
+      }).join("") +
+      '</div>';
+    var paginationEl = document.getElementById("hot-pagination");
+    if (paginationEl) paginationEl.hidden = true;
   }
 
   function setEmpty() {
     $("#hot-posts-list").innerHTML = '<div class="hot-page-state">暂无热门数据</div>';
+    var paginationEl = document.getElementById("hot-pagination");
+    if (paginationEl) paginationEl.hidden = true;
   }
 
   function setError() {
     $("#hot-posts-list").innerHTML = '<div class="hot-page-state">热门数据加载失败，请稍后再试</div>';
+    var paginationEl = document.getElementById("hot-pagination");
+    if (paginationEl) paginationEl.hidden = true;
   }
 
   function renderList() {
@@ -105,11 +122,14 @@
 
   function renderPagination(totalPages, current) {
     var wrap = $("#hot-pagination .pagination");
+    var paginationEl = document.getElementById("hot-pagination");
     if (!wrap) return;
     if (totalPages <= 1) {
       wrap.innerHTML = "";
+      if (paginationEl) paginationEl.hidden = true;
       return;
     }
+    if (paginationEl) paginationEl.hidden = false;
 
     var html = "";
 
