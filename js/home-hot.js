@@ -176,12 +176,12 @@
     });
   }
 
-  // 简单的“上一页/下一页”文案，与主题 _p('pagination.prev') 保持一致（若全局有翻译函数）
+  // 分页文案：与 archives 页一致，使用"上页/下页"
   function _prevText() {
-    return (typeof _p === "function" && _p("pagination.prev")) || "上一页";
+    return "上页";
   }
   function _nextText() {
-    return (typeof _p === "function" && _p("pagination.next")) || "下一页";
+    return "下页";
   }
 
   function loadHot(days, force) {

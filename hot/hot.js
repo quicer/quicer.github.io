@@ -21,7 +21,7 @@ function initializeHot() {
     if (headline && !headline.querySelector(".hot-more")) {
         const more = document.createElement("a");
         more.className = "hot-more";
-        more.href = "/archives/";
+        more.href = "/hot/";
         more.textContent = "更多";
         more.title = "查看更多文章";
         headline.appendChild(more);
