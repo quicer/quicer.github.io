@@ -132,7 +132,7 @@ export const archivePageController = (() => {
       this.paginationSection.hidden = totalPages <= 1;
       if (totalPages <= 1) return;
 
-      this.pagination.appendChild(this.createPageButton(this.currentPage - 1, '上一页', 'archive-page-extend prev', this.currentPage === 1, 'fa-chevron-left'));
+      this.pagination.appendChild(this.createPageButton(this.currentPage - 1, '上页', 'archive-page-extend prev', this.currentPage === 1, 'fa-chevron-left'));
 
       this.getPageRange(totalPages).forEach(page => {
         if (page === 'space') {
@@ -147,7 +147,7 @@ export const archivePageController = (() => {
         this.pagination.appendChild(button);
       });
 
-      this.pagination.appendChild(this.createPageButton(this.currentPage + 1, '下一页', 'archive-page-extend next', this.currentPage === totalPages, 'fa-chevron-right'));
+      this.pagination.appendChild(this.createPageButton(this.currentPage + 1, '下页', 'archive-page-extend next', this.currentPage === totalPages, 'fa-chevron-right'));
     },
 
     createPageButton(page, label, className, disabled, iconName) {
