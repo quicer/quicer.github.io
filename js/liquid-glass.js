@@ -248,6 +248,9 @@
       }
 
       drop.classList.add('show');
+      // 下拉展开期间：保持触发项高亮（即使鼠标已移到 body 级的下拉面板上，
+      // 触发项的 :hover 已丢失，用该类等效维持换色高亮，直到下拉收起才移除）
+      if (drop._navItem) drop._navItem.classList.add('nav-item-active');
     }
 
     // 鼠标移到下拉面板自身：仅保持展开、取消收起计时，绝不重新定位（避免胶囊缩放导致的跳动）
@@ -262,6 +265,7 @@
       if (t) clearTimeout(t);
       timers.set(drop, setTimeout(function () {
         drop.classList.remove('show');
+        if (drop._navItem) drop._navItem.classList.remove('nav-item-active');
         // 该容器下若没有其它展开的下拉，才解除 menu-open，让胶囊缩放平滑还原
         var anyShown = dropdowns.querySelector('.menus_dropdown.show');
         if (!anyShown && drop._navContainer) drop._navContainer.classList.remove('menu-open');
@@ -272,6 +276,7 @@
     function hideAllOnScroll() {
       for (var i = 0; i < dropEls.length; i++) {
         dropEls[i].classList.remove('show');
+        if (dropEls[i]._navItem) dropEls[i]._navItem.classList.remove('nav-item-active');
       }
       var containers = document.querySelectorAll('.menus_items.menu-open');
       for (var i = 0; i < containers.length; i++) {
@@ -285,6 +290,7 @@
         var drop = findDrop(page.getAttribute('data-menu'));
         if (!drop) return;
         drop._navContainer = page.closest('.menus_items');
+        drop._navItem = item;
         openPairs.push({ anchor: page, drop: drop });
         // PJAX 切页时 nav 常不被替换，init 会再次执行；用标记避免事件重复叠加。
         if (item.dataset.navDropBound === '1') return;
