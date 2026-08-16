@@ -90,11 +90,9 @@ const rm = {
         if (!element || !label) return;
         element.textContent = label;
         element.setAttribute("title", label);
-        element.setAttribute("heotip", label);
         const menuItem = element.closest(".rightMenu-item");
         if (menuItem) {
             menuItem.setAttribute("title", label);
-            menuItem.setAttribute("heotip", label);
         }
     },
     mode(darkmode) {
