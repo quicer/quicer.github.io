@@ -26,6 +26,7 @@ export const initPreloader = (api) => {
     if (loaded) return;
     loadingBox()?.classList.add("loaded");
     hintEl()?.classList.remove("show");
+    slowEl()?.classList.remove("show");
     loaded = true;
     clearTimeout(fallbackTimer);
     clearTimeout(slowTimer);
@@ -37,6 +38,7 @@ export const initPreloader = (api) => {
   };
 
   const showSlowIfNeeded = () => {
+    if (loaded) return;
     if (!paceDone()) slowEl()?.classList.add("show");
   };
 
