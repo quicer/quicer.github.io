@@ -103,3 +103,59 @@
 .hot-more:hover {
     color: var(--efu-theme);
 }
+
+/* 今日热门加载骨架屏 */
+.hot-loading {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.hot-loading-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.3rem;
+}
+
+.hot-loading-rank {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--efu-secondbg) 0%, var(--efu-card-bg) 50%, var(--efu-secondbg) 100%);
+    background-size: 200% 100%;
+    animation: hot-loading-shine 1.6s ease-in-out infinite;
+}
+
+.hot-loading-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.hot-loading-line {
+    height: 10px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--efu-secondbg) 0%, var(--efu-card-bg) 50%, var(--efu-secondbg) 100%);
+    background-size: 200% 100%;
+    animation: hot-loading-shine 1.6s ease-in-out infinite;
+}
+
+.hot-loading-line.title {
+    height: 14px;
+    width: 80%;
+}
+
+.hot-loading-line.meta {
+    width: 45%;
+}
+
+@keyframes hot-loading-shine {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}

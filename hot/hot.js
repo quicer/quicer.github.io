@@ -27,6 +27,11 @@ function initializeHot() {
         headline.appendChild(more);
     }
 
+    // 避免重复初始化：如果已经在加载或已渲染，不再发请求
+    if (container.dataset.hotLoading === "true" || container.dataset.hotLoaded === "true") return;
+    container.dataset.hotLoading = "true";
+    setLoading(container);
+
     fetch(`${WORKER_URL}?days=${RANK_DAYS}&limit=${TOP_N}`)
         .then((r) => {
             if (!r.ok) throw new Error("HTTP " + r.status);
@@ -45,7 +50,24 @@ function initializeHot() {
         });
 }
 
+function setLoading(container) {
+    container.innerHTML =
+        '<div class="hot-loading" aria-busy="true" role="status">' +
+        [1, 2, 3, 4, 5].map(function () {
+            return '<div class="hot-loading-row">' +
+                '<div class="hot-loading-rank"></div>' +
+                '<div class="hot-loading-body">' +
+                '<div class="hot-loading-line title"></div>' +
+                '<div class="hot-loading-line meta"></div>' +
+                '</div>' +
+                '</div>';
+        }).join('') +
+        '</div>';
+}
+
 function renderHot(container, data) {
+    container.dataset.hotLoading = "false";
+    container.dataset.hotLoaded = "true";
     container.innerHTML = "";
     if (!Array.isArray(data) || data.length === 0) {
         container.innerHTML = '<div class="hot-post-empty">暂无热门数据</div>';
