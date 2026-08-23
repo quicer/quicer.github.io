@@ -248,16 +248,27 @@
       if (t) { clearTimeout(t); timers.delete(drop); }
 
       var container = drop._navContainer;
-      // 定位：统一用 scale1 锚点（positionDrop）。menu-open 态下胶囊放大 1.06，
-      // 但锚点 getBoundingClientRect 已是放大后的真实视口坐标——**绝不可再手动放射**，
-      // 否则双重放大导致下拉被持续外推、放大结束再校正 = 抖动（2.1.3.54 的坑）。
-      // 放大动画交由 CSS :hover 的 transition transform .35s 弹簧播放（可见），
-      // 下拉恒定锚点在文字下方，微偏 ≤2px，远优于抖动。
+      // 先按当前锚点定位（立即出现），再加 menu-open 触发放大动画。
+      positionDrop(drop, anchor);
       if (container && !container.classList.contains('menu-open')) {
-        positionDrop(drop, anchor);
-        container.classList.add('menu-open'); // 触发放大动画（CSS :hover 同值，无跳变）
-      } else {
-        positionDrop(drop, anchor);
+        container.classList.add('menu-open'); // 触发 CSS :hover 放大动画（可见）
+        // 放大动画(.35s)期间，用 rAF 每帧把下拉贴住锚点的【真实】视口坐标
+        // （getBoundingClientRect 读到的已是放大后值，直接定位，**绝不手动放射**，
+        // 否则双重放大=2.1.3.54 的坑）。这样下拉随胶囊平滑上移、零相对漂移，
+        // 且锚点是菜单文字（固定），不会"对齐鼠标"。放大结束(transitionend)后停 rAF。
+        if (container._followRAF) cancelAnimationFrame(container._followRAF);
+        var stopFollow = function (e) {
+          if (e && e.propertyName !== 'transform') return;
+          container.removeEventListener('transitionend', stopFollow);
+          if (container._followRAF) { cancelAnimationFrame(container._followRAF); container._followRAF = null; }
+          positionDrop(drop, anchor); // 终态精确对齐
+        };
+        container.addEventListener('transitionend', stopFollow);
+        var tick = function () {
+          positionDrop(drop, anchor);
+          container._followRAF = requestAnimationFrame(tick);
+        };
+        container._followRAF = requestAnimationFrame(tick);
       }
 
       drop.classList.add('show');
@@ -283,9 +294,16 @@
         if (drop._navItem) drop._navItem.classList.remove('nav-item-active');
         // 清除下拉可能残留的临时定位跟随过渡，避免下次展开/收起时 left/top 带多余过渡
         clearDropFollow(drop);
+        // 取消放大期间的 rAF 跟随，并移除残留监听
+        var c = drop._navContainer;
+        if (c) {
+          if (c._followRAF) { cancelAnimationFrame(c._followRAF); c._followRAF = null; }
+          // 移除可能仍在等待的 transitionend 监听（同名函数引用已丢失，靠一次性 + 上面 cancel 足够；
+          // 这里再清一次 menu-open 即可，监听会在下次 show 时重建并自我移除）
+        }
         // 该容器下若没有其它展开的下拉，才解除 menu-open，让胶囊缩放平滑还原
         var anyShown = dropdowns.querySelector('.menus_dropdown.show');
-        if (!anyShown && drop._navContainer) drop._navContainer.classList.remove('menu-open');
+        if (!anyShown && c) c.classList.remove('menu-open');
       }, CLOSE_DELAY));
     }
 
