@@ -229,20 +229,39 @@
       drop.style.top = (r.bottom + 8) + 'px';
     }
 
+    // 胶囊放大过渡（.35s 弹簧）结束后，用缩放终态的锚点坐标校正一次下拉位置。
+    // 这样放大动画全程可见（不再被 transition:none 跳变吃掉），且下拉最终精确对齐、不漂移。
+    function scheduleReposition(drop, anchor) {
+      var container = drop._navContainer;
+      if (!container) return;
+      var handler = function (e) {
+        // 只关心 transform 过渡结束（即放大动画收尾）
+        if (e.propertyName !== 'transform') return;
+        container.removeEventListener('transitionend', handler);
+        container._navRepositioning = false;
+        if (drop.classList.contains('show')) positionDrop(drop, anchor);
+      };
+      // 防重入：避免连续 hover 多个菜单项时叠加多个监听
+      if (container._navRepositioning) return;
+      container._navRepositioning = true;
+      container.addEventListener('transitionend', handler);
+    }
+
     function show(drop, anchor) {
       var t = timers.get(drop);
       if (t) { clearTimeout(t); timers.delete(drop); }
 
       var container = drop._navContainer;
-      // 核心：避免胶囊缩放过渡 300ms 期间下拉坐标漂移。打开前先把胶囊瞬间切到缩放终态，
-      // 读出最终锚点位置并定位下拉，再恢复过渡。这样下拉一出现就在正确位置，不会二次跳动。
+      // 关键修复：不再用 transition:none 把胶囊瞬间切到缩放终态（那会吃掉放大的弹簧动画，
+      // 导致胶囊僵硬跳变）。改为——先基于"缩放前(scale 1)"的锚点把下拉定位好（仅差几像素），
+      // 让 CSS :hover 的 .35s 放大动画正常播放；放大过渡结束后 transitionend 自动校正到终态位置。
       if (container && !container.classList.contains('menu-open')) {
-        var savedTransition = container.style.transition;
-        container.style.transition = 'none';
-        container.classList.add('menu-open');
-        void container.offsetWidth; // force reflow，让 transition:none 立即生效
+        // 基于当前(scale 1)锚点先定位，保证下拉立即出现、不延迟
         positionDrop(drop, anchor);
-        container.style.transition = savedTransition;
+        // 加 menu-open 锁定放大态（与 :hover 同值，无跳变；放大动画由 :hover 的 transition 播放）
+        container.classList.add('menu-open');
+        // 放大结束后（transform 过渡收尾）用终态坐标校正一次，消除初始几像素偏差
+        scheduleReposition(drop, anchor);
       } else {
         positionDrop(drop, anchor);
       }
