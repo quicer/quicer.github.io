@@ -6,6 +6,9 @@ import { initPreloader } from "./core/preloader.js";
 let ai = null;
 let coverColor = () => {};
 let initializeMusicPlayer = () => {};
+let initWeather = () => {};
+let weatherClickHandler = () => {};
+let hideWeatherModalHandler = () => {};
 
 const loadFeatureModules = async () => {
   const features = Solitude.config.feature_modules || {};
@@ -22,6 +25,13 @@ const loadFeatureModules = async () => {
   if (features.music) {
     requests.push(import("./music.js").then((module) => {
       initializeMusicPlayer = module.initializeMusicPlayer;
+    }));
+  }
+  if (features.weather) {
+    requests.push(import("./weather.js?v=1").then((module) => {
+      initWeather = module.initWeather;
+      weatherClickHandler = module.handleWeatherClick;
+      hideWeatherModalHandler = module.hideWeatherModalAction;
     }));
   }
   if (features.covercolor) {
@@ -1345,6 +1355,13 @@ const actions = {
     ty.go();
     lifecycle.add(() => ty.destroy?.());
   },
+  handleWeatherClick(event) {
+    if (event?.target?.closest?.(".weather-modal-close, .weather-modal-mask")) return;
+    weatherClickHandler(event);
+  },
+  hideWeatherModal() {
+    hideWeatherModalHandler();
+  },
 };
 
 Object.assign(Solitude, actions);
@@ -1766,6 +1783,10 @@ const initMusicCapsuleGlow = () => {
   bindGlowCard("#nav-music");
 };
 
+const initWeatherCapsuleGlow = () => {
+  bindGlowCard("#nav-weather");
+};
+
 const initAsideCardGlow = () => {
   bindGlowCard("#aside-content .card-widget");
 };
@@ -1901,9 +1922,13 @@ Solitude.refresh = async () => {
   initEssayCardGlow();
   initRecentCommentCardGlow();
   initMusicCapsuleGlow();
+  initWeatherCapsuleGlow();
   initAsideCardGlow();
   initPostTagsScroll();
   forPostFn();
+  if (Solitude.config.feature_modules?.weather) {
+    initWeather();
+  }
 };
 
 // 博客更新后自动清理访客本地缓存，并在加载完成后弹出提示
