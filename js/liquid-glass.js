@@ -254,6 +254,15 @@
       drop.style.transition = '';
     }
 
+    // 清除所有菜单项的高亮（保证任意时刻中间 nav 只有 1 个底色高亮）。
+    // 根因：从项 A 快速移到项 B 时，A 的 hide() 有 CLOSE_DELAY(90ms) 延迟才移除 active，
+    // 而 B 的 show() 立即加 active，二者重叠窗口内会出现"多个高亮"。每次 show 前置清可彻底杜绝。
+    function clearAllNavActive() {
+      for (var i = 0; i < dropEls.length; i++) {
+        if (dropEls[i]._navItem) dropEls[i]._navItem.classList.remove('nav-item-active');
+      }
+    }
+
     function show(drop, anchor) {
       var t = timers.get(drop);
       if (t) { clearTimeout(t); timers.delete(drop); }
@@ -286,7 +295,9 @@
 
       drop.classList.add('show');
       // 下拉展开期间：保持触发项高亮（即使鼠标已移到 body 级的下拉面板上，
-      // 触发项的 :hover 已丢失，用该类等效维持换色高亮，直到下拉收起才移除）
+      // 触发项的 :hover 已丢失，用该类等效维持换色高亮，直到下拉收起才移除）。
+      // 先清除其它项残留高亮，确保任意时刻只有当前项 1 个高亮（避免快速切换时的多高亮重叠）。
+      clearAllNavActive();
       if (drop._navItem) drop._navItem.classList.add('nav-item-active');
     }
 
