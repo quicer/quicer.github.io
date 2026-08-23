@@ -142,8 +142,8 @@ export const initWeather = async () => {
   }
 };
 
-export const handleWeatherClick = (event) => {
-  if (!event || event.target?.closest?.("#weather-modal")) return;
+export const handleWeatherClick = () => {
+  // 幂等：重复点击只保持显示，不会 toggle 关闭
   showWeatherModal();
 };
 
