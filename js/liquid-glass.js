@@ -365,6 +365,20 @@
     var menu = document.querySelector('.back-menu-list-groups');
     if (!blogName || !backHome || !menu) return;
 
+    // 防重入：PJAX 切页后 init 会被重复执行（pjax:success/complete），
+    // 若不拦截会在同一元素上叠加多套 mouseenter/mouseleave 监听器，
+    // 各闭包持有独立的 closeTimer。旧闭包绑定的 menu 若被替换（DOM 移除），
+    // 其 menu.mouseenter 永远不会触发 → 旧 closeTimer 无法被 clear →
+    // 280ms 后旧闭包把当前 backHome 的 .menu-open 移除，造成
+    // 「鼠标移开图标进入下拉菜单后高亮短暂出现又消失」。
+    // 用 dataset 标记，重复 init 时先解绑旧监听再重绑。
+    if (backHome.dataset.menuBackBound === '1') {
+      backHome.removeEventListener('mouseenter', backHome.__openMenu);
+      backHome.removeEventListener('mouseleave', backHome.__closeMenu);
+      menu.removeEventListener('mouseenter', backHome.__openMenu);
+      menu.removeEventListener('mouseleave', backHome.__closeMenu);
+    }
+
     var closeTimer = null;
     // 鼠标移开后等待 280ms 再收起，给「从按钮滑进菜单」留出时间，避免闪关。
     var CLOSE_DELAY = 280;
@@ -378,7 +392,15 @@
       menu.classList.add('show');
     };
 
-    var scheduleCloseMenu = function () {
+    // 判断 relatedTarget 是否落在「图标 ∪ 菜单」区域内（含两者后代）。
+    // 用于 mouseout 时区分「在图标与菜单之间移动（不该收起）」与「真正离开（该收起）」。
+    var withinGroup = function (node) {
+      return node && (node === backHome || node === menu || backHome.contains(node) || menu.contains(node));
+    };
+
+    var scheduleCloseMenu = function (e) {
+      // 若鼠标只是从图标移到菜单（或反之），relatedTarget 仍在组内 → 不收起，直接返回。
+      if (e && withinGroup(e.relatedTarget)) return;
       if (closeTimer) clearTimeout(closeTimer);
       closeTimer = setTimeout(function () {
         backHome.classList.remove('menu-open');
@@ -388,10 +410,17 @@
       }, CLOSE_DELAY);
     };
 
+    backHome.__openMenu = openMenu;
+    backHome.__closeMenu = scheduleCloseMenu;
+    backHome.dataset.menuBackBound = '1';
+
+    // 用 mouseenter 展开；用 mouseout（带 relatedTarget 判断）收起，
+    // 取代 mouseleave——这样「图标 ↔ 菜单」之间移动不会触发收起计时，
+    // 彻底消除间隙/时序导致的误收起（高亮短暂出现又消失）。
     backHome.addEventListener('mouseenter', openMenu);
-    backHome.addEventListener('mouseleave', scheduleCloseMenu);
+    backHome.addEventListener('mouseout', scheduleCloseMenu);
     menu.addEventListener('mouseenter', openMenu);
-    menu.addEventListener('mouseleave', scheduleCloseMenu);
+    menu.addEventListener('mouseout', scheduleCloseMenu);
   }
 
   if (document.readyState === 'loading') {
