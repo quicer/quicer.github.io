@@ -229,26 +229,6 @@
       drop.style.top = (r.bottom + 8) + 'px';
     }
 
-    // 计算放大终态(scale 1.06)下锚点的视口坐标。
-    // 容器 .menus_items 以自身中心为 transform-origin 缩放，所以把 scale1 锚点坐标
-    // 相对容器中心做 1.06 倍放射即可得终态位置，无需 transition:none 跳变读取。
-    function positionDropFinal(drop, anchor) {
-      var r = anchor.getBoundingClientRect();
-      var left = r.left + r.width / 2;
-      var bottom = r.bottom;
-      var container = drop._navContainer;
-      if (container) {
-        var cr = container.getBoundingClientRect();
-        var cx = cr.left + cr.width / 2;
-        var cy = cr.top + cr.height / 2;
-        var s = 1.06;
-        left = cx + (left - cx) * s;
-        bottom = cy + (bottom - cy) * s;
-      }
-      drop.style.left = left + 'px';
-      drop.style.top = (bottom + 8) + 'px';
-    }
-
     // 还原下拉面板自身的过渡（恢复 CSS 默认的 transform/opacity 过渡，去掉定位跟随过渡）
     function clearDropFollow(drop) {
       drop.style.transition = '';
@@ -268,27 +248,14 @@
       if (t) { clearTimeout(t); timers.delete(drop); }
 
       var container = drop._navContainer;
-      // 关键修复：放大动画可见 + 下拉零抖动，二者兼得。
-      // 做法：下拉先基于 scale1 锚点立即出现（无过渡）；胶囊放大动画由 CSS :hover 正常播放；
-      // 同时给下拉临时加 left/top 的 .35s 同步过渡，下一帧切到放大终态坐标，使下拉平滑"跟随"
-      // 胶囊放大上浮（而非先静止、放大结束再跳变校正——那正是之前"抖一下"的来源）。
+      // 定位：统一用 scale1 锚点（positionDrop）。menu-open 态下胶囊放大 1.06，
+      // 但锚点 getBoundingClientRect 已是放大后的真实视口坐标——**绝不可再手动放射**，
+      // 否则双重放大导致下拉被持续外推、放大结束再校正 = 抖动（2.1.3.54 的坑）。
+      // 放大动画交由 CSS :hover 的 transition transform .35s 弹簧播放（可见），
+      // 下拉恒定锚点在文字下方，微偏 ≤2px，远优于抖动。
       if (container && !container.classList.contains('menu-open')) {
-        // 初始：基于当前(scale 1)锚点立即定位，保证下拉即刻出现、不延迟
         positionDrop(drop, anchor);
-        // 放大动画由 CSS :hover 的 transition transform .35s 弹簧播放（可见）
-        container.classList.add('menu-open');
-        // 临时给下拉加 left/top 同步过渡（与胶囊放大同 duration/easing），实现平滑跟随
-        drop.style.transition = 'transform .16s cubic-bezier(0.4,0,1,1), opacity .12s ease, left .35s cubic-bezier(0.34,1.56,0.64,1), top .35s cubic-bezier(0.34,1.56,0.64,1)';
-        // 下一帧切到放大终态坐标：下拉从初始位置平滑上浮到终态（跟随放大，无跳变）
-        requestAnimationFrame(function () { positionDropFinal(drop, anchor); });
-        // 放大动画收尾（transitionend）后，再精确对齐一次终态并清除下拉的临时过渡
-        var follow = function (e) {
-          if (e && e.propertyName !== 'transform') return;
-          container.removeEventListener('transitionend', follow);
-          positionDropFinal(drop, anchor);
-          clearDropFollow(drop);
-        };
-        container.addEventListener('transitionend', follow);
+        container.classList.add('menu-open'); // 触发放大动画（CSS :hover 同值，无跳变）
       } else {
         positionDrop(drop, anchor);
       }
