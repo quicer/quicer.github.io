@@ -178,6 +178,23 @@ const getLocation = async (config) => {
   };
 };
 
+// 用 BigDataCloud 免费反向地理编码把 lat/lon 转成中文城市名
+const reverseGeocodeCity = async (lat, lon) => {
+  try {
+    const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}&localityLanguage=zh`;
+    const data = await fetchJson(url, { credentials: "omit" });
+    const city = data?.city || data?.locality || data?.principalSubdivision;
+    if (city && typeof city === "string") {
+      // 去掉常见后缀，让显示更简洁（如「中山市」→「中山」）
+      return city.replace(/市$/, "").replace(/地区$/, "").replace(/盟$/, "").trim() || city;
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn("[weather] 反向地理编码失败", e);
+  }
+  return null;
+};
+
 // 通过自己的 Worker 代理请求和风天气（避免 token 暴露）。Worker 内部已做 C/F 单位前的公制获取。
 // 返回结构：{ now: {...和风实况归一化}, daily: [...5日归一化] }
 const fetchWeather = async (lat, lon) => {
@@ -335,8 +352,12 @@ const refreshWeather = async () => {
   try {
     setLoading(true);
     const { lat, lon, city } = await getLocation(config);
+    // 如果站点配置没写 city，用反向地理编码把英文 IP 城市转中文
+    const displayCity = (!config.city && city !== "当前位置")
+      ? (await reverseGeocodeCity(lat, lon)) || city
+      : city;
     const data = await fetchWeather(lat, lon);
-    updateWeatherUI(data, city);
+    updateWeatherUI(data, displayCity);
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error("[weather] 刷新天气失败", e);
