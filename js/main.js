@@ -606,7 +606,7 @@ function initThemeColor() {
     currentTop > 0
       ? "--efu-card-bg"
       : Solitude.page.is_post
-      ? "--efu-main"
+      ? "--efu-cover-main"
       : "--efu-background";
   applyThemeColor(
     getComputedStyle(document.documentElement).getPropertyValue(themeColor)

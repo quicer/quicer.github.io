@@ -2,6 +2,7 @@ import { Solitude } from "../core/api.js";
 
 const STORAGE_KEY = "Solitude";
 
+
 const readStore = () => {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -75,26 +76,48 @@ export const applyThemeColor = (value) => {
   Solitude.initThemeColor?.();
 };
 
+export const applyCoverColor = (value) => {
+  const color = normalizeHex(value);
+  if (!color) return applyDefaultColor();
+  const [r, g, b] = color.match(/[0-9a-f]{2}/gi).map((part) => parseInt(part, 16));
+  const brightness = Math.round((r * 299 + g * 587 + b * 114) / 1000);
+  const adjusted = brightness < 125
+    ? rgbToHex([Math.min(r + 50, 255), Math.min(g + 50, 255), Math.min(b + 50, 255)])
+    : color;
+
+  const root = document.documentElement;
+  // 文章页封面取色只作用在顶部封面区域，不污染全局主题色
+  root.style.setProperty("--efu-cover-main", adjusted);
+  root.style.setProperty("--efu-cover-main-op", `${adjusted}23`);
+  root.style.setProperty("--efu-cover-main-op-deep", `${adjusted}dd`);
+  root.style.setProperty("--efu-cover-main-none", `${adjusted}00`);
+  Solitude.initThemeColor?.();
+};
+
 export const applyDefaultColor = () => {
   const root = document.documentElement;
   root.style.setProperty("--efu-main", "var(--efu-theme)");
   root.style.setProperty("--efu-main-op", "var(--efu-theme-op)");
   root.style.setProperty("--efu-main-op-deep", "var(--efu-theme-op-deep)");
   root.style.setProperty("--efu-main-none", "var(--efu-theme-none)");
+  root.style.setProperty("--efu-cover-main", "var(--efu-theme)");
+  root.style.setProperty("--efu-cover-main-op", "var(--efu-theme-op)");
+  root.style.setProperty("--efu-cover-main-op-deep", "var(--efu-theme-op-deep)");
+  root.style.setProperty("--efu-cover-main-none", "var(--efu-theme-none)");
   Solitude.initThemeColor?.();
 };
 
 export const resolveColor = async (source, fetchColor, music = false) => {
   if (!source) return applyDefaultColor();
   const cached = getCachedColor(source);
-  if (cached) return music ? applyMusicColor(cached) : applyThemeColor(cached);
+  if (cached) return music ? applyMusicColor(cached) : applyCoverColor(cached);
 
   try {
     const color = await fetchColor(source);
     if (!color) throw new Error("Color provider returned no color");
     cacheColor(source, color);
     if (source !== getCoverSource(music)) return;
-    return music ? applyMusicColor(color) : applyThemeColor(color);
+    return music ? applyMusicColor(color) : applyCoverColor(color);
   } catch (error) {
     console.error("Unable to resolve cover color:", error);
     if (!music) applyDefaultColor();

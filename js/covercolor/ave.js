@@ -1,4 +1,4 @@
-import { applyThemeColor, getCoverSource, resolveColor } from "./shared.js";
+import { applyCoverColor, getCoverSource, resolveColor } from "./shared.js";
 
 const fetchAveColor = async (source) => {
   const response = await fetch(`${source}?imageAve`);
@@ -9,6 +9,6 @@ const fetchAveColor = async (source) => {
 
 export const coverColor = (music = false) => {
   const configured = !music && Solitude.page.color;
-  if (configured) return applyThemeColor(configured);
+  if (configured) return applyCoverColor(configured);
   return resolveColor(getCoverSource(music), fetchAveColor, music);
 };

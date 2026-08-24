@@ -1,4 +1,4 @@
-import { applyThemeColor, getCoverSource, resolveColor, rgbToHex } from "./shared.js";
+import { applyCoverColor, getCoverSource, resolveColor, rgbToHex } from "./shared.js";
 
 const extractLocalColor = (source) => new Promise((resolve, reject) => {
   const image = new Image();
@@ -18,6 +18,6 @@ const extractLocalColor = (source) => new Promise((resolve, reject) => {
 
 export const coverColor = (music = false) => {
   const configured = !music && Solitude.page.color;
-  if (configured && /^#[0-9a-f]{6}$/i.test(configured)) return applyThemeColor(configured);
+  if (configured && /^#[0-9a-f]{6}$/i.test(configured)) return applyCoverColor(configured);
   return resolveColor(getCoverSource(music), extractLocalColor, music);
 };
