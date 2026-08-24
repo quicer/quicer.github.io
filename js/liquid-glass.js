@@ -380,8 +380,11 @@
     }
 
     var closeTimer = null;
-    // 鼠标移开后等待 280ms 再收起，给「从按钮滑进菜单」留出时间，避免闪关。
+    // 「从按钮滑进菜单」的过渡保护延迟：鼠标离开按钮但下一刻落在下拉菜单上，
+    // 给 280ms 让 entered 事件有机会取消收起，避免间隙/时序导致菜单闪关。
     var CLOSE_DELAY = 280;
+    // 「真正离开」立即收起：鼠标直接移开、既没进菜单也没回按钮，高亮应无延迟消失。
+    var IMMEDIATE = 0;
 
     // 菜单位置已完全由 CSS（position:absolute 相对 #nav-group）控制，JS 只负责切换 .show 类。
     // 这样即使旧版 JS 被缓存，也不会用 inline style 覆盖 CSS 定位，避免反复错位。
@@ -402,12 +405,14 @@
       // 若鼠标只是从图标移到菜单（或反之），relatedTarget 仍在组内 → 不收起，直接返回。
       if (e && withinGroup(e.relatedTarget)) return;
       if (closeTimer) clearTimeout(closeTimer);
+      // 区分「直接离开（无 relatedTarget 或落在组外）」与「滑向菜单（已在组内被拦截）」：
+      // 直接离开用 IMMEDIATE，高亮无延迟消失；滑向菜单的过渡已在组内拦截，不会走到这里。
       closeTimer = setTimeout(function () {
         backHome.classList.remove('menu-open');
         blogName.classList.remove('menu-open');
         menu.classList.remove('show');
         closeTimer = null;
-      }, CLOSE_DELAY);
+      }, IMMEDIATE);
     };
 
     backHome.__openMenu = openMenu;
