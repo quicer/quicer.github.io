@@ -1,38 +1,94 @@
 const STORAGE_KEY = "weatherUnit";
 const DEFAULT_UNIT = "C";
 
+// 和风天气 condition.code → 图标 + 中文描述
+// 参考和风官方图标命名（QWeather Icons），用 FontAwesome 近似替代，保证清晰可辨
 const WEATHER_CODE_MAP = {
-  0: { icon: "fa-sun", desc: "晴朗", animate: "spin-slow" },
-  1: { icon: "fa-cloud-sun", desc: "大部晴朗" },
-  2: { icon: "fa-cloud-sun", desc: "多云" },
-  3: { icon: "fa-cloud", desc: "阴天" },
-  45: { icon: "fa-smog", desc: "雾" },
-  48: { icon: "fa-smog", desc: "雾凇" },
-  51: { icon: "fa-cloud-rain", desc: "毛毛雨" },
-  53: { icon: "fa-cloud-rain", desc: "中度毛毛雨" },
-  55: { icon: "fa-cloud-showers-heavy", desc: "密集毛毛雨" },
-  56: { icon: "fa-cloud-meatball", desc: "冻毛毛雨" },
-  57: { icon: "fa-cloud-meatball", desc: "强冻毛毛雨" },
-  61: { icon: "fa-cloud-rain", desc: "小雨" },
-  63: { icon: "fa-cloud-rain", desc: "中雨" },
-  65: { icon: "fa-cloud-showers-heavy", desc: "大雨" },
-  66: { icon: "fa-icicles", desc: "冻雨" },
-  67: { icon: "fa-icicles", desc: "强冻雨" },
-  71: { icon: "fa-snowflake", desc: "小雪", animate: "spin-slow" },
-  73: { icon: "fa-snowflake", desc: "中雪", animate: "spin-slow" },
-  75: { icon: "fa-snowflake", desc: "大雪", animate: "spin-slow" },
-  77: { icon: "fa-snowflake", desc: "雪粒", animate: "spin-slow" },
-  80: { icon: "fa-cloud-showers-heavy", desc: "阵雨" },
-  81: { icon: "fa-cloud-showers-heavy", desc: "强阵雨" },
-  82: { icon: "fa-cloud-showers-water", desc: "暴雨" },
-  85: { icon: "fa-snowflake", desc: "阵雪", animate: "spin-slow" },
-  86: { icon: "fa-snowflake", desc: "强阵雪", animate: "spin-slow" },
-  95: { icon: "fa-bolt", desc: "雷暴" },
-  96: { icon: "fa-cloud-bolt", desc: "雷暴伴小冰雹" },
-  99: { icon: "fa-cloud-bolt", desc: "雷暴伴大冰雹" }
+  '100': { icon: 'fa-sun', desc: '晴', animate: 'spin-slow' },
+  '101': { icon: 'fa-cloud-sun', desc: '多云' },
+  '102': { icon: 'fa-cloud-sun', desc: '少云' },
+  '103': { icon: 'fa-cloud-sun', desc: '晴间多云' },
+  '104': { icon: 'fa-cloud', desc: '阴' },
+  '150': { icon: 'fa-moon', desc: '晴' },
+  '151': { icon: 'fa-cloud-moon', desc: '多云' },
+  '152': { icon: 'fa-cloud-moon', desc: '少云' },
+  '153': { icon: 'fa-cloud-moon', desc: '晴间多云' },
+
+  '200': { icon: 'fa-wind', desc: '有风' },
+  '201': { icon: 'fa-wind', desc: '静风' },
+  '202': { icon: 'fa-wind', desc: '微风' },
+  '203': { icon: 'fa-wind', desc: '和风' },
+  '204': { icon: 'fa-wind', desc: '清风' },
+  '205': { icon: 'fa-wind', desc: '强风' },
+  '206': { icon: 'fa-wind', desc: '疾风' },
+  '207': { icon: 'fa-wind', desc: '大风' },
+  '208': { icon: 'fa-wind', desc: '烈风' },
+  '209': { icon: 'fa-wind', desc: '狂风' },
+  '210': { icon: 'fa-wind', desc: '风暴' },
+  '211': { icon: 'fa-wind', desc: '狂飙' },
+  '212': { icon: 'fa-wind', desc: '飓风' },
+  '213': { icon: 'fa-wind', desc: '龙卷风' },
+
+  '300': { icon: 'fa-cloud-showers-heavy', desc: '阵雨' },
+  '301': { icon: 'fa-cloud-showers-heavy', desc: '强阵雨' },
+  '302': { icon: 'fa-cloud-bolt', desc: '雷阵雨' },
+  '303': { icon: 'fa-cloud-bolt', desc: '强雷阵雨' },
+  '304': { icon: 'fa-cloud-bolt', desc: '雷阵雨伴冰雹' },
+  '305': { icon: 'fa-cloud-rain', desc: '小雨' },
+  '306': { icon: 'fa-cloud-rain', desc: '中雨' },
+  '307': { icon: 'fa-cloud-showers-heavy', desc: '大雨' },
+  '308': { icon: 'fa-cloud-showers-heavy', desc: '极端降雨' },
+  '309': { icon: 'fa-cloud-rain', desc: '毛毛雨' },
+  '310': { icon: 'fa-cloud-showers-heavy', desc: '暴雨' },
+  '311': { icon: 'fa-cloud-showers-heavy', desc: '大暴雨' },
+  '312': { icon: 'fa-cloud-showers-heavy', desc: '特大暴雨' },
+  '313': { icon: 'fa-icicles', desc: '冻雨' },
+  '314': { icon: 'fa-cloud-rain', desc: '小到中雨' },
+  '315': { icon: 'fa-cloud-showers-heavy', desc: '中到大雨' },
+  '316': { icon: 'fa-cloud-showers-heavy', desc: '大到暴雨' },
+  '317': { icon: 'fa-cloud-showers-heavy', desc: '暴雨到大暴雨' },
+  '318': { icon: 'fa-cloud-showers-heavy', desc: '大暴雨到特大暴雨' },
+  '350': { icon: 'fa-cloud-showers-heavy', desc: '阵雨' },
+  '351': { icon: 'fa-cloud-showers-heavy', desc: '强阵雨' },
+
+  '400': { icon: 'fa-snowflake', desc: '小雪', animate: 'spin-slow' },
+  '401': { icon: 'fa-snowflake', desc: '中雪', animate: 'spin-slow' },
+  '402': { icon: 'fa-snowflake', desc: '大雪', animate: 'spin-slow' },
+  '403': { icon: 'fa-snowflake', desc: '暴雪', animate: 'spin-slow' },
+  '404': { icon: 'fa-cloud-meatball', desc: '雨夹雪' },
+  '405': { icon: 'fa-cloud-meatball', desc: '雨雪天气' },
+  '406': { icon: 'fa-cloud-meatball', desc: '阵雨夹雪' },
+  '407': { icon: 'fa-snowflake', desc: '阵雪', animate: 'spin-slow' },
+  '408': { icon: 'fa-snowflake', desc: '小到中雪', animate: 'spin-slow' },
+  '409': { icon: 'fa-snowflake', desc: '中到大雪', animate: 'spin-slow' },
+  '410': { icon: 'fa-snowflake', desc: '大到暴雪', animate: 'spin-slow' },
+  '456': { icon: 'fa-cloud-meatball', desc: '阵雨夹雪' },
+  '457': { icon: 'fa-snowflake', desc: '阵雪', animate: 'spin-slow' },
+
+  '500': { icon: 'fa-smog', desc: '薄雾' },
+  '501': { icon: 'fa-smog', desc: '雾' },
+  '502': { icon: 'fa-smog', desc: '浓雾' },
+  '503': { icon: 'fa-smog', desc: '强浓雾' },
+  '504': { icon: 'fa-smog', desc: '轻雾' },
+  '505': { icon: 'fa-smog', desc: '大雾' },
+  '506': { icon: 'fa-smog', desc: '特强浓雾' },
+  '507': { icon: 'fa-wind', desc: '沙尘暴' },
+  '508': { icon: 'fa-wind', desc: '强沙尘暴' },
+  '509': { icon: 'fa-smog', desc: '浮尘' },
+  '510': { icon: 'fa-smog', desc: '扬沙' },
+  '511': { icon: 'fa-smog', desc: '沙尘' },
+  '512': { icon: 'fa-smog', desc: '沙尘' },
+  '513': { icon: 'fa-smog', desc: '雾凇' },
+  '514': { icon: 'fa-smog', desc: '雾凇' },
+  '515': { icon: 'fa-smog', desc: '雾霾' },
+
+  '900': { icon: 'fa-cloud', desc: '未知' }
 };
 
-const getWeatherInfo = (code) => WEATHER_CODE_MAP[code] || { icon: "fa-cloud", desc: "未知" };
+const getWeatherInfo = (code) => {
+  const key = String(code);
+  return WEATHER_CODE_MAP[key] || { icon: 'fa-cloud', desc: '未知' };
+};
 
 const fetchJson = async (url, options = {}) => {
   const res = await fetch(url, options);
@@ -122,13 +178,16 @@ const getLocation = async (config) => {
   };
 };
 
-// 始终以摄氏度/公制获取数据，作为 base 单位；显示时根据 currentUnit 本地换算
+// 通过自己的 Worker 代理请求和风天气（避免 token 暴露）。Worker 内部已做 C/F 单位前的公制获取。
+// 返回结构：{ now: {...和风实况归一化}, daily: [...5日归一化] }
 const fetchWeather = async (lat, lon) => {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}` +
-    `&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,precipitation,cloud_cover,pressure_msl,visibility` +
-    `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max` +
-    `&timezone=auto`;
-  return fetchJson(url);
+  const config = window.Solitude?.config?.weather || {};
+  const worker = config.worker;
+  if (!worker) {
+    throw new Error("未配置天气 Worker 地址（theme.weather.worker）");
+  }
+  const url = `${worker}?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`;
+  return fetchJson(url, { credentials: "omit" });
 };
 
 const convertTemp = (value, from, to) => {
@@ -182,25 +241,28 @@ const updateWeatherUI = (data, city) => {
   lastWeatherData = data;
   lastCity = city;
 
-  const current = data.current;
+  const current = data.now;
   const daily = data.daily;
-  const info = getWeatherInfo(current.weather_code);
+  const info = getWeatherInfo(current.code);
   const iconClass = `fas ${info.icon}`;
 
-  // base 数据单位为摄氏度/公制
-  const temp = convertTemp(current.temperature_2m, "C", currentUnit);
-  const apparent = convertTemp(current.apparent_temperature, "C", currentUnit);
-  const wind = convertWind(current.wind_speed_10m, "kmh", currentUnit === "F" ? "mph" : "kmh");
-  const maxTemp = convertTemp(daily.temperature_2m_max[0], "C", currentUnit);
-  const minTemp = convertTemp(daily.temperature_2m_min[0], "C", currentUnit);
+  // 和风返回的公制基准为摄氏度 / m/s，显示时按 currentUnit 本地换算
+  const temp = convertTemp(current.temp, "C", currentUnit);
+  const apparent = convertTemp(current.feelsLike, "C", currentUnit);
+  // 风速 m/s → km/h 或 mph（1 m/s = 3.6 km/h）
+  const windMs = current.windSpeed ?? 0;
+  const wind = convertWind(windMs * 3.6, "kmh", currentUnit === "F" ? "mph" : "kmh");
+  const maxDay = daily?.[0];
+  const maxTemp = convertTemp(maxDay?.tempMax ?? 0, "C", currentUnit);
+  const minTemp = convertTemp(maxDay?.tempMin ?? 0, "C", currentUnit);
 
-  const humidity = current.relative_humidity_2m;
-  const precipitation = current.precipitation ?? 0;
-  const cloudCover = current.cloud_cover ?? 0;
-  const pressure = current.pressure_msl ?? 0;
+  const humidity = current.humidity;
+  const precipitation = current.precip ?? 0;
+  const cloudCover = current.cloud ?? 0;
+  const pressure = current.pressure ?? 0;
   const visibility = current.visibility ?? 0;
-  const uv = daily.uv_index_max?.[0] ?? 0;
-  const rainProb = daily.precipitation_probability_max?.[0] ?? 0;
+  const uv = current.uv ?? 0;
+  const rainProb = maxDay?.precipProb ?? 0;
 
   const capsule = document.getElementById("nav-weather");
   const iconEl = capsule?.querySelector(".weather-icon");
@@ -215,7 +277,7 @@ const updateWeatherUI = (data, city) => {
   if (!modal) return;
 
   const modalIcon = modal.querySelector(".weather-modal-icon");
-  renderIcon(modalIcon, current.weather_code);
+  renderIcon(modalIcon, current.code);
 
   const setText = (sel, text) => {
     const el = modal.querySelector(sel);
@@ -244,18 +306,17 @@ const updateWeatherUI = (data, city) => {
 
 const renderForecast = (modal, daily) => {
   const listEl = modal.querySelector(".weather-forecast-list");
-  if (!listEl || !daily?.time) return;
+  if (!listEl || !Array.isArray(daily)) return;
 
-  const count = Math.min(5, daily.time.length);
+  const count = Math.min(5, daily.length);
   listEl.innerHTML = "";
 
   for (let i = 0; i < count; i++) {
-    const code = daily.weather_code[i];
-    const info = getWeatherInfo(code);
-    const max = convertTemp(daily.temperature_2m_max[i], "C", currentUnit);
-    const min = convertTemp(daily.temperature_2m_min[i], "C", currentUnit);
-    const date = daily.time[i];
-    const weekday = i === 0 ? "今天" : getWeekday(date);
+    const day = daily[i];
+    const info = getWeatherInfo(day.code);
+    const max = convertTemp(day.tempMax, "C", currentUnit);
+    const min = convertTemp(day.tempMin, "C", currentUnit);
+    const weekday = i === 0 ? "今天" : getWeekday(day.date);
 
     const item = document.createElement("div");
     item.className = "weather-forecast-item";

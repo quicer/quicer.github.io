@@ -28,7 +28,7 @@ const loadFeatureModules = async () => {
     }));
   }
   if (features.weather) {
-    requests.push(import("./weather.js?v=4").then((module) => {
+    requests.push(import("./weather.js?v=5").then((module) => {
       initWeather = module.initWeather;
       weatherClickHandler = module.handleWeatherClick;
       hideWeatherModalHandler = module.hideWeatherModalAction;
