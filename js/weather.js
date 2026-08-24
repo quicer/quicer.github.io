@@ -62,6 +62,7 @@ let currentUnit = getStoredUnit();
 let lastWeatherData = null;
 let lastCity = "当前位置";
 let unitToggleBound = false;
+let isLoading = false;
 
 const getLocation = async (config) => {
   if (config.latitude && config.longitude) {
@@ -93,14 +94,28 @@ const getLocation = async (config) => {
   };
 };
 
+// 始终以摄氏度/公制获取数据，作为 base 单位；显示时根据 currentUnit 本地换算
 const fetchWeather = async (lat, lon) => {
-  const tempUnit = currentUnit === "F" ? "fahrenheit" : "celsius";
-  const windUnit = currentUnit === "F" ? "mph" : "kmh";
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}` +
     `&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,precipitation,cloud_cover,pressure_msl,visibility` +
     `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max` +
-    `&timezone=auto&temperature_unit=${tempUnit}&windspeed_unit=${windUnit}`;
+    `&timezone=auto`;
   return fetchJson(url);
+};
+
+const convertTemp = (value, from, to) => {
+  if (from === to) return value;
+  if (from === "C" && to === "F") return value * 9 / 5 + 32;
+  if (from === "F" && to === "C") return (value - 32) * 5 / 9;
+  return value;
+};
+
+const convertWind = (value, from, to) => {
+  if (from === to) return value;
+  // km/h <-> mph
+  if (from === "kmh" && to === "mph") return value / 1.609344;
+  if (from === "mph" && to === "kmh") return value * 1.609344;
+  return value;
 };
 
 const formatTemp = (value) => `${Math.round(value)}${currentUnit === "F" ? "℉" : "℃"}`;
@@ -110,6 +125,13 @@ const getWeekday = (dateStr) => {
   const date = new Date(dateStr);
   const weekdays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
   return weekdays[date.getDay()];
+};
+
+const setLoading = (loading) => {
+  isLoading = loading;
+  const modal = document.getElementById("weather-modal");
+  if (!modal) return;
+  modal.classList.toggle("is-loading", loading);
 };
 
 const updateUnitToggleUI = () => {
@@ -136,18 +158,21 @@ const updateWeatherUI = (data, city) => {
   const daily = data.daily;
   const info = getWeatherInfo(current.weather_code);
   const iconClass = `fas ${info.icon}`;
-  const temp = Math.round(current.temperature_2m);
-  const apparent = Math.round(current.apparent_temperature);
+
+  // base 数据单位为摄氏度/公制
+  const temp = convertTemp(current.temperature_2m, "C", currentUnit);
+  const apparent = convertTemp(current.apparent_temperature, "C", currentUnit);
+  const wind = convertWind(current.wind_speed_10m, "kmh", currentUnit === "F" ? "mph" : "kmh");
+  const maxTemp = convertTemp(daily.temperature_2m_max[0], "C", currentUnit);
+  const minTemp = convertTemp(daily.temperature_2m_min[0], "C", currentUnit);
+
   const humidity = current.relative_humidity_2m;
-  const wind = current.wind_speed_10m;
   const precipitation = current.precipitation ?? 0;
   const cloudCover = current.cloud_cover ?? 0;
   const pressure = current.pressure_msl ?? 0;
   const visibility = current.visibility ?? 0;
   const uv = daily.uv_index_max?.[0] ?? 0;
   const rainProb = daily.precipitation_probability_max?.[0] ?? 0;
-  const maxTemp = Math.round(daily.temperature_2m_max[0]);
-  const minTemp = Math.round(daily.temperature_2m_min[0]);
 
   const capsule = document.getElementById("nav-weather");
   const iconEl = capsule?.querySelector(".weather-icon");
@@ -156,7 +181,7 @@ const updateWeatherUI = (data, city) => {
     iconEl.className = `weather-icon ${iconClass}`;
     iconEl.dataset.animate = info.animate || "";
   }
-  if (summaryEl) summaryEl.textContent = `${temp}${currentUnit === "F" ? "℉" : "℃"} ${info.desc}`;
+  if (summaryEl) summaryEl.textContent = `${Math.round(temp)}${currentUnit === "F" ? "℉" : "℃"} ${info.desc}`;
 
   const modal = document.getElementById("weather-modal");
   if (!modal) return;
@@ -174,7 +199,7 @@ const updateWeatherUI = (data, city) => {
   setText(".weather-apparent", formatTemp(apparent));
   setText(".weather-humidity", `${humidity}%`);
   setText(".weather-cloud", `${cloudCover}%`);
-  setText(".weather-wind", `${wind} ${currentUnit === "F" ? "mph" : "km/h"}`);
+  setText(".weather-wind", `${Math.round(wind)} ${currentUnit === "F" ? "mph" : "km/h"}`);
   setText(".weather-rain-prob", `${rainProb}%`);
   setText(".weather-precipitation", `${precipitation} mm`);
   setText(".weather-uv", `${uv}`);
@@ -186,6 +211,7 @@ const updateWeatherUI = (data, city) => {
 
   updateUnitToggleUI();
   renderForecast(modal, daily);
+  setLoading(false);
 };
 
 const renderForecast = (modal, daily) => {
@@ -198,8 +224,8 @@ const renderForecast = (modal, daily) => {
   for (let i = 0; i < count; i++) {
     const code = daily.weather_code[i];
     const info = getWeatherInfo(code);
-    const max = Math.round(daily.temperature_2m_max[i]);
-    const min = Math.round(daily.temperature_2m_min[i]);
+    const max = convertTemp(daily.temperature_2m_max[i], "C", currentUnit);
+    const min = convertTemp(daily.temperature_2m_min[i], "C", currentUnit);
     const date = daily.time[i];
     const weekday = i === 0 ? "今天" : getWeekday(date);
 
@@ -214,17 +240,19 @@ const renderForecast = (modal, daily) => {
   }
 };
 
-const refreshWeatherWithUnit = async () => {
-  if (!lastWeatherData) return;
+const refreshWeather = async () => {
   const config = window.Solitude?.config?.weather;
   if (!config) return;
   try {
-    const { lat, lon } = await getLocation(config);
+    setLoading(true);
+    const { lat, lon, city } = await getLocation(config);
     const data = await fetchWeather(lat, lon);
-    updateWeatherUI(data, lastCity);
+    updateWeatherUI(data, city);
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.error("[weather] 切换单位后刷新失败", e);
+    console.error("[weather] 刷新天气失败", e);
+    setLoading(false);
+    setWeatherError("天气加载失败");
   }
 };
 
@@ -232,7 +260,9 @@ const toggleUnit = (unit) => {
   if (unit === currentUnit) return;
   currentUnit = unit;
   setStoredUnit(unit);
-  refreshWeatherWithUnit();
+  if (lastWeatherData) {
+    updateWeatherUI(lastWeatherData, lastCity);
+  }
 };
 
 const showWeatherModal = () => {
@@ -275,9 +305,7 @@ export const initWeather = async () => {
   bindUnitToggle();
 
   try {
-    const { lat, lon, city } = await getLocation(config);
-    const data = await fetchWeather(lat, lon);
-    updateWeatherUI(data, city);
+    await refreshWeather();
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error("[weather] 天气加载失败", e);
