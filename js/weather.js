@@ -64,6 +64,30 @@ let lastCity = "当前位置";
 let unitToggleBound = false;
 let isLoading = false;
 
+const fetchIpWho = async () => {
+  const data = await fetchJson("https://ipwho.is/?fields=success,message,city,latitude,longitude", { credentials: "omit" });
+  if (data && data.success && data.latitude != null && data.longitude != null) {
+    return {
+      lat: String(data.latitude),
+      lon: String(data.longitude),
+      city: data.city || "当前位置"
+    };
+  }
+  throw new Error(data?.message || "ipwho.is 定位失败");
+};
+
+const fetchGeoJs = async () => {
+  const data = await fetchJson("https://get.geojs.io/v1/ip/geo.json", { credentials: "omit" });
+  if (data && data.latitude != null && data.longitude != null) {
+    return {
+      lat: String(data.latitude),
+      lon: String(data.longitude),
+      city: data.city || "当前位置"
+    };
+  }
+  throw new Error("geojs.io 定位失败");
+};
+
 const getLocation = async (config) => {
   if (config.latitude && config.longitude) {
     return {
@@ -73,20 +97,24 @@ const getLocation = async (config) => {
     };
   }
 
-  try {
-    const data = await fetchJson("https://ipapi.co/json/", { credentials: "omit" });
-    if (data && data.latitude != null && data.longitude != null) {
+  // 依次尝试多个支持 CORS 的 IP 定位服务
+  const providers = [fetchIpWho, fetchGeoJs];
+  for (const provider of providers) {
+    try {
+      const result = await provider();
       return {
-        lat: String(data.latitude),
-        lon: String(data.longitude),
-        city: data.city || config.city || "当前位置"
+        lat: result.lat,
+        lon: result.lon,
+        city: result.city || config.city || "当前位置"
       };
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn("[weather] IP 定位源失败，尝试下一个", e);
     }
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.warn("[weather] IP 定位失败，使用默认城市", e);
   }
 
+  // eslint-disable-next-line no-console
+  console.warn("[weather] 所有 IP 定位源均失败，使用默认城市");
   return {
     lat: "22.5176",
     lon: "113.3927",
