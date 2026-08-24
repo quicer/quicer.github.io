@@ -937,12 +937,12 @@ const actions = {
       ?.classList.remove("console-open");
 
     const header = document.getElementById("page-header");
-    if (header && this.consoleNavState) {
+    if (header) {
       header.classList.remove("console-open");
-      header.classList.toggle("nav-fixed", this.consoleNavState.fixed);
-      header.classList.toggle("nav-visible", this.consoleNavState.visible);
     }
     this.consoleNavState = null;
+    // 关闭后根据当前滚动位置重新判定顶部/下滑状态，恢复 nav 胶囊的正确显隐
+    window.dispatchEvent(new Event("scroll"));
   },
   toggleConsole() {
     const consoleElement = document.getElementById("console");
