@@ -637,7 +637,6 @@ const actions = {
   lastWittyWord: "",
   wasPageHidden: false,
   musicPlaying: false,
-  consoleNavState: null,
   randomPost() {
     const posts = Solitude.config.random_posts || [];
     if (!posts.length) return;
@@ -913,13 +912,8 @@ const actions = {
 
     const header = document.getElementById("page-header");
     if (header) {
-      this.consoleNavState = {
-        fixed: header.classList.contains("nav-fixed"),
-        visible: header.classList.contains("nav-visible"),
-      };
-      header.classList.add("nav-fixed");
-      header.classList.remove("nav-visible");
-      header.classList.add("console-open");
+      // 强制进入「下滑后 nav 显示」状态，让三颗胶囊都使用已有的玻璃样式
+      header.classList.add("nav-fixed", "nav-visible", "console-open");
     }
 
     consoleElement.classList.add("show");
@@ -940,7 +934,6 @@ const actions = {
     if (header) {
       header.classList.remove("console-open");
     }
-    this.consoleNavState = null;
     // 关闭后根据当前滚动位置重新判定顶部/下滑状态，恢复 nav 胶囊的正确显隐
     window.dispatchEvent(new Event("scroll"));
   },
