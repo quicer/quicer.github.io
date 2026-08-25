@@ -924,8 +924,11 @@ const actions = {
   hideConsole() {
     const consoleElement = document.getElementById("console");
     if (!consoleElement?.classList.contains("show")) return;
+    // 防止动画过程中重复触发
+    if (consoleElement.classList.contains("closing")) return;
 
-    consoleElement.classList.remove("show");
+    // 保留 .show，叠加 .closing 触发「关闭动画」，动画结束后再真正移除显示态
+    consoleElement.classList.add("closing");
     document
       .querySelector("#nav-console .console_switchbutton")
       ?.classList.remove("console-open");
@@ -934,8 +937,12 @@ const actions = {
     if (header) {
       header.classList.remove("console-open");
     }
-    // 关闭后根据当前滚动位置重新判定顶部/下滑状态，恢复 nav 胶囊的正确显隐
-    window.dispatchEvent(new Event("scroll"));
+
+    window.setTimeout(() => {
+      consoleElement.classList.remove("show", "closing");
+      // 关闭后根据当前滚动位置重新判定顶部/下滑状态，恢复 nav 胶囊的正确显隐
+      window.dispatchEvent(new Event("scroll"));
+    }, 650);
   },
   toggleConsole() {
     const consoleElement = document.getElementById("console");
