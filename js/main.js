@@ -927,22 +927,24 @@ const actions = {
     // 防止动画过程中重复触发
     if (consoleElement.classList.contains("closing")) return;
 
-    // 保留 .show，叠加 .closing 触发「关闭动画」，动画结束后再真正移除显示态
+    // 保留 .show 与 header.console-open，叠加 .closing 触发「关闭动画」。
+    // 关键：console-open 必须在动画期间保留——它让 #nav 的 z-index 高于中控台
+    // 浮层，否则 nav 会掉到浮层之下，关闭过程中胶囊被浮层遮住、关闭后才突然显示。
+    // 动画结束后再移除显示态并恢复页面顶部的判定。
     consoleElement.classList.add("closing");
     document
       .querySelector("#nav-console .console_switchbutton")
       ?.classList.remove("console-open");
 
-    const header = document.getElementById("page-header");
-    if (header) {
-      header.classList.remove("console-open");
-    }
-
     window.setTimeout(() => {
       consoleElement.classList.remove("show", "closing");
+      const header = document.getElementById("page-header");
+      if (header) {
+        header.classList.remove("console-open");
+      }
       // 关闭后根据当前滚动位置重新判定顶部/下滑状态，恢复 nav 胶囊的正确显隐
       window.dispatchEvent(new Event("scroll"));
-    }, 650);
+    }, 700);
   },
   toggleConsole() {
     const consoleElement = document.getElementById("console");
