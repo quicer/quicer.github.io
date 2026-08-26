@@ -520,6 +520,7 @@ const initTooltip = () => {
     element.dataset.tooltipInitialized = "true";
 
     element.addEventListener("mouseenter", () => {
+      if (window.innerWidth <= 768 && element.closest("#sidebar-menus")) return;
       tooltip.textContent = element.getAttribute("heotip");
       tooltip.style.left = "0";
       tooltip.style.top = "0";
