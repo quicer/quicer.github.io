@@ -89,6 +89,8 @@
     el.appendChild(empty);
 
     var spinnerTimer = null;
+    var applying = false;   // 自守卫：我们自己的 class/style 变更不触发 observer 死循环
+    var lastSig = null;     // 当前显示分类的卡片签名，仅在结构变化时重放入场动画
 
     function showSpinner() { loader.classList.add('is-show'); }
     function hideSpinner() { loader.classList.remove('is-show'); }
@@ -97,8 +99,7 @@
       var items = getActiveItems(el, type);
       items.forEach(function (node, i) {
         node.classList.remove('bgm-fx-in');
-        // 强制回流以重启动画
-        void node.offsetWidth;
+        void node.offsetWidth;                 // 强制回流以重启动画
         node.style.animationDelay = (Math.min(i, 12) * 0.04) + 's';
         node.classList.add('bgm-fx-in');
       });
@@ -123,14 +124,44 @@
       });
     }
 
+    // 当前显示分类的卡片签名（数量 + 各卡片链接），用于判断是否需要重放入场动画
+    function computeSig() {
+      var items = getActiveItems(el, type);
+      if (!items.length) return '0';
+      var sig = String(items.length);
+      for (var i = 0; i < items.length; i++) {
+        var a = items[i].querySelector('a');
+        sig += '|' + ((a && (a.getAttribute('href') || a.textContent)) || items[i].textContent || '').slice(0, 40);
+      }
+      return sig;
+    }
+
+    // 统一入口：applying 自守卫阻断「自有变更→再触发 observer」死循环；
+    // 仅当卡片结构变化（或 force）时才重放入场动画，避免每帧重启动画导致卡片闪烁/不显示
+    function applyChanges(force) {
+      if (applying) return;
+      applying = true;
+      try {
+        var sig = computeSig();
+        if (force || sig !== lastSig) {
+          lastSig = sig;
+          replayItems();
+        }
+        updateEmpty();
+        updatePagination();
+      } finally {
+        // 当前同步任务之后、observer 回调执行期间仍视为「自有变更」而跳过；
+        // 下一帧再放开，使真正的外部变更（React 重渲染 / 插件切分类）能被响应
+        requestAnimationFrame(function () { applying = false; });
+      }
+    }
+
     function onSwitch() {
       showSpinner();
       if (spinnerTimer) clearTimeout(spinnerTimer);
       spinnerTimer = setTimeout(function () {
         hideSpinner();
-        replayItems();
-        updateEmpty();
-        updatePagination();
+        applyChanges(true);   // 用户主动切分类，强制重放动画
       }, 280);
     }
 
@@ -138,9 +169,7 @@
 
     function settle() {
       if (!hasStructure()) return false;
-      replayItems();
-      updateEmpty();
-      updatePagination();
+      applyChanges(true);     // 初次 / 异步挂载后强制重放一次
       return true;
     }
 
@@ -163,11 +192,7 @@
     var mo = new MutationObserver(function () {
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(function () {
-        if (hasStructure()) {
-          replayItems();
-          updateEmpty();
-          updatePagination();
-        }
+        if (hasStructure()) applyChanges(false);
       });
     });
     mo.observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
